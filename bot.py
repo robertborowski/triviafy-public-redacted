@@ -34,4 +34,5 @@ def message(payload):
 
 
 if __name__ == "__main__":
+  # Run
   app.run(debug=True)
