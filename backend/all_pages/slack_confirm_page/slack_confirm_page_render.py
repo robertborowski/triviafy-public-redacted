@@ -4,7 +4,6 @@ from backend.utils.app_setup_before.remove_www_from_domain import remove_www_fro
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 import os
 from slack_sdk import WebClient
-from slackeventsapi import SlackEventAdapter
 
 slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
 
@@ -30,9 +29,6 @@ def slack_confirm_page_render_function():
   # Get info from the received URL from Slack once user accepts
   auth_code_received = request.args['code']
   state_received = request.args['state']
-
-  # Routing the app to server
-  slack_event_adapter = SlackEventAdapter(os.environ.get('SLACK_SIGNING_SECRET'),'/slack-confirm', slack_confirm_page_render)
 
   # Set up client
   client = WebClient(token='')
