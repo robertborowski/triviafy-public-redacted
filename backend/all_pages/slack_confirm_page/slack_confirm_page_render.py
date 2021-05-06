@@ -40,7 +40,7 @@ def slack_confirm_page_render_function():
   if received_state == state:
     # Request the auth tokens from Slack
     response = client.oauth_v2_access(
-      client_id=client_id_input,
+      client_id=client_id,
       client_secret=client_secret_input,
       code=auth_code
     )
