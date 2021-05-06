@@ -4,6 +4,7 @@ from backend.utils.app_setup_before.remove_www_from_domain import remove_www_fro
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from slack_sdk import WebClient
 import os
+from urllib.parse import urlparse, urlunparse
 
 slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
 
@@ -22,38 +23,8 @@ def slack_confirm_page_render_function():
   cache_busting_output = create_uuid_function('css_')
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
-  #token = os.environ.get('SLACK_BOT_TOKEN')
-  # Grab client Secret from your environment variables
-  client_id_input = os.environ.get('SLACK_CLIENT_ID')
-  client_secret_input = os.environ.get('SLACK_CLIENT_SECRET')
-
-  # Retrieve the auth code and state from the request params
-  auth_code = request.args['code']
-  received_state = request.args['state']
-
-  # An empty string is a valid token for this request
-  client = WebClient(token="")
-
-  state = session['state_outgoing']
-
-  # verify state received in params matches state we originally sent in auth request
-  if received_state == state:
-    # Request the auth tokens from Slack
-    response = client.oauth_v2_access(
-      client_id=client_id,
-      client_secret=client_secret_input,
-      code=auth_code
-    )
-  else:
-    return "Invalid State"
-  
-  print(response['access_token'])
-
-  print('authorized!!!!!')
+  urlparts = urlparse(current_url)
+  print(urlparts)
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
-  # Don't forget to let the user know that auth has succeeded!
-  return "Auth complete!"
-
-
 
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
