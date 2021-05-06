@@ -23,7 +23,7 @@ def slack_confirm_page_render_function():
   cache_busting_output = create_uuid_function('css_')
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
-  urlparts = urlparse(current_url)
+  urlparts = urlparse(request.url)
   print(urlparts)
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
