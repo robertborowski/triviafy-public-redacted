@@ -27,10 +27,11 @@ def slack_confirm_page_render_function():
   print('- - - - - - -')
   print(urlparts)
   print('- - - - - - -')
-  
+
   query = urlparts.query
   print('- - - - - - -')
   print(query)
+  print(type(query))
   print('- - - - - - -')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
