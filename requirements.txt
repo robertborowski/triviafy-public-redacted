@@ -3,3 +3,4 @@ datetime
 uuid
 slack_sdk
 slack
+slackeventsapi
