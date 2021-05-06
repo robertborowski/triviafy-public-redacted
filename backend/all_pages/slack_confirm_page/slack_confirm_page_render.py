@@ -29,6 +29,9 @@ def slack_confirm_page_render_function():
   print(auth_code_received)
   print(state_received)
   print('- - - - - - -')
+
+  if state_received == session['state_outgoing']:
+    print('TRUEEEEEEEEE!!!!!!!!')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
