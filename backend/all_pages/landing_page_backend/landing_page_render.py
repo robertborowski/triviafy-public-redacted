@@ -19,6 +19,10 @@ def landing_page_render_function():
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
   slack_state_uuid = create_uuid_function('slk_')
+  session['state_outgoing'] = slack_state_uuid
+  print('- - - - - -')
+  print(session['state_outgoing'])
+  print('- - - - - -')
   return render_template('landing_pages/landing_page.html',
                           css_cache_busting = cache_busting_output,
                           slack_state_uuid_html = slack_state_uuid)
