@@ -33,6 +33,11 @@ def slack_confirm_page_render_function():
   print(query)
   print(type(query))
   print('- - - - - - -')
+
+  auth_code = request.args['code']
+  print('- - - - - - -')
+  print(auth_code)
+  print('- - - - - - -')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
