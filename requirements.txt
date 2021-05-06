@@ -2,3 +2,4 @@ flask
 datetime
 uuid
 slack_sdk
+slack
