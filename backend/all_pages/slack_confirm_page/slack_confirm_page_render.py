@@ -23,15 +23,19 @@ def slack_confirm_page_render_function():
   cache_busting_output = create_uuid_function('css_')
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
+  # Slack Client Secret
+  my_slack_client_secret = os.environ.get('SLACK_CLIENT_SECRET')
+  my_slack_client_id = os.environ.get('SLACK_CLIENT_ID')
+
+  # Get info from the received URL from Slack once user accepts
   auth_code_received = request.args['code']
   state_received = request.args['state']
-  print('- - - - - - -')
-  print(auth_code_received)
-  print(state_received)
-  print('- - - - - - -')
+
+  # Set up client
+  client = WebClient(token="")
 
   if state_received == session['state_outgoing']:
-    print('TRUEEEEEEEEE!!!!!!!!')
+    print('MATCH!!!!!!!!!')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
