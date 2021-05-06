@@ -30,8 +30,11 @@ def slack_confirm_page_render_function():
   auth_code_received = request.args['code']
   state_received = request.args['state']
 
+  # Slack Bot token
+  bot_token = os.environ.get('SLACK_BOT_TOKEN')
+
   # Set up client
-  client = WebClient(token='')
+  client = WebClient(token=bot_token)
   print('- - - - - - -')
   print('client is setup')
   print('- - - - - - -')
