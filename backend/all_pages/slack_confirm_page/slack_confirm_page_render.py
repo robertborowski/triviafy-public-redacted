@@ -23,20 +23,11 @@ def slack_confirm_page_render_function():
   cache_busting_output = create_uuid_function('css_')
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
-  urlparts = urlparse(request.url)
+  auth_code_received = request.args['code']
+  state_received = request.args['state']
   print('- - - - - - -')
-  print(urlparts)
-  print('- - - - - - -')
-
-  query = urlparts.query
-  print('- - - - - - -')
-  print(query)
-  print(type(query))
-  print('- - - - - - -')
-
-  auth_code = request.args['code']
-  print('- - - - - - -')
-  print(auth_code)
+  print(auth_code_received)
+  print(state_received)
   print('- - - - - - -')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
