@@ -22,16 +22,17 @@ def slack_confirm_page_render_function():
   cache_busting_output = create_uuid_function('css_')
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
-  token = os.environ.get('SLACK_BOT_TOKEN')
+  #token = os.environ.get('SLACK_BOT_TOKEN')
   # Grab client Secret from your environment variables
-  client_secret = os.environ.get('SLACK_CLIENT_SECRET')
+  client_id_input = os.environ.get('SLACK_CLIENT_ID')
+  client_secret_input = os.environ.get('SLACK_CLIENT_SECRET')
 
   # Retrieve the auth code and state from the request params
   auth_code = request.args['code']
   received_state = request.args['state']
 
   # An empty string is a valid token for this request
-  client = WebClient(token=token)
+  client = WebClient(token="")
 
   state = session['state_outgoing']
 
@@ -39,8 +40,8 @@ def slack_confirm_page_render_function():
   if received_state == state:
     # Request the auth tokens from Slack
     response = client.oauth_v2_access(
-      client_id=client_id,
-      client_secret=client_secret,
+      client_id=client_id_input,
+      client_secret=client_secret_input,
       code=auth_code
     )
   else:
