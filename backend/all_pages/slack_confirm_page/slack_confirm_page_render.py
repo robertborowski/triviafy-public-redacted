@@ -24,7 +24,14 @@ def slack_confirm_page_render_function():
 
   print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
   urlparts = urlparse(request.url)
+  print('- - - - - - -')
   print(urlparts)
+  print('- - - - - - -')
+  
+  query = urlparts.query
+  print('- - - - - - -')
+  print(query)
+  print('- - - - - - -')
   print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
 
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
