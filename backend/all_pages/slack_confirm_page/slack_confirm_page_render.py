@@ -29,12 +29,13 @@ def slack_confirm_page_render_function():
   # Get info from the received URL from Slack once user accepts
   auth_code_received = request.args['code']
   state_received = request.args['state']
-
-  # Slack Bot token
-  slack_token = os.environ.get('SLACK_VERIFICATION_TOKEN')
+  print('- - - - - - -')
+  print(auth_code_received)
+  print(state_received)
+  print('- - - - - - -')
 
   # Set up client
-  client = WebClient(token=slack_token)
+  client = WebClient(token='')
   print('- - - - - - -')
   print('client is setup')
   print('- - - - - - -')
@@ -42,9 +43,9 @@ def slack_confirm_page_render_function():
   if state_received == session['state_outgoing']:
     print('MATCH!!!!!!!!!')
     response = client.oauth_v2_access(
-      client_id=my_slack_client_id,
-      client_secret=my_slack_client_secret,
-      code=auth_code_received
+      client_id = my_slack_client_id,
+      client_secret = my_slack_client_secret,
+      code = auth_code_received
     )
 
     print('- - - - - - - - - - -')
