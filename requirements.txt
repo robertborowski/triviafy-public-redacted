@@ -3,4 +3,3 @@ datetime
 uuid
 slack_sdk
 slack
-WebClient
