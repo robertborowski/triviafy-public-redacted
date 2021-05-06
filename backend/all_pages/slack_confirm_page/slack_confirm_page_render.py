@@ -5,6 +5,7 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 import os
 #from slack_sdk import WebClient
 import slack
+from slack import WebClient
 
 slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
 
@@ -33,7 +34,7 @@ def slack_confirm_page_render_function():
 
   # Set up client
   #client = WebClient(token="")
-  client = slack.WebClient(token="")
+  client = slack.WebClient(token='')
   print('- - - - - - -')
   print('client is setup')
   print('- - - - - - -')
