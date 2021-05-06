@@ -3,6 +3,7 @@ from backend.utils.app_setup_before.check_if_url_www import check_if_url_www_fun
 from backend.utils.app_setup_before.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from slack_sdk import WebClient
+import os
 
 slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
 
