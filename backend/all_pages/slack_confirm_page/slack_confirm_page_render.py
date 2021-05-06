@@ -33,10 +33,9 @@ def slack_confirm_page_render_function():
 
   # Routing the app to server
   slack_event_adapter = SlackEventAdapter(os.environ.get('SLACK_SIGNING_SECRET'),'/slack-confirm', slack_confirm_page_render)
-  bot_token = os.environ.get('SLACK_BOT_TOKEN')
 
   # Set up client
-  client = WebClient(token=bot_token)
+  client = WebClient(token='')
   print('- - - - - - -')
   print('client is setup')
   print('- - - - - - -')
