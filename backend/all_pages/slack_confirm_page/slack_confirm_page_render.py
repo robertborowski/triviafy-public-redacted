@@ -4,8 +4,12 @@ from backend.utils.app_setup_before.remove_www_from_domain import remove_www_fro
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 import os
 from slack_sdk import WebClient
+from slackeventsapi import SlackEventAdapter
 
 slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
+
+# Routing the app to ngrok server
+#slack_event_adapter = SlackEventAdapter(os.environ.get('SLACK_SIGNING_SECRET'), '/slack/events', slack_confirm_page_render)
 
 @slack_confirm_page_render.before_request
 def before_request():
@@ -15,13 +19,13 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@slack_confirm_page_render.route("/slack/confirm")
+@slack_confirm_page_render.route("/finish_auth")
 def slack_confirm_page_render_function():
   """Returns: Renders the landing page"""  
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
-
-  print('- - - - - - - - - - - START - - - - - - - - - - - - - - - - - - -')
+  print('- - - - - - - - - - - - - - - - - - - - - - - - - - START - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
+  print('~ Finish auth page ~')
   # My Slack Client ID and Client Secret
   my_slack_client_id = os.environ.get('SLACK_CLIENT_ID')
   my_slack_client_secret = os.environ.get('SLACK_CLIENT_SECRET')
@@ -52,6 +56,5 @@ def slack_confirm_page_render_function():
     print('response is: ')
     print(response)
     print('- - - - - - - - - - -')
-  print('- - - - - - - - - - - END - - - - - - - - - - - - - - - - - - -')
-
+  print('- - - - - - - - - - - - - - - - - - - - - - - - - - END - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -')
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)

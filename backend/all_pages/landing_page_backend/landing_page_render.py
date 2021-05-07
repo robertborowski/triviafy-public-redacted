@@ -21,6 +21,7 @@ def landing_page_render_function():
   slack_state_uuid = create_uuid_function('slk_')
   session['state_outgoing'] = slack_state_uuid
   print('- - - - - -')
+  print('~ Landing Page ~')
   print(session['state_outgoing'])
   print('- - - - - -')
   return render_template('landing_pages/landing_page.html',
