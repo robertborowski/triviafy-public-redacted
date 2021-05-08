@@ -56,6 +56,9 @@ def slack_confirm_page_render_function():
     # Get slack state key:value from redis
     slack_state_key = 'slack_state_key'
     slack_state_value = redis_connection.get(slack_state_key).decode('utf-8')
+    
+    # Remove the temp state key:value from redis
+    redis_connection.delete(slack_state_key)
   
   # If not running on localhost
   else:

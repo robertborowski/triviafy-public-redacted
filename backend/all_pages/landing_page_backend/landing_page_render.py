@@ -37,6 +37,7 @@ def landing_page_render_function():
     slack_state_uuid_value = create_uuid_function('slv_')
 
     # Push slack state key:value pair to redis so that you can check it once user authorizes slack
+    redis_connection.set('foo', 'bar'.encode('utf-8'))
     redis_connection.set(slack_state_key, slack_state_uuid_value.encode('utf-8'))
     #redis_value_for_slack_state_key = redis_connection.get(slack_state_key).decode('utf-8')
 
