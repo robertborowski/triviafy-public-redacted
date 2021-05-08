@@ -1,46 +1,21 @@
 import os
+# Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
+from slack_sdk.errors import SlackApiError
 
-# creates a channel named "the-welcome-channel"
-def create_channel():
-  token = os.environ.get('SLACK_BOT_TOKEN')
-  client = WebClient(token=token)
-  resp = client.conversations_create(name="the-welcome-channel")
+# WebClient insantiates a client that can call API methods
+# When using Bolt, you can use either `app.client` or the `client` passed to listeners.
+client = WebClient(token=os.environ.get('SLACK_BOT_TOKEN'))
+# ID of the channel you want to send the message to
+channel_id = "C02028H1ZK9"
 
+try:
+  # Call the chat.postMessage method using the WebClient
+  result = client.chat_postMessage(
+    channel=channel_id, 
+    text="Hello world"
+  )
+  print(result)
 
-# verifies if "the-welcome-channel" already exists
-def channel_exists():
-  token = os.environ.get('SLACK_BOT_TOKEN')
-  client = WebClient(token=token)
-
-  # grab a list of all the channels in a workspace
-  clist = client.conversations_list()
-  exists = False
-  for k in clist["channels"]:
-    print('- - - - - -')
-    print(k)
-    print('- - - - - -')
-    
-    # look for the channel in the list of existing channels
-    if k['name'] == 'the-welcome-channel':
-      exists = True
-      break
-    
-    if exists == False:
-      # create the channel since it doesn't exist
-      create_channel()
-
-# Create an event listener for "member_joined_channel" events
-# Sends a DM to the user who joined the channel
-@slack_events_adapter.on("member_joined_channel")
-def member_joined_channel(event_data):
-  user = event_data['event']['user']
-  token = os.environ.get('SLACK_BOT_TOKEN')
-  client = WebClient(token=token)
-  msg = 'Welcome! Thanks for joining the-welcome-channel'
-  client.chat_postMessage(channel=user, text=msg)
-
-#============================================================================
-if __name__ == "__main__":
-  # Run
-  app.run(debug=True)
+except SlackApiError as e:
+  logger.error(f"Error posting message: {e}")

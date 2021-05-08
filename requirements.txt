@@ -5,3 +5,4 @@ slack_sdk
 slack
 slackeventsapi
 redis
+psycopg2
