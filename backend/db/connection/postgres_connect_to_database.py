@@ -2,11 +2,11 @@ import psycopg2
 from psycopg2 import Error
 import os
 
-def connect_to_postgres_function():
+def postgres_connect_to_database_function():
   """Returns: Postgres Connection and cursor"""
   
   # Heroku Postgres connection
-  DATABASE_URL = os.environ.get('TRIVIAFY_DATABASE_URL')
+  DATABASE_URL = os.environ.get('DATABASE_URL')
   connection_postgres = psycopg2.connect(DATABASE_URL, sslmode='require')
   
 
