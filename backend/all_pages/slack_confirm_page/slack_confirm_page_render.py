@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, request, session
+from flask import render_template, Blueprint, redirect, request, session, make_response
 from backend.utils.app_setup_before.check_if_url_www import check_if_url_www_function
 from backend.utils.app_setup_before.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
@@ -20,25 +20,41 @@ def before_request():
 @slack_confirm_page_render.route("/finish_auth", methods=['GET','POST'])
 def slack_confirm_page_render_function():
   """Returns: Authenticates user access and stores login info in database"""  
-  print('= = = = = = = = = = = = = = = = = = = = = = = = /finish_auth Page START = = = = = = = = = = = = = = = = = = = = = = = =')
+  print('=========================================== /finish_auth Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
-  # Check if running on localhost
+  # -------------------------------------------------------------- Running on localhost
   server_env = os.environ.get('TESTING', 'false')
   # If running on localhost
   if server_env == 'true':
     # Connect to redis database pool (no need to close)
     redis_connection = redis_connect_to_database_function()
-    # Get slack state key:value from redis
+
+    # Get key:value from redis then delete row from redis
     slack_state_key = 'slack_state_key'
     slack_state_value = redis_connection.get(slack_state_key).decode('utf-8')
-    # Remove the temp state key:value from redis
     redis_connection.delete(slack_state_key)
-  # If not running on localhost
+
+    # Get key:value from redis then delete row from redis
+    redis_browser_cookie_key = 'redis_browser_cookie_key'
+    browser_cookie_value = redis_connection.get(redis_browser_cookie_key).decode('utf-8')
+    redis_connection.delete(redis_browser_cookie_key)
+    
+    print('- - - - - -')
+    print('local host cookie value: ' + browser_cookie_value)
+    print('- - - - - -')
+
+  # -------------------------------------------------------------- NOT running on localhost
   else:
     slack_state_value = session['slack_state_uuid_value']
+    browser_cookie_value = session['browser_cookie_value']
 
+    print('- - - - - -')
+    print('NOT local host cookie value: ' + browser_cookie_value)
+    print('- - - - - -')
+
+  # -------------------------------------------------------------- Slack authentication
   # Set up client
   slack_bot_token = os.environ.get('SLACK_BOT_TOKEN')
   client = WebClient(token=slack_bot_token)
@@ -60,10 +76,12 @@ def slack_confirm_page_render_function():
 
       # With the response object, update the postgres and redis database's for user
       manage_slack_databases = check_update_database_with_login_info_function(client, authed_response_obj)
+
+      # Upload dictionary to redis based on cookies
       
     except:
       print('Was not able to get authorize response object!')
 
-  print('= = = = = = = = = = = = = = = = = = = = = = = = /finish_auth Page END = = = = = = = = = = = = = = = = = = = = = = = =')
+  print('=========================================== /finish_auth Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
   return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)

@@ -100,10 +100,5 @@ def check_update_database_with_login_info_function(client, authed_response_obj):
 
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
-  
-  print('- - - - -')
-  print(user_nested_dict)
-  print('- - -')
-  pretty_print_function(user_nested_dict)
-  print('- - - - -')
+
   return True
