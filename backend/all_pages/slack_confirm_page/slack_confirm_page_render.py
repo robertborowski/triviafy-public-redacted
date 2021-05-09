@@ -48,7 +48,6 @@ def slack_confirm_page_render_function():
   # -------------------------------------------------------------- NOT running on localhost
   else:
     slack_state_value = session['slack_state_uuid_value']
-    #browser_cookie_value = session['browser_cookie_value']
     browser_cookie_value = request.cookies.get('triviafy_browser_cookie')
 
     print('- - - - - -')
