@@ -13,8 +13,10 @@ def user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_f
     redis_connection.set('hello', 'goodbye')
     print('- - - - -')
     print(get_cookie_value_from_browser)
+    type(get_cookie_value_from_browser)
     print('- - - - -')
     print(user_nested_dict)
+    type(user_nested_dict)
     print('- - - - -')
     print('- - - - - - - - - - - - - - - - - - - -')
     #===================
