@@ -18,7 +18,7 @@ def redis_connect_to_database_function():
       port = str(os.environ.get('REDIS_PORT')),
       password = os.environ.get('REDIS_PASSWORD'),
       db=0)
-    redis_connection = redis.Redis(connection_pool=pool)
+    redis_connection = redis.StrictRedis(connection_pool=pool)
   
   except:
     print('redis connection failed!')
