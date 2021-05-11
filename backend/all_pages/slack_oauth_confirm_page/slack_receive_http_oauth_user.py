@@ -6,7 +6,7 @@ import os
 from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.all_pages.slack_oauth_confirm_page.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
-import pickle
+from backend.all_pages.slack_oauth_confirm_page.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
 from backend.utils.pretty_print.pretty_print import pretty_print_function
 
 slack_receive_http_oauth_user = Blueprint("slack_receive_http_oauth_user", __name__, static_folder="static", template_folder="templates")
@@ -68,17 +68,12 @@ def slack_receive_http_oauth_user_function():
         code = auth_code_received
       )
 
-      # With the response object, update the postgres and redis database's for user
+      # With the response object, update the postgres database for user
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
+      print('user info stored in postgres database')
 
-      # Connect to redis database pool (no need to close)
-      redis_connection = redis_connect_to_database_function()
-
-      # Upload dictionary to redis based on cookies
-      pickled_object = pickle.dumps(user_nested_dict)
-      redis_connection.set(get_cookie_value_from_browser, pickled_object)
-      #unpacked_object = pickle.loads(redis_connection.get(get_cookie_value_from_browser))
-      print('user information stored in redis based on cookie value')
+      user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
+      print(user_store_in_redis_status)
       
     except:
       print('Error while running "slack_receive_http_oauth_user" script.')

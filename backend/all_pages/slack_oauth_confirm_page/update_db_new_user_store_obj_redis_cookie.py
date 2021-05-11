@@ -33,10 +33,6 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       user_information_obj = client.users_info(
         user = slack_authed_user_id
       )
-
-      print('- - - - - - - -')
-      print(user_information_obj)
-      print('- - - - - - - -')
       
       # Get additional user information for the database check/insert
       slack_authed_user_name = user_information_obj['user']['name']
@@ -62,6 +58,11 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       slack_authed_user_timezone = 'unavailable'
       slack_authed_user_timezone_label = 'unavailable'
       slack_authed_user_timezone_offset = -14400
+    
+    try:
+      slack_authed_user_job_title = user_information_obj['user']['profile']['title']
+    except:
+      slack_authed_user_job_title = 'unavailable'
 
     # If this is the first user on this team_id + channel_id combination then they will be asigned role of payment_admin (payment manager) but this can changed within website once logged in
     first_user_payment_admin = False
@@ -74,7 +75,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     slack_db_timestamp_created = create_timestamp_function()
 
     # Insert into database
-    db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset)
+    db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title)
 
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -103,9 +104,10 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     slack_authed_user_timezone = check_slack_user_combo_already_exists_arr[17]
     slack_authed_user_timezone_label = check_slack_user_combo_already_exists_arr[18]
     slack_authed_user_timezone_offset = check_slack_user_combo_already_exists_arr[19]
+    slack_authed_user_job_title = check_slack_user_combo_already_exists_arr[20]
 
   # Transpose user data to nested dictionary
-  user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset)
+  user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title)
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
