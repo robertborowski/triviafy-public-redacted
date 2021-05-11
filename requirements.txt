@@ -6,4 +6,3 @@ slack
 slackeventsapi
 redis
 psycopg2
-json
