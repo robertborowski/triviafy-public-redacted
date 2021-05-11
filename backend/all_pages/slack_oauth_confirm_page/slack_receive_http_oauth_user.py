@@ -70,7 +70,6 @@ def slack_receive_http_oauth_user_function():
 
       # With the response object, update the postgres database for user
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
-      print('user info stored in postgres database')
 
       user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
       print(user_store_in_redis_status)

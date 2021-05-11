@@ -76,10 +76,6 @@ def landing_page_render_function():
     # Set the session variables in user's browser so that you can check it once user authorizes slack
     session['slack_state_uuid_key'] = create_uuid_function('slk_')
     session['slack_state_uuid_value'] = create_uuid_function('slv_')
-    #======================
-    redis_connection = redis_connect_to_database_function() 
-    redis_connection.set('yoyoyo', 'okokook')
-    #======================
 
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('landing_pages/landing_page.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
