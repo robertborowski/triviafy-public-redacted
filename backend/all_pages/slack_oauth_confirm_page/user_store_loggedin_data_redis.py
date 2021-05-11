@@ -23,8 +23,9 @@ def user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_f
 
     # Upload dictionary to redis based on cookies
     user_nested_object_json = json.dumps(user_nested_dict)
-    redis_connection.set(get_cookie_value_from_browser, user_nested_object_json)
-    #unpacked_object = pickle.loads(redis_connection.get(get_cookie_value_from_browser))
+    #redis_connection.set(get_cookie_value_from_browser, user_nested_object_json)
+    redis_connection.set(get_cookie_value_from_browser, 'hello')
+
     return 'user info stored in redis database'
   except:
     return 'user info NOT stored in redis database'
