@@ -5,11 +5,13 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 import os
 from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
-from backend.all_pages.slack_confirm_page.check_update_database_with_login_info import check_update_database_with_login_info_function
+from backend.all_pages.slack_oauth_confirm_page.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
+import pickle
+from backend.utils.pretty_print.pretty_print import pretty_print_function
 
-slack_confirm_page_render = Blueprint("slack_confirm_page_render", __name__, static_folder="static", template_folder="templates")
+slack_receive_http_oauth_user = Blueprint("slack_receive_http_oauth_user", __name__, static_folder="static", template_folder="templates")
 
-@slack_confirm_page_render.before_request
+@slack_receive_http_oauth_user.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -17,8 +19,8 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@slack_confirm_page_render.route("/finish_auth", methods=['GET','POST'])
-def slack_confirm_page_render_function():
+@slack_receive_http_oauth_user.route("/finish_auth", methods=['GET','POST'])
+def slack_receive_http_oauth_user_function():
   """Returns: Authenticates user access and stores login info in database"""  
   print('=========================================== /finish_auth Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
@@ -32,27 +34,19 @@ def slack_confirm_page_render_function():
     redis_connection = redis_connect_to_database_function()
 
     # Get key:value from redis then delete row from redis
-    slack_state_key = 'slack_state_key'
-    slack_state_value = redis_connection.get(slack_state_key).decode('utf-8')
-    redis_connection.delete(slack_state_key)
+    localhost_slack_state_key = 'localhost_slack_state_key'
+    slack_state_value_passed_in_url = redis_connection.get(localhost_slack_state_key).decode('utf-8')
+    redis_connection.delete(localhost_slack_state_key)
 
     # Get key:value from redis then delete row from redis
-    redis_browser_cookie_key = 'redis_browser_cookie_key'
-    browser_cookie_value = redis_connection.get(redis_browser_cookie_key).decode('utf-8')
-    redis_connection.delete(redis_browser_cookie_key)
-    
-    print('- - - - - -')
-    print('local host cookie value: ' + browser_cookie_value)
-    print('- - - - - -')
+    localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
+    get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
+    #redis_connection.delete(localhost_redis_browser_cookie_key) --> DONT Delete this here. When on localhost delete this only when the user clicks Log Out.
 
   # -------------------------------------------------------------- NOT running on localhost
   else:
-    slack_state_value = session['slack_state_uuid_value']
-    browser_cookie_value = request.cookies.get('triviafy_browser_cookie')
-
-    print('- - - - - -')
-    print('NOT local host cookie value: ' + browser_cookie_value)
-    print('- - - - - -')
+    slack_state_value_passed_in_url = session['slack_state_uuid_value']
+    get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
 
   # -------------------------------------------------------------- Slack authentication
   # Set up client
@@ -66,7 +60,7 @@ def slack_confirm_page_render_function():
   state_received = request.args['state']
 
   # Authorize slack app for user
-  if state_received == slack_state_value:
+  if state_received == slack_state_value_passed_in_url:
     try:
       authed_response_obj = client.oauth_v2_access(
         client_id = my_slack_client_id,
@@ -75,13 +69,20 @@ def slack_confirm_page_render_function():
       )
 
       # With the response object, update the postgres and redis database's for user
-      manage_slack_databases = check_update_database_with_login_info_function(client, authed_response_obj)
+      user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
+
+      # Connect to redis database pool (no need to close)
+      redis_connection = redis_connect_to_database_function()
 
       # Upload dictionary to redis based on cookies
+      pickled_object = pickle.dumps(user_nested_dict)
+      redis_connection.set(get_cookie_value_from_browser, pickled_object)
+      #unpacked_object = pickle.loads(redis_connection.get(get_cookie_value_from_browser))
+      print('user information stored in redis based on cookie value')
       
     except:
-      print('Was not able to get authorize response object!')
+      print('Error while running "slack_receive_http_oauth_user" script.')
 
   print('=========================================== /finish_auth Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  return render_template('slack_confirm_pages/slack_confirm_page.html', css_cache_busting = cache_busting_output)
+  return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
