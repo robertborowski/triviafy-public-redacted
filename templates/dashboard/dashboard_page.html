@@ -36,10 +36,10 @@
     <h1>Hello</h1>
   </nav>
   <main>
-    <form action="{{ url_for('testing_dashboard.testing_dashboard_function') }}" method="post">
+    <form action="{{ url_for('logout.logout_function') }}" method="post">
       <button>Logout</button>
     </form>
-    <form action="{{ url_for('testing_dashboard_send_message.testing_dashboard_send_message_function') }}" method="post">
+    <form action="{{ url_for('dashboard_send_channel_test_message.dashboard_send_channel_test_message_function') }}" method="post">
       <button>Send test message</button>
     </form>
   </main>

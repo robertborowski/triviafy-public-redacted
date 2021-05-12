@@ -3,9 +3,9 @@ from flask import Flask, session, url_for, send_from_directory
 import os, time
 import datetime
 from backend.all_pages.landing_page_backend.landing_page_render import landing_page_render
-from backend.all_pages.slack_oauth_confirm_page.slack_receive_http_oauth_user import slack_receive_http_oauth_user
-from backend.all_pages.slack_oauth_confirm_page.testing_dashboard import testing_dashboard
-from backend.all_pages.slack_oauth_confirm_page.testing_dashboard_send_message import testing_dashboard_send_message
+from backend.all_pages.slack_oauth_confirm_page_backend.slack_receive_http_oauth_user import slack_receive_http_oauth_user
+from backend.all_pages.account_settings_page_backend.logout import logout
+from backend.all_pages.dashboard_page_backend.dashboard_send_channel_test_message import dashboard_send_channel_test_message
 
 # App setup
 # Set the timezone of the application when user creates account is will be in US/Easterm time
@@ -21,8 +21,8 @@ app.permanent_session_lifetime = datetime.timedelta(days=365)
 # App.register's
 app.register_blueprint(landing_page_render, url_prefix="")
 app.register_blueprint(slack_receive_http_oauth_user, url_prefix="")
-app.register_blueprint(testing_dashboard, url_prefix="")
-app.register_blueprint(testing_dashboard_send_message, url_prefix="")
+app.register_blueprint(logout, url_prefix="")
+app.register_blueprint(dashboard_send_channel_test_message, url_prefix="")
 
 
 
