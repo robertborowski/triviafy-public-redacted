@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Connect to Google Fonts Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Connect to Google Fonts End -->
+
+    <!-- Favicon Start -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/logo/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/logo/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/logo/favicon_io/site.webmanifest">
+    <!-- Favicon End -->
+
+    <!-- Connect to the style pages Start -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style_all_pages.css') }}?v={{ css_cache_busting }}">
+    <!-- Connect to the style pages End -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics Start -->
+    <!-- Global site tag (gtag.js) - Google Analytics End -->
+    
+    <!-- Begin Inspectlet Asynchronous Code -->
+    <!-- End Inspectlet Asynchronous Code -->
+
+    <!-- Additional head elements per page Start -->
+    {% block title %}
+    {% endblock %}
+    <!-- Additional head elements per page End -->
+
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

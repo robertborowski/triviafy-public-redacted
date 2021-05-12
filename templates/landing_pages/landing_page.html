@@ -1,60 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Triviafy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="slack-app-id" content="A021726L200">
-  
-  <!-- Connect to Google Fonts Start -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
-  <!-- Connect to Google Fonts End -->
+{% extends "base_blueprint/base.html" %}
 
-  <!-- Favicon Start -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/logo/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/static/images/logo/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="/static/images/logo/favicon_io/site.webmanifest">
-  <!-- Favicon End -->
-  
+<!-- head tag block content -->
+{% block title %}
+  <title>Triviafy</title>
+  <meta name="slack-app-id" content="A021726L200">
+
   <!-- Connect to the style pages Start -->
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style_all_pages.css') }}?v={{ css_cache_busting }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles_landing_page/style_landing_nav.css') }}?v={{ css_cache_busting }}">
   <!-- Connect to the style pages End -->
-  
+
   <!-- Load javascript function(s) Start -->
+  <!-- To get the nav from another html file -->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <!-- Load javascript function(s) End -->
+{% endblock %}
 
-  <!-- Global site tag (gtag.js) - Google Analytics Start -->
-  <!-- Global site tag (gtag.js) - Google Analytics End -->
-  
-  <!-- Begin Inspectlet Asynchronous Code -->
-  <!-- End Inspectlet Asynchronous Code -->
-</head>
+{% block content %}
+  <!--Navigation bar-->
+  <div id="nav-placeholder">
 
-<body>
-  <nav class="navbar">
-    <div class="name-logo">
-      <a href="#"><img src="/static/images/logo/Logo.png" class="triviafy-logo" alt="Triviafy icon"></a>
-      <div class="brand-title"><a href="#">Triviafy</a></div>
-    </div>
-    <a href="#" class="toggle-button">
-      <span class="bar top-bar"></span>
-      <span class="bar middle-bar"></span>
-      <span class="bar bottom-bar"></span>
-    </a>
-    <div class="navbar-links">
-      <ul>
-        <li><a href="#">Login</a></li>
-        <li><a href="#"><button class="btn btn-create-account">Add Triviafy</button></a></li>
-        <a href="https://slack.com/oauth/v2/authorize?scope=incoming-webhook,commands&client_id=2010284559270.2041074682000&state={{ slack_state_uuid_html }}"><img alt=""Add to Slack"" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
-      </ul>
-    </div>
-  </nav>
-  <main>
-  </main>
-  <footer>
-  </footer>
-</body>
-</html>
+  </div>
+
+  <script>
+  $(function(){
+    $("#nav-placeholder").load("base_blueprint/nav_not_logged_in.html");
+  });
+  </script>
+  <!--end of Navigation bar-->
+{% endblock %}

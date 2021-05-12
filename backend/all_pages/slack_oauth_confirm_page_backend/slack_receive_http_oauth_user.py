@@ -79,4 +79,5 @@ def slack_receive_http_oauth_user_function():
 
   print('=========================================== /finish_auth Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
+  #return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
+  return redirect("/dashboard", code=301)

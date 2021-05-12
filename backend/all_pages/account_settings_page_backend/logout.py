@@ -41,6 +41,4 @@ def logout_function():
     redis_connection.delete(get_cookie_value_from_browser)
 
   print('=========================================== /test_logout Page END ===========================================')
-  # Render the login page template, pass in the redis nested dict of all user info
-  #return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
   return redirect("/", code=301)

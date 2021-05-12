@@ -6,6 +6,7 @@ from backend.all_pages.landing_page_backend.landing_page_render import landing_p
 from backend.all_pages.slack_oauth_confirm_page_backend.slack_receive_http_oauth_user import slack_receive_http_oauth_user
 from backend.all_pages.account_settings_page_backend.logout import logout
 from backend.all_pages.dashboard_page_backend.dashboard_send_channel_test_message import dashboard_send_channel_test_message
+from backend.all_pages.dashboard_page_backend.dashboard_page_render import dashboard_page_render
 
 # App setup
 # Set the timezone of the application when user creates account is will be in US/Easterm time
@@ -23,6 +24,7 @@ app.register_blueprint(landing_page_render, url_prefix="")
 app.register_blueprint(slack_receive_http_oauth_user, url_prefix="")
 app.register_blueprint(logout, url_prefix="")
 app.register_blueprint(dashboard_send_channel_test_message, url_prefix="")
+app.register_blueprint(dashboard_page_render, url_prefix="")
 
 
 
