@@ -25,13 +25,13 @@ def dashboard_send_channel_test_message_function():
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
+  # Connect to redis database pool (no need to close)
+  redis_connection = redis_connect_to_database_function()
+
   # -------------------------------------------------------------- Running on localhost
   server_env = os.environ.get('TESTING', 'false')
   # If running on localhost
   if server_env == 'true':
-    # Connect to redis database pool (no need to close)
-    redis_connection = redis_connect_to_database_function()
-
     # Get key:value from redis then delete row from redis
     localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
     get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
