@@ -1,4 +1,5 @@
 <nav class="navbar">
+  <h1>HELLO</h1>
   <div class="name-logo">
     <a href="#"><img src="/static/images/logo/Logo.png" class="triviafy-logo" alt="Triviafy icon"></a>
     <div class="brand-title"><a href="#">Triviafy</a></div>

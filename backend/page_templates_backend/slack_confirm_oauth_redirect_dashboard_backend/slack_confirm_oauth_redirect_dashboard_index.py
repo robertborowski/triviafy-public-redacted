@@ -5,13 +5,13 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 import os
 from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
-from backend.all_pages.slack_oauth_confirm_page_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
-from backend.all_pages.slack_oauth_confirm_page_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
+from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
+from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
 from backend.utils.pretty_print.pretty_print import pretty_print_function
 
-slack_receive_http_oauth_user = Blueprint("slack_receive_http_oauth_user", __name__, static_folder="static", template_folder="templates")
+slack_confirm_oauth_redirect_dashboard_index = Blueprint("slack_confirm_oauth_redirect_dashboard_index", __name__, static_folder="static", template_folder="templates")
 
-@slack_receive_http_oauth_user.before_request
+@slack_confirm_oauth_redirect_dashboard_index.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -19,10 +19,10 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@slack_receive_http_oauth_user.route("/finish_auth", methods=['GET','POST'])
-def slack_receive_http_oauth_user_function():
+@slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
+def slack_confirm_oauth_redirect_dashboard_index_function():
   """Returns: Authenticates user access and stores login info in database"""  
-  print('=========================================== /finish_auth Page START ===========================================')
+  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
@@ -77,7 +77,7 @@ def slack_receive_http_oauth_user_function():
     except:
       print('Error while running "slack_receive_http_oauth_user" script.')
 
-  print('=========================================== /finish_auth Page END ===========================================')
+  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  #return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
+  #return render_template('dashboard_page_templates/index.html', css_cache_busting = cache_busting_output)
   return redirect("/dashboard", code=301)

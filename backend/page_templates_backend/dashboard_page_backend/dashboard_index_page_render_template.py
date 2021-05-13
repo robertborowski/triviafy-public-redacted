@@ -7,9 +7,9 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import json
 
 
-dashboard_page_render = Blueprint("dashboard_page_render", __name__, static_folder="static", template_folder="templates")
+dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
 
-@dashboard_page_render.before_request
+@dashboard_index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -17,8 +17,8 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@dashboard_page_render.route("/dashboard", methods=['GET','POST'])
-def dashboard_page_render_render_function():
+@dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
+def dashboard_index_page_render_template_function():
   """Returns dashboard page"""
   print('=========================================== /dashboard Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
@@ -51,7 +51,7 @@ def dashboard_page_render_render_function():
   user_team_latest_quiz_info = ['1', '11/25/21']
   
   print('=========================================== /dashboard Page END ===========================================')
-  return render_template('dashboard/dashboard_page.html',
+  return render_template('dashboard_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,

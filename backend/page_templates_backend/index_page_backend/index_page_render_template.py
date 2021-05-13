@@ -7,9 +7,9 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import datetime
 from backend.utils.cached_login.cached_login_info import cached_login_info_function
 
-landing_page_render = Blueprint("landing_page_render", __name__, static_folder="static", template_folder="templates")
+index_page_render_template = Blueprint("index_page_render_template", __name__, static_folder="static", template_folder="templates")
 
-@landing_page_render.before_request
+@index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -17,8 +17,8 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@landing_page_render.route("/", methods=['GET','POST'])
-def landing_page_render_function():
+@index_page_render_template.route("/", methods=['GET','POST'])
+def index_page_render_template_function():
   """Returns landing page"""
   print('=========================================== Landing Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
@@ -35,7 +35,7 @@ def landing_page_render_function():
     else:
       print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
       print('=========================================== Landing Page END ===========================================')
-      #return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)   # <------ pass in the redis_user_nested_dict to the dashboard page here
+      #return render_template('dashboard_page_templates/dashboard_page.html', css_cache_busting = cache_busting_output)   # <------ pass in the redis_user_nested_dict to the dashboard page here
       return redirect("/dashboard", code=301)
 
   # If cookie does not exist then set the cookie
@@ -64,13 +64,13 @@ def landing_page_render_function():
       redis_connection.set(localhost_redis_browser_cookie_key, get_cookie_value_from_browser.encode('utf-8'))
 
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
-      browser_response = make_response(render_template('landing_pages/landing_page.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value))
+      browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
       print('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
       print('=========================================== Landing Page END ===========================================')
-      return render_template('landing_pages/landing_page.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value)
+      return render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value)
 
   # -------------------------------------------------------------- NOT running on localhost
   else:
@@ -79,10 +79,10 @@ def landing_page_render_function():
     session['slack_state_uuid_value'] = create_uuid_function('slv_')
 
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
-      browser_response = make_response(render_template('landing_pages/landing_page.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
+      browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
       print('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
       print('=========================================== Landing Page END ===========================================')
-      return render_template('landing_pages/landing_page.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value'])
+      return render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value'])

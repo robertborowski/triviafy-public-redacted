@@ -66,5 +66,5 @@ def dashboard_send_channel_test_message_function():
 
   print('=========================================== /test_send Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  #return render_template('dashboard/dashboard_page.html', css_cache_busting = cache_busting_output)
+  #return render_template('dashboard_page_templates/index.html', css_cache_busting = cache_busting_output)
   return redirect("/dashboard", code=301)

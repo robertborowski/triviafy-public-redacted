@@ -1,0 +1,18 @@
+{% extends "base_blueprint_page_templates/index.html" %}
+
+<!-- head tag block content -->
+{% block title %}
+  <title>Triviafy</title>
+  <meta name="slack-app-id" content="A021726L200">
+
+  <!-- Connect to the style pages Start -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+  <!-- Connect to the style pages End -->
+
+  <!-- Load javascript function(s) Start -->
+  <!-- Load javascript function(s) End -->
+{% endblock %}
+
+{% block content %}
+<h1>HELLO WORLD!</h1>
+{% endblock %}
