@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint, redirect, request, session, make_response
-from backend.utils.app_setup_before.check_if_url_www import check_if_url_www_function
-from backend.utils.app_setup_before.remove_www_from_domain import remove_www_from_domain_function
+from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
+from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
@@ -8,9 +8,9 @@ import os
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 import json
 
-dashboard_send_channel_test_message = Blueprint("dashboard_send_channel_test_message", __name__, static_folder="static", template_folder="templates")
+send_channel_test_message = Blueprint("send_channel_test_message", __name__, static_folder="static", template_folder="templates")
 
-@dashboard_send_channel_test_message.before_request
+@send_channel_test_message.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -18,10 +18,10 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@dashboard_send_channel_test_message.route("/test_send", methods=['GET','POST'])
-def dashboard_send_channel_test_message_function():
+@send_channel_test_message.route("/slack/channel/send/test/message", methods=['GET','POST'])
+def send_channel_test_message_function():
   """Returns: Authenticates user access and stores login info in database"""  
-  print('=========================================== /test_send Page START ===========================================')
+  print('=========================================== /slack/channel/send/test/message Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
@@ -64,7 +64,5 @@ def dashboard_send_channel_test_message_function():
     print('did not send message to slack channel')
     print(e.response['error'])
 
-  print('=========================================== /test_send Page END ===========================================')
-  # Render the login page template, pass in the redis nested dict of all user info
-  #return render_template('dashboard_page_templates/index.html', css_cache_busting = cache_busting_output)
+  print('=========================================== /slack/channel/send/test/message Page END ===========================================')
   return redirect("/dashboard", code=301)
