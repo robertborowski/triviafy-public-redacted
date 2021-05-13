@@ -15,10 +15,10 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@logout.route("/test_logout", methods=['GET','POST'])
+@logout.route("/logout", methods=['GET','POST'])
 def logout_function():
   """Returns: Authenticates user access and stores login info in database"""  
-  print('=========================================== /test_logout Page START ===========================================')
+  print('=========================================== /logout Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
@@ -40,5 +40,5 @@ def logout_function():
     get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
     redis_connection.delete(get_cookie_value_from_browser)
 
-  print('=========================================== /test_logout Page END ===========================================')
+  print('=========================================== /logout Page END ===========================================')
   return redirect("/", code=301)
