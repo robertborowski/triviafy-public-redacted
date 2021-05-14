@@ -59,11 +59,6 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
   auth_code_received = request.args['code']
   state_received = request.args['state']
   
-  print('- - - - -')
-  print('HERE 1')
-  print(state_received)
-  print(slack_state_value_passed_in_url)
-  print('- - - - -')
   # Authorize slack app for user
   if state_received == slack_state_value_passed_in_url:
     try:
