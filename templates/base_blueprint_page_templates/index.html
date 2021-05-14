@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,16 +17,9 @@
     <link rel="manifest" href="/static/images/logo/favicon_io/site.webmanifest">
     <!-- Favicon End -->
 
-    <!-- Connect to the style pages Start -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
-    <!-- Connect to the style pages End -->
-
-    <!-- Load javascript function(s) Start -->
-    <!-- Load javascript function(s) End -->
-
     <!-- Global site tag (gtag.js) - Google Analytics Start -->
     <!-- Global site tag (gtag.js) - Google Analytics End -->
-
+    
     <!-- Begin Inspectlet Asynchronous Code -->
     <!-- End Inspectlet Asynchronous Code -->
 
@@ -33,16 +27,13 @@
     {% block title %}
     {% endblock %}
     <!-- Additional head elements per page End -->
-
   </head>
-  <body>
-    <!-------------------------------->
-    <!--Navigation bar-->
-    <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."assets/php/"; inlcude($IPATH."headernav.html"); ?>
-    <!--end of Navigation bar-->
-    <!-------------------------------->
 
+  <body>
+  <!-- body elements per page Start -->
     {% block content %}
     {% endblock %}
+  <!-- body elements per page End -->
   </body>
+  
 </html>

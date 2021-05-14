@@ -6,13 +6,18 @@
   <meta name="slack-app-id" content="A021726L200">
 
   <!-- Connect to the style pages Start -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
   <!-- Connect to the style pages End -->
 
   <!-- Load javascript function(s) Start -->
+  <!-- <script src="/static/javascript/navbar/navbar_logged_in/index.js" type="text/javascript" defer></script> -->
+  <script src="components/header.js" type="text/javascript" defer></script>
   <!-- Load javascript function(s) End -->
 {% endblock %}
 
 {% block content %}
-<h1>HELLO WORLD!</h1>
+<!--Navigation bar-->
+<header-component></header-component>
+<!--end of Navigation bar-->
 {% endblock %}
