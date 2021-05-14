@@ -11,13 +11,12 @@
   <!-- Connect to the style pages End -->
 
   <!-- Load javascript function(s) Start -->
-  <!-- <script src="/static/javascript/nav1.js" type="text/javascript" defer></script> -->
   <script src="/static/javascript/page_blueprints_js/navbar_not_signed_in_js/nav.js" type="text/javascript" defer></script>
   <!-- Load javascript function(s) End -->
 {% endblock %}
 
 {% block content %}
 <!--Navigation bar-->
-<nav-component></nav-component>
-<!--end of Navigation bar-->
+<nav-component slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-component>
+
 {% endblock %}

@@ -58,7 +58,12 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
   # Get info from the received URL from Slack once user accepts
   auth_code_received = request.args['code']
   state_received = request.args['state']
-
+  
+  print('- - - - -')
+  print('HERE 1')
+  print(state_received)
+  print(slack_state_value_passed_in_url)
+  print('- - - - -')
   # Authorize slack app for user
   if state_received == slack_state_value_passed_in_url:
     try:
@@ -70,7 +75,6 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
 
       # With the response object, update the postgres database for user
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
-
       user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
       print(user_store_in_redis_status)
       
