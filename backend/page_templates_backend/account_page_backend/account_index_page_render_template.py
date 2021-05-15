@@ -7,9 +7,9 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import json
 
 
-dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
+account_index_page_render_template = Blueprint("account_index_page_render_template", __name__, static_folder="static", template_folder="templates")
 
-@dashboard_index_page_render_template.before_request
+@account_index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -17,10 +17,10 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
-@dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
-def dashboard_index_page_render_template_function():
-  """Returns dashboard page"""
-  print('=========================================== /dashboard Page START ===========================================')
+@account_index_page_render_template.route("/account", methods=['GET','POST'])
+def account_index_page_render_template_function():
+  """Returns account page"""
+  print('=========================================== /account Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
@@ -37,7 +37,7 @@ def dashboard_index_page_render_template_function():
       get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
     # If there is no information stored in redis
     except:
-      print('=========================================== /dashboard Page END ===========================================')
+      print('=========================================== /account Page END ===========================================')
       return redirect('/', code=301)
 
   # -------------------------------------------------------------- NOT running on localhost
@@ -46,7 +46,7 @@ def dashboard_index_page_render_template_function():
       get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
     # If there is no stored cookie information
     except:
-      print('=========================================== /dashboard Page END ===========================================')
+      print('=========================================== /account Page END ===========================================')
       return redirect('/', code=301)
       
   # Get the logged in user info from redis database using browser cookie
@@ -54,7 +54,7 @@ def dashboard_index_page_render_template_function():
     user_nested_dict_as_str = redis_connection.get(get_cookie_value_from_browser).decode('utf-8')
   # If user is not logged in then kick them back to the landing page
   except:
-    print('=========================================== /dashboard Page END ===========================================')
+    print('=========================================== /account Page END ===========================================')
     return redirect('/', code=301)
   
   # Convert the pulled str to dict with json
@@ -67,8 +67,8 @@ def dashboard_index_page_render_template_function():
   # Need to write a function to calculate the latest quiz info, in the meantime just assign it
   user_team_latest_quiz_info = ['1', '11/25/21']
   
-  print('=========================================== /dashboard Page END ===========================================')
-  return render_template('dashboard_page_templates/index.html',
+  print('=========================================== /account Page END ===========================================')
+  return render_template('account_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
