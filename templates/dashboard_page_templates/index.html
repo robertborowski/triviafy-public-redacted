@@ -14,55 +14,21 @@
 <!-- Connect to the style pages End -->
 
 <!-- Load javascript function(s) Start -->
-<!-- <script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/nav.js" type="text/javascript" defer></script> -->
+<script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/nav.js" type="text/javascript" defer></script>
 <!-- Load javascript function(s) End -->
 {% endblock %}
 
 
 
 {% block content %}
-<!-- Navbar Start -->
-<nav class="navbar">
-  <div class="company-name-and-logo">
-    <a href="{{ url_for('index_page_render_template.index_page_render_template_function') }}"><img src="/static/images/logo/Logo.png" class="company-logo" alt="Triviafy icon/logo"></a>
-    <div class="company-name"><a href="{{ url_for('index_page_render_template.index_page_render_template_function') }}">Triviafy</a></div>
-  </div>
-  <div class="navbar-links">
-    <ul>
-      <li><a href="#"><i class="fas fa-trophy"></i></a>
-        <ul class="trophy-dropdown">
-          <li><a href="#">Leaderboard</a></li>
-          <li><a href="#">Claim Prize</a></li>
-        </ul>
-      </li>
-      <li><a href="#"><i class="fas fa-edit"></i></a>
-        <ul class="quiz-dropdown">
-          <li><a href="#">Quiz Feedback</a></li>
-          <li><a href="#">Quiz Settings</a></li>
-          <li><a href="#">Quiz Archive</a></li>
-        </ul>
-      </li>
-      <li><a href="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}"><i class="fas fa-user-alt"></i></a>
-        <ul class="account-dropdown">
-          <li><a href="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">Account</a></li>
-          <li><a href="#">Subscription</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!-- <nav-component slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-component> -->
-<!-- Navbar End -->
+<nav-component link_home="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">
+</nav-component>
 
 
 <main>
-  <form action="{{ url_for('logout.logout_function') }}" method="post">
-    <button>Logout</button>
-  </form>
-  <form action="{{ url_for('send_channel_test_message.send_channel_test_message_function') }}" method="post">
-    <button>Send test message</button>
-  </form>
 </main>
+
 <footer>
 </footer>
 {% endblock %}

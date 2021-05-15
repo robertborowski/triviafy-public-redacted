@@ -3,30 +3,40 @@ class NavbarClass extends HTMLElement {
     super();
 
     // print the variable passed in
-    console.log(this.getAttribute("slack_state_uuid_js"));
+    // console.log(this.getAttribute("link_home"));
   }
 
   connectedCallback() {
     this.innerHTML = `
-      <nav class="navbar">
-        <div class="name-logo">
-          <a href="#"><img src="/static/images/logo/Logo.png" class="triviafy-logo" alt="Triviafy icon"></a>
-          <div class="brand-title"><a href="#">Triviafy</a></div>
-        </div>
-        <a href="#" class="toggle-button">
-          <span class="bar top-bar"></span>
-          <span class="bar middle-bar"></span>
-          <span class="bar bottom-bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="#">Login</a></li>
-            <li><a href="#"><button class="btn btn-create-account">Add Triviafy</button></a></li>
-            <!-- <a href="https://slack.com/oauth/v2/authorize?scope=incoming-webhook,commands&client_id=2010284559270.2041074682000&state={{ slack_state_uuid_html }}"><img alt=""Add to Slack"" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a> -->
-            <a href="https://slack.com/oauth/v2/authorize?scope=incoming-webhook,commands&client_id=2010284559270.2041074682000&state=${this.getAttribute("slack_state_uuid_js")}"><img alt=""Add to Slack"" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
-          </ul>
-        </div>
-      </nav>
+    <nav class="navbar">
+      <div class="company-name-and-logo">
+        <a href="${this.getAttribute("link_home")}"><img src="/static/images/logo/Logo.png" class="company-logo" alt="Triviafy icon/logo"></a>
+        <div class="company-name"><a href="${this.getAttribute("link_home")}">Triviafy</a></div>
+      </div>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="#"><i class="fas fa-trophy"></i></a>
+            <ul class="trophy-dropdown">
+              <li><a href="#">Leaderboard</a></li>
+              <li><a href="#">Claim Prize</a></li>
+            </ul>
+          </li>
+          <li><a href="#"><i class="fas fa-edit"></i></a>
+            <ul class="quiz-dropdown">
+              <li><a href="#">Quiz Feedback</a></li>
+              <li><a href="#">Quiz Settings</a></li>
+              <li><a href="#">Quiz Archive</a></li>
+            </ul>
+          </li>
+          <li><a href="${this.getAttribute("link_account")}"><i class="fas fa-user-alt"></i></a>
+            <ul class="account-dropdown">
+              <li><a href="${this.getAttribute("link_account")}">Account</a></li>
+              <li><a href="#">Subscription</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
     `;
   }
 }

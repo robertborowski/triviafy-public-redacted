@@ -1,0 +1,29 @@
+<!-- <nav class="navbar">
+  <div class="company-name-and-logo">
+    <a href="{{ url_for('index_page_render_template.index_page_render_template_function') }}"><img src="/static/images/logo/Logo.png" class="company-logo" alt="Triviafy icon/logo"></a>
+    <div class="company-name"><a href="{{ url_for('index_page_render_template.index_page_render_template_function') }}">Triviafy</a></div>
+  </div>
+  <div class="navbar-links">
+    <ul>
+      <li><a href="#"><i class="fas fa-trophy"></i></a>
+        <ul class="trophy-dropdown">
+          <li><a href="#">Leaderboard</a></li>
+          <li><a href="#">Claim Prize</a></li>
+        </ul>
+      </li>
+      <li><a href="#"><i class="fas fa-edit"></i></a>
+        <ul class="quiz-dropdown">
+          <li><a href="#">Quiz Feedback</a></li>
+          <li><a href="#">Quiz Settings</a></li>
+          <li><a href="#">Quiz Archive</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}"><i class="fas fa-user-alt"></i></a>
+        <ul class="account-dropdown">
+          <li><a href="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">Account</a></li>
+          <li><a href="#">Subscription</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav> -->
