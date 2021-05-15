@@ -1,10 +1,8 @@
-from flask import render_template, Blueprint, redirect, request, session, make_response
+from flask import render_template, Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
-import os
-from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
-import json
+from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 
 
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -24,48 +22,18 @@ def dashboard_index_page_render_template_function():
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
-  # Connect to redis database pool (no need to close)
-  redis_connection = redis_connect_to_database_function()
-  
-  # -------------------------------------------------------------- Running on localhost
-  server_env = os.environ.get('TESTING', 'false')
-  # If running on localhost
-  if server_env == 'true':
-    # Get key:value from redis
-    try:
-      localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
-      get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
-    # If there is no information stored in redis
-    except:
-      print('=========================================== /dashboard Page END ===========================================')
-      return redirect('/', code=301)
-
-  # -------------------------------------------------------------- NOT running on localhost
-  else:
-    try:
-      get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
-    # If there is no stored cookie information
-    except:
-      print('=========================================== /dashboard Page END ===========================================')
-      return redirect('/', code=301)
-      
-  # Get the logged in user info from redis database using browser cookie
   try:
-    user_nested_dict_as_str = redis_connection.get(get_cookie_value_from_browser).decode('utf-8')
-  # If user is not logged in then kick them back to the landing page
+    user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Get user information from the nested dict
+    user_company_name = user_nested_dict['user_company_name']
+    user_channel_name = user_nested_dict['slack_channel_name']
+
+    # Need to write a function to calculate the latest quiz info, in the meantime just assign it
+    user_team_latest_quiz_info = ['1', '11/25/21']
   except:
     print('=========================================== /dashboard Page END ===========================================')
     return redirect('/', code=301)
-  
-  # Convert the pulled str to dict with json
-  user_nested_dict = json.loads(user_nested_dict_as_str)
-
-  # Get user information from the nested dict
-  user_company_name = user_nested_dict['user_company_name']
-  user_channel_name = user_nested_dict['slack_channel_name']
-
-  # Need to write a function to calculate the latest quiz info, in the meantime just assign it
-  user_team_latest_quiz_info = ['1', '11/25/21']
   
   print('=========================================== /dashboard Page END ===========================================')
   return render_template('dashboard_page_templates/index.html',

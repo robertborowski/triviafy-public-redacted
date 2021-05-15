@@ -63,14 +63,9 @@ def account_index_page_render_template_function():
   # Get user information from the nested dict
   user_company_name = user_nested_dict['user_company_name']
   user_channel_name = user_nested_dict['slack_channel_name']
-
-  # Need to write a function to calculate the latest quiz info, in the meantime just assign it
-  user_team_latest_quiz_info = ['1', '11/25/21']
   
   print('=========================================== /account Page END ===========================================')
   return render_template('account_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
-                          user_channel_name_to_html = user_channel_name,
-                          user_team_latest_quiz_number_to_html = user_team_latest_quiz_info[0],
-                          user_team_latest_quiz_due_to_html = user_team_latest_quiz_info[1])
+                          user_channel_name_to_html = user_channel_name)
