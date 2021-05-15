@@ -1,3 +1,4 @@
+# -------------------------------------------------------------- Imports
 import os
 from flask import render_template, Blueprint, redirect, request, session, make_response
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
@@ -7,8 +8,8 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import datetime
 from backend.utils.cached_login.cached_login_info import cached_login_info_function
 
+# -------------------------------------------------------------- App Setup
 index_page_render_template = Blueprint("index_page_render_template", __name__, static_folder="static", template_folder="templates")
-
 @index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
@@ -17,6 +18,7 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
+# -------------------------------------------------------------- App
 @index_page_render_template.route("/", methods=['GET','POST'])
 def index_page_render_template_function():
   """Returns landing page"""
@@ -30,7 +32,7 @@ def index_page_render_template_function():
   # If cookie exists then check if info is cached in redis db
   if get_cookie_value_from_browser != '' and get_cookie_value_from_browser != None:
     redis_user_nested_dict = cached_login_info_function(get_cookie_value_from_browser)
-    if redis_user_nested_dict == 'No obj stored in redis for this browser cookie.':
+    if redis_user_nested_dict == 'No obj stored in redis for this browser cookie.' or redis_user_nested_dict == '' or redis_user_nested_dict == None:
       print('No obj stored in redis for this browser cookie.')
     else:
       print('User sign in saved on cookie, redirecting user to loggedin dashboard!')

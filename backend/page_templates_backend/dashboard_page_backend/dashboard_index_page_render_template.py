@@ -1,12 +1,12 @@
+# -------------------------------------------------------------- Imports
 from flask import render_template, Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 
-
+# -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
-
 @dashboard_index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
@@ -15,6 +15,7 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
+# -------------------------------------------------------------- App
 @dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
 def dashboard_index_page_render_template_function():
   """Returns dashboard page"""

@@ -21,4 +21,14 @@
 
 
 {% block content %}
+<main>
+  <form action="{{ url_for('logout.logout_function') }}" method="post">
+    <button>Logout</button>
+  </form>
+  <form action="{{ url_for('send_channel_test_message.send_channel_test_message_function') }}" method="post">
+    <button>Send test message</button>
+  </form>
+</main>
+<footer>
+</footer>
 {% endblock %}

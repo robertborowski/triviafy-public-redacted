@@ -1,14 +1,12 @@
-from flask import render_template, Blueprint, redirect, request, session, make_response
+# -------------------------------------------------------------- Imports
+from flask import render_template, Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
-import os
-from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
-import json
+from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 
-
+# -------------------------------------------------------------- App Setup
 account_index_page_render_template = Blueprint("account_index_page_render_template", __name__, static_folder="static", template_folder="templates")
-
 @account_index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
@@ -17,6 +15,7 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
+# -------------------------------------------------------------- App
 @account_index_page_render_template.route("/account", methods=['GET','POST'])
 def account_index_page_render_template_function():
   """Returns account page"""
@@ -24,45 +23,16 @@ def account_index_page_render_template_function():
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
 
-  # Connect to redis database pool (no need to close)
-  redis_connection = redis_connect_to_database_function()
-  
-  # -------------------------------------------------------------- Running on localhost
-  server_env = os.environ.get('TESTING', 'false')
-  # If running on localhost
-  if server_env == 'true':
-    # Get key:value from redis
-    try:
-      localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
-      get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
-    # If there is no information stored in redis
-    except:
-      print('=========================================== /account Page END ===========================================')
-      return redirect('/', code=301)
-
-  # -------------------------------------------------------------- NOT running on localhost
-  else:
-    try:
-      get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
-    # If there is no stored cookie information
-    except:
-      print('=========================================== /account Page END ===========================================')
-      return redirect('/', code=301)
-      
-  # Get the logged in user info from redis database using browser cookie
   try:
-    user_nested_dict_as_str = redis_connection.get(get_cookie_value_from_browser).decode('utf-8')
-  # If user is not logged in then kick them back to the landing page
+    user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Get user information from the nested dict
+    user_company_name = user_nested_dict['user_company_name']
+    user_channel_name = user_nested_dict['slack_channel_name']
+
   except:
     print('=========================================== /account Page END ===========================================')
     return redirect('/', code=301)
-  
-  # Convert the pulled str to dict with json
-  user_nested_dict = json.loads(user_nested_dict_as_str)
-
-  # Get user information from the nested dict
-  user_company_name = user_nested_dict['user_company_name']
-  user_channel_name = user_nested_dict['slack_channel_name']
   
   print('=========================================== /account Page END ===========================================')
   return render_template('account_page_templates/index.html',

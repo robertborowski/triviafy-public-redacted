@@ -1,4 +1,5 @@
-from flask import render_template, Blueprint, redirect, request, session, make_response
+# -------------------------------------------------------------- Imports
+from flask import Blueprint, redirect, request, session
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
@@ -7,10 +8,9 @@ from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
-from backend.utils.pretty_print.pretty_print import pretty_print_function
 
+# -------------------------------------------------------------- App Setup
 slack_confirm_oauth_redirect_dashboard_index = Blueprint("slack_confirm_oauth_redirect_dashboard_index", __name__, static_folder="static", template_folder="templates")
-
 @slack_confirm_oauth_redirect_dashboard_index.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
@@ -19,6 +19,7 @@ def before_request():
     new_url = remove_www_from_domain_function(request.url)
     return redirect(new_url, code=301)
 
+# -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
   """Returns: Authenticates user access and stores login info in database"""  
