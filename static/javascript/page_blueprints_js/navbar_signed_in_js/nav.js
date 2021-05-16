@@ -8,30 +8,35 @@ class NavbarClass extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <nav class="navbar">
+    <nav class="navbar shadow-sm rounded">
       <div class="company-name-and-logo">
         <a href="${this.getAttribute("link_home")}"><img src="/static/images/logo/Logo.png" class="company-logo" alt="Triviafy icon/logo"></a>
-        <div class="company-name"><a href="${this.getAttribute("link_home")}">Triviafy</a></div>
+        <h1 class="company-name"><a href="${this.getAttribute("link_home")}">Triviafy</a></h1>
       </div>
+      <a href="#" class="toggle-button">
+        <span class="bar top-bar"></span>
+        <span class="bar middle-bar"></span>
+        <span class="bar bottom-bar"></span>
+      </a>
       <div class="navbar-links">
         <ul>
-          <li><a href="#"><i class="fas fa-trophy"></i></a>
-            <ul class="trophy-dropdown">
-              <li><a href="#">Leaderboard</a></li>
-              <li><a href="#">Claim Prize</a></li>
+          <li class="drill-down"><a href="#">Score <i class="fas fa-caret-down"></i></a>
+            <ul class="shadow rounded sub-list-items">
+              <li><a href="${this.getAttribute("link_account")}">Leaderboard</a></li>
+              <li><a href="${this.getAttribute("link_account")}">Claim Prize</a></li>
             </ul>
           </li>
-          <li><a href="#"><i class="fas fa-edit"></i></a>
-            <ul class="quiz-dropdown">
-              <li><a href="#">Quiz Feedback</a></li>
-              <li><a href="#">Quiz Settings</a></li>
-              <li><a href="#">Quiz Archive</a></li>
+          <li class="drill-down"><a href="#">Quiz <i class="fas fa-caret-down"></i></a>
+            <ul class="shadow rounded sub-list-items">
+              <li><a href="${this.getAttribute("link_account")}">Feedback</a></li>
+              <li><a href="${this.getAttribute("link_account")}">Archive</a></li>
+              <li><a href="${this.getAttribute("link_account")}">Settings</a></li>
             </ul>
           </li>
-          <li><a href="${this.getAttribute("link_account")}"><i class="fas fa-user-alt"></i></a>
-            <ul class="account-dropdown">
-              <li><a href="${this.getAttribute("link_account")}">Account</a></li>
-              <li><a href="#">Subscription</a></li>
+          <li class="drill-down"><a href="#">Account <i class="fas fa-caret-down"></i></a>
+            <ul class="shadow rounded sub-list-items">
+              <li><a href="${this.getAttribute("link_account")}">Subscription</a></li>
+              <li><a href="${this.getAttribute("link_account")}">Settings</a></li>
             </ul>
           </li>
         </ul>

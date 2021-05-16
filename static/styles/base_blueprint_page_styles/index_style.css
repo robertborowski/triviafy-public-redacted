@@ -7,7 +7,15 @@
   -webkit-appearance: none;
 }
 
-@media (max-width: 900px) {
+/* Set Global Variables */
+:root {
+  --company-primary-color: rgb(196, 94, 255);
+  --company-primary-color-shadow: rgba(196, 94, 255, 0.15);
+  --company-secondary-color: rgb(0, 255, 192);
+  --company-greyed-out-color: rgb(170, 170, 170);
+}
+
+@media (max-width: 800px) {
   * {
     box-sizing: border-box;
     margin: 0;

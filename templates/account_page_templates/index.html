@@ -10,17 +10,22 @@
   
 <!-- Connect to the style pages Start -->
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}"> <!-- navbar -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/account_page_styles/index_style.css') }}?v={{ css_cache_busting }}"> <!-- main -->
 <!-- Connect to the style pages End -->
 
 <!-- Load javascript function(s) Start -->
-<!-- <script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/nav.js" type="text/javascript" defer></script> -->
+<script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/nav.js" type="text/javascript" defer></script> <!-- navbar -->
 <!-- Load javascript function(s) End -->
 {% endblock %}
 
 
 
 {% block content %}
+<nav-component link_home="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">
+</nav-component>
+
 <main>
   <form action="{{ url_for('logout.logout_function') }}" method="post">
     <button>Logout</button>
@@ -29,6 +34,7 @@
     <button>Send test message</button>
   </form>
 </main>
+
 <footer>
 </footer>
 {% endblock %}
