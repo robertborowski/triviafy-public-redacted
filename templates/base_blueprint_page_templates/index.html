@@ -23,6 +23,30 @@
     <!-- ------------------------------------------------ Begin Inspectlet Asynchronous Code -->
     <!-- ------------------------------------------------ End Inspectlet Asynchronous Code -->
 
+    <!-- ------------------------------------------------ Font awesome icons Start -->
+    <script src="https://kit.fontawesome.com/f23f12952c.js" crossorigin="anonymous"></script>
+    <!-- ------------------------------------------------ Font awesome icons End -->
+
+    <!-- ------------------------------------------------ Connect to the style pages Start -->
+    <!-- blueprint all root -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- navbar -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- navbar mobile -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- Account Page - Main -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/account_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- ------------------------------------------------ Connect to the style pages End -->
+
+    <!-- ------------------------------------------------ Load javascript function(s) Start -->
+    <!-- navbar -->
+    <script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/nav.js" type="text/javascript" defer></script>
+    <!-- navbar mobile hamburger -->
+    <script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/navbar_hamburger_toggle.js" type="text/javascript" defer></script>
+    <!-- navbar mobile drill down menu -->
+    <script src="/static/javascript/page_blueprints_js/navbar_signed_in_js/navbar_drill_down.js" type="text/javascript" defer></script>
+    <!-- ------------------------------------------------ Load javascript function(s) End -->
+
     <!-- ------------------------------------------------ Additional head elements per page Start -->
     {% block title %}
     {% endblock %}
