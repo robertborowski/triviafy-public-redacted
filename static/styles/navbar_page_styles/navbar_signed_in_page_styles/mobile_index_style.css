@@ -8,6 +8,14 @@
   }
   /* - - - - - - - - - - Navbar - End */
 
+  /* - - - - - - - - - - Spacer for main - Start */
+  .spacer {
+    width: 100%;
+    height: 0px;
+    background-color: white;
+  }
+  /* - - - - - - - - - - Spacer for main - End */
+
   /* - - - - - - - - - - Company name and logo - Start */
   nav.navbar-signed-in .company-name-and-logo {
     /* border: 1px solid black; */

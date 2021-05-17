@@ -8,7 +8,7 @@ class NavbarClass extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <nav class="navbar-signed-in shadow-sm rounded">
+    <nav class="navbar-signed-in shadow-sm-black rounded">
       <div class="company-name-and-logo">
         <a href="${this.getAttribute("link_home")}"><img src="/static/images/logo/Logo.png" class="company-logo" alt="Triviafy icon/logo"></a>
         <h1 class="company-name"><a href="${this.getAttribute("link_home")}">Triviafy</a></h1>
@@ -21,20 +21,20 @@ class NavbarClass extends HTMLElement {
       <div class="navbar-links">
         <ul>
           <li class="drill-down"><a href="#">Score <i class="fas fa-caret-down"></i></a>
-            <ul class="shadow rounded sub-list-items">
+            <ul class="shadow-reg-primary rounded sub-list-items">
               <li><a href="#">Leaderboard</a></li>
               <li><a href="#">Claim Prize</a></li>
             </ul>
           </li>
           <li class="drill-down"><a href="#">Quiz <i class="fas fa-caret-down"></i></a>
-            <ul class="shadow rounded sub-list-items">
+            <ul class="shadow-reg-primary rounded sub-list-items">
               <li><a href="#">Feedback</a></li>
               <li><a href="#">Archive</a></li>
               <li><a href="#">Settings</a></li>
             </ul>
           </li>
           <li class="drill-down"><a href="#">Account <i class="fas fa-caret-down"></i></a>
-            <ul class="shadow rounded sub-list-items">
+            <ul class="shadow-reg-primary rounded sub-list-items">
               <li><a href="#">Subscription</a></li>
               <li><a href="${this.getAttribute("link_account")}">Settings</a></li>
             </ul>

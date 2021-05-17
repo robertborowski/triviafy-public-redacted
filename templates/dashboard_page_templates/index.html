@@ -11,8 +11,23 @@
               link_account="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">
 </nav-component>
 
-<main class="dashboard-main">
-  <p class="testing">Hello{{ user_company_name_to_html }}</p>
+<div class="spacer"></div>
+
+<main class="logged-in dashboard-main">
+  
+  <div class="client-company-and-channel-names">
+    <p class="client-company-name">{{ user_company_name_to_html }}</p>
+    <p class="client-channel-name">{{ user_channel_name_to_html }}</p>
+  </div>
+
+  <div class="latest-quiz-intro-background ">
+    <div class="latest-quiz-intro">
+      <p class="client-latest-quiz-number" id='stroke_shadow'>Quiz #{{ user_team_latest_quiz_number_to_html }}</p>
+      <p class="client-latest-quiz-due-date">Due: 7pm {{ user_team_latest_quiz_due_to_html }}</p>
+      <p class="modal-see-rules">See Rules</p>
+    </div>
+  </div>
+
 </main>
 
 <footer>
