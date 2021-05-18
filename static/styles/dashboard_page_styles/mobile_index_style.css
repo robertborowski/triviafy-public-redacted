@@ -1,0 +1,23 @@
+/* ============================================== */
+/* ================= MOBILE ===================== */
+/* ============================================== */
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Company and Channel name - Start */
+  /* - - - - - - - - - - Company and Channel name - End */
+
+  /* - - - - - - - - - - Latest quiz intro - Start */
+  /* - - - - - - - - - - Latest quiz intro - End */
+
+  /* - - - - - - - - - - Modal - Start */
+  main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .modal-content {
+    width: 90%;
+  }
+  /* main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .modal-content .modal-body {
+    padding: 10px 20px;
+  } */
+  main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .modal-content .modal-body ul li {
+    margin-left: 5%;
+    font-size: 15px;
+  }
+  /* - - - - - - - - - - Modal - End */
+}

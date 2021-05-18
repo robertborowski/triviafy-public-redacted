@@ -1,0 +1,58 @@
+ques 1
+ques 2
+ques 3
+...
+...
+ques 1000
+
+
+
+
+QUES OBJECT/TABLE
+{
+  id: q-3434534
+  author:
+  hint:
+  difficulty: 
+  deprecated: boolean
+  deprecated_date: 
+  date:
+  question:
+  answers: [steve, wozniak, jobs, woz]
+  category: [music, jobs, art]
+}
+
+
+
+
+QUIZ OBJECT/TABLE
+{
+  company_id: user-id-34345345
+  id: quiz-343434
+  number: 6_user-id-34345345
+  date:
+  questions: [
+    q-34325,
+    q-345345
+  ]
+}
+...
+
+
+USER_ANSWWERS
+{
+  user_id: 
+  quiz_id:
+  q-id:
+  answer: 'dfgdfgdfg'
+}
+
+
+
+COMPANY PREFERCNCES
+{
+  category_preferd: [],
+  logo_url: fsgfhh
+  allow_redo: 
+  num_ques_preferred: 
+}

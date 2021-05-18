@@ -72,7 +72,7 @@
   }
   nav.navbar-signed-in .navbar-links.active {
     display: flex;
-    animation: animate 300ms ease-in-out forwards;
+    animation: animate-drop-down-menu 300ms ease-in-out forwards;
     animation-delay: 0ms;
   }
   nav.navbar-signed-in .navbar-links ul {
@@ -111,18 +111,20 @@
   /* Mobile only added the active click with JavaScript */
   nav.navbar-signed-in .navbar-links ul li ul.active {
     display: block;
-    background-color: var(--company-primary-color);
+    background-color: var(--company-secondary-color);
     z-index: 100;
     position: absolute;
+    animation: animate-drop-down-menu 300ms ease-in-out forwards;
+    animation-delay: 0ms;
   }
   nav.navbar-signed-in .navbar-links ul li ul.active li a {
-    color: white;
+    color: black;
     padding: 30px;
   }
   /* - - - - - - - - - - Navbar links - Start */
 
   /* - - - - - - - - - - Navbar links - Animation - Start */
-  @keyframes animate {
+  @keyframes animate-drop-down-menu {
     0% {
       opacity: 0;
       transform: rotateX(-90deg);

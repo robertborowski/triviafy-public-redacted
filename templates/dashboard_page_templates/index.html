@@ -14,19 +14,48 @@
 <div class="spacer"></div>
 
 <main class="logged-in dashboard-main">
-  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro Start -->
   <div class="client-company-and-channel-names">
     <p class="client-company-name">{{ user_company_name_to_html }}</p>
     <p class="client-channel-name">{{ user_channel_name_to_html }}</p>
   </div>
 
-  <div class="latest-quiz-intro-background ">
+  <div class="latest-quiz-intro-background box-shadow-sm-black">
     <div class="latest-quiz-intro">
-      <p class="client-latest-quiz-number" id='stroke_shadow'>Quiz #{{ user_team_latest_quiz_number_to_html }}</p>
+      <p class="client-latest-quiz-number" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
       <p class="client-latest-quiz-due-date">Due: 7pm {{ user_team_latest_quiz_due_to_html }}</p>
-      <p class="modal-see-rules">See Rules</p>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal Start -->
+      <a href="#"><p class="modal-see-rules" id="quiz-rules-activate-modal">See Rules</p></a>
+      <div id="quiz-rules-details-modal" class="quiz-modal">
+        <div class="modal-content box-shadow-reg-black">
+          
+          <div class="modal-header">
+            <span class="close-modal-x-button">&times;</span>
+            <h2>Quiz Rules</h2>
+          </div>
+          
+          <div class="modal-body">
+            <ul>
+              <li>First place = 1 point & 10 points = <span class="modal-bolder-rules">Gift Card Prize!</span></li>
+              <li>Think for yourself. Looking up anything = <span class="modal-bolder-rules">cheating</span>.</li>
+              <li><span class="modal-bolder-rules">Spelling errors</span> do not affect score, but try your best.</li>
+              <li>Email: <span class="modal-bolder-rules">robert@triviafy.com</span> with any feedback.</li>
+            </ul>
+          </div>
+          
+          <div class="modal-footer">
+            <h3>Triviafy</h3>
+          </div>
+        </div>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal End -->
     </div>
   </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro End -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions End -->
 
 </main>
 
