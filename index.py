@@ -7,6 +7,7 @@ from backend.page_templates_backend.index_page_backend.index_page_render_templat
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
 from backend.page_templates_backend.dashboard_page_backend.dashboard_index_page_render_template import dashboard_index_page_render_template
 from backend.page_templates_backend.account_page_backend.account_index_page_render_template import account_index_page_render_template
+from backend.page_templates_backend.create_question_page_backend.create_question_index_page_render_template import create_question_index_page_render_template
 # -------------------- Supporing functions
 from backend.utils.slack.send_channel_test_message.send_channel_test_message import send_channel_test_message
 from backend.page_templates_backend.account_page_backend.logout import logout
@@ -30,6 +31,7 @@ app.register_blueprint(index_page_render_template, url_prefix="")
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
 app.register_blueprint(dashboard_index_page_render_template, url_prefix="")
 app.register_blueprint(account_index_page_render_template, url_prefix="")
+app.register_blueprint(create_question_index_page_render_template, url_prefix="")
 # -------------------- Supporing functions
 app.register_blueprint(send_channel_test_message, url_prefix="")
 app.register_blueprint(logout, url_prefix="")

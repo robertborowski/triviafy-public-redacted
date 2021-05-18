@@ -67,7 +67,7 @@
 
 /* - - - - - - - - - - Stroke - Start */
 #words-stroke-shadow {
-  -webkit-text-stroke: 1px black;
-	text-shadow: 2px 2px 2px #000;
+  /* -webkit-text-stroke: 1px black; */
+	text-shadow: 4px 4px 4px rgb(70, 0, 80);
 }
 /* - - - - - - - - - - Stroke - End */

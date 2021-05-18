@@ -7,18 +7,16 @@
 
 
 {% block content %}
-<nav-component link_home="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
-              link_account="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}">
+<nav-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account_js="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}",
+              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}">
 </nav-component>
-
-<div class="spacer"></div>
 
 <main class="logged-in dashboard-main">
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro Start -->
-  <div class="client-company-and-channel-names">
-    <p class="client-company-name">{{ user_company_name_to_html }}</p>
-    <p class="client-channel-name">{{ user_channel_name_to_html }}</p>
-  </div>
+  <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
+                                  channel_name_js="{{ user_channel_name_to_html }}">
+  </company-name-channel-component>
 
   <div class="latest-quiz-intro-background box-shadow-sm-black">
     <div class="latest-quiz-intro">
