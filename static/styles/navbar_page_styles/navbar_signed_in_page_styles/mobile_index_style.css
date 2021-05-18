@@ -117,6 +117,9 @@
     animation: animate-drop-down-menu 300ms ease-in-out forwards;
     animation-delay: 0ms;
   }
+  nav.navbar-signed-in .navbar-links ul li ul.thicker-ul-item {
+    width: 100%;
+  }
   nav.navbar-signed-in .navbar-links ul li ul.active li a {
     color: black;
     padding: 30px;
