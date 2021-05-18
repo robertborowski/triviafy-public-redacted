@@ -31,4 +31,4 @@ class NavbarClass extends HTMLElement {
   }
 }
 
-customElements.define('nav-component', NavbarClass);
+customElements.define('nav-not-signed-in-component', NavbarClass);
