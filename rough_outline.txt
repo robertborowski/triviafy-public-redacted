@@ -8,23 +8,6 @@ ques 1000
 
 
 
-QUES OBJECT/TABLE
-{
-  id: q-3434534
-  author:
-  hint:
-  difficulty: 
-  deprecated: boolean
-  deprecated_date: 
-  date:
-  question:
-  answers: [steve, wozniak, jobs, woz]
-  category: [music, jobs, art]
-}
-
-
-
-
 QUIZ OBJECT/TABLE
 {
   company_id: user-id-34345345

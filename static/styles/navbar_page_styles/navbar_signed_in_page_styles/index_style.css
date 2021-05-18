@@ -70,6 +70,9 @@ nav.navbar-signed-in .navbar-links ul li ul {
   padding: 5px;
   border-radius: 0px 0px 5px 5px;
 }
+nav.navbar-signed-in .navbar-links ul li ul.thicker-ul-item {
+  width: 150px;
+}
 nav.navbar-signed-in .navbar-links ul li:hover ul {
   display: block;
 }

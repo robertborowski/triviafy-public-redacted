@@ -27,9 +27,10 @@ class NavbarClass extends HTMLElement {
             </ul>
           </li>
           <li class="drill-down"><a href="#">Quiz <i class="fas fa-caret-down"></i></a>
-            <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
+            <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items thicker-ul-item">
               <li><a href="#">Feedback</a></li>
               <li><a href="#">Archive</a></li>
+              <li><a href="#">Create Question</a></li>
               <li><a href="#">Settings</a></li>
             </ul>
           </li>
