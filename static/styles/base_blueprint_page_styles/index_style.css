@@ -63,11 +63,22 @@
 .box-shadow-rounded {
   border-radius: .25rem!important;
 }
+.box-shadow-stroke {
+  box-shadow: 4px 4px 4px rgb(70, 0, 80);;
+}
 /* - - - - - - - - - - Box shadows - End */
 
 /* - - - - - - - - - - Stroke - Start */
 #words-stroke-shadow {
   /* -webkit-text-stroke: 1px black; */
-	text-shadow: 4px 4px 4px rgb(70, 0, 80);
+	text-shadow: 1px 1px 1px rgb(70, 0, 80);
 }
 /* - - - - - - - - - - Stroke - End */
+
+/* - - - - - - - - - - Other - Start */
+/* Remove default behavior of textbox style */
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  /* border: 0px solid; */
+}
+/* - - - - - - - - - - Other - End */

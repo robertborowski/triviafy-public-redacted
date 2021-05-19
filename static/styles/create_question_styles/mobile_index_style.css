@@ -1,0 +1,11 @@
+/* ============================================== */
+/* ================= MOBILE ===================== */
+/* ============================================== */
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Create Question Intro - Start */
+  main.logged-in.create-question-main .create-question-background .create-question-intro .create-question-title {
+    font-size: 45px;
+    padding-top: 20px;
+  }
+  /* - - - - - - - - - - Create Question Intro - End */
+}

@@ -18,16 +18,55 @@
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
 
-  <div class="latest-quiz-intro-background box-shadow-sm-black">
-    <div class="latest-quiz-intro">
-      <p class="client-latest-quiz-number" id='words-stroke-shadow'>Create Question</p>
+  <div class="create-question-background box-shadow-sm-black">
+    <div class="create-question-intro">
+      <p class="create-question-title" id='words-stroke-shadow'>Create Question</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Intro End -->
+  <!-- <img src="/static/images/logo/Logo_active/Logo construction.png" alt="Logo construction outfit" class="logo-create-question-construction-outfit"> -->
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Form Start -->
+  <form action="#" class='create-question-form'>
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select Start -->
+    <div class="create-question-section create-question-write-categories box-shadow-reg-grey box-shadow-rounded">
+      <label for="input_question_categories_arr_html"><p class="create-question-section-description">Categories:</p></label>
+      <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
+      <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
+      <input type="text" id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Details Start -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Details End -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title Start -->
+    <div class="create-question-section create-question-write-title box-shadow-reg-grey box-shadow-rounded">
+      <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
+      <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
+      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="create-question-answer-text-box">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
+    <div class="create-question-section create-question-write-actual-question box-shadow-reg-grey box-shadow-rounded">
+      <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
+      <p class="create-question-section-sub-description">280 characters max.</p>
+      <input type="text" id="input_actual_question_str_html" name="input_actual_question_str_html" class="create-question-answer-text-box">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers Start -->
+    <div class="create-question-section create-question-write-answers box-shadow-reg-grey box-shadow-rounded">
+      <label for="input_question_answers_arr_html"><p class="create-question-section-description">Accepted Answers:</p></label>
+      <p class="create-question-section-sub-description">Answers are not case sensitive (Example: "Beyoncé", "BEYONCE", and "bEyOnCe" are all graded the same).</p>
+      <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
+      <p class="create-question-section-sub-description">Example of 3 accepted answers: "Beyonce,Beyonce Knowles Carter,Queen B"</p>
+      <input type="text" id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->
+  
+  
+  </form>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Form End -->
 
 </main>
 
