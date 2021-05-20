@@ -46,6 +46,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
     <!-- Company name and channel name styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/company_name_channel_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- Footer styles -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/footer_page_styles/footer_logged_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <!-- ------------------------------------------------ Connect to the style pages End -->
 
     <!-- ------------------------------------------------ Load javascript function(s) Start -->
@@ -59,6 +61,14 @@
     <script src="/static/javascript/javascript_utils/dashboard_page_js/modal_verify.js" type="text/javascript" defer></script>
     <!-- Company name and channel name component javascript -->
     <script src="/static/javascript/components/company_name_channel_js/company_name_channel.js" type="text/javascript" defer></script>
+    <!-- Count characters in input text field javascript -->
+    <script src="/static/javascript/javascript_utils/character_count_input_text_js/createQuestionCountCharsActualQuestion.js" type="text/javascript" defer></script>
+    <script src="/static/javascript/javascript_utils/character_count_input_text_js/createQuestionCountCharsCategory.js" type="text/javascript" defer></script>
+    <script src="/static/javascript/javascript_utils/character_count_input_text_js/createQuestionCountCharsTitle.js" type="text/javascript" defer></script>
+    <script src="/static/javascript/javascript_utils/character_count_input_text_js/createQuestionCountCharsAnswers.js" type="text/javascript" defer></script>
+    <script src="/static/javascript/javascript_utils/character_count_input_text_js/createQuestionCountCharsHint.js" type="text/javascript" defer></script>
+    <!-- Click submit button only once javascript -->
+    <script src="/static/javascript/javascript_utils/submit_button_js/click_submit_button_once.js" type="text/javascript" defer></script>
     <!-- ------------------------------------------------ Load javascript function(s) End -->
 
     <!-- ------------------------------------------------ Additional head elements per page Start -->

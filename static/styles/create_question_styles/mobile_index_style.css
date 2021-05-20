@@ -8,4 +8,57 @@
     padding-top: 20px;
   }
   /* - - - - - - - - - - Create Question Intro - End */
+
+  /* - - - - - - - - - - Create Question Logo Caricature - Start */
+  main.logged-in.create-question-main .create-question-image-section img.logo-create-question-construction-outfit {
+    float: none;
+    height: 15rem;
+    width: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* - - - - - - - - - - Create Question Logo Caricature - End */
+
+  /* - - - - - - - - - - Create Question Form - Start */
+  main.logged-in.create-question-main form.create-question-form {
+    /* border: 1px solid black; */
+    width: 95%;
+  }
+  main.logged-in.create-question-main form.create-question-form .create-question-section input.create-question-answer-text-box, textarea.create-question-answer-text-box {
+    width: 95%;
+  }
+
+  /* - - - - - - - - - - Create Question - Category Select Start */
+  /* - - - - - - - - - - Create Question - Category Select End */
+
+  /* - - - - - - - - - - Create Question - Title Start */
+  /* - - - - - - - - - - Create Question - Title End */
+
+  /* - - - - - - - - - - Create Question - Actual Question Start */
+  /* - - - - - - - - - - Create Question - Actual Question End */
+
+  /* - - - - - - - - - - Create Question - Answers Start */
+  /* - - - - - - - - - - Create Question - Answers End */
+
+  /* - - - - - - - - - - Create Question - Difficulty Start */
+  /* - - - - - - - - - - Create Question - Difficulty End */
+
+  /* - - - - - - - - - - Create Question - Hint Start */
+  /* - - - - - - - - - - Create Question - Hint End */
+
+  /* - - - - - - - - - - Create Question - Submit Question Start */
+  /* - - - - - - - - - - Create Question - Submit Question End */
+
+  /* - - - - - - - - - - Create Question Form - Emd */
+
+
+  /* - - - - - - - - - - Create Question Logo Caricature 2 - Start */
+  main.logged-in.create-question-main .create-question-image-section img.logo-create-question-construction-outfit-two {
+    display: block;
+    height: 15rem;
+    width: 15rem;
+    margin: 50px auto;
+  }
+  /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
 }

@@ -25,12 +25,19 @@
 /* Set Global Variables */
 /* - - - - - - - - - - Root global variables - Start */
 :root {
+  /* Company colors */
+  /* Primary Colors */
   --company-primary-color: rgb(196, 94, 255);
-  /* --company-primary-color-faded: rgba(196, 94, 255, 0.15); */
+  --company-primary-darker-outline-color: rgb(161, 0, 255);
   --company-primary-color-faded: rgba(196, 94, 255, 0.400);
+  /* Se ondary colors */
   --company-secondary-color: rgb(0, 255, 192);
   --company-secondary-color-darker: rgb(0, 168, 126);
+  /* Grey colors */
   --company-greyed-out-color: rgb(170, 170, 170);
+  /* Button Colors */
+  --company-button-interior-light-grey-color: rgb(234, 234, 234);
+  --company-button-outline-light-grey-color: rgb(190, 190, 190);
 }
 /* - - - - - - - - - - Root global variables - End */
 
@@ -79,6 +86,30 @@
 /* Remove default behavior of textbox style */
 input:focus, textarea:focus, select:focus{
   outline: none;
-  /* border: 0px solid; */
 }
+/* - - - - - - - - - - Button Defaults - Start */
+.button-default {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 10px 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  border: none;
+}
+.button-default-color-primary {
+  color: white;
+  background-color: var(--company-primary-color);
+  border: none;
+}
+.button-default:hover {
+  text-decoration: underline;
+}
+/* - - - - - - - - - - Button Defaults - End */
 /* - - - - - - - - - - Other - End */
+
