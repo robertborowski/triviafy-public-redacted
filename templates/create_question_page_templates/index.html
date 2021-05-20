@@ -40,7 +40,7 @@
       <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
       <!-- <input type="text" id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" onkeyup="countCharsCategory(this);"> -->
-      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this);"></textarea>
+      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this);" required></textarea>
       <p id="charNumCategory" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
@@ -49,7 +49,7 @@
     <div class="create-question-section create-question-write-title box-shadow-reg-grey box-shadow-rounded">
       <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
       <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
-      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="create-question-answer-text-box" onkeyup="countCharsTitle(this);">
+      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="create-question-answer-text-box" onkeyup="countCharsTitle(this);" required>
       <p id="charNumTitle" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
@@ -57,7 +57,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
     <div class="create-question-section create-question-write-actual-question box-shadow-reg-grey box-shadow-rounded">
       <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
-      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="create-question-answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);"></textarea>
+      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="create-question-answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
       <p id="charNumActualQuestion" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
@@ -69,7 +69,7 @@
       <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of 3 accepted answers: "Beyonce,Beyonce Knowles Carter,Queen B"</p>
       <!-- <input type="text" id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" onkeyup="countCharsAnswers(this);"> -->
-      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);"></textarea>
+      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);" required></textarea>
       <p id="charNumAnswers" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->
@@ -81,7 +81,7 @@
       <input type="radio" id="question-difficulty-easy" name="question-difficulty-level" value="easy">
       <label for="question-difficulty-easy" class="radio-as-button question-difficulty-setting">Easy</label><br>
 
-      <input type="radio" id="question-difficulty-medium" name="question-difficulty-level" value="medium">
+      <input type="radio" id="question-difficulty-medium" name="question-difficulty-level" value="medium" checked="checked">
       <label for="question-difficulty-medium" class="radio-as-button question-difficulty-setting">Medium</label><br>
 
       <input type="radio" id="question-difficulty-hard" name="question-difficulty-level" value="hard">
@@ -92,12 +92,21 @@
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Hint Start -->
     <div class="create-question-section create-question-write-hint box-shadow-reg-grey box-shadow-rounded">
-      <label for="input_hint_str_html"><p class="create-question-section-description">Hint:</p></label>
-      <p class="create-question-section-sub-description">Optional. Leave blank if no hint.</p>
+      <label for="input_hint_str_html"><p class="create-question-section-description">Hint (Optional):</p></label>
+      <p class="create-question-section-sub-description">Optional. Leave blank if no hint needed.</p>
       <textarea id="input_hint_str_html" name="input_hint_str_html" class="create-question-answer-text-box" rows="3" cols="50" onkeyup="countCharsHint(this);"></textarea>
       <p id="charNumHint" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Hint End -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Image Upload Start -->
+    <div class="create-question-section create-question-image-upload box-shadow-reg-grey box-shadow-rounded">
+      <label for="input_image_upload"><p class="create-question-section-description">Image Upload (Optional):</p></label>
+      <p class="create-question-section-sub-description">Optional. Leave blank if no image needed.</p>
+      <p class="create-question-section-sub-description">Accepting only (.png) or (.jpg) images.</p>
+      <input type="file" id="input_image_upload" name="input_image_upload" accept="image/png, image/jpg">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Image Upload End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
     <div class="create-question-submit-button">
@@ -116,7 +125,5 @@
 
 </main>
 
-<footer class="logged-in-footer-tag">
-  <p>Contact: Robert@Triviafy.com | All Rights Reserved. 2021 Triviafy</p>
-</footer>
+<footer-signed-in-component></footer-signed-in-component>
 {% endblock %}

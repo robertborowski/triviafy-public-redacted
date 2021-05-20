@@ -99,6 +99,12 @@ main.logged-in.create-question-main form.create-question-form .create-question-w
 }
 /* - - - - - - - - - - Create Question - Hint End */
 
+/* - - - - - - - - - - Create Question - Image Upload Start */
+main.logged-in.create-question-main form.create-question-form .create-question-image-upload input[type="file"] {
+  margin-top: 20px;
+}
+/* - - - - - - - - - - Create Question - Image Upload End */
+
 /* - - - - - - - - - - Create Question - Submit Question Start */
 .create-question-submit-button {
   text-align: center;
