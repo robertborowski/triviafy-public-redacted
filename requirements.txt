@@ -6,3 +6,4 @@ slack
 slackeventsapi
 redis
 psycopg2
+boto3

@@ -1,20 +1,27 @@
-# -------------------------------------------------------------- Imports: all supporting backend files/packages
+# -------------------------------------------------------------- Imports
 import os, time
 import datetime
 from flask import Flask, session, url_for, send_from_directory
-# -------------------- Pages
+
+# ------------------------ Pages START ------------------------
+# Index page
 from backend.page_templates_backend.index_page_backend.index_page_render_template import index_page_render_template
+# Slack authentication pages
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
+# Slack dashboard pages
 from backend.page_templates_backend.dashboard_page_backend.dashboard_index_page_render_template import dashboard_index_page_render_template
+# Slack account pages
 from backend.page_templates_backend.account_page_backend.account_index_page_render_template import account_index_page_render_template
-from backend.page_templates_backend.create_question_page_backend.create_question_index_page_render_template import create_question_index_page_render_template
-from backend.page_templates_backend.create_question_page_backend.create_question_attempt_database_insert import create_question_attempt_database_insert
-# -------------------- Supporing functions
 from backend.utils.slack.send_channel_test_message.send_channel_test_message import send_channel_test_message
 from backend.page_templates_backend.account_page_backend.logout import logout
+# Create question pages
+from backend.page_templates_backend.create_question_page_backend.create_question_index_page_render_template import create_question_index_page_render_template
+from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_processing import create_question_submission_processing
+from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_success import create_question_submission_success
+# ------------------------ Pages END ------------------------
 
 
-# -------------------------------------------------------------- App setup: timezone, register app
+# ------------------------ App setup START ------------------------
 # Set the timezone of the application when user creates account is will be in US/Easterm time
 os.environ['TZ'] = 'US/Eastern'
 time.tzset()
@@ -24,19 +31,27 @@ app = Flask(__name__)
 app.secret_key = os.urandom(64)
 # Set session variables to perm so that user can remain signed in for x days
 app.permanent_session_lifetime = datetime.timedelta(days=30)
+# ------------------------ App setup END ------------------------
 
 
-# App.register's
-# -------------------- Pages
+# ------------------------ Pages - Register START ------------------------
+# Index page
 app.register_blueprint(index_page_render_template, url_prefix="")
+# Slack authentication pages
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
+# Slack dashboard pages
 app.register_blueprint(dashboard_index_page_render_template, url_prefix="")
+# Slack account pages
 app.register_blueprint(account_index_page_render_template, url_prefix="")
-app.register_blueprint(create_question_index_page_render_template, url_prefix="")
-app.register_blueprint(create_question_attempt_database_insert, url_prefix="")
-# -------------------- Supporing functions
 app.register_blueprint(send_channel_test_message, url_prefix="")
 app.register_blueprint(logout, url_prefix="")
+# Create question pages
+app.register_blueprint(create_question_index_page_render_template, url_prefix="")
+app.register_blueprint(create_question_submission_processing, url_prefix="")
+app.register_blueprint(create_question_submission_success, url_prefix="")
+# ------------------------ Pages - Register END ------------------------
+
+
 
 
 
@@ -46,15 +61,17 @@ if __name__ == "__main__":
 
   # Check environment variable that was passed in from user on the command line
   server_env = os.environ.get('TESTING', 'false')
-
-  # -------------------------------------------------------------- Running on localhost
+  # ------------------------ Running on localhost START ------------------------
   if server_env and server_env == 'true':
     print('RUNNING ON LOCALHOST')
     app.run(debug = True)#, use_reloader=False)
+  # ------------------------ Running on localhost END ------------------------
 
-  # -------------------------------------------------------------- NOT running on localhost
+
+  # ------------------------ Running on heroku server START ------------------------
   else:
     # port and run for Heroku
     print('RUNNING ON PRODUCTION')
     port = int(os.environ.get('PORT', 5000))
     app.run(host = '0.0.0.0', port = port)
+  # ------------------------ Running on heroku server END ------------------------

@@ -113,3 +113,7 @@ input:focus, textarea:focus, select:focus{
 /* - - - - - - - - - - Button Defaults - End */
 /* - - - - - - - - - - Other - End */
 
+.test_image {
+  height: 500px;
+  width: 500px;
+}

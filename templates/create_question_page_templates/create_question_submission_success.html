@@ -1,7 +1,7 @@
 {% extends "base_blueprint_page_templates/index.html" %}
 
 {% block title %}
-<title>Question Submitted Status / Triviafy</title>
+<title>Question Submitted / Triviafy</title>
 {% endblock %}
 
 
@@ -20,14 +20,14 @@
 
   <div class="create-question-background box-shadow-sm-black">
     <div class="create-question-intro">
-      <p class="create-question-title" id='words-stroke-shadow'>Question Submitted Status</p>
+      <p class="create-question-title" id='words-stroke-shadow'>Submission Successful!</p>
     </div>
   </div>
   <div class="test_image">
-    <p>Hello. Image should show below here...</p>
+    <p>Success, your question has been submitted for approval and, once approved, will show up on the next quiz.</p>
   </div>
 
   <!-- TESTING START -->
-  <img src="{{ image_test_aws_html }}" alt="">
+  <!-- <img src="{{ image_test_aws_html }}" alt=""> -->
   <!-- TESTING END -->
   {% endblock %}

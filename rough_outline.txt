@@ -39,3 +39,8 @@ COMPANY PREFERCNCES
   allow_redo: 
   num_ques_preferred: 
 }
+
+------------------------
+Create question test cases:
+  1. Upload with no image
+  2. Uplaod with no hint

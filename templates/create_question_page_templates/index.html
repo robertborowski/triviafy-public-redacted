@@ -32,7 +32,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Logo Caricature End -->
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Form Start -->
-  <form action="{{ url_for('create_question_attempt_database_insert.create_question_attempt_database_insert_function') }}" class='create-question-form' onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('create_question_submission_processing.create_question_submission_processing_function') }}" method="post" class='create-question-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select Start -->
     <div class="create-question-section create-question-write-categories box-shadow-reg-grey box-shadow-rounded">
@@ -40,7 +40,7 @@
       <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
       <!-- <input type="text" id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" onkeyup="countCharsCategory(this);"> -->
-      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this);" required></textarea>
+      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="create-question-answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this);"></textarea>
       <p id="charNumCategory" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
@@ -49,7 +49,7 @@
     <div class="create-question-section create-question-write-title box-shadow-reg-grey box-shadow-rounded">
       <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
       <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
-      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="create-question-answer-text-box" onkeyup="countCharsTitle(this);" required>
+      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="create-question-answer-text-box" onkeyup="countCharsTitle(this);">
       <p id="charNumTitle" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
@@ -57,7 +57,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
     <div class="create-question-section create-question-write-actual-question box-shadow-reg-grey box-shadow-rounded">
       <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
-      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="create-question-answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
+      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="create-question-answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);"></textarea>
       <p id="charNumActualQuestion" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
@@ -69,7 +69,7 @@
       <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of 3 accepted answers: "Beyonce,Beyonce Knowles Carter,Queen B"</p>
       <!-- <input type="text" id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" onkeyup="countCharsAnswers(this);"> -->
-      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);" required></textarea>
+      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="create-question-answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);"></textarea>
       <p id="charNumAnswers" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->
@@ -103,14 +103,14 @@
     <div class="create-question-section create-question-image-upload box-shadow-reg-grey box-shadow-rounded">
       <label for="input_image_upload"><p class="create-question-section-description">Image Upload (Optional):</p></label>
       <p class="create-question-section-sub-description">Optional. Leave blank if no image needed.</p>
-      <p class="create-question-section-sub-description">Accepting only (.png) or (.jpg) images.</p>
-      <input type="file" id="input_image_upload" name="input_image_upload" accept="image/png, image/jpg">
+      <p class="create-question-section-sub-description">Accepted formats: [.jpeg/.jpg/.png/.gif].</p>
+      <input type="file" id="input_image_upload" name="input_image_upload" oninput="filesize(this);">
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Image Upload End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
     <div class="create-question-submit-button">
-      <button class="button-default button-default-color-primary">Submit</button>
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Submit</button>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question End -->  
 
