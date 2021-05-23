@@ -1,24 +1,46 @@
-/* - - - - - - - - - - Question Presentation START */
-/* - - - - - - - - - - Question Logo START */
-/* - - - - - - - - - - Question Logo END */
+/* ============================================== */
+/* ================= MOBILE ===================== */
+/* ============================================== */
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Question Presentation START */
+  .quiz-question-section {
+    /* border: 1px solid black; */
+    width: 95%;
+    padding: 5px;
+    margin: 50px auto;
+  }
+  /* - - - - - - - - - - Question Logo START */
+  /* - - - - - - - - - - Question Logo END */
 
 
-/* - - - - - - - - - - Question Number, Title, Categories, Difficulty START */
-/* - - - - - - - - - - Question Number, Title, Categories, Difficulty END */
+  /* - - - - - - - - - - Question Number, Title, Categories, Difficulty START */
+  /* - - - - - - - - - - Question Number, Title, Categories, Difficulty END */
 
 
-/* - - - - - - - - - - Question Actual Question START */
-/* - - - - - - - - - - Question Actual Question END */
+  /* - - - - - - - - - - Question parts underneath title START */
+  /* - - - - - - - - - - Question parts underneath title END */
 
 
-/* - - - - - - - - - - Question Image START */
-/* - - - - - - - - - - Question Image END */
+  /* - - - - - - - - - - Question Actual Question START */
+  /* - - - - - - - - - - Question Actual Question END */
 
 
-/* - - - - - - - - - - Question Hint START */
-/* - - - - - - - - - - Question Hint END */
+  /* - - - - - - - - - - Question Image START */
+  .quiz-question-sub-section-image img {
+    height: 200px;
+  }
+  /* - - - - - - - - - - Question Image END */
 
 
-/* - - - - - - - - - - Question Accepted Answers START */
-/* - - - - - - - - - - Question Accepted Answers END */
-/* - - - - - - - - - - Question Presentation END */
+  /* - - - - - - - - - - Question Hint START */
+  /* - - - - - - - - - - Question Hint END */
+
+
+  /* - - - - - - - - - - Question Accepted Answers START */
+  /* - - - - - - - - - - Question Accepted Answers END */
+
+
+  /* - - - - - - - - - - Question Status START */
+  /* - - - - - - - - - - Question Status END */
+  /* - - - - - - - - - - Question Presentation END */
+}
