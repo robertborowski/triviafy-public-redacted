@@ -17,7 +17,7 @@ from backend.page_templates_backend.account_page_backend.logout import logout
 # Create question pages
 from backend.page_templates_backend.create_question_page_backend.create_question_index_page_render_template import create_question_index_page_render_template
 from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_processing import create_question_submission_processing
-from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_success import create_question_submission_success
+from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_success_page_render_template import create_question_submission_success_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -48,7 +48,7 @@ app.register_blueprint(logout, url_prefix="")
 # Create question pages
 app.register_blueprint(create_question_index_page_render_template, url_prefix="")
 app.register_blueprint(create_question_submission_processing, url_prefix="")
-app.register_blueprint(create_question_submission_success, url_prefix="")
+app.register_blueprint(create_question_submission_success_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 

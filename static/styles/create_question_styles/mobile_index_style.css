@@ -25,10 +25,6 @@
     /* border: 1px solid black; */
     width: 95%;
   }
-  main.logged-in.create-question-main form.create-question-form .create-question-section input.create-question-answer-text-box, textarea.create-question-answer-text-box {
-    width: 95%;
-  }
-
   /* - - - - - - - - - - Create Question - Category Select Start */
   /* - - - - - - - - - - Create Question - Category Select End */
 
@@ -61,4 +57,12 @@
     margin: 50px auto;
   }
   /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
+
+  /* - - - - - - - - - - Create Question - submitted link- Start */
+  main.logged-in.create-question-main .see_submitted_section p.see-submitted-link {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  /* - - - - - - - - - - Create Question - submitted link- End */
 }

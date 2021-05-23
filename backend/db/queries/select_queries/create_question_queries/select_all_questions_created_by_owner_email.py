@@ -1,5 +1,5 @@
 import psycopg2
-from psycopg2 import Error
+from psycopg2 import Error, extras
 
 def select_all_questions_created_by_owner_email_function(postgres_connection, postgres_cursor, user_email):
   """Returns: if the slack user already exists in database or not"""

@@ -9,8 +9,8 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.create_question_queries.select_all_questions_created_by_owner_email import select_all_questions_created_by_owner_email_function
 
 # -------------------------------------------------------------- App Setup
-create_question_submission_success = Blueprint("create_question_submission_success", __name__, static_folder="static", template_folder="templates")
-@create_question_submission_success.before_request
+create_question_submission_success_page_render_template = Blueprint("create_question_submission_success_page_render_template", __name__, static_folder="static", template_folder="templates")
+@create_question_submission_success_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -19,10 +19,10 @@ def before_request():
     return redirect(new_url, code=301)
 
 # -------------------------------------------------------------- App
-@create_question_submission_success.route("/create/question/submitted", methods=['GET','POST'])
-def create_question_submission_success_function():
-  """Returns /create/question/submitted page"""
-  print('=========================================== /create/question/submitted Page START ===========================================')
+@create_question_submission_success_page_render_template.route("/create/question/submitted/success", methods=['GET','POST'])
+def create_question_submission_success_page_render_template_function():
+  """Returns /create/question/submitted/success page"""
+  print('=========================================== /create/question/submitted/success Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -39,7 +39,7 @@ def create_question_submission_success_function():
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:
-    print('=========================================== /create/question/submitted Page END ===========================================')
+    print('=========================================== /create/question/submitted/success Page END ===========================================')
     return redirect('/', code=301)
   # ------------------------ Check if user is signed in END ------------------------
 
@@ -51,26 +51,24 @@ def create_question_submission_success_function():
 
   # Pull info from db
   user_all_questions_submitted_dict = select_all_questions_created_by_owner_email_function(postgres_connection, postgres_cursor, user_email)
+  
+  """
   print('- - - - - - - - - - -')
+  for i in user_all_questions_submitted_dict:
+    print(i)
+    print('- - -')
   print('- - - - - - - - - - -')
-  print('- - - - - - - - - - -')
-  print('- - - - - - - - - - -')
-  print(user_all_questions_submitted_dict)
-  print('- - - - - - - - - - -')
-  print('- - - - - - - - - - -')
-  print('- - - - - - - - - - -')
-  print('- - - - - - - - - - -')
-
+  """
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Pull created questions from user END ------------------------
 
   
-  print('=========================================== /create/question/submitted Page END ===========================================')
-  return render_template('create_question_page_templates/create_question_submitted_status.html',
+  print('=========================================== /create/question/submitted/success Page END ===========================================')
+  return render_template('create_question_page_templates/create_question_submission_page_templates/create_question_submission_success.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          user_email_to_html = user_email)#,
-                          #image_test_aws_html = create_question_uploaded_image_aws_url)
+                          user_email_to_html = user_email,
+                          user_all_submitted_questions_html = user_all_questions_submitted_dict)

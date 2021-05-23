@@ -81,7 +81,7 @@ def create_question_submission_processing_function():
   create_question_timestamp = create_timestamp_function()
   user_create_question_is_deprecated = False
   user_create_question_is_approved_for_release = False
-  question_submission_status = "Thank you for your quiz question submission! This question is currently under review/awaiting approval. Once approved, it will appear on your team's next quiz."
+  question_submission_status = "In Review"
   user_create_question_hint_allowed = False
   if len(user_create_question_hint) >= 1 and user_create_question_hint != 'no hint':
     user_create_question_hint_allowed = True
@@ -145,10 +145,4 @@ def create_question_submission_processing_function():
   # ------------------------ Upload Question to database END ------------------------
   
   print('=========================================== /create/question/processing Page END ===========================================')
-  # return render_template('create_question_page_templates/create_question_submitted_status.html',
-  #                         css_cache_busting = cache_busting_output,
-  #                         user_company_name_to_html = user_company_name,
-  #                         user_channel_name_to_html = user_channel_name,
-  #                         user_email_to_html = user_email,
-  #                         image_test_aws_html = create_question_uploaded_image_aws_url)
-  return redirect('/create/question/submitted', code=301)
+  return redirect('/create/question/submitted/success', code=301)

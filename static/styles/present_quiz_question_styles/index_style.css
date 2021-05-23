@@ -1,0 +1,79 @@
+/* - - - - - - - - - - Question Presentation START */
+.quiz-question-section {
+  /* border: 1px solid black; */
+  height: auto;
+  width: 50%;
+  margin: 25px auto;
+  padding: 10px;
+}
+/* - - - - - - - - - - Question Logo START */
+.quiz-question-sub-section-logo img {
+  margin-top: 5px;
+  height: 75px;
+  width: 75px;
+  float: left;
+}
+/* - - - - - - - - - - Question Logo END */
+
+
+/* - - - - - - - - - - Question Number, Title, Categories, Difficulty START */
+.quiz-question-sub-section-background-color {
+  background-color: var(--company-primary-color-faded);
+  border-radius: 10px;
+}
+.quiz-question-sub-section-number-and-title p {
+  font-size: 20px;
+  padding: 5px;
+}
+.quiz-question-sub-section-categories p, .quiz-question-sub-section-difficulty p {
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+/* - - - - - - - - - - Question Number, Title, Categories, Difficulty END */
+
+
+/* - - - - - - - - - - Question parts underneath title START */
+.quiz-question-sub-section-actual-question p,
+.quiz-question-sub-section-hint p,
+.quiz-question-sub-section-accepted-answers p,
+.quiz-question-sub-section-status p {
+  text-align: center;
+  width: 90%;
+  margin: 10px auto;
+}
+/* - - - - - - - - - - Question parts underneath title END */
+
+
+/* - - - - - - - - - - Question Actual Question START */
+/* - - - - - - - - - - Question Actual Question END */
+
+
+/* - - - - - - - - - - Question Image START */
+.quiz-question-sub-section-image img {
+  height: 250px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+  border: 5px solid var(--company-greyed-out-color);
+}
+.quiz-question-sub-section-image img.no-image-present {
+  display: none;
+}
+/* - - - - - - - - - - Question Image END */
+
+
+/* - - - - - - - - - - Question Hint START */
+p.no-hint-present {
+  display: none;
+}
+/* - - - - - - - - - - Question Hint END */
+
+
+/* - - - - - - - - - - Question Accepted Answers START */
+/* - - - - - - - - - - Question Accepted Answers END */
+
+
+/* - - - - - - - - - - Question Status START */
+/* - - - - - - - - - - Question Status END */
+/* - - - - - - - - - - Question Presentation END */

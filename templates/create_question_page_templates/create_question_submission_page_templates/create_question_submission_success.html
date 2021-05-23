@@ -1,0 +1,124 @@
+{% extends "base_blueprint_page_templates/index.html" %}
+
+{% block title %}
+<title>Question Submitted / Triviafy</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
+<nav-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account_js="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}",
+              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}">
+</nav-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
+
+<main class="logged-in view-submitted-questions-main">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Top Intro START -->
+  <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
+                                  channel_name_js="{{ user_channel_name_to_html }}">
+  </company-name-channel-component>
+
+  <div class="view-submitted-questions-background box-shadow-sm-black">
+    <div class="view-submitted-questions-intro">
+      <p class="view-submitted-questions-title" id='words-stroke-shadow'>Submitted Questions</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Top Intro END -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Data Table START -->
+  <!-- <div class="user-questions-submitted-status-table-section">
+    <table id="table_id" class="display">
+    
+      <thead>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td>Row 1 Data 1</td>
+          <td>Row 1 Data 2</td>
+        </tr>
+        <tr>
+          <td>Row 2 Data 1</td>
+          <td>Row 2 Data 2</td>
+        </tr>
+      </tbody>
+  
+    </table>
+  </div> -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Data Table END -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Presentation START -->
+  {% for i in user_all_submitted_questions_html %}
+  <div class="quiz-question-section box-shadow-reg-grey box-shadow-rounded">
+
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Logo START -->
+    <div class="quiz-question-sub-section-logo">
+      <img src="/static/images/logo/Logo.png" alt="Triviafy Logo">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Logo END -->
+    
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Number, Title, Categories, Difficulty START -->
+    <div class="quiz-question-sub-section-background-color">
+      <div class="quiz-question-sub-section-number-and-title">
+        <p>Q#: {{ i['question_title'] }}</p>
+      </div>
+      <div class="quiz-question-sub-section-categories">
+        <p>Categories: {{ i['question_categories_list'] }}</p>
+      </div>
+      <div class="quiz-question-sub-section-difficulty">
+        <p>Difficulty: {{ i['question_difficulty'] }}</p>
+      </div>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Number, Title, Categories, Difficulty END -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Actual Question START -->
+    <div class="quiz-question-sub-section-actual-question">
+      <p>{{ i['question_actual_question'] }}</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Actual Question END -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Image START -->
+    <div class="quiz-question-sub-section-image">
+      <img src="{{ i['question_image_aws_url'] }}" alt="Triviafy question image" class='class-check-if-image-is-present'>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Image END -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Hint START -->
+    <div class="quiz-question-sub-section-hint">
+      <p class="class-check-if-hint-is-present">Hint: {{ i['question_hint'] }}</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Hint END -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers START -->
+    <div class="quiz-question-sub-section-accepted-answers">
+      <p>Accepted Answers: {{ i['question_answers_list'] }}</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers END -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
+    <div class="quiz-question-sub-section-status">
+      <p>Status: {{ i['question_status_for_creator'] }}</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
+
+
+  </div>
+  {% endfor %}
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Presentation END -->
+
+  <footer-signed-in-component></footer-signed-in-component>
+  {% endblock %}

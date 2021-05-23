@@ -43,17 +43,6 @@ main.logged-in.create-question-main form.create-question-form .create-question-s
 main.logged-in.create-question-main form.create-question-form .create-question-section p.create-question-section-sub-description {
   font-size: 15px;
   color: var(--company-greyed-out-color);
-} 
-main.logged-in.create-question-main form.create-question-form .create-question-section input.create-question-answer-text-box, textarea.create-question-answer-text-box {
-  width: 70%;
-  padding: 12px 20px;
-  margin: 15px 0 0 0;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid var(--company-greyed-out-color);
-}
-main.logged-in.create-question-main form.create-question-form .create-question-section input.create-question-answer-text-box:focus, textarea.create-question-answer-text-box:focus {
-  border: 2px solid var(--company-primary-color);
 }
 main.logged-in.create-question-main form.create-question-form .create-question-section p.character-count-tracker {
   font-size: 12px;
@@ -66,9 +55,6 @@ main.logged-in.create-question-main form.create-question-form .create-question-s
 /* - - - - - - - - - - Create Question - Title End */
 
 /* - - - - - - - - - - Create Question - Actual Question Start */
-textarea.create-question-answer-text-box {
-  resize: none;
-}
 /* - - - - - - - - - - Create Question - Actual Question End */
 
 /* - - - - - - - - - - Create Question - Answers Start */
@@ -94,9 +80,6 @@ main.logged-in.create-question-main form.create-question-form .create-question-s
 /* - - - - - - - - - - Create Question - Difficulty End */
 
 /* - - - - - - - - - - Create Question - Hint Start */
-main.logged-in.create-question-main form.create-question-form .create-question-write-hint textarea.create-question-answer-text-box {
-  resize: none;
-}
 /* - - - - - - - - - - Create Question - Hint End */
 
 /* - - - - - - - - - - Create Question - Image Upload Start */
@@ -120,3 +103,17 @@ main.logged-in.create-question-main .create-question-image-section img.logo-crea
   margin: 75px auto;
 }
 /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
+
+/* - - - - - - - - - - Create Question - submitted link- Start */
+main.logged-in.create-question-main .see_submitted_section {
+  text-align: center;
+  padding: 0 0 50px 0;
+}
+main.logged-in.create-question-main .see_submitted_section a, main.logged-in.create-question-main .see_submitted_section a:visited {
+  text-decoration-color: var(--company-primary-color);
+} 
+main.logged-in.create-question-main .see_submitted_section p.see-submitted-link {
+  font-size: 20px;
+  color: var(--company-primary-color);
+} 
+/* - - - - - - - - - - Create Question - submitted link- End */

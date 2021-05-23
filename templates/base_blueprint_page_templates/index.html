@@ -31,6 +31,7 @@
     <!-- ------------------------------------------------ Connect to the style pages Start -->
     <!-- blueprint all root styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/base_blueprint_page_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
     <!-- Index Page - Main styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_not_signed_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <!-- Dashboard Page - Main styles -->
@@ -41,6 +42,7 @@
     <!-- Create Question - Main styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/create_question_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/create_question_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/create_question_styles/create_question_submission_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <!-- Navbars styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/navbar_page_styles/navbar_signed_in_page_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
@@ -48,6 +50,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/company_name_channel_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <!-- Footer styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/footer_page_styles/footer_logged_in_page_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- Present Quiz Question styles -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/present_quiz_question_styles/index_style.css') }}?v={{ css_cache_busting }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/present_quiz_question_styles/mobile_index_style.css') }}?v={{ css_cache_busting }}">
+    <!-- For DataTables.net css styles -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/datatables_styles/index_style.css') }}?v={{ css_cache_busting }}">
     <!-- ------------------------------------------------ Connect to the style pages End -->
 
     <!-- ------------------------------------------------ Load javascript function(s) Start -->
@@ -73,6 +81,14 @@
     <script src="/static/javascript/javascript_utils/submit_button_js/click_submit_button_once.js" type="text/javascript" defer></script>
     <!-- Create Question - Check image file size -->
     <script src="/static/javascript/javascript_utils/create_question_page_js/filesize.js" type="text/javascript" defer></script>
+    <!-- Present Quiz Question javascript -->
+    <script src="/static/javascript/javascript_utils/present_quiz_question_js/check_if_image_present.js" type="text/javascript" defer></script>
+    <script src="/static/javascript/javascript_utils/present_quiz_question_js/check_if_hint_present.js" type="text/javascript" defer></script>
+    <!-- jQuery CDN nessessary to use DataTables -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- For DataTables.net javascript -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+    <script src="/static/javascript/javascript_utils/create_question_page_js/create_question_submission_page_js/datatables.js" type="text/javascript"></script>
     <!-- ------------------------------------------------ Load javascript function(s) End -->
 
     <!-- ------------------------------------------------ Additional head elements per page Start -->

@@ -1,0 +1,14 @@
+/* - - - - - - - - - - Top Intro - Start */
+main.logged-in.view-submitted-questions-main .view-submitted-questions-background {
+  width: 100%;
+  height: 100px;
+  background-color: var(--company-primary-color);
+  text-align: center;
+}
+main.logged-in.view-submitted-questions-main .view-submitted-questions-background .view-submitted-questions-intro .view-submitted-questions-title {
+  color: white;
+  font-size: 60px;
+  padding-top: 11px;
+}
+/* - - - - - - - - - - Top Intro - End */
+

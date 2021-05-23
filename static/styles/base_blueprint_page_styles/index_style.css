@@ -111,9 +111,21 @@ input:focus, textarea:focus, select:focus{
   text-decoration: underline;
 }
 /* - - - - - - - - - - Button Defaults - End */
-/* - - - - - - - - - - Other - End */
 
-.test_image {
-  height: 500px;
-  width: 500px;
+/* - - - - - - - - - - Text box Defaults - Start */
+.answer-text-box {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 15px 0 0 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid var(--company-greyed-out-color);
 }
+.answer-text-box:focus {
+  border: 2px solid var(--company-primary-color);
+}
+textarea.answer-text-box {
+  resize: none;
+}
+/* - - - - - - - - - - Text box Defaults - End */
+/* - - - - - - - - - - Other - End */
