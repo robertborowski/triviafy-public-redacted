@@ -39,7 +39,7 @@
       <label for="input_question_categories_arr_html"><p class="create-question-section-description">Categories:</p></label>
       <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
-      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this);"></textarea>
+      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this); required"></textarea>
       <p id="charNumCategory" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
@@ -48,7 +48,7 @@
     <div class="create-question-section create-question-write-title box-shadow-reg-grey box-shadow-rounded">
       <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
       <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
-      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="answer-text-box" onkeyup="countCharsTitle(this);">
+      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="answer-text-box" onkeyup="countCharsTitle(this);" required>
       <p id="charNumTitle" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
@@ -56,7 +56,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
     <div class="create-question-section create-question-write-actual-question box-shadow-reg-grey box-shadow-rounded">
       <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
-      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);"></textarea>
+      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
       <p id="charNumActualQuestion" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
@@ -67,7 +67,7 @@
       <p class="create-question-section-sub-description">Answers are not case sensitive (Example: "Beyoncé", "BEYONCE", and "bEyOnCe" are all graded the same).</p>
       <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of 3 accepted answers: "Beyonce,Beyonce Knowles Carter,Queen B"</p>
-      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);"></textarea>
+      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);" required></textarea>
       <p id="charNumAnswers" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->

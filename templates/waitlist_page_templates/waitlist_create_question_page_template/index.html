@@ -1,0 +1,70 @@
+{% extends "base_blueprint_page_templates/index.html" %}
+
+{% block title %}
+<title>Create Question Waitlist / Triviafy</title>
+{% endblock %}
+
+
+
+{% block content %}
+<nav-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account_js="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}",
+              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}">
+</nav-component>
+
+<main class="logged-in waitlist">
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 1 Start -->
+  <div class="waitlist-create-question-logo-image-1">
+    <img src="/static/images/logo/Logo_active/Logo construction.png" alt="Logo construction outfit" class="logo-waitlist-create-question-construction-outfit-1">
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 1 End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Form Start -->
+  <form action="{{ url_for('waitlist_create_question_add_to_database_processing.waitlist_create_question_add_to_database_processing_function') }}" method="post" class='waitlist-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+    
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist title, description, and email Start -->
+    <div class="waitlist-title">
+      <p>Create Question - Waitlist</p>
+    </div>
+
+    <div class="waitlist-description">
+      <p>Creating questions are a lot of fun and help improve team creativity.</p>
+      <p>If you are interested in creating quiz questions then add your email to the waitlist and you will be notified once we've launched this functionality.</p>
+    </div>
+
+    <div class="user_email_section">
+      <p>{{ user_email_html }}</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist title, description, and email End -->
+
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Submit Form Start -->
+    <div class="waitlist_submit_button_section">
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Notified Me</button>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Submit Form End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Go back Start -->
+    <div class="waitlist_go_back_section">
+      <a href="{{ url_for('dashboard_index_page_render_template.dashboard_index_page_render_template_function') }}"><p>Go back</p></a>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Go back END -->
+  </form>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Form End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 2 Start -->
+  <div class="waitlist-create-question-logo-image-2">
+    <img src="/static/images/logo/Logo_active/Logo construction jackhammer.png" alt="Logo construction outfit" class="logo-waitlist-create-question-construction-outfit-2">
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 2 End -->
+
+
+</main>
+
+<footer-signed-in-component></footer-signed-in-component>
+{% endblock %}

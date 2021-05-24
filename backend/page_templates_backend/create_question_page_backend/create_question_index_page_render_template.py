@@ -4,6 +4,7 @@ from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
+import os
 
 # -------------------------------------------------------------- App Setup
 create_question_index_page_render_template = Blueprint("create_question_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -20,9 +21,14 @@ def before_request():
 def create_question_index_page_render_template_function():
   """Returns /create/question page"""
   print('=========================================== /create/question Page START ===========================================')
+  
+  # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
+  # ------------------------ CSS support END ------------------------
 
+
+  # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
 
@@ -33,6 +39,20 @@ def create_question_index_page_render_template_function():
   except:
     print('=========================================== /create/question Page END ===========================================')
     return redirect('/', code=301)
+  # ------------------------ Check if user is signed in END ------------------------
+  
+
+  # ------------------------ Check create question accesss START ------------------------
+  # Get personal email
+  personal_email = os.environ.get('PERSONAL_EMAIL')
+
+  # If user does not have access to create questions then redirect to waitlist page
+  if user_email != personal_email:
+    print('redirecting to the create question wait list page!')
+    print('=========================================== /create/question Page END ===========================================')
+    return redirect('/create/question/waitlist', code=301)
+  # ------------------------ Check create question accesss END ------------------------
+
   
   print('=========================================== /create/question Page END ===========================================')
   return render_template('create_question_page_templates/index.html',
