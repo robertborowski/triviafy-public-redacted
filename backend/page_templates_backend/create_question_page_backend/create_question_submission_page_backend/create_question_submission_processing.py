@@ -26,13 +26,13 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@create_question_submission_processing.route("/create/question/processing", methods=['GET','POST'])
+@create_question_submission_processing.route("/create/question/user/form/submit/processing", methods=['GET','POST'])
 def create_question_submission_processing_function():
-  """Returns /create/question/processing page"""
-  print('=========================================== /create/question/processing Page START ===========================================')
+  """Returns /create/question/user/form/submit/processing page"""
+  print('=========================================== /create/question/user/form/submit/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -49,9 +49,21 @@ def create_question_submission_processing_function():
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:
-    print('=========================================== /create/question/processing Page END ===========================================')
-    return redirect('/', code=301)
+    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
+
+
+  # ------------------------ Check create question accesss START ------------------------
+  # Get personal email
+  personal_email = os.environ.get('PERSONAL_EMAIL')
+
+  # If user does not have access to create questions then redirect to waitlist page
+  if user_email != personal_email:
+    print('redirecting to the create question wait list page!')
+    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    return redirect('/create/question/user/waitlist', code=302)
+  # ------------------------ Check create question accesss END ------------------------
 
   
   # ------------------------ Sanitize user inputs START ------------------------
@@ -70,8 +82,8 @@ def create_question_submission_processing_function():
   # Check if sanitized inputs are valid and if code can move on
   if user_create_question_categories == None or user_create_question_title == None or user_create_question_actual_question == None or user_create_question_accepted_answers == None or user_create_question_difficulty == None or user_create_question_hint == None:
     print('invalid inputs')
-    print('=========================================== /create/question/processing Page END ===========================================')
-    return redirect('/create/question', code=301)
+    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    return redirect('/create/question/user/form', code=302)
   # ------------------------ Check sanitized results END ------------------------
   
 
@@ -144,5 +156,5 @@ def create_question_submission_processing_function():
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Upload Question to database END ------------------------
   
-  print('=========================================== /create/question/processing Page END ===========================================')
-  return redirect('/create/question/submitted/success', code=301)
+  print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+  return redirect('/create/question/user/form/submit/success', code=302)

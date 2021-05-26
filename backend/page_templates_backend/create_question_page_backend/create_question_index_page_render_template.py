@@ -14,14 +14,13 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@create_question_index_page_render_template.route("/create/question", methods=['GET','POST'])
+@create_question_index_page_render_template.route("/create/question/user/form", methods=['GET','POST'])
 def create_question_index_page_render_template_function():
-  """Returns /create/question page"""
-  print('=========================================== /create/question Page START ===========================================')
-  
+  """Returns /create/question/user/form page"""
+  print('=========================================== /create/question/user/form Page START ===========================================')
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
@@ -37,8 +36,8 @@ def create_question_index_page_render_template_function():
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:
-    print('=========================================== /create/question Page END ===========================================')
-    return redirect('/', code=301)
+    print('=========================================== /create/question/user/form Page END ===========================================')
+    return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
   
 
@@ -49,12 +48,12 @@ def create_question_index_page_render_template_function():
   # If user does not have access to create questions then redirect to waitlist page
   if user_email != personal_email:
     print('redirecting to the create question wait list page!')
-    print('=========================================== /create/question Page END ===========================================')
-    return redirect('/create/question/waitlist', code=301)
+    print('=========================================== /create/question/user/form Page END ===========================================')
+    return redirect('/create/question/user/waitlist', code=302)
   # ------------------------ Check create question accesss END ------------------------
 
   
-  print('=========================================== /create/question Page END ===========================================')
+  print('=========================================== /create/question/user/form Page END ===========================================')
   return render_template('create_question_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

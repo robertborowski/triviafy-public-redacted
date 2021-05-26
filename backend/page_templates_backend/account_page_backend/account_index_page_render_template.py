@@ -13,7 +13,7 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
 @account_index_page_render_template.route("/account", methods=['GET','POST'])
@@ -32,7 +32,7 @@ def account_index_page_render_template_function():
 
   except:
     print('=========================================== /account Page END ===========================================')
-    return redirect('/', code=301)
+    return redirect('/', code=302)
   
   print('=========================================== /account Page END ===========================================')
   return render_template('account_page_templates/index.html',

@@ -19,7 +19,7 @@ def check_if_user_login_through_cookies_function():
     # If there is no information stored in redis
     except:
       print('=========================================== Page error END ===========================================')
-      return redirect('/', code=301)
+      return redirect('/', code=302)
 
   # -------------------------------------------------------------- NOT running on localhost
   else:
@@ -28,7 +28,7 @@ def check_if_user_login_through_cookies_function():
     # If there is no stored cookie information
     except:
       print('=========================================== Page error END ===========================================')
-      return redirect('/', code=301)
+      return redirect('/', code=302)
   
   # Get the logged in user info from redis database using browser cookie
   try:
@@ -36,7 +36,7 @@ def check_if_user_login_through_cookies_function():
   # If user is not logged in then kick them back to the landing page
   except:
     print('=========================================== Page error END ===========================================')
-    return redirect('/', code=301)
+    return redirect('/', code=302)
   
   # Convert the pulled str to dict with json
   user_nested_dict = json.loads(user_nested_dict_as_str)

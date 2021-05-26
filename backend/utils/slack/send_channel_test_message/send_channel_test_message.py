@@ -16,7 +16,7 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 @send_channel_test_message.route("/slack/channel/send/test/message", methods=['GET','POST'])
 def send_channel_test_message_function():
@@ -65,4 +65,4 @@ def send_channel_test_message_function():
     print(e.response['error'])
 
   print('=========================================== /slack/channel/send/test/message Page END ===========================================')
-  return redirect("/dashboard", code=301)
+  return redirect("/dashboard", code=302)

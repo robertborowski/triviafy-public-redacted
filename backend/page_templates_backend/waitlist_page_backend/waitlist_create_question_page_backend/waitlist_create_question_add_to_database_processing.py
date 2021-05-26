@@ -18,13 +18,13 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@waitlist_create_question_add_to_database_processing.route("/create/question/waitlist/processing", methods=['GET','POST'])
+@waitlist_create_question_add_to_database_processing.route("/create/question/user/waitlist/processing", methods=['GET','POST'])
 def waitlist_create_question_add_to_database_processing_function():
-  """Returns /create/question/processing page"""
-  print('=========================================== /create/question/waitlist/processing Page START ===========================================')
+  """Returns /create/question/user/waitlist/processing page"""
+  print('=========================================== /create/question/user/waitlist/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -38,8 +38,8 @@ def waitlist_create_question_add_to_database_processing_function():
     user_email = user_nested_dict['user_email']
     user_uuid = user_nested_dict['user_uuid']
   except:
-    print('=========================================== /create/question/waitlist/processing Page END ===========================================')
-    return redirect('/', code=301)
+    print('=========================================== /create/question/user/waitlist/processing Page END ===========================================')
+    return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
 
 
@@ -54,10 +54,9 @@ def waitlist_create_question_add_to_database_processing_function():
 
   if if_uuid_exists == 'User already exists in db table':
     print(if_uuid_exists)
-    print('=========================================== /create/question/waitlist Page END ===========================================')
-    return render_template('waitlist_page_templates/waitlist_create_question_page_template/index.html',
-                            css_cache_busting = cache_busting_output,
-                            user_email_html = user_email)
+    print('redirecting user to the confirm waitlist page')
+    print('=========================================== /create/question/user/waitlist/processing Page END ===========================================')
+    return redirect('/create/question/user/waitlist/confirm', code=302)
   # ------------------------ Check if user is already on this waitlist END ------------------------
   
   
@@ -78,7 +77,6 @@ def waitlist_create_question_add_to_database_processing_function():
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Add user uuid to create question waitlist database END ------------------------
 
-  print('=========================================== /create/question/waitlist Page END ===========================================')
-  return render_template('waitlist_page_templates/waitlist_create_question_page_template/index.html',
-                          css_cache_busting = cache_busting_output,
-                          user_email_html = user_email)
+  print('=========================================== /create/question/user/waitlist/processing Page END ===========================================')
+  print('redirecting user to the confirm waitlist page')
+  return redirect('/create/question/user/waitlist/confirm', code=302)

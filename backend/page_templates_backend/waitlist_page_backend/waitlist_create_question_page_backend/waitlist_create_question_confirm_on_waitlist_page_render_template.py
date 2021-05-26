@@ -9,8 +9,8 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.select_triviafy_waitlist_create_question_table_check_if_uuid_exists import select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
 
 # -------------------------------------------------------------- App Setup
-waitlist_create_question_page_render_template = Blueprint("waitlist_create_question_page_render_template", __name__, static_folder="static", template_folder="templates")
-@waitlist_create_question_page_render_template.before_request
+waitlist_create_question_confirm_on_waitlist_page_render_template = Blueprint("waitlist_create_question_confirm_on_waitlist_page_render_template", __name__, static_folder="static", template_folder="templates")
+@waitlist_create_question_confirm_on_waitlist_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -19,10 +19,10 @@ def before_request():
     return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@waitlist_create_question_page_render_template.route("/create/question/user/waitlist", methods=['GET','POST'])
-def waitlist_create_question_page_render_template_function():
-  """Returns /create/question/user/waitlist page"""
-  print('=========================================== /create/question/user/waitlist Page START ===========================================')
+@waitlist_create_question_confirm_on_waitlist_page_render_template.route("/create/question/user/waitlist/confirm", methods=['GET','POST'])
+def waitlist_create_question_confirm_on_waitlist_page_render_template_function():
+  """Returns /create/question/user/waitlist/confirm page"""
+  print('=========================================== /create/question/user/waitlist/confirm Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -33,11 +33,9 @@ def waitlist_create_question_page_render_template_function():
   # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
-    user_email = user_nested_dict['user_email']
     user_uuid = user_nested_dict['user_uuid']
   except:
-    print('No account associated with this user')
-    print('=========================================== /create/question/user/waitlist Page END ===========================================')
+    print('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
     return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
 
@@ -51,15 +49,14 @@ def waitlist_create_question_page_render_template_function():
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  if if_uuid_exists == 'User already exists in db table':
+  if if_uuid_exists != 'User already exists in db table':
     print(if_uuid_exists)
-    print('redirecting user to the confirm waitlist')
-    print('=========================================== /create/question/waitlist/confirm Page END ===========================================')
-    return redirect('/create/question/user/waitlist/confirm', code=302)
+    print('redirecting user to the waitlist signup page')
+    print('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
+    return redirect('/create/question/user/waitlist', code=302)
   # ------------------------ Check if user is already on this waitlist END ------------------------
 
-  
-  print('=========================================== /create/question/user/waitlist Page END ===========================================')
-  return render_template('waitlist_page_templates/waitlist_create_question_page_template/index.html',
-                          css_cache_busting = cache_busting_output,
-                          user_email_html = user_email)
+
+  # ------------------------ Return confirm page START ------------------------
+  return render_template('waitlist_page_templates/waitlist_create_question_page_template/waitlist_create_question_confirm_on_waitlist.html')
+  # ------------------------ Return confirm page END ------------------------

@@ -14,20 +14,13 @@
 
 <main class="logged-in waitlist">
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 1 Start -->
-  <div class="waitlist-create-question-logo-image-1">
-    <img src="/static/images/logo/Logo_active/Logo construction.png" alt="Logo construction outfit" class="logo-waitlist-create-question-construction-outfit-1">
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 1 End -->
-
-
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Form Start -->
-  <form action="{{ url_for('waitlist_create_question_add_to_database_processing.waitlist_create_question_add_to_database_processing_function') }}" method="post" class='waitlist-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('waitlist_create_question_add_to_database_processing.waitlist_create_question_add_to_database_processing_function') }}" method="post" class='waitlist-form box-shadow-reg-grey box-shadow-rounded' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     
     
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist title, description, and email Start -->
     <div class="waitlist-title">
-      <p>Create Question - Waitlist</p>
+      <p>Create Question - Join Waitlist</p>
     </div>
 
     <div class="waitlist-description">
@@ -43,7 +36,7 @@
     
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Submit Form Start -->
     <div class="waitlist_submit_button_section">
-      <button class="button-default button-default-color-primary" type="submit" value="submit">Notified Me</button>
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Notify Me</button>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Submit Form End -->
 
@@ -57,12 +50,19 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Waitlist Form End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 2 Start -->
-  <div class="waitlist-create-question-logo-image-2">
-    <img src="/static/images/logo/Logo_active/Logo construction jackhammer.png" alt="Logo construction outfit" class="logo-waitlist-create-question-construction-outfit-2">
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricature 2 End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricatures Start -->
+  <div class="logo-caricatures-group">
+    
+    <div class="waitlist-create-question-logo-caricature">
+      <img src="/static/images/logo/Logo_active/Logo construction jackhammer.png" alt="Logo construction outfit" class="waitlist-create-question-logo-caricature-jackhammer">
+    </div>
 
+    <div class="waitlist-create-question-logo-caricature">
+      <img src="/static/images/logo/Logo_active/Logo construction.png" alt="Logo construction outfit" class="waitlist-create-question-logo-caricature-blueprint">
+    </div>
+
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logo Caricatures End -->
 
 </main>
 

@@ -17,7 +17,7 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
@@ -80,4 +80,4 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
   #return render_template('dashboard_page_templates/index.html', css_cache_busting = cache_busting_output)
-  return redirect("/dashboard", code=301)
+  return redirect("/dashboard", code=302)

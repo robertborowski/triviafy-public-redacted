@@ -13,7 +13,7 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
 @dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
@@ -34,7 +34,7 @@ def dashboard_index_page_render_template_function():
     user_team_latest_quiz_info = ['1', '11/25/21']
   except:
     print('=========================================== /dashboard Page END ===========================================')
-    return redirect('/', code=301)
+    return redirect('/', code=302)
   
   print('=========================================== /dashboard Page END ===========================================')
   return render_template('dashboard_page_templates/index.html',

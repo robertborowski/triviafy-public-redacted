@@ -16,7 +16,7 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
 @index_page_render_template.route("/", methods=['GET','POST'])
@@ -38,7 +38,7 @@ def index_page_render_template_function():
       print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
       print('=========================================== Landing Page END ===========================================')
       #return render_template('dashboard_page_templates/dashboard_page.html', css_cache_busting = cache_busting_output)   # <------ pass in the redis_user_nested_dict to the dashboard page here
-      return redirect("/dashboard", code=301)
+      return redirect("/dashboard", code=302)
 
   # If cookie does not exist then set the cookie
   if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:

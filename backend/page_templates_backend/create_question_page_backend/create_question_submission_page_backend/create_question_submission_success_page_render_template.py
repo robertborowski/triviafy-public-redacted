@@ -7,6 +7,7 @@ from backend.utils.cached_login.check_if_user_login_through_cookies import check
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.create_question_queries.select_all_questions_created_by_owner_email import select_all_questions_created_by_owner_email_function
+import os
 
 # -------------------------------------------------------------- App Setup
 create_question_submission_success_page_render_template = Blueprint("create_question_submission_success_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -16,13 +17,13 @@ def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
-    return redirect(new_url, code=301)
+    return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@create_question_submission_success_page_render_template.route("/create/question/submitted/success", methods=['GET','POST'])
+@create_question_submission_success_page_render_template.route("/create/question/user/form/submit/success", methods=['GET','POST'])
 def create_question_submission_success_page_render_template_function():
-  """Returns /create/question/submitted/success page"""
-  print('=========================================== /create/question/submitted/success Page START ===========================================')
+  """Returns /create/question/user/form/submit/success page"""
+  print('=========================================== /create/question/user/form/submit/success Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -39,9 +40,21 @@ def create_question_submission_success_page_render_template_function():
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:
-    print('=========================================== /create/question/submitted/success Page END ===========================================')
-    return redirect('/', code=301)
+    print('=========================================== /create/question/user/form/submit/success Page END ===========================================')
+    return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
+
+
+  # ------------------------ Check create question accesss START ------------------------
+  # Get personal email
+  personal_email = os.environ.get('PERSONAL_EMAIL')
+
+  # If user does not have access to create questions then redirect to waitlist page
+  if user_email != personal_email:
+    print('redirecting to the create question wait list page!')
+    print('=========================================== /create/question/user/form/submit/success Page END ===========================================')
+    return redirect('/create/question/user/waitlist', code=302)
+  # ------------------------ Check create question accesss END ------------------------
 
   
   # ------------------------ Pull created questions from user START ------------------------
@@ -52,20 +65,18 @@ def create_question_submission_success_page_render_template_function():
   # Pull info from db
   user_all_questions_submitted_dict = select_all_questions_created_by_owner_email_function(postgres_connection, postgres_cursor, user_email)
   
-  """
-  print('- - - - - - - - - - -')
-  for i in user_all_questions_submitted_dict:
-    print(i)
-    print('- - -')
-  print('- - - - - - - - - - -')
-  """
+  # print('- - - - - - - - - - -')
+  # for i in user_all_questions_submitted_dict:
+  #   print(i)
+  #   print('- - -')
+  # print('- - - - - - - - - - -')
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Pull created questions from user END ------------------------
 
   
-  print('=========================================== /create/question/submitted/success Page END ===========================================')
+  print('=========================================== /create/question/user/form/submit/success Page END ===========================================')
   return render_template('create_question_page_templates/create_question_submission_page_templates/create_question_submission_success.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

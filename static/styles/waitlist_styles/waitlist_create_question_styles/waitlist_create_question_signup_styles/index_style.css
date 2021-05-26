@@ -1,24 +1,12 @@
-/* - - - - - - - - - - Logo Caricature 1 Start */
-.waitlist-create-question-logo-image-1, .waitlist-create-question-logo-image-2 {
-  text-align: center;
-}
-.waitlist-create-question-logo-image-1 img.logo-waitlist-create-question-construction-outfit-1, .waitlist-create-question-logo-image-2 img.logo-waitlist-create-question-construction-outfit-2 {
-  height: 250px;
-  width: 250px;
-  padding: 10px;
-}
-/* - - - - - - - - - - Logo Caricature 1 End */
-
-
 /* - - - - - - - - - - Waitlist form Start */
 form.waitlist-form {
   background-color: white;
   text-align: center;
   width: 50%;
-  margin: 0px auto;
-  border: 5px solid var(--company-primary-color);
+  margin: 75px auto 0 auto;
+  /* border: 5px solid var(--company-primary-color); */
   border-radius: 10px;
-  padding: 30px;
+  padding: 40px;
 }
 
 
@@ -49,5 +37,20 @@ form.waitlist-form {
 /* - - - - - - - - - - Waitlist form End */
 
 
-/* - - - - - - - - - - Logo Caricature 2 Start */
-/* - - - - - - - - - - Logo Caricature 2 End */
+/* - - - - - - - - - - Logo caricatures Start */
+.logo-caricatures-group {
+  /* border: 1px solid black; */
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+.waitlist-create-question-logo-caricature {
+  display: inline-block;
+}
+img.waitlist-create-question-logo-caricature-jackhammer, img.waitlist-create-question-logo-caricature-blueprint {
+  height: 250px;
+  width: 250px;
+  margin: 50px 0;
+}
+/* - - - - - - - - - - Logo caricatures End */
+
