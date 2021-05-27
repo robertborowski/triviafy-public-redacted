@@ -1,8 +1,13 @@
-/* - - - - - - - - - - Latest quiz intro - Start */
-.quiz-settings-section {
-  border: 5px solid black;
+/* - - - - - - - - - - Create Question Intro - Start */
+.page-intro-background {
+  width: 100%;
+  height: 100px;
+  background-color: var(--company-primary-color);
+  text-align: center;
 }
-.quiz-settings-section p {
-  color: red;
+.page-intro-background .page-intro-section .page-intro-sub-section-title {
+  color: white;
+  font-size: 60px;
+  padding-top: 11px;
 }
-/* - - - - - - - - - - Latest quiz intro - End */
+/* - - - - - - - - - - Create Question Intro - End */

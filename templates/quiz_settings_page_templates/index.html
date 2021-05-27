@@ -16,11 +16,21 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
 <main class="logged-in quiz-settings-main">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Start -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
 
+  <div class="page-intro-background box-shadow-sm-black">
+    <div class="page-intro-section">
+      <p class="page-intro-sub-section-title" id='words-stroke-shadow'>Quiz Settings</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
+
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Start -->
   <div class="quiz-settings-section">
     <p>Hello World!</p>
     <p>{{ company_quiz_settings_last_updated_timestamp_html }}</p>
@@ -30,8 +40,8 @@
     <p>{{ company_quiz_settings_end_time_html }}</p>
     <p>{{ company_quiz_settings_questions_per_quiz_html }}</p>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings End -->
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings End -->
 </main>
 
 <footer-signed-in-component></footer-signed-in-component>
