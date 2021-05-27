@@ -5,6 +5,7 @@ import json
 
 def check_if_user_login_through_cookies_function():
   """Check if the user is logged in through cookies. If so then return the user object"""
+  
   # Connect to redis database pool (no need to close)
   redis_connection = redis_connect_to_database_function()
   

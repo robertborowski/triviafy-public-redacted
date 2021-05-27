@@ -20,9 +20,14 @@ def before_request():
 def dashboard_index_page_render_template_function():
   """Returns dashboard page"""
   print('=========================================== /dashboard Page START ===========================================')
+  
+  # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
+  # ------------------------ CSS support END ------------------------
 
+
+  # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
 
@@ -35,6 +40,9 @@ def dashboard_index_page_render_template_function():
   except:
     print('=========================================== /dashboard Page END ===========================================')
     return redirect('/', code=302)
+  # ------------------------ Check if user is signed in END ------------------------
+
+
   
   print('=========================================== /dashboard Page END ===========================================')
   return render_template('dashboard_page_templates/index.html',

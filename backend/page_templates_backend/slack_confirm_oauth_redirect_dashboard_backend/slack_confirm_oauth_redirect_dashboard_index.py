@@ -24,9 +24,14 @@ def before_request():
 def slack_confirm_oauth_redirect_dashboard_index_function():
   """Returns: Authenticates user access and stores login info in database"""  
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
+  
+  # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
+  # ------------------------ CSS support END ------------------------
 
+
+  # ------------------------ Check Server Running START ------------------------
   # -------------------------------------------------------------- Running on localhost
   server_env = os.environ.get('TESTING', 'false')
   # If running on localhost
@@ -48,8 +53,10 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
   else:
     slack_state_value_passed_in_url = session['slack_state_uuid_value']
     get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
+  # ------------------------ Check Server Running END ------------------------
 
-  # -------------------------------------------------------------- Slack authentication
+
+  # ------------------------ Slack Authentication START ------------------------
   # Set up client
   slack_bot_token = os.environ.get('SLACK_BOT_TOKEN')
   client = WebClient(token=slack_bot_token)
@@ -63,19 +70,24 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
   # Authorize slack app for user
   if state_received == slack_state_value_passed_in_url:
     try:
+      # Slack authentication method, get response object
       authed_response_obj = client.oauth_v2_access(
         client_id = my_slack_client_id,
         client_secret = my_slack_client_secret,
         code = auth_code_received
       )
-
       # With the response object, update the postgres database for user
+      # ------------------------ Slack repsonse - Before DB - START ------------------------
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
+      # ------------------------ Slack repsonse - Before DB - END ------------------------
+      # Store in redis
       user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
       print(user_store_in_redis_status)
-      
     except:
       print('Error while running "slack_receive_http_oauth_user" script.')
+    # ------------------------ Slack Authentication END ------------------------
+
+
 
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
