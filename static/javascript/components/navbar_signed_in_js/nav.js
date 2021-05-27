@@ -31,7 +31,7 @@ class NavbarClass extends HTMLElement {
               <li><a href="#">Feedback</a></li>
               <li><a href="#">Archive</a></li>
               <li><a href="${this.getAttribute("link_create_question_js")}">Create Question</a></li>
-              <li><a href="#">Settings</a></li>
+              <li><a href="${this.getAttribute("link_quiz_settings_index_js")}">Settings</a></li>
             </ul>
           </li>
           <li class="drill-down"><a href="#">Account <i class="fas fa-caret-down"></i></a>

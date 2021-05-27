@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 import os, time
 import datetime
-from flask import Flask, session, url_for, send_from_directory
+from flask import Flask, session, url_for, send_from_directory, render_template
 
 # ------------------------ Pages START ------------------------
 # Index page
@@ -21,6 +21,8 @@ from backend.page_templates_backend.waitlist_page_backend.waitlist_create_questi
 from backend.page_templates_backend.create_question_page_backend.create_question_index_page_render_template import create_question_index_page_render_template
 from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_processing import create_question_submission_processing
 from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_success_page_render_template import create_question_submission_success_page_render_template
+# Quiz Settings pages
+from backend.page_templates_backend.quiz_settings_page_backend.quiz_settings_index_page_render_template import quiz_settings_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -30,13 +32,22 @@ os.environ['TZ'] = 'US/Eastern'
 time.tzset()
 # Flask constructor
 app = Flask(__name__)
+#app = Flask(__name__, static_folder="static", template_folder="templates")
+
 # To use a session, there has to be a secret key. The string should be something difficult to guess
 app.secret_key = os.urandom(64)
 # Set session variables to perm so that user can remain signed in for x days
 app.permanent_session_lifetime = datetime.timedelta(days=30)
 
-
+# For removing cache from images for quiz questions. The URL was auto caching and not updating
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+  # ------------------------ Handleing Error Messages START ------------------------
+@app.errorhandler(404)
+# inbuilt function which takes error as parameter
+def not_found(e):
+  return render_template("error_404_page_templates/index.html")
+  # ------------------------ Handleing Error Messages END ------------------------
 # ------------------------ App setup END ------------------------
 
 
@@ -58,6 +69,8 @@ app.register_blueprint(waitlist_create_question_confirm_on_waitlist_page_render_
 app.register_blueprint(create_question_index_page_render_template, url_prefix="")
 app.register_blueprint(create_question_submission_processing, url_prefix="")
 app.register_blueprint(create_question_submission_success_page_render_template, url_prefix="")
+# Quiz Settings pages
+app.register_blueprint(quiz_settings_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 

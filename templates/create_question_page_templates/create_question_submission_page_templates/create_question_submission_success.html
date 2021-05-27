@@ -1,4 +1,4 @@
-{% extends "base_blueprint_page_templates/index.html" %}
+{% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
 <title>Question Submitted / Triviafy</title>
@@ -11,7 +11,8 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
 <nav-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
               link_account_js="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}",
-              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}">
+              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}",
+              link_quiz_settings_index_js="{{ url_for('quiz_settings_index_page_render_template.quiz_settings_index_page_render_template_function') }}">
 </nav-component>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
