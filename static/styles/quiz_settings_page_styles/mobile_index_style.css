@@ -1,0 +1,22 @@
+/* ============================================== */
+/* ================= MOBILE ===================== */
+/* ============================================== */
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Create Question Intro - Start */
+  .page-intro-background .page-intro-section .page-intro-sub-section-title {
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  /* - - - - - - - - - - Create Question Intro - End */
+
+
+  /* - - - - - - - - - - Quiz Settings - Start */
+  .quiz-settings-sub-section {
+    width: 95%;
+  }
+  /* - - - - - - - - - - Quiz Settings - End */
+
+
+  /* - - - - - - - - - - Quiz Settings Edit - Start */
+  /* - - - - - - - - - - Quiz Settings Edit - End */
+}
