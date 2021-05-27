@@ -34,6 +34,9 @@ app = Flask(__name__)
 app.secret_key = os.urandom(64)
 # Set session variables to perm so that user can remain signed in for x days
 app.permanent_session_lifetime = datetime.timedelta(days=30)
+
+
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 # ------------------------ App setup END ------------------------
 
 

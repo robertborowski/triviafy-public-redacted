@@ -83,3 +83,16 @@ def create_question_submission_success_page_render_template_function():
                           user_channel_name_to_html = user_channel_name,
                           user_email_to_html = user_email,
                           user_all_submitted_questions_html = user_all_questions_submitted_dict)
+
+
+
+# ------------------------ After - Do Not Cache Image URL START ------------------------
+# No caching at all for API endpoints.
+@create_question_submission_success_page_render_template.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+# ------------------------ After - Do Not Cache Image URL END ------------------------
