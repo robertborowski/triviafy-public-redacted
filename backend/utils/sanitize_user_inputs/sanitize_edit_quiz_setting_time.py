@@ -1,0 +1,5 @@
+def sanitize_edit_quiz_setting_time_function(user_input_form):
+  """Check if valid input"""
+  if (user_input_form != 'nine_am' and len(user_input_form) != 7) and (user_input_form != 'ten_am' and len(user_input_form) != 6) and (user_input_form != 'eleven_am' and len(user_input_form) != 9) and (user_input_form != 'noon' and len(user_input_form) != 4) and (user_input_form != 'one_pm' and len(user_input_form) != 6) and (user_input_form != 'two_pm' and len(user_input_form) != 6) and (user_input_form != 'three_pm' and len(user_input_form) != 8) and (user_input_form != 'four_pm' and len(user_input_form) != 7) and (user_input_form != 'five_pm' and len(user_input_form) != 7) and (user_input_form != 'six_pm' and len(user_input_form) != 6) and (user_input_form != 'seven_pm' and len(user_input_form) != 8):
+    return None
+  return user_input_form
