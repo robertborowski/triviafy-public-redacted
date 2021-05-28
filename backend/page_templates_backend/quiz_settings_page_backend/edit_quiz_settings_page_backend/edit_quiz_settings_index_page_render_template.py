@@ -9,8 +9,8 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 
 # -------------------------------------------------------------- App Setup
-quiz_settings_index_page_render_template = Blueprint("quiz_settings_index_page_render_template", __name__, static_folder="static", template_folder="templates")
-@quiz_settings_index_page_render_template.before_request
+edit_quiz_settings_index_page_render_template = Blueprint("edit_quiz_settings_index_page_render_template", __name__, static_folder="static", template_folder="templates")
+@edit_quiz_settings_index_page_render_template.before_request
 def before_request():
   """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
@@ -19,10 +19,10 @@ def before_request():
     return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@quiz_settings_index_page_render_template.route("/quiz/team/settings", methods=['GET','POST'])
-def quiz_settings_index_page_render_template_function():
-  """Returns /quiz/team/settings settings page"""
-  print('=========================================== /quiz/team/settings Page START ===========================================')
+@edit_quiz_settings_index_page_render_template.route("/quiz/team/settings/payment/admin/edit", methods=['GET','POST'])
+def edit_quiz_settings_index_page_render_template_function():
+  """Returns /quiz/team/settings/payment/admin/edit settings page"""
+  print('=========================================== /quiz/team/settings/payment/admin/edit Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -33,8 +33,17 @@ def quiz_settings_index_page_render_template_function():
   # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
-
+    
+    # ------------------------ Check if user is payment admin in START ------------------------
+    # See if user is payment admin. If not then they cannot edit quiz settings
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
+    if user_payment_admin_status != True:
+      print('User is not a payment admin on their team/channel ID combo')
+      print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
+      return redirect('/quiz/team/settings', code=302)
+    # ------------------------ Check if user is payment admin in END ------------------------
+
+    # Page intro information
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
 
@@ -61,13 +70,13 @@ def quiz_settings_index_page_render_template_function():
     # ------------------------ Get Quiz Settings Info END ------------------------
     
   except:
-    print('=========================================== /quiz/team/settings Page END ===========================================')
+    print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
     return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------
 
   
-  print('=========================================== /quiz/team/settings Page END ===========================================')
-  return render_template('quiz_settings_page_templates/index.html',
+  print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
+  return render_template('quiz_settings_page_templates/edit_quiz_settings_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
@@ -76,17 +85,4 @@ def quiz_settings_index_page_render_template_function():
                           company_quiz_settings_start_time_html = company_quiz_settings_start_time,
                           company_quiz_settings_end_day_html = company_quiz_settings_end_day,
                           company_quiz_settings_end_time_html = company_quiz_settings_end_time,
-                          company_quiz_settings_questions_per_quiz_html = company_quiz_settings_questions_per_quiz,
-                          user_payment_admin_status_html = user_payment_admin_status)
-
-
-# ------------------------ After - Do Not Cache Image URL START ------------------------
-# No caching at all for API endpoints.
-@quiz_settings_index_page_render_template.after_request
-def add_header(response):
-    # response.cache_control.no_store = True
-    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '-1'
-    return response
-# ------------------------ After - Do Not Cache Image URL END ------------------------
+                          company_quiz_settings_questions_per_quiz_html = company_quiz_settings_questions_per_quiz)

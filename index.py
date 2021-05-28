@@ -23,6 +23,7 @@ from backend.page_templates_backend.create_question_page_backend.create_question
 from backend.page_templates_backend.create_question_page_backend.create_question_submission_page_backend.create_question_submission_success_page_render_template import create_question_submission_success_page_render_template
 # Quiz Settings pages
 from backend.page_templates_backend.quiz_settings_page_backend.quiz_settings_index_page_render_template import quiz_settings_index_page_render_template
+from backend.page_templates_backend.quiz_settings_page_backend.edit_quiz_settings_page_backend.edit_quiz_settings_index_page_render_template import edit_quiz_settings_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -71,6 +72,7 @@ app.register_blueprint(create_question_submission_processing, url_prefix="")
 app.register_blueprint(create_question_submission_success_page_render_template, url_prefix="")
 # Quiz Settings pages
 app.register_blueprint(quiz_settings_index_page_render_template, url_prefix="")
+app.register_blueprint(edit_quiz_settings_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
