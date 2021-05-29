@@ -1,0 +1,12 @@
+.question-feedback-success-section {
+  /* border: 5px solid black; */
+  text-align: center;
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.quiz-feedback-success-button-div {
+  text-align: center;
+  margin-bottom: 50px;
+}

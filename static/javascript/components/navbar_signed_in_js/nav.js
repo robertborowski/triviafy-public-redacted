@@ -28,7 +28,7 @@ class NavbarClass extends HTMLElement {
           </li>
           <li class="drill-down"><a href="#">Quiz <i class="fas fa-caret-down"></i></a>
             <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items thicker-ul-item">
-              <li><a href="#">Feedback</a></li>
+              <li><a href="${this.getAttribute("link_quiz_feedback_index_js")}">Feedback</a></li>
               <li><a href="#">Archive</a></li>
               <li><a href="${this.getAttribute("link_create_question_js")}">Create Question</a></li>
               <li><a href="${this.getAttribute("link_quiz_settings_index_js")}">Settings</a></li>

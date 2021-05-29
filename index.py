@@ -25,6 +25,10 @@ from backend.page_templates_backend.create_question_page_backend.create_question
 from backend.page_templates_backend.quiz_settings_page_backend.quiz_settings_index_page_render_template import quiz_settings_index_page_render_template
 from backend.page_templates_backend.quiz_settings_page_backend.edit_quiz_settings_page_backend.edit_quiz_settings_index_page_render_template import edit_quiz_settings_index_page_render_template
 from backend.page_templates_backend.quiz_settings_page_backend.edit_quiz_settings_page_backend.edit_quiz_settings_submit_new_quiz_settings import edit_quiz_settings_submit_new_quiz_settings
+# Quiz Feedback pages
+from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_index_page_render_template import quiz_feedback_index_page_render_template
+from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_processing import quiz_feedback_processing
+from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_success_page_render_template import quiz_feedback_success_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -75,6 +79,10 @@ app.register_blueprint(create_question_submission_success_page_render_template, 
 app.register_blueprint(quiz_settings_index_page_render_template, url_prefix="")
 app.register_blueprint(edit_quiz_settings_index_page_render_template, url_prefix="")
 app.register_blueprint(edit_quiz_settings_submit_new_quiz_settings, url_prefix="")
+# Quiz Feedback pages
+app.register_blueprint(quiz_feedback_index_page_render_template, url_prefix="")
+app.register_blueprint(quiz_feedback_processing, url_prefix="")
+app.register_blueprint(quiz_feedback_success_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
