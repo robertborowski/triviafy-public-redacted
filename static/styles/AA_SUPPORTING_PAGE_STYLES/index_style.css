@@ -1,4 +1,4 @@
-/* - - - - - - - - - - Regular screen - Start */
+/* - - - - - - - - - - All Styles - Start */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,9 +7,6 @@
   font-family: 'Roboto', sans-serif;
   -webkit-appearance: none;
 }
-/* - - - - - - - - - - Regular screen - End */
-
-/* - - - - - - - - - - Mobile screen - Start */
 @media (max-width: 800px) {
   * {
     box-sizing: border-box;
@@ -20,7 +17,8 @@
     -webkit-appearance: none;
   }
 }
-/* - - - - - - - - - - Mobile screen - End */
+/* - - - - - - - - - - All Styles - End */
+
 
 /* Set Global Variables */
 /* - - - - - - - - - - Root global variables - Start */
@@ -30,16 +28,20 @@
   --company-primary-color: rgb(196, 94, 255);
   --company-primary-darker-outline-color: rgb(161, 0, 255);
   --company-primary-color-faded: rgba(196, 94, 255, 0.400);
+  
   /* Se ondary colors */
   --company-secondary-color: rgb(0, 255, 192);
   --company-secondary-color-darker: rgb(0, 168, 126);
+  
   /* Grey colors */
   --company-greyed-out-color: rgb(170, 170, 170);
+  
   /* Button Colors */
   --company-button-interior-light-grey-color: rgb(234, 234, 234);
   --company-button-outline-light-grey-color: rgb(190, 190, 190);
 }
 /* - - - - - - - - - - Root global variables - End */
+
 
 /* Set Global Classes and ID's */
 /* - - - - - - - - - - Box shadows - Start */
@@ -75,12 +77,14 @@
 }
 /* - - - - - - - - - - Box shadows - End */
 
+
 /* - - - - - - - - - - Stroke - Start */
 #words-stroke-shadow {
   /* -webkit-text-stroke: 1px black; */
 	text-shadow: 1px 1px 1px rgb(70, 0, 80);
 }
 /* - - - - - - - - - - Stroke - End */
+
 
 /* - - - - - - - - - - Other - Start */
 /* Remove default behavior of textbox style */

@@ -16,7 +16,7 @@
 </nav-component>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
-<main class="logged-in dashboard-main">
+<main class="logged-in">
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
@@ -25,7 +25,7 @@
   <div class="latest-quiz-intro-background box-shadow-sm-black">
     <div class="latest-quiz-intro">
       <p class="client-latest-quiz-number" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
-      <p class="client-latest-quiz-due-date">Due: 7pm {{ user_team_latest_quiz_due_to_html }}</p>
+      <p class="client-latest-quiz-due-date">Due: {{ quiz_end_time_to_html }}, {{ quiz_end_day_of_week_to_html[:3] }}, {{ quiz_end_date_to_html }}</p>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal Start -->
       <a href="#"><p class="modal-see-rules" id="quiz-rules-activate-modal">See Rules</p></a>
       <div id="quiz-rules-details-modal" class="quiz-modal">
@@ -38,9 +38,10 @@
           
           <div class="modal-body">
             <ul>
-              <li>First place = 1 point & 10 points = <span class="modal-bolder-rules">Gift Card Prize!</span></li>
+              <li>First place = 1 '<em>Bragging-Right-Card</em>' & 10 '<em>Bragging-Right-Cards</em>' = <span class="modal-bolder-rules">Gift Card Prize!</span></li>
               <li>Think for yourself. Looking up anything = <span class="modal-bolder-rules">cheating</span>.</li>
               <li><span class="modal-bolder-rules">Spelling errors</span> do not affect score, but try your best.</li>
+              <li><span class="modal-bolder-rules">Multiple answers</span> are acceptable.</li>
               <li>Email: <span class="modal-bolder-rules">robert@triviafy.com</span> with any feedback.</li>
             </ul>
           </div>
@@ -55,8 +56,87 @@
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro End -->
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form Start -->
+  <form action="{{ url_for('create_question_submission_processing.create_question_submission_processing_function') }}" method="post" class='current-quiz-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
+    {% for i in quiz_questions_obj_html %}
+    <div class="quiz-question-section box-shadow-reg-grey box-shadow-rounded">
+
+      
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Logo START -->
+      <div class="quiz-question-sub-section-logo">
+        <img src="/static/images/logo/Logo.png" alt="Triviafy Logo">
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Logo END -->
+      
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Number, Title, Categories, Difficulty START -->
+      <div class="quiz-question-sub-section-background-color">
+        <div class="quiz-question-sub-section-number-and-title">
+          <p>Q{{ i['quiz_question_number'] }}: {{ i['question_title'] }}</p>
+        </div>
+        <div class="quiz-question-sub-section-categories">
+          <p>Categories: {{ i['question_categories_list'] }}</p>
+        </div>
+        <div class="quiz-question-sub-section-difficulty">
+          <p>Difficulty: {{ i['question_difficulty'] }}</p>
+        </div>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Number, Title, Categories, Difficulty END -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Actual Question START -->
+      <div class="quiz-question-sub-section-actual-question">
+        <p>{{ i['question_actual_question'] }}</p>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Actual Question END -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Image START -->
+      <div class="quiz-question-sub-section-image">
+        <img src="{{ i['question_image_aws_url'] }}" alt="Triviafy question image" class='class-check-if-image-is-present'>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Image END -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Hint START -->
+      <div class="quiz-question-sub-section-hint">
+        <p class="class-check-if-hint-is-present">Hint: {{ i['question_hint'] }}</p>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Hint END -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers START -->
+      <div class="quiz-question-sub-section-accepted-answers">
+        <p>Accepted Answers: {{ i['question_answers_list'] }}</p>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers END -->
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
+      <div class="quiz-question-sub-section-status">
+        <p>Status: {{ i['question_status_for_creator'] }}</p>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
+
+
+    </div>
+    {% endfor %}
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions End -->
+
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
+
+    <div class="create-question-submit-button">
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Submit</button>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question End --> 
+
+
+  </form>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form END -->
 
 </main>
 

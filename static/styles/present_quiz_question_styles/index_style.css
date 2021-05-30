@@ -52,6 +52,7 @@
 .quiz-question-sub-section-image img {
   height: 250px;
   width: auto;
+  max-width: 100%;
   margin: 0 auto;
   display: block;
   border-radius: 10px;

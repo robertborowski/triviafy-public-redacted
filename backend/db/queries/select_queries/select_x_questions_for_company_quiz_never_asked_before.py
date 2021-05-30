@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import Error, extras
 
-def select_all_questions_created_by_owner_email_function(postgres_connection, postgres_cursor, user_email):
+def select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions):
   """Returns: if the slack user already exists in database or not"""
   try:
     # ------------------------ Dict Cursor START ------------------------
@@ -10,9 +10,9 @@ def select_all_questions_created_by_owner_email_function(postgres_connection, po
 
 
     # ------------------------ Query START ------------------------
-    cursor.execute("SELECT * FROM triviafy_all_questions_table WHERE question_author_created_email=%s", [user_email])
+    cursor.execute("SELECT*FROM triviafy_all_questions_table WHERE question_approved_for_release=TRUE AND question_uuid NOT IN(SELECT t1.question_uuid FROM triviafy_all_questions_table AS t1 INNER JOIN triviafy_quiz_questions_asked_to_company_slack_table AS t2 ON t1.question_uuid=t2.quiz_question_asked_tracking_question_uuid)ORDER BY RANDOM()LIMIT %s", [quiz_number_of_questions])
     # ------------------------ Query END ------------------------
-
+    
 
     # ------------------------ Query Result START ------------------------
     # Get the results arr
@@ -29,4 +29,4 @@ def select_all_questions_created_by_owner_email_function(postgres_connection, po
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print("Status: ", error)
-      return None
+      return 'none'

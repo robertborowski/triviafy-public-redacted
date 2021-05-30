@@ -1,0 +1,25 @@
+import psycopg2
+from psycopg2 import Error
+
+def select_question_ids_already_asked_to_company_slack_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id):
+  """Returns: if the slack user already exists in database or not"""
+  
+  try:
+    # ------------------------ Query START ------------------------
+    postgres_cursor.execute("SELECT quiz_question_asked_tracking_question_uuid FROM triviafy_quiz_questions_asked_to_company_slack_table WHERE quiz_question_asked_tracking_slack_team_id=%s AND quiz_question_asked_tracking_slack_channel_id=%s", [slack_workspace_team_id, slack_channel_id])
+    # ------------------------ Query END ------------------------
+
+
+    # ------------------------ Query Result START ------------------------
+    # Get the results arr
+    result_arr = postgres_cursor.fetchall()
+    if result_arr == None:
+      return None
+    return result_arr
+    # ------------------------ Query Result END ------------------------
+  
+  
+  except (Exception, psycopg2.Error) as error:
+    if(postgres_connection):
+      print("Status: No questions asked to company yet! ", error)
+      return result_arr

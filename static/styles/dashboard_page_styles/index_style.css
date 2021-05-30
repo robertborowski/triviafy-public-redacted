@@ -1,4 +1,4 @@
-/* - - - - - - - - - - Latest quiz intro - Start */
+/* - - - - - - - - - - Quiz Intro - Start */
 main.logged-in .latest-quiz-intro-background {
   width: 100%;
   height: 220px;
@@ -20,7 +20,7 @@ main.logged-in .latest-quiz-intro-background .latest-quiz-intro .modal-see-rules
   color: var(--company-secondary-color);
   text-decoration: underline;
 }
-/* - - - - - - - - - - Latest quiz intro - End */
+
 
 /* - - - - - - - - - - Modal - Start */
 main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal {
@@ -82,3 +82,11 @@ main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .mod
   to{ opacity: 1; }
 }
 /* - - - - - - - - - - Modal - End */
+/* - - - - - - - - - - Quiz Intro - End */
+
+
+
+/* - - - - - - - - - - Quiz All Questions Start */
+/* Separate file in the present_quiz_question_styles
+/* Separate file in the AA_SUPPORTING_PAGE_STYLES
+/* - - - - - - - - - - Quiz All Questions End */

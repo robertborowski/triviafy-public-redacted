@@ -4,10 +4,6 @@ ques 3
 ...
 ...
 ques 1000
-
-
-
-
 QUIZ OBJECT/TABLE
 {
   company_id: user-id-34345345
@@ -20,8 +16,6 @@ QUIZ OBJECT/TABLE
   ]
 }
 ...
-
-
 USER_ANSWWERS
 {
   user_id: 
@@ -29,9 +23,6 @@ USER_ANSWWERS
   q-id:
   answer: 'dfgdfgdfg'
 }
-
-
-
 COMPANY PREFERCNCES
 {
   category_preferd: [],
@@ -39,8 +30,16 @@ COMPANY PREFERCNCES
   allow_redo: 
   num_ques_preferred: 
 }
+=================================================================
+=================================================================
+=================================================================
 
-------------------------
-Create question test cases:
-  1. Upload with no image
-  2. Uplaod with no hint
+
+=========================================
+POSSIBLE GREY AREA
+-To avoid any issues of "extra pay" because of the giftcard, instead have a message that once someone has enough points to claim a giftcard prize, have a modal be recommended to them saying, we recommend you recieve your giftcard to your personal email address not work email. To avoid any legal complications that could be regarded as extra 'payment'
+
+=========================================
+ADD
+-Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
+-Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
