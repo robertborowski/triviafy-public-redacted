@@ -10,6 +10,7 @@ from backend.page_templates_backend.index_page_backend.index_page_render_templat
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
 # Slack dashboard pages
 from backend.page_templates_backend.dashboard_page_backend.dashboard_index_page_render_template import dashboard_index_page_render_template
+from backend.page_templates_backend.submit_quiz_backend.submit_quiz_backend import submit_quiz_backend
 # Slack account pages
 from backend.page_templates_backend.account_page_backend.account_index_page_render_template import account_index_page_render_template
 from backend.utils.slack.send_channel_test_message.send_channel_test_message import send_channel_test_message
@@ -64,6 +65,7 @@ app.register_blueprint(index_page_render_template, url_prefix="")
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
 # Slack dashboard pages
 app.register_blueprint(dashboard_index_page_render_template, url_prefix="")
+app.register_blueprint(submit_quiz_backend, url_prefix="")
 # Slack account pages
 app.register_blueprint(account_index_page_render_template, url_prefix="")
 app.register_blueprint(send_channel_test_message, url_prefix="")

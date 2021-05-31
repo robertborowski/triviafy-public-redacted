@@ -8,6 +8,7 @@ from backend.utils.cached_login.check_if_user_login_through_cookies import check
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.insert_queries.insert_triviafy_quiz_feedback_responses_table import insert_triviafy_quiz_feedback_responses_table_function
+from backend.utils.sanitize_user_inputs.sanitize_feedback_user import sanitize_feedback_user_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_processing = Blueprint("quiz_feedback_processing", __name__, static_folder="static", template_folder="templates")
@@ -39,7 +40,7 @@ def quiz_feedback_processing_function():
 
     # ------------------------ Get Form User Input START ------------------------
     # NOTE: Need to sanitize this before production
-    user_input_feedback_form = request.form.get('user_input_quiz_feedback')
+    user_input_feedback_form = sanitize_feedback_user_function(request.form.get('user_input_quiz_feedback'))
     # ------------------------ Get Form User Input END ------------------------
 
 

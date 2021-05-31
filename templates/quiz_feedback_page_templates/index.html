@@ -38,8 +38,7 @@
     <div class="question-feedback-section box-shadow-reg-grey box-shadow-rounded">
       <label for="user_input_quiz_feedback"><p class="quiz-feedback-section-description">All Feedback</p></label>
       <p class="quiz-feedback-section-sub-description">Type in the categories that you would want to see more of.</p>
-      <textarea id="user_input_quiz_feedback" name="user_input_quiz_feedback" class="answer-text-box quiz-feedback-answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
-      <p id="charNumActualQuestion" class="character-count-tracker"></p>
+      <input type="text" id="user_input_quiz_feedback" name="user_input_quiz_feedback" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="280" pattern="[a-zA-z0-9 ]{1,280}">
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Text Box End -->
 

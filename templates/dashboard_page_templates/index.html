@@ -16,6 +16,7 @@
 </nav-component>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
+
 <main class="logged-in">
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
@@ -42,6 +43,8 @@
               <li>Think for yourself. Looking up anything = <span class="modal-bolder-rules">cheating</span>.</li>
               <li><span class="modal-bolder-rules">Spelling errors</span> do not affect score, but try your best.</li>
               <li><span class="modal-bolder-rules">Multiple answers</span> are acceptable.</li>
+              <li>Answers should only contain letters, numbers, and spaces. <span class="modal-bolder-rules">No special characters</span>.</li>
+              <li>Answers should not be more than <span class="modal-bolder-rules">100 characters</span>.</li>
               <li>Email: <span class="modal-bolder-rules">robert@triviafy.com</span> with any feedback.</li>
             </ul>
           </div>
@@ -59,7 +62,7 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form Start -->
-  <form action="{{ url_for('create_question_submission_processing.create_question_submission_processing_function') }}" method="post" class='current-quiz-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('submit_quiz_backend.submit_quiz_backend_function') }}" method="post" class='current-quiz-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
     {% for i in quiz_questions_obj_html %}
@@ -109,26 +112,20 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Hint END -->
 
 
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers START -->
-      <div class="quiz-question-sub-section-accepted-answers">
-        <p>Accepted Answers: {{ i['question_answers_list'] }}</p>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers START -->
+      <div class="quiz-question-sub-section-user-answer">
+        <label for="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}"><p class="quiz-question-sub-section-user-answer-label"></p></label>
+        <input type="text" id="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" name="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="100" pattern="[a-zA-z0-9 ]{1,100}" required>
       </div>
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Accepted Answers END -->
-
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
-      <div class="quiz-question-sub-section-status">
-        <p>Status: {{ i['question_status_for_creator'] }}</p>
-      </div>
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Status START -->
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers END -->
 
 
     </div>
     {% endfor %}
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions End -->
 
-    
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
 
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
     <div class="create-question-submit-button">
       <button class="button-default button-default-color-primary" type="submit" value="submit">Submit</button>
     </div>

@@ -75,6 +75,14 @@ p.no-hint-present {
 /* - - - - - - - - - - Question Accepted Answers END */
 
 
+/* - - - - - - - - - - Question User Answers START */
+.quiz-question-sub-section-user-answer {
+  text-align: center;
+  margin: 20px 0;
+}
+/* - - - - - - - - - - Question User Answers END */
+
+
 /* - - - - - - - - - - Question Status START */
 /* - - - - - - - - - - Question Status END */
 /* - - - - - - - - - - Question Presentation END */

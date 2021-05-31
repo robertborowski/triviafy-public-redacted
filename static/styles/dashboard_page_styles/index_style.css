@@ -37,7 +37,7 @@ main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal {
 main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .modal-content {
   background-color: white;
   margin: 20% auto;
-  width: 50%;
+  width: 70%;
   animation-name: modal-open-animation;
   animation-duration: 1s;
 }
@@ -64,7 +64,7 @@ main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .mod
 }
 main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .modal-content .modal-body ul li {
   text-align: left;
-  margin-left: 20%;
+  margin-left: 5%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
