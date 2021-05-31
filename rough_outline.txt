@@ -43,3 +43,6 @@ POSSIBLE GREY AREA
 ADD
 -Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
 -Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
+=========================================
+Need to do now
+-Clean up all the Postgres DB calls/closes and query prints

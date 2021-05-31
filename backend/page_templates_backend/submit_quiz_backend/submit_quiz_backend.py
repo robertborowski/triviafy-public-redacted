@@ -4,9 +4,11 @@ from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
-from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
-from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.sanitize_user_inputs.sanitize_quiz_question_user_answer_text import sanitize_quiz_question_user_answer_text_function
+from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
+from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
+from backend.page_templates_backend.submit_quiz_backend.map_question_id_user_answers_dict import map_question_id_user_answers_dict_function
+from backend.page_templates_backend.submit_quiz_backend.push_update_postgres_db_with_answers import push_update_postgres_db_with_answers_function
 
 # -------------------------------------------------------------- App Setup
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
@@ -34,6 +36,13 @@ def submit_quiz_backend_function():
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
 
+    # ------------------------ Get Variables for DB Insert START ------------------------
+    user_uuid = user_nested_dict['user_uuid']
+    slack_workspace_team_id = user_nested_dict['slack_team_id']
+    slack_channel_id = user_nested_dict['slack_channel_id']
+    # ------------------------ Get Variables for DB Insert END ------------------------   
+
+
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
@@ -59,23 +68,48 @@ def submit_quiz_backend_function():
       user_answer_to_q10 = 'Only 5 question quiz'
 
     if user_answer_to_q1 == None or user_answer_to_q2 == None or user_answer_to_q3 == None or user_answer_to_q4 == None or user_answer_to_q5 == None or user_answer_to_q6 == None or user_answer_to_q7 == None or user_answer_to_q8 == None or user_answer_to_q9 == None or user_answer_to_q10 == None:
-      print('input not valid')
+      print('inputs are not valid')
       print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
       return redirect('/dashboard', code=302)
     # ------------------------ Sanitize User Inputs END ------------------------
-  
-    print('- - - - - - -')
-    print(user_answer_to_q1)
-    print(user_answer_to_q2)
-    print(user_answer_to_q3)
-    print(user_answer_to_q4)
-    print(user_answer_to_q5)
-    print(user_answer_to_q6)
-    print(user_answer_to_q7)
-    print(user_answer_to_q8)
-    print(user_answer_to_q9)
-    print(user_answer_to_q10)
-    print('- - - - - - -')
+
+
+    # ------------------------ Get Latest Quiz Data START ------------------------
+    latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
+    print('- - - - -')
+    print('Pulled the latest company quiz from DB')
+    print('- - - - -')
+    
+    if latest_company_quiz_object != None:
+      # Assign the variables for the HTML inputs based on the pulled object
+      uuid_quiz = latest_company_quiz_object[0]                                     # str
+      quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str
+      quiz_slack_team_id = latest_company_quiz_object[2]                            # str
+      quiz_slack_channel_id = latest_company_quiz_object[3]                         # str
+      quiz_start_date = latest_company_quiz_object[4].strftime('%Y-%m-%d')          # str
+      quiz_start_day_of_week = latest_company_quiz_object[5]                        # str
+      quiz_start_time = latest_company_quiz_object[6]                               # str
+      quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
+      quiz_end_day_of_week = latest_company_quiz_object[8]                          # str
+      quiz_end_time = latest_company_quiz_object[9]                                 # str
+      quiz_number_of_questions = latest_company_quiz_object[10]                     # int
+      quiz_question_ids_str = latest_company_quiz_object[11]                        # str
+      quiz_company_quiz_count = latest_company_quiz_object[12]                      # int
+
+      # Quiz Question ID's have to be converted from 1 string to an arr
+      quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
+    # ------------------------ Get Latest Quiz Data END ------------------------
+
+
+    # ------------------------ Map Quiz User Answers to Quiz Question ID's START ------------------------
+    dict_question_id_user_answers = map_question_id_user_answers_dict_function(quiz_number_of_questions, quiz_question_ids_arr, user_answer_to_q1, user_answer_to_q2, user_answer_to_q3, user_answer_to_q4, user_answer_to_q5, user_answer_to_q6, user_answer_to_q7, user_answer_to_q8, user_answer_to_q9, user_answer_to_q10)
+    # ------------------------ Map Quiz User Answers to Quiz Question ID's END ------------------------
+
+
+    # ------------------------ Put User Inputs Into DB START ------------------------
+    output_message = push_update_postgres_db_with_answers_function(dict_question_id_user_answers, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz)
+    print(output_message)
+    # ------------------------ Put User Inputs Into DB END ------------------------
 
 
   except:

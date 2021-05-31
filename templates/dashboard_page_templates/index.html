@@ -115,7 +115,7 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers START -->
       <div class="quiz-question-sub-section-user-answer">
         <label for="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}"><p class="quiz-question-sub-section-user-answer-label"></p></label>
-        <input type="text" id="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" name="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="100" pattern="[a-zA-z0-9 ]{1,100}" required>
+        <input type="text" id="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" name="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="100" pattern="[a-zA-z0-9 ]{1,100}" value="{{ i['users_most_recent_submitted_answer'] }}" required>
       </div>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers END -->
 

@@ -10,6 +10,7 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.c
 from backend.db.queries.select_queries.select_company_quiz_questions import select_company_quiz_questions_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
+from backend.page_templates_backend.dashboard_page_backend.get_user_saved_quiz_question_answers import get_user_saved_quiz_question_answers_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -36,8 +37,11 @@ def dashboard_index_page_render_template_function():
   # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
-
+    
     # Get user information from the nested dict
+    slack_workspace_team_id = user_nested_dict['slack_team_id']
+    slack_channel_id = user_nested_dict['slack_channel_id']
+    user_uuid = user_nested_dict['user_uuid']
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
 
@@ -65,6 +69,25 @@ def dashboard_index_page_render_template_function():
 
       # Quiz Question ID's have to be converted from 1 string to an arr
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
+      
+      # ============================================================================== TESTING START
+      print('= = = = = = = = = = = = = ')
+      for i in quiz_question_ids_arr:
+        print(i)
+        print('- - ')
+      print('= = = = = = = = = = = = = ')
+      # Quiz Questions Array
+      # i[0] = questionid_1061edac-209d-4850-baf1-57503bcf9bc7 = Kardashian Boutique
+      # i[1] = questionid_35ef4666-d374-4b1a-a3d9-59f32c9441de = Mean Girl's School
+      # i[2] = questionid_99e82c00-15ca-4058-825a-9fa3e492de95 = Director
+      # i[3] = questionid_607474a3-9018-43ed-a07f-2773af03f243 = Pearl Harbor
+      # i[4] = questionid_5eaf05ec-ce08-46e9-9375-bcec62a7b135 = Collaboration
+      # i[5] = questionid_522d9d69-d657-479d-8d40-5f8e541f28ae = Friends Royalty
+      # i[6] = questionid_dd742a06-5218-4ffd-bba0-75129790ca30 = Hometown Heroes
+      # i[7] = questionid_bf834f20-5677-473f-b973-c5c06424426b = Big Rings
+      # i[8] = questionid_369c6e2a-14af-4e59-80d4-f671cb1e2608 = The Godfather Talent
+      # i[9] = questionid_2e344f6b-d27e-468f-98bc-faba838af5c6 = Bachelor Nation
+      # ============================================================================== TESTING END
     # ------------------------ Get Latest Quiz Data END ------------------------
 
 
@@ -99,16 +122,38 @@ def dashboard_index_page_render_template_function():
 
     # Pull the quiz questions by id's found in the quiz_question_ids_arr
     quiz_questions_obj = select_company_quiz_questions_function(postgres_connection, postgres_cursor, quiz_question_ids_arr, quiz_number_of_questions)
+    # ============================================================================== TESTING START
+    print('- - - - - - - - - -')
+    for i in quiz_questions_obj:
+      print(i)
+      print('- - -')
+    print('- - - - - - - - - -')
+    # ============================================================================== TESTING END
 
     # Add current question count to the dictionary for html
     current_count = 0
     for i in quiz_questions_obj:
       current_count += 1
       i['quiz_question_number'] = current_count
+    # ------------------------ Pull the Quiz Questions END ------------------------
+
+
+    # ------------------------ Pull the Quiz User Answers If Exist START ------------------------
+    user_quiz_saved_answers_dict = get_user_saved_quiz_question_answers_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz)
 
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
-    # ------------------------ Pull the Quiz Questions END ------------------------
+    # ------------------------ Pull the Quiz User Answers If Exist END ------------------------
+
+
+    # ------------------------ Add User Autofill Answers to Obj START ------------------------
+    if user_quiz_saved_answers_dict != None:
+      for i in quiz_questions_obj:
+        i['users_most_recent_submitted_answer'] = user_quiz_saved_answers_dict[i['question_uuid']]
+    else:
+      for i in quiz_questions_obj:
+        i['users_most_recent_submitted_answer'] = ''
+    # ------------------------ Add User Autofill Answers to Obj END ------------------------
 
 
   except:
