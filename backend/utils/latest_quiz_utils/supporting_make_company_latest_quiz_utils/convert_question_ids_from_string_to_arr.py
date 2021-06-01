@@ -11,5 +11,7 @@ def convert_question_ids_from_string_to_arr_function(quiz_question_ids_str):
   # Split the string
   quiz_question_ids_arr = quiz_question_ids_str_removed_brackets.split(',')
 
+  print('returning quiz_question_ids_arr')
+  print(quiz_question_ids_arr)
   print('=========================================== convert_question_ids_from_string_to_arr_function END ===========================================')
   return quiz_question_ids_arr

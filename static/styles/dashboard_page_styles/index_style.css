@@ -90,3 +90,22 @@ main.logged-in .latest-quiz-intro-background .latest-quiz-intro .quiz-modal .mod
 /* Separate file in the present_quiz_question_styles
 /* Separate file in the AA_SUPPORTING_PAGE_STYLES
 /* - - - - - - - - - - Quiz All Questions End */
+
+
+/* - - - - - - - - - - Submit Quiz Start */
+.submit-quiz-submit-button {
+  text-align: center;
+}
+/* - - - - - - - - - - Submit Quiz End */
+
+
+/* - - - - - - - - - - Submit Quiz Image Start */
+.submit-quiz-image-section {
+  text-align: center;
+  margin: 40px 0;
+}
+img.logo-submit-quiz-cheering-img {
+  height: 250px;
+  width: 250px;
+}
+/* - - - - - - - - - - Submit Quiz Image End */

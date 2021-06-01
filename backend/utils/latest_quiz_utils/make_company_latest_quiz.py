@@ -67,14 +67,14 @@ def make_company_latest_quiz_function(user_nested_dict):
 
   # ------------------------ Get Current Quiz Question Objects START ------------------------
   # For loop: for x in number of questions select a question from questions master that is not in the above arr or in the pending array
-  question_objects_for_current_quiz = select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions)
+  question_objects_for_current_quiz_arr_of_dicts = select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions)
   # ------------------------ Get Current Quiz Question Objects END ------------------------
 
 
   # ------------------------ Store the Current Quiz Quiestion ID's START ------------------------
   # Question ID's that are currently being asked for this Quiz
   current_quiz_question_ids_arr = []
-  for i in question_objects_for_current_quiz:
+  for i in question_objects_for_current_quiz_arr_of_dicts:
     current_quiz_question_ids_arr.append(i['question_uuid'])
   # ------------------------ Store the Current Quiz Quiestion ID's END ------------------------
 
@@ -84,6 +84,7 @@ def make_company_latest_quiz_function(user_nested_dict):
   for question_id in current_quiz_question_ids_arr:
     uuid_quiz_question_asked_tracking = create_uuid_function('quest_ask_')
     quiz_question_asked_tracking_timestamp = create_timestamp_function()
+    
     # Insert function
     output_message = insert_triviafy_quiz_questions_asked_to_company_slack_table_function(postgres_connection, postgres_cursor, uuid_quiz_question_asked_tracking, quiz_question_asked_tracking_timestamp, slack_workspace_team_id, slack_channel_id, uuid_quiz, question_id)
     print(output_message)
@@ -94,7 +95,7 @@ def make_company_latest_quiz_function(user_nested_dict):
   # Insert Query
   output_message = insert_triviafy_quiz_master_table_function(postgres_connection, postgres_cursor, uuid_quiz, quiz_timestamp_created, slack_workspace_team_id, slack_channel_id, quiz_start_date, quiz_start_day_of_week, quiz_start_time, quiz_end_date, quiz_end_day_of_week, quiz_end_time, quiz_number_of_questions, current_quiz_question_ids_arr, latest_company_quiz_count)
   print('- - - - - - -')
-  print('result of quiz database insert')
+  print('Inserted the quiz object to database.')
   print(output_message)
   print('- - - - - - -')
   # ------------------------ Insert The Quiz Info Into the Quiz Master Table END ------------------------

@@ -3,6 +3,7 @@ from psycopg2 import Error
 
 def select_quiz_count_for_company_slack_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id):
   """Returns: if the slack user already exists in database or not"""
+  print('=========================================== select_quiz_count_for_company_slack_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -13,7 +14,14 @@ def select_quiz_count_for_company_slack_function(postgres_connection, postgres_c
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     if result_row == None:
+      print('returning result row')
+      print(result_row)
+      print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
       return 0
+
+    print('returning result row')
+    print(result_row)
+    print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
@@ -21,4 +29,5 @@ def select_quiz_count_for_company_slack_function(postgres_connection, postgres_c
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print("Status: No quiz's yet! ", error)
+      print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
       return 0

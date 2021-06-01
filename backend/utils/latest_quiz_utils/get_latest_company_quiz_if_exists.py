@@ -38,6 +38,7 @@ def get_latest_company_quiz_if_exists_function(user_nested_dict):
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Get Company Latest Quiz Info END ------------------------
 
-
+  print('returing latest_quiz_info_arr')
+  print(latest_quiz_info_arr)
   print('=========================================== get_latest_company_quiz_if_exists_function END ===========================================')
   return latest_quiz_info_arr

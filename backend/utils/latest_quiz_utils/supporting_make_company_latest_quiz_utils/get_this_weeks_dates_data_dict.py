@@ -53,6 +53,7 @@ def get_this_weeks_dates_data_dict_function():
   }
   # ------------------------ This Week's Dates Dict END ------------------------
 
-
+  print('returning this_week_dates_dict')
+  print(this_week_dates_dict)
   print('=========================================== get_this_weeks_dates_data_dict_function END ===========================================')
   return this_week_dates_dict

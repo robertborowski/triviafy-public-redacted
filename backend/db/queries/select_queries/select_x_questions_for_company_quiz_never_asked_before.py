@@ -3,6 +3,7 @@ from psycopg2 import Error, extras
 
 def select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions):
   """Returns: if the slack user already exists in database or not"""
+  print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function START ===========================================')
   try:
     # ------------------------ Dict Cursor START ------------------------
     cursor = postgres_connection.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -17,11 +18,14 @@ def select_x_questions_for_company_quiz_never_asked_before_function(postgres_con
     # ------------------------ Query Result START ------------------------
     # Get the results arr
     result_arr = cursor.fetchall()
+    
     # Put results arr into dict
     result_arr_dicts = []
     for row in result_arr:
       result_arr_dicts.append(dict(row))
+    
     # Retunr results dict
+    print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function END ===========================================')
     return result_arr_dicts
     # ------------------------ Query Result END ------------------------
 
@@ -29,4 +33,5 @@ def select_x_questions_for_company_quiz_never_asked_before_function(postgres_con
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print("Status: ", error)
+      print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function END ===========================================')
       return 'none'
