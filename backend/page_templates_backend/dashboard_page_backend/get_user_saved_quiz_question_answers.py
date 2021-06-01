@@ -16,9 +16,10 @@ def get_user_saved_quiz_question_answers_function(postgres_connection, postgres_
 
   # Quiz Question and answer tuple
   user_quiz_question_id_and_answers_dict = {}
-  for i in user_quiz_question_answers_arr:
+  for i in user_quiz_question_answers_arr:    
     # Get quiz question ID and the actual answer from select statement results
-    user_quiz_question_id_and_answers_dict[i[6]] = i[7]
+    # User answer in DB contains "_" between words for sanitation, change that back to spaces
+    user_quiz_question_id_and_answers_dict[i[6]] = i[7].replace('_',' ')
 
   print('=========================================== get_user_saved_quiz_question_answers_function END ===========================================')
   return user_quiz_question_id_and_answers_dict
