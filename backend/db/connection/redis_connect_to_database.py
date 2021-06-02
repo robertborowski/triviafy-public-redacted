@@ -3,6 +3,8 @@ import os
 
 def redis_connect_to_database_function():
   """Connect to redis database"""
+  print('=========================================== redis_connect_to_database_function START ===========================================')
+
   try:
     """
     # Connecting to Redis non-pool
@@ -23,7 +25,9 @@ def redis_connect_to_database_function():
   
   except:
     print('redis connection failed!')
+    print('=========================================== redis_connect_to_database_function END ===========================================')
     return 'redis connection failed!'
     
   # Return the connection
+  print('=========================================== redis_connect_to_database_function END ===========================================')
   return redis_connection

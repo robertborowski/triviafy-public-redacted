@@ -23,11 +23,41 @@ def before_request():
 def index_page_render_template_function():
   """Returns landing page"""
   print('=========================================== Landing Page START ===========================================')
+  
+  # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
+  # ------------------------ CSS support END ------------------------
 
+
+  # ------------------------ Check Broswer For Existing Cookie Then Redirect START ------------------------
   # Get cookie from browser if exists
   get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
+
+  # ------------------------ LocalHost Error Stop START ------------------------
+  # -------------------------------------------------------------- Running on localhost
+  server_env = os.environ.get('TESTING', 'false')
+  # If running on localhost
+  if server_env == 'true':
+    # Connect to redis database pool (no need to close)
+    redis_connection = redis_connect_to_database_function()
+
+    # ------------------------ Set the Slack State Key START ------------------------
+    # Make redis key:value pair and push to db (Slack State)
+    localhost_slack_state_key = 'localhost_slack_state_key'
+    localhost_slack_state_uuid_value = create_uuid_function('slv_')
+    redis_connection.set(localhost_slack_state_key, localhost_slack_state_uuid_value.encode('utf-8'))
+    # ------------------------ Set the Slack State Key END ------------------------
+
+    # ------------------------ Set Redis For Cookie START ------------------------
+    if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
+      try:
+        get_cookie_value_from_browser = redis_connection.get('localhost_redis_browser_cookie_key').decode('utf-8')
+      except:
+        get_cookie_value_from_browser = None
+    # ------------------------ Set Redis For Cookie END ------------------------
+  # ------------------------ LocalHost Error Stop END ------------------------
+
   
   # If cookie exists then check if info is cached in redis db
   if get_cookie_value_from_browser != '' and get_cookie_value_from_browser != None:
@@ -37,9 +67,11 @@ def index_page_render_template_function():
     else:
       print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
       print('=========================================== Landing Page END ===========================================')
-      #return render_template('dashboard_page_templates/dashboard_page.html', css_cache_busting = cache_busting_output)   # <------ pass in the redis_user_nested_dict to the dashboard page here
       return redirect("/dashboard", code=302)
+  # ------------------------ Check Broswer For Existing Cookie Then Redirect END ------------------------
 
+
+  # ------------------------ If Browswer Cookie Does Not Exist START ------------------------
   # If cookie does not exist then set the cookie
   if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
     # Set cookie key:value pair for browser
@@ -51,14 +83,9 @@ def index_page_render_template_function():
   # If running on localhost
   if server_env == 'true':
     # Connect to redis database pool (no need to close)
-    redis_connection = redis_connect_to_database_function()    
+    redis_connection = redis_connect_to_database_function()
     
-    # Make redis key:value pair and push to db
-    localhost_slack_state_key = 'localhost_slack_state_key'
-    localhost_slack_state_uuid_value = create_uuid_function('slv_')
-    redis_connection.set(localhost_slack_state_key, localhost_slack_state_uuid_value.encode('utf-8'))
-    
-    # Make redis key:value pair and push to db. Need this becasue cookie does not save from page to page on localhost
+    # Make redis key:value pair and push to db (Browser Cookie). Need this becasue cookie does not save from page to page on localhost
     localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       redis_connection.set(localhost_redis_browser_cookie_key, set_browser_cookie_value.encode('utf-8'))
