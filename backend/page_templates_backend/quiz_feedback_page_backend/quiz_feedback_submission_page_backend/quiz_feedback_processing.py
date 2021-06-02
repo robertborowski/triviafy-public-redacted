@@ -22,7 +22,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_feedback_processing.route("/quiz/team/feedback/processing", methods=['GET','POST'])
 def quiz_feedback_processing_function():
-  """Returns /quiz/team/feedback/processing page"""
   print('=========================================== /quiz/team/feedback/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

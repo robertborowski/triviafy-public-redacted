@@ -21,7 +21,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_feedback_index_page_render_template.route("/quiz/team/feedback", methods=['GET','POST'])
 def quiz_feedback_index_page_render_template_function():
-  """Returns /quiz/team/feedback page"""
   print('=========================================== /quiz/team/feedback Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

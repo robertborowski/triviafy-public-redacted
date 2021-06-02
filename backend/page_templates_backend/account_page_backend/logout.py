@@ -16,7 +16,6 @@ def before_request():
 
 @logout.route("/logout", methods=['GET','POST'])
 def logout_function():
-  """Returns: Authenticates user access and stores login info in database"""  
   print('=========================================== /logout Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')

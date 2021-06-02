@@ -17,7 +17,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @account_index_page_render_template.route("/account", methods=['GET','POST'])
 def account_index_page_render_template_function():
-  """Returns account page"""
   print('=========================================== /account Page START ===========================================')
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')

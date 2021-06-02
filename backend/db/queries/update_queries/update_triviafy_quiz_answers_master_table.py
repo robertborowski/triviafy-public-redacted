@@ -3,7 +3,8 @@ import psycopg2.extras
 from psycopg2 import Error
 
 def update_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, user_quiz_question_answer_exists_uuid, quiz_answer_timestamp, user_answer_v):
-  """Returns: Updates the data in user database"""
+  print('=========================================== update_triviafy_quiz_answers_master_table_function START ===========================================')
+
   try:
     # ------------------------ Query START ------------------------
     postgres_cursor.execute("UPDATE triviafy_quiz_answers_master_table SET quiz_answer_timestamp=%s, quiz_answer_actual_user_answer=%s WHERE uuid_quiz_answer=%s", [quiz_answer_timestamp, user_answer_v, user_quiz_question_answer_exists_uuid])
@@ -14,6 +15,7 @@ def update_triviafy_quiz_answers_master_table_function(postgres_connection, post
     postgres_connection.commit()
     print('Updated Information')
     output_message = 'Updated DB with new answer'
+    print('=========================================== update_triviafy_quiz_answers_master_table_function END ===========================================')
     return output_message
     # ------------------------ Query Result END ------------------------
 
@@ -23,4 +25,5 @@ def update_triviafy_quiz_answers_master_table_function(postgres_connection, post
       print("Status: ", error)
       #return 'none'
       output_message = 'Did not update DB'
+      print('=========================================== update_triviafy_quiz_answers_master_table_function END ===========================================')
       return output_message

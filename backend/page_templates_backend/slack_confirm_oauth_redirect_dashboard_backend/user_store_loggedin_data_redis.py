@@ -3,7 +3,6 @@ import json
 
 
 def user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser):
-  """Store user login info obj in redis database based on browser cookies"""
   print('=========================================== user_store_loggedin_data_redis_function START ===========================================')
 
   try:

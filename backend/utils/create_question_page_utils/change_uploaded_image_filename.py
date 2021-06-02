@@ -1,5 +1,5 @@
 def change_uploaded_image_filename_function(image, create_question_uploaded_image_uuid):
-  """Change the user uploaded image file name"""
+  print('=========================================== change_uploaded_image_filename_function START ===========================================')
   # Get the filename
   filename = image.filename
 
@@ -15,4 +15,5 @@ def change_uploaded_image_filename_function(image, create_question_uploaded_imag
   # Assign to the image filename
   image.filename = filename
 
+  print('=========================================== change_uploaded_image_filename_function END ===========================================')
   return image

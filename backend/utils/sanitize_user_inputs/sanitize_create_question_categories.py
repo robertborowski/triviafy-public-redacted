@@ -1,5 +1,4 @@
 def sanitize_create_question_categories_function(user_input_form):
-  """Check if valid input"""
   print('=========================================== sanitize_create_question_categories_function START ===========================================')
   
   if len(user_input_form) < 1 or len(user_input_form) > 50:

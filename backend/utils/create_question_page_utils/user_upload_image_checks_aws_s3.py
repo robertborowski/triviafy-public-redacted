@@ -6,7 +6,6 @@ from backend.utils.create_question_page_utils.allowed_images import allowed_imag
 from backend.utils.aws.create_question_upload_image_aws_s3 import create_question_upload_image_aws_s3_function
 
 def user_upload_image_checks_aws_s3_function(image, file_size):
-  """Checks if the file upload matches parameters"""
   print('=========================================== Check user image file upload START ===========================================')
   # Set the parameters for accepting image upload
   allowed_image_extensions_arr = ["JPEG", "JPG", "PNG", "GIF"]
@@ -31,7 +30,9 @@ def user_upload_image_checks_aws_s3_function(image, file_size):
 
     # Put the image object in aws s3
     aws_upload = create_question_upload_image_aws_s3_function(image)
+    print('=========================================== Check user image file upload END ===========================================')
     return True
+  
   else:
     print("That file extension is not allowed")
     print('=========================================== Check user image file upload END ===========================================')

@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 
 def select_if_slack_user_combo_already_exists_function(postgres_connection, postgres_cursor, slack_authed_user_id, slack_authed_team_id, slack_authed_channel_id):
-  """Returns: if the slack user already exists in database or not"""
   print('=========================================== select_if_slack_user_combo_already_exists_function START ===========================================')
   
   try:

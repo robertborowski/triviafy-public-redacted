@@ -21,7 +21,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @create_question_submission_success_page_render_template.route("/create/question/user/form/submit/success", methods=['GET','POST'])
 def create_question_submission_success_page_render_template_function():
-  """Returns /create/question/user/form/submit/success page"""
   print('=========================================== /create/question/user/form/submit/success Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
@@ -63,12 +62,6 @@ def create_question_submission_success_page_render_template_function():
 
   # Pull info from db
   user_all_questions_submitted_dict = select_all_questions_created_by_owner_email_function(postgres_connection, postgres_cursor, user_email)
-  
-  # print('- - - - - - - - - - -')
-  # for i in user_all_questions_submitted_dict:
-  #   print(i)
-  #   print('- - -')
-  # print('- - - - - - - - - - -')
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)

@@ -20,7 +20,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_settings_index_page_render_template.route("/quiz/team/settings", methods=['GET','POST'])
 def quiz_settings_index_page_render_template_function():
-  """Returns /quiz/team/settings settings page"""
   print('=========================================== /quiz/team/settings Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

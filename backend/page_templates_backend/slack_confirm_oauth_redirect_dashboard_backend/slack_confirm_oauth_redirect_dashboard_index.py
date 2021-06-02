@@ -21,7 +21,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
-  """Returns: Authenticates user access and stores login info in database"""  
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

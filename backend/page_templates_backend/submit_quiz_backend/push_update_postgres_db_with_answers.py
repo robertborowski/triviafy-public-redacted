@@ -27,7 +27,6 @@ def push_update_postgres_db_with_answers_function(dict_question_id_user_answers,
     print(user_quiz_question_answer_exists_uuid)
 
 
-
     # INSERT new answer
     if user_quiz_question_answer_exists_uuid == None:
       print('- -')
@@ -39,7 +38,6 @@ def push_update_postgres_db_with_answers_function(dict_question_id_user_answers,
       output_message = insert_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, uuid_quiz_answer, quiz_answer_timestamp, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz, question_uuid_k, user_answer_v)
       print(output_message)
       print('- - - - - - - - - - - -')
-
 
 
     # UPDATE previous answer

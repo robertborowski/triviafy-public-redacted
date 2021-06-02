@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2 import Error
 
 def select_latest_feedback_user_uuid_function(postgres_connection, postgres_cursor, user_uuid):
-  """Get the comapny quiz settings for this payment admin user"""
+  print('=========================================== select_latest_feedback_user_uuid_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -17,6 +17,7 @@ def select_latest_feedback_user_uuid_function(postgres_connection, postgres_curs
     if result_row == None:
       result_row = 'User has not submitted any feedback yet today'
     
+    print('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
@@ -24,4 +25,5 @@ def select_latest_feedback_user_uuid_function(postgres_connection, postgres_curs
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print("Status: Error pulling! ", error)
+      print('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
       return 'User has not submitted any feedback yet today'

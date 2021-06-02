@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2 import Error
 
 def select_check_assign_payment_admin_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id):
-  """Check if user is the first with team_id and channel_id combination, if so then they are payment_admin"""
+
   print('=========================================== select_check_assign_payment_admin_function START ===========================================')
   
   try:

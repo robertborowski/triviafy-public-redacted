@@ -2,7 +2,7 @@ import psycopg2
 from psycopg2 import Error
 
 def select_user_quiz_question_answer_if_exists_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz, question_uuid_k):
-  """Check if user is the first with team_id and channel_id combination, if so then they are payment_admin"""
+  print('=========================================== select_user_quiz_question_answer_if_exists_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -13,7 +13,10 @@ def select_user_quiz_question_answer_if_exists_function(postgres_connection, pos
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     if result_row == None:
+      print('=========================================== select_user_quiz_question_answer_if_exists_function END ===========================================')
       return None, None
+    
+    print('=========================================== select_user_quiz_question_answer_if_exists_function END ===========================================')
     return result_row[0], result_row[7]
     # ------------------------ Query Result END ------------------------
   
@@ -21,4 +24,5 @@ def select_user_quiz_question_answer_if_exists_function(postgres_connection, pos
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print("Status: This user did not submit an answer for this quiz & question combo yet. ", error)
+      print('=========================================== select_user_quiz_question_answer_if_exists_function END ===========================================')
       return None, None

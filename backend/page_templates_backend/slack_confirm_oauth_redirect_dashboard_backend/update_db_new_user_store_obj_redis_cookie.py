@@ -13,7 +13,6 @@ from backend.utils.quiz_settings_page_utils.setup_company_default_quiz_settings 
 
 
 def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj):
-  """Check if user is already in database. If not add user to db. Then return user dict"""
   print('=========================================== update_db_new_user_store_obj_redis_cookie_function START ===========================================')
   
   # Get bare minimum info to check if user already exists in database table

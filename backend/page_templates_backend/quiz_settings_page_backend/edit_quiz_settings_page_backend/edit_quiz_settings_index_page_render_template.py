@@ -20,7 +20,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @edit_quiz_settings_index_page_render_template.route("/quiz/team/settings/payment/admin/edit", methods=['GET','POST'])
 def edit_quiz_settings_index_page_render_template_function():
-  """Returns /quiz/team/settings/payment/admin/edit settings page"""
   print('=========================================== /quiz/team/settings/payment/admin/edit Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

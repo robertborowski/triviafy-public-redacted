@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 
 def select_user_quiz_question_answer_if_exists_autofill_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz):
-  """Check if user is the first with team_id and channel_id combination, if so then they are payment_admin"""
   print('=========================================== select_user_quiz_question_answer_if_exists_autofill_function START ===========================================')
   
   try:

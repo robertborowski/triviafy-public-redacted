@@ -30,7 +30,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @create_question_submission_processing.route("/create/question/user/form/submit/processing", methods=['GET','POST'])
 def create_question_submission_processing_function():
-  """Returns /create/question/user/form/submit/processing page"""
   print('=========================================== /create/question/user/form/submit/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
@@ -154,6 +153,7 @@ def create_question_submission_processing_function():
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Upload Question to database END ------------------------
+
   
   print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
   return redirect('/create/question/user/form/submit/success', code=302)

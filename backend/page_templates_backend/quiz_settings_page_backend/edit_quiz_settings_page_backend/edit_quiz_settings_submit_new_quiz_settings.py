@@ -26,7 +26,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @edit_quiz_settings_submit_new_quiz_settings.route("/quiz/team/settings/payment/admin/edit/submit/processing", methods=['GET','POST'])
 def edit_quiz_settings_submit_new_quiz_settings_function():
-  """Returns /quiz/team/settings/payment/admin/edit/submit/processing settings page"""
   print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

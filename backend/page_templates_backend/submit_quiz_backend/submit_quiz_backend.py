@@ -22,7 +22,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @submit_quiz_backend.route("/dashboard/user/submit/quiz", methods=['GET','POST'])
 def submit_quiz_backend_function():
-  """Submits quiz"""
   print('=========================================== /dashboard/user/submit/quiz Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

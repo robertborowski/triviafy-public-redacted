@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error, extras
 
 def select_company_quiz_questions_function(postgres_connection, postgres_cursor, quiz_question_ids_arr, quiz_number_of_questions):
-  """Returns: if the slack user already exists in database or not"""
   print('=========================================== select_company_quiz_questions_function START ===========================================')
 
   try:

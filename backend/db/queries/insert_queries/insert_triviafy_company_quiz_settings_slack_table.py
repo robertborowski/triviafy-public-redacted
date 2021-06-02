@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 
 def insert_triviafy_company_quiz_settings_slack_table_function(postgres_connection, postgres_cursor, uuid_company_quiz_settings, company_quiz_settings_last_updated_timestamp, company_quiz_settings_start_day, company_quiz_settings_start_time, company_quiz_settings_end_day, company_quiz_settings_end_time, company_quiz_settings_questions_per_quiz, company_quiz_settings_slack_workspace_team_id, company_quiz_settings_slack_channel_id):
-  """Returns: inserts into database"""
   print('=========================================== insert_triviafy_company_quiz_settings_slack_table_function START ===========================================')
   
   # ------------------------ Query START ------------------------

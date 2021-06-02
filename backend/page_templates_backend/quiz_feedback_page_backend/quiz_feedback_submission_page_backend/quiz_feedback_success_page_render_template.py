@@ -17,7 +17,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_feedback_success_page_render_template.route("/quiz/team/feedback/submit", methods=['GET','POST'])
 def quiz_feedback_success_page_render_template_function():
-  """Returns /quiz/team/feedback/submit page"""
   print('=========================================== /quiz/team/feedback/submit Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
@@ -29,11 +28,9 @@ def quiz_feedback_success_page_render_template_function():
   # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
-
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
 
-    
   except:
     print('=========================================== /quiz/team/feedback/submit Page END ===========================================')
     return redirect('/', code=302)
