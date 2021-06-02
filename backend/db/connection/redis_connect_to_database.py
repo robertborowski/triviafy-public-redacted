@@ -2,7 +2,6 @@ import redis
 import os
 
 def redis_connect_to_database_function():
-  """Connect to redis database"""
   print('=========================================== redis_connect_to_database_function START ===========================================')
 
   try:

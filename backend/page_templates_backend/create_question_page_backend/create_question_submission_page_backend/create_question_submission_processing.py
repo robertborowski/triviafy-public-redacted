@@ -22,7 +22,7 @@ import os
 create_question_submission_processing = Blueprint("create_question_submission_processing", __name__, static_folder="static", template_folder="templates")
 @create_question_submission_processing.before_request
 def before_request():
-  """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
+  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

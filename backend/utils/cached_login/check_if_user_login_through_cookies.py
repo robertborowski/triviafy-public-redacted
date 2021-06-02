@@ -4,7 +4,6 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import json
 
 def check_if_user_login_through_cookies_function():
-  """Check if the user is logged in through cookies. If so then return the user object"""
   print('=========================================== check_if_user_login_through_cookies_function START ===========================================')
   
   # Connect to redis database pool (no need to close)

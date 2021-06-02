@@ -2,7 +2,6 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 import json
 
 def cached_login_info_function(get_cookie_value_from_browser):
-  """If user is cached in redis database then return their information so they do not have to manually log in again"""
   print('=========================================== cached_login_info_function START ===========================================')
 
   # Connect to redis database pool (no need to close)

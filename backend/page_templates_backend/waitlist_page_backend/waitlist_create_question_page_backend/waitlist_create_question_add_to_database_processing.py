@@ -14,7 +14,7 @@ from backend.db.queries.select_queries.select_triviafy_waitlist_create_question_
 waitlist_create_question_add_to_database_processing = Blueprint("waitlist_create_question_add_to_database_processing", __name__, static_folder="static", template_folder="templates")
 @waitlist_create_question_add_to_database_processing.before_request
 def before_request():
-  """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
+  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

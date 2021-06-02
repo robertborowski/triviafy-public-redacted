@@ -17,12 +17,10 @@ def select_user_quiz_question_answer_if_exists_autofill_function(postgres_connec
     
     if result_arr == None or not result_arr:
       print('returning result arr')
-      print(result_arr)
       print('=========================================== select_user_quiz_question_answer_if_exists_autofill_function END ===========================================')
       return None
 
     print('returning result arr')
-    print(result_arr)
     print('=========================================== select_user_quiz_question_answer_if_exists_autofill_function END ===========================================')  
     return result_arr
     # ------------------------ Query Result END ------------------------

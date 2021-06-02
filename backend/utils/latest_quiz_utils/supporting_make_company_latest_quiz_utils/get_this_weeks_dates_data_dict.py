@@ -3,7 +3,6 @@ from datetime import date, datetime, timedelta
 
 # -------------------------------------------------------------- Main Function
 def get_this_weeks_dates_data_dict_function():
-  """ Get this weeks dates data in dictionary format """
   print('=========================================== get_this_weeks_dates_data_dict_function START ===========================================')
   
   # ------------------------ Get Today's Date START ------------------------
@@ -199,6 +198,5 @@ def get_this_weeks_dates_data_dict_function():
   # ------------------------ This Week's Dates Dict END ------------------------
 
   print('returning this_week_dates_dict')
-  print(this_week_dates_dict)
   print('=========================================== get_this_weeks_dates_data_dict_function END ===========================================')
   return this_week_dates_dict

@@ -7,7 +7,6 @@ from backend.db.queries.select_queries.select_triviafy_latest_quiz_info import s
 
 # -------------------------------------------------------------- Main Function
 def get_latest_company_quiz_if_exists_function(user_nested_dict):
-  """ Pulls the latest company quiz object from the DB if available """
   print('=========================================== get_latest_company_quiz_if_exists_function START ===========================================')
 
   # ------------------------ Get Variables From User Object START ------------------------
@@ -39,6 +38,5 @@ def get_latest_company_quiz_if_exists_function(user_nested_dict):
   # ------------------------ Get Company Latest Quiz Info END ------------------------
 
   print('returing latest_quiz_info_arr')
-  print(latest_quiz_info_arr)
   print('=========================================== get_latest_company_quiz_if_exists_function END ===========================================')
   return latest_quiz_info_arr

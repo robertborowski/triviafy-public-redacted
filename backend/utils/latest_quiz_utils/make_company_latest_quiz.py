@@ -15,7 +15,6 @@ from backend.db.queries.insert_queries.insert_triviafy_quiz_master_table import 
 
 # -------------------------------------------------------------- Main Function
 def make_company_latest_quiz_function(user_nested_dict):
-  """ Make the latest quiz for a company """
   print('=========================================== make_company_latest_quiz_function START ===========================================')
 
   # ------------------------ This Week Dates Data Dict START ------------------------

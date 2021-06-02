@@ -7,17 +7,16 @@ from backend.utils.cached_login.check_if_user_login_through_cookies import check
 from backend.utils.latest_quiz_utils.make_company_latest_quiz import make_company_latest_quiz_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
-from backend.db.queries.select_queries.select_company_quiz_questions import select_company_quiz_questions_function
 from backend.db.queries.select_queries.select_company_quiz_questions_individually import select_company_quiz_questions_individually_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.page_templates_backend.dashboard_page_backend.get_user_saved_quiz_question_answers import get_user_saved_quiz_question_answers_function
+from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
 @dashboard_index_page_render_template.before_request
 def before_request():
-  """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
@@ -26,7 +25,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
 def dashboard_index_page_render_template_function():
-  """Returns dashboard page"""
   print('=========================================== /dashboard Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
@@ -72,8 +70,11 @@ def dashboard_index_page_render_template_function():
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
     # ------------------------ 1/2 Get Latest Quiz Data END ------------------------
 
-
+    
     # ------------------------ 2/2 Make Latest Quiz Data START ------------------------
+    """
+    NOTE: This should be a job, the quiz gets made automatically outside of the dashboard because what if no user from the company channel combo logs on for 3 weeks, then quiz will never get made
+    """
     if latest_company_quiz_object == None:
       latest_company_quiz_object = make_company_latest_quiz_function(user_nested_dict)
       print('- - - - -')
@@ -96,6 +97,13 @@ def dashboard_index_page_render_template_function():
         quiz_question_ids_arr = latest_company_quiz_object[11]    # list
         quiz_company_quiz_count = latest_company_quiz_object[12]  # int
     # ------------------------ 2/2 Make Latest Quiz Data END ------------------------
+
+
+    # ------------------------ If Quiz Is Past Due Date START ------------------------
+    quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
+    if quiz_is_past_due_date == True:
+      return redirect('/dashboard/quiz/past/due', code=302)
+    # ------------------------ If Quiz Is Past Due Date END ------------------------
 
 
     # ------------------------ Pull the Quiz Questions START ------------------------

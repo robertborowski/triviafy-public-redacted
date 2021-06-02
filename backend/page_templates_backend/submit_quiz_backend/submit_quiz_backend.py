@@ -14,7 +14,7 @@ from backend.page_templates_backend.submit_quiz_backend.push_update_postgres_db_
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
 @submit_quiz_backend.before_request
 def before_request():
-  """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
+  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

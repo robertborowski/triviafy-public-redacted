@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error, extras
 
 def select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions):
-  """Returns: if the slack user already exists in database or not"""
   print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function START ===========================================')
   try:
     # ------------------------ Dict Cursor START ------------------------

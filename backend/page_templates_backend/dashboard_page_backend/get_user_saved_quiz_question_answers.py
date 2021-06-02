@@ -3,7 +3,6 @@ from backend.db.queries.select_queries.select_user_quiz_question_answer_if_exist
 
 # -------------------------------------------------------------- Main Function
 def get_user_saved_quiz_question_answers_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz):
-  """ Map together the quiz question ID and the user answers """
   print('=========================================== get_user_saved_quiz_question_answers_function START ===========================================')
   
   user_quiz_question_answers_arr = select_user_quiz_question_answer_if_exists_autofill_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz)

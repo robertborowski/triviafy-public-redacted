@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 
 def select_company_quiz_settings_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id):
-  """Get the comapny quiz settings for this payment admin user"""
   print('=========================================== select_company_quiz_settings_function START ===========================================')
   
   try:
@@ -18,7 +17,6 @@ def select_company_quiz_settings_function(postgres_connection, postgres_cursor, 
       result_row = 'Company quiz settings do not exists in db table yet'
     
     print('returining result_row')
-    print(result_row)
     print('=========================================== select_company_quiz_settings_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------

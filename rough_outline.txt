@@ -14,3 +14,17 @@ TO-DO's
 -Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
 -Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
 =========================================
+Dashboard:
+Mon - Wed 7PM, people are able to view the quiz
+
+Dashboard/Grading/
+If now = After Wed 7PM > redirect to currently grading quiz # page
+On grading page, check if quiz graded = True in the graded quiz's table, if so then redirect to leaderboard page
+link on this page (/Dashboard/Grading/) to "see quiz archive"
+
+leaderboard
+see who got first place and 'bragging rights card' for that week. Only 1 winner no ties (based on correct answers and time last edited)
+Players and their total bragging rights cards won.
+
+Quiz Archive
+Players can view the archive for their previous answers

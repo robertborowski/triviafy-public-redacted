@@ -3,7 +3,6 @@ from psycopg2 import Error
 import os
 
 def postgres_connect_to_database_function():
-  """Returns: Postgres Connection and cursor"""
   print('=========================================== postgres_connect_to_database_function START ===========================================')
 
   # Heroku Postgres connection

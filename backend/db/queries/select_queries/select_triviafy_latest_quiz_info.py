@@ -2,7 +2,6 @@ import psycopg2
 from psycopg2 import Error
 
 def select_triviafy_latest_quiz_info_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date):
-  """Check if user is the first with team_id and channel_id combination, if so then they are payment_admin"""
   print('=========================================== select_triviafy_latest_quiz_info_function START ===========================================')
   
   try:
@@ -15,12 +14,10 @@ def select_triviafy_latest_quiz_info_function(postgres_connection, postgres_curs
     result_row = postgres_cursor.fetchone()
     
     if result_row == None:
-      print(result_row)
       print('=========================================== select_triviafy_latest_quiz_info_function END ===========================================')
       return None
 
     print('returning result_row:')
-    print(result_row)
     print('=========================================== select_triviafy_latest_quiz_info_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------

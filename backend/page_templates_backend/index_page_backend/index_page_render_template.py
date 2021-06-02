@@ -12,7 +12,6 @@ from backend.utils.cached_login.cached_login_info import cached_login_info_funct
 index_page_render_template = Blueprint("index_page_render_template", __name__, static_folder="static", template_folder="templates")
 @index_page_render_template.before_request
 def before_request():
-  """Returns: The domain should work with both www and non-www domain. But should always redirect to non-www version"""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
@@ -21,7 +20,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @index_page_render_template.route("/", methods=['GET','POST'])
 def index_page_render_template_function():
-  """Returns landing page"""
   print('=========================================== Landing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------

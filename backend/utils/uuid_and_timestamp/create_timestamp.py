@@ -2,7 +2,6 @@ from datetime import datetime
 import os, time
 
 def create_timestamp_function():
-  """Returns: current datetime"""
   print('=========================================== create_timestamp_function START ===========================================')
   os.environ['TZ'] = 'US/Eastern'
   time.tzset()
