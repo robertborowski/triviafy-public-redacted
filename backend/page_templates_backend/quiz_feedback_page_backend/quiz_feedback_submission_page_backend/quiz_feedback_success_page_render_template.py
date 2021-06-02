@@ -9,7 +9,6 @@ from backend.utils.cached_login.check_if_user_login_through_cookies import check
 quiz_feedback_success_page_render_template = Blueprint("quiz_feedback_success_page_render_template", __name__, static_folder="static", template_folder="templates")
 @quiz_feedback_success_page_render_template.before_request
 def before_request():
-  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

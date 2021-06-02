@@ -12,7 +12,6 @@ from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import chec
 quiz_past_due_page_render_template = Blueprint("quiz_past_due_page_render_template", __name__, static_folder="static", template_folder="templates")
 @quiz_past_due_page_render_template.before_request
 def before_request():
-  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

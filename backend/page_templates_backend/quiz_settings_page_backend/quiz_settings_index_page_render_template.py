@@ -12,7 +12,6 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 quiz_settings_index_page_render_template = Blueprint("quiz_settings_index_page_render_template", __name__, static_folder="static", template_folder="templates")
 @quiz_settings_index_page_render_template.before_request
 def before_request():
-  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

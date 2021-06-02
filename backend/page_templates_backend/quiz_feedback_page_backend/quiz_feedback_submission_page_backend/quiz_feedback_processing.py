@@ -14,7 +14,6 @@ from backend.utils.sanitize_user_inputs.sanitize_feedback_user import sanitize_f
 quiz_feedback_processing = Blueprint("quiz_feedback_processing", __name__, static_folder="static", template_folder="templates")
 @quiz_feedback_processing.before_request
 def before_request():
-  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)

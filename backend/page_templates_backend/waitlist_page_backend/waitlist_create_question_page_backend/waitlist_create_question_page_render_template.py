@@ -12,7 +12,6 @@ from backend.db.queries.select_queries.select_triviafy_waitlist_create_question_
 waitlist_create_question_page_render_template = Blueprint("waitlist_create_question_page_render_template", __name__, static_folder="static", template_folder="templates")
 @waitlist_create_question_page_render_template.before_request
 def before_request():
-  ""
   www_start = check_if_url_www_function(request.url)
   if www_start:
     new_url = remove_www_from_domain_function(request.url)
@@ -21,7 +20,6 @@ def before_request():
 # -------------------------------------------------------------- App
 @waitlist_create_question_page_render_template.route("/create/question/user/waitlist", methods=['GET','POST'])
 def waitlist_create_question_page_render_template_function():
-  """Returns /create/question/user/waitlist page"""
   print('=========================================== /create/question/user/waitlist Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
