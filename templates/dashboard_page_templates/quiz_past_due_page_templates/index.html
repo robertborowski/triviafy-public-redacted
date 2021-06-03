@@ -18,23 +18,33 @@
 
 
 <main class="logged-in">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
 
-  <div class="latest-quiz-intro-background box-shadow-sm-black">
-    <div class="latest-quiz-intro">
-      <p class="client-latest-quiz-number" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
-      <p class="client-latest-quiz-due-date">Due: {{ quiz_end_time_to_html }}, {{ quiz_end_day_of_week_to_html[:3] }}, {{ quiz_end_date_to_html }}</p>
+  <div class="quiz-past-due-intro-background box-shadow-sm-black">
+    <div class="quiz-past-due-intro">
+      <p class="quiz-past-due-title" id='words-stroke-shadow'>Quiz Grading</p>
+      <p class="quiz-past-due-title" id='words-stroke-shadow'>In Progress</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Intro End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
+  <div class="quiz-past-due-section">
+    <div class="quiz-past-due-sub-section-description">
+      <p>Quiz results should be posted by Friday (End of Day).</p>
+      <p>You will receive an email once quiz results are available.</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
   <div class="submit-quiz-image-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="logo-submit-quiz-cheering-img">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_green.png" alt="Logo cheering green" class="logo-submit-quiz-cheering-img">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
 

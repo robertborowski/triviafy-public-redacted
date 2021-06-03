@@ -9,6 +9,7 @@ from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import ge
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.page_templates_backend.submit_quiz_backend.map_question_id_user_answers_dict import map_question_id_user_answers_dict_function
 from backend.page_templates_backend.submit_quiz_backend.push_update_postgres_db_with_answers import push_update_postgres_db_with_answers_function
+from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 
 # -------------------------------------------------------------- App Setup
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
@@ -38,7 +39,7 @@ def submit_quiz_backend_function():
     user_uuid = user_nested_dict['user_uuid']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
-    # ------------------------ Get Variables for DB Insert END ------------------------   
+    # ------------------------ Get Variables for DB Insert END ------------------------
 
 
     # Get user information from the nested dict
@@ -77,7 +78,12 @@ def submit_quiz_backend_function():
     print('- - - - -')
     print('Pulled the latest company quiz from DB')
     print('- - - - -')
-    
+    # ------------------------ If Latest Company Quiz Obj None START ------------------------
+    if latest_company_quiz_object == None:
+      print('=========================================== /dashboard Page END ===========================================')
+      print('Note, this should be redirecting you to a building in progress page now grading.')
+      return redirect('/dashboard/quiz/past/due', code=302)
+    # ------------------------ If Latest Company Quiz Obj None END ------------------------    
     if latest_company_quiz_object != None:
       # Assign the variables for the HTML inputs based on the pulled object
       uuid_quiz = latest_company_quiz_object[0]                                     # str
@@ -97,6 +103,16 @@ def submit_quiz_backend_function():
       # Quiz Question ID's have to be converted from 1 string to an arr
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
     # ------------------------ Get Latest Quiz Data END ------------------------
+
+
+    # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
+    # In case someone tries to submit answers through postman to a quiz that has already closed
+    quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
+    if quiz_is_past_due_date == True:
+      print('Cannot submit answers since the quiz is past due.')
+      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+      return redirect('/', code=302)
+    # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
 
     # ------------------------ Map Quiz User Answers to Quiz Question ID's START ------------------------

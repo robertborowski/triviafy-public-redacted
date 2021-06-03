@@ -28,3 +28,8 @@ Players and their total bragging rights cards won.
 
 Quiz Archive
 Players can view the archive for their previous answers
+
+
+
+=====================
+What happens when a new company signs up not on a Monday? Make it so the first quiz does not get made until the following Monday

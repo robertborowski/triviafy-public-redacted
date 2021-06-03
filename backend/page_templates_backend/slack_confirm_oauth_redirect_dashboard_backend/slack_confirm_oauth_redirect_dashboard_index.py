@@ -8,6 +8,7 @@ from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
+from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 
 # -------------------------------------------------------------- App Setup
 slack_confirm_oauth_redirect_dashboard_index = Blueprint("slack_confirm_oauth_redirect_dashboard_index", __name__, static_folder="static", template_folder="templates")
@@ -40,11 +41,11 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
     # Get key:value from redis then delete row from redis
     localhost_slack_state_key = 'localhost_slack_state_key'
     slack_state_value_passed_in_url = redis_connection.get(localhost_slack_state_key).decode('utf-8')
-    redis_connection.delete(localhost_slack_state_key)
 
     # Get key:value from redis then delete row from redis
     localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
     get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
+    redis_connection.delete(localhost_slack_state_key)
     #redis_connection.delete(localhost_redis_browser_cookie_key) --> DONT Delete this here. When on localhost delete this only when the user clicks Log Out.
 
   # -------------------------------------------------------------- NOT running on localhost

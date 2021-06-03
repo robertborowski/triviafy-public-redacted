@@ -41,6 +41,15 @@ def quiz_past_due_page_render_template_function():
     # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     
+    # ------------------------ If Latest Company Quiz Obj None START ------------------------
+    if latest_company_quiz_object == None:
+      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+      return render_template('dashboard_page_templates/quiz_past_due_page_templates/index.html',
+                              css_cache_busting = cache_busting_output,
+                              user_company_name_to_html = user_company_name,
+                              user_channel_name_to_html = user_channel_name)
+    # ------------------------ If Latest Company Quiz Obj None END ------------------------
+    
     if latest_company_quiz_object != None:
       print('- - - - -')
       print('Pulled the latest company quiz from DB')
@@ -49,17 +58,16 @@ def quiz_past_due_page_render_template_function():
       quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
       quiz_end_time = latest_company_quiz_object[9]                                 # str
     # ------------------------ Get Latest Quiz Data END ------------------------
-
-
-    # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
-    quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
-    if quiz_is_past_due_date != True:
-      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-      return redirect('/', code=302)
-    # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
+      # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
+      quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
+      if quiz_is_past_due_date != True:
+        print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+        return redirect('/', code=302)
+      # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
 
   except:
+    print('except error hit')
     print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
     return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------

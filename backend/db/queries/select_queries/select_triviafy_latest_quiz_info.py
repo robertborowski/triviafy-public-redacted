@@ -14,6 +14,7 @@ def select_triviafy_latest_quiz_info_function(postgres_connection, postgres_curs
     result_row = postgres_cursor.fetchone()
     
     if result_row == None:
+      print('returning None')
       print('=========================================== select_triviafy_latest_quiz_info_function END ===========================================')
       return None
 

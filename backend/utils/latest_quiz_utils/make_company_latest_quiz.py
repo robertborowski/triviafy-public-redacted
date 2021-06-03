@@ -4,6 +4,7 @@ from backend.db.queries.select_queries.select_company_quiz_settings import selec
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_this_weeks_dates_data_dict import get_this_weeks_dates_data_dict_function
+from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.db.queries.select_queries.select_quiz_count_for_company_slack import select_quiz_count_for_company_slack_function
@@ -14,11 +15,12 @@ from backend.db.queries.insert_queries.insert_triviafy_quiz_questions_asked_to_c
 from backend.db.queries.insert_queries.insert_triviafy_quiz_master_table import insert_triviafy_quiz_master_table_function
 
 # -------------------------------------------------------------- Main Function
-def make_company_latest_quiz_function(user_nested_dict):
+def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_arr):
   print('=========================================== make_company_latest_quiz_function START ===========================================')
 
   # ------------------------ This Week Dates Data Dict START ------------------------
-  this_week_dates_data_dict = get_this_weeks_dates_data_dict_function()
+  # this_week_dates_data_dict = get_this_weeks_dates_data_dict_function()
+  this_upcoming_week_dates_dict = get_upcoming_week_dates_data_dict_function()
   # ------------------------ This Week Dates Data Dict END ------------------------
 
 
@@ -27,7 +29,7 @@ def make_company_latest_quiz_function(user_nested_dict):
   slack_channel_id = user_nested_dict['slack_channel_id']
   # ------------------------ Get Variables From User Object END ------------------------
 
-  
+  """
   # ------------------------ Get Company Quiz Settings START ------------------------
   # Connect to Postgres database
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
@@ -39,16 +41,16 @@ def make_company_latest_quiz_function(user_nested_dict):
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Get Company Quiz Settings END ------------------------
-
+  """
 
   # ------------------------ Set Variables Based On Data So Far START ------------------------
   uuid_quiz = create_uuid_function('uuid_quiz_')
   quiz_timestamp_created = create_timestamp_function()
   quiz_start_day_of_week = company_quiz_settings_arr[2]
-  quiz_start_date = this_week_dates_data_dict[quiz_start_day_of_week]
+  quiz_start_date = this_upcoming_week_dates_dict[quiz_start_day_of_week]
   quiz_start_time = company_quiz_settings_arr[3]
   quiz_end_day_of_week = company_quiz_settings_arr[4]
-  quiz_end_date = this_week_dates_data_dict[quiz_end_day_of_week]
+  quiz_end_date = this_upcoming_week_dates_dict[quiz_end_day_of_week]
   quiz_end_time = company_quiz_settings_arr[5]
   quiz_number_of_questions = company_quiz_settings_arr[6]
   # ------------------------ Set Variables Based On Data So Far END ------------------------
@@ -66,6 +68,7 @@ def make_company_latest_quiz_function(user_nested_dict):
 
   # ------------------------ Get Current Quiz Question Objects START ------------------------
   # For loop: for x in number of questions select a question from questions master that is not in the above arr or in the pending array
+  # Tell Daniel about the time and space this query saved
   question_objects_for_current_quiz_arr_of_dicts = select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions)
   # ------------------------ Get Current Quiz Question Objects END ------------------------
 

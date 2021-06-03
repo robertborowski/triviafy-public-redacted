@@ -35,12 +35,21 @@ def check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time):
   print(quiz_end_time_comparison_int)
   print('- - - - - - - - - -')
   # ------------------------ Print Variables END ------------------------
+  
 
-
-  if today_date >= quiz_end_date_comparison and current_hour_int >= quiz_end_time_comparison_int:
-    print('quiz is past due')
+  # ------------------------ Checks START ------------------------
+  if today_date > quiz_end_date_comparison:
+    print('Today is greater than the quiz due date')
     print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
     return True
+  
+  elif today_date == quiz_end_date_comparison:
+    if current_hour_int >= quiz_end_time_comparison_int:
+      print('Today is equal to the quiz due date, but current hour is greater than due date hour')
+      print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
+      return True
+  # ------------------------ Checks END ------------------------
+
 
   print('quiz is not past due yet')
   print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')

@@ -44,6 +44,7 @@ def index_page_render_template_function():
     # Make redis key:value pair and push to db (Slack State)
     localhost_slack_state_key = 'localhost_slack_state_key'
     localhost_slack_state_uuid_value = create_uuid_function('slv_')
+    
     redis_connection.set(localhost_slack_state_key, localhost_slack_state_uuid_value.encode('utf-8'))
     # ------------------------ Set the Slack State Key END ------------------------
 
