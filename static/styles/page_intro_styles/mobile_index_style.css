@@ -1,0 +1,13 @@
+/* ============================================== */
+/* ================= MOBILE ===================== */
+/* ============================================== */
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Template Page Intro Start */
+  /* - - - - - - - - - - Template Page Intro - Specific Pages Start */
+  .no-latest-quiz-page-intro-title, .create-question-page-intro-title, .view-submitted-page-intro-title, .quiz-feedback-page-intro-title, .quiz-feedback-success-page-intro-title, .quiz-settings-page-intro-title, .quiz-settings-edit-page-intro-title {
+    font-size: 50px;
+    padding: 15px 0 0 0;
+  }
+  /* - - - - - - - - - - Template Page Intro - Specific Pages End */
+  /* - - - - - - - - - - Template Page Intro END */
+}

@@ -33,8 +33,10 @@ def push_update_postgres_db_with_answers_function(dict_question_id_user_answers,
       # ------------------------ Additional Variables for DB Insert START ------------------------
       uuid_quiz_answer = create_uuid_function('quiz_answr_')
       quiz_answer_timestamp = create_timestamp_function()
+      quiz_answer_has_been_graded = False
+      quiz_answer_provided_is_correct = False
       # ------------------------ Additional Variables for DB Insert END ------------------------
-      output_message = insert_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, uuid_quiz_answer, quiz_answer_timestamp, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz, question_uuid_k, user_answer_v)
+      output_message = insert_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, uuid_quiz_answer, quiz_answer_timestamp, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz, question_uuid_k, user_answer_v, quiz_answer_has_been_graded, quiz_answer_provided_is_correct)
       print(output_message)
       print('- - - - - - - - - - - -')
 
@@ -45,8 +47,10 @@ def push_update_postgres_db_with_answers_function(dict_question_id_user_answers,
       print('UPDATE QUERY - update answer if changed')
       # ------------------------ Additional Variables for DB Insert START ------------------------
       quiz_answer_timestamp = create_timestamp_function()
+      quiz_answer_has_been_graded = False
+      quiz_answer_provided_is_correct = False
       # ------------------------ Additional Variables for DB Insert END ------------------------
-      output_message = update_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, user_quiz_question_answer_exists_uuid, quiz_answer_timestamp, user_answer_v)
+      output_message = update_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, user_quiz_question_answer_exists_uuid, quiz_answer_timestamp, user_answer_v, quiz_answer_has_been_graded, quiz_answer_provided_is_correct)
       print(output_message)
       print('- - - - - - - - - - - -')
     if user_answer_v == user_quiz_question_answer_exists_text_value:

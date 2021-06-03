@@ -1,7 +1,6 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_this_weeks_dates_data_dict import get_this_weeks_dates_data_dict_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
 from backend.db.queries.select_queries.select_triviafy_latest_quiz_info import select_triviafy_latest_quiz_info_function
 
@@ -17,7 +16,6 @@ def get_latest_company_quiz_if_exists_function(user_nested_dict):
 
 
   # ------------------------ This Week Dates Data Dict START ------------------------
-  # this_week_dates_data_dict = get_this_weeks_dates_data_dict_function()
   this_upcoming_week_dates_dict = get_upcoming_week_dates_data_dict_function()
 
   monday_date = this_upcoming_week_dates_dict['Monday']

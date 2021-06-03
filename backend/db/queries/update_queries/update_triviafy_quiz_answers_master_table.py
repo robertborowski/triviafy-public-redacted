@@ -2,12 +2,12 @@ import psycopg2
 import psycopg2.extras
 from psycopg2 import Error
 
-def update_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, user_quiz_question_answer_exists_uuid, quiz_answer_timestamp, user_answer_v):
+def update_triviafy_quiz_answers_master_table_function(postgres_connection, postgres_cursor, user_quiz_question_answer_exists_uuid, quiz_answer_timestamp, user_answer_v, quiz_answer_has_been_graded, quiz_answer_provided_is_correct):
   print('=========================================== update_triviafy_quiz_answers_master_table_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("UPDATE triviafy_quiz_answers_master_table SET quiz_answer_timestamp=%s, quiz_answer_actual_user_answer=%s WHERE uuid_quiz_answer=%s", [quiz_answer_timestamp, user_answer_v, user_quiz_question_answer_exists_uuid])
+    postgres_cursor.execute("UPDATE triviafy_quiz_answers_master_table SET quiz_answer_timestamp=%s, quiz_answer_actual_user_answer=%s, quiz_answer_has_been_graded=%s, quiz_answer_provided_is_correct=%s WHERE uuid_quiz_answer=%s", [quiz_answer_timestamp, user_answer_v, quiz_answer_has_been_graded, quiz_answer_provided_is_correct, user_quiz_question_answer_exists_uuid])
     # ------------------------ Query END ------------------------
 
 

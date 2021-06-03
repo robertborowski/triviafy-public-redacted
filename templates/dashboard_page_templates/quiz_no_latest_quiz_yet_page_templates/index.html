@@ -1,0 +1,53 @@
+{% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
+
+{% block title %}
+<title>Quiz Pending / Triviafy</title>
+{% endblock %}
+
+
+
+{% block content %}
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
+<nav-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+              link_account_js="{{ url_for('account_index_page_render_template.account_index_page_render_template_function') }}",
+              link_create_question_js="{{ url_for('create_question_index_page_render_template.create_question_index_page_render_template_function') }}",
+              link_quiz_settings_index_js="{{ url_for('quiz_settings_index_page_render_template.quiz_settings_index_page_render_template_function') }}",
+              link_quiz_feedback_index_js="{{ url_for('quiz_feedback_index_page_render_template.quiz_feedback_index_page_render_template_function') }}">
+</nav-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
+
+
+<main class="logged-in">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
+  <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
+                                  channel_name_js="{{ user_channel_name_to_html }}">
+  </company-name-channel-component>
+
+  <div class="template-page-intro-background box-shadow-sm-black">
+    <div class="template-page-intro">
+      <p class="template-page-intro-title no-latest-quiz-page-intro-title" id='words-stroke-shadow'>Welcome to Triviafy!</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
+  <div class="quiz-past-due-section">
+    <div class="quiz-past-due-sub-section-description">
+      <p>Your team's first quiz will be available here on Monday, 2021-06-07.</p>
+      <p>You will receive an email and a slack reminder once the weekly quiz is available.</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
+  <div class="submit-quiz-image-section">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="logo-submit-quiz-cheering-img">
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
+
+</main>
+
+<footer-signed-in-component></footer-signed-in-component>
+{% endblock %}

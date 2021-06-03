@@ -45,7 +45,7 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
     # Get key:value from redis then delete row from redis
     localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
     get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
-    redis_connection.delete(localhost_slack_state_key)
+    # redis_connection.delete(localhost_slack_state_key)
     #redis_connection.delete(localhost_redis_browser_cookie_key) --> DONT Delete this here. When on localhost delete this only when the user clicks Log Out.
 
   # -------------------------------------------------------------- NOT running on localhost

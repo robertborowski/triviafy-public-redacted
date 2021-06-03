@@ -4,7 +4,6 @@ from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
-from backend.utils.latest_quiz_utils.make_company_latest_quiz import make_company_latest_quiz_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.db.queries.select_queries.select_company_quiz_questions_individually import select_company_quiz_questions_individually_function
@@ -12,6 +11,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.page_templates_backend.dashboard_page_backend.get_user_saved_quiz_question_answers import get_user_saved_quiz_question_answers_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
+from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -47,10 +47,11 @@ def dashboard_index_page_render_template_function():
     # ------------------------ 1/2 Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
+    # When company first signs up after a Sunday (when the quiz maker runs) then they have no 'latest quiz' and have to wait until next week.
     if latest_company_quiz_object == None:
       print('=========================================== /dashboard Page END ===========================================')
-      print('Note, this should be redirecting you to a building in progress page now grading.')
-      return redirect('/dashboard/quiz/past/due', code=302)
+      print('redirecting to thank you first signed up page')
+      return redirect('/dashboard/quiz/first/pending', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
     # ------------------------ Get Latest Quiz Data START ------------------------
     
@@ -76,6 +77,25 @@ def dashboard_index_page_render_template_function():
       # Quiz Question ID's have to be converted from 1 string to an arr
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
     # ------------------------ Get Latest Quiz Data END ------------------------
+
+
+
+
+
+
+
+    # ------------------------ Check If Latest Quiz Is Graded START ------------------------
+    latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
+    if latest_quiz_is_graded_check == True:
+      print('=========================================== /dashboard Page END ===========================================')
+      print('redirecting to the results page')
+      return redirect('/dashboard/quiz/results', code=302)
+    # ------------------------ Check If Latest Quiz Is Graded END ------------------------
+
+
+
+
+
 
 
     # ------------------------ If Quiz Is Past Due Date START ------------------------
