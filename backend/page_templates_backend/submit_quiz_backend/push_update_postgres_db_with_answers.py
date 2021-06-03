@@ -24,7 +24,6 @@ def push_update_postgres_db_with_answers_function(dict_question_id_user_answers,
     print('SELECT QUERY - If answer exists:')
     # SELECT if answer exists
     user_quiz_question_answer_exists_uuid, user_quiz_question_answer_exists_text_value = select_user_quiz_question_answer_if_exists_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz, question_uuid_k)
-    print(user_quiz_question_answer_exists_uuid)
 
 
     # INSERT new answer
