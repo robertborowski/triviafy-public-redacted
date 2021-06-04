@@ -1,4 +1,4 @@
-/* - - - - - - - - - - All Styles - Start */
+/* ==================================== All Styles START ==================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,11 +17,12 @@
     -webkit-appearance: none;
   }
 }
-/* - - - - - - - - - - All Styles - End */
+/* ==================================== All Styles END ==================================== */
 
 
-/* Set Global Variables */
-/* - - - - - - - - - - Root global variables - Start */
+
+/* ==================================== Set Global Variables START ==================================== */
+/* - - - - - - - - - - Root global variables Start */
 :root {
   /* Company colors */
   /* Primary Colors */
@@ -41,9 +42,11 @@
   --company-button-outline-light-grey-color: rgb(190, 190, 190);
 }
 /* - - - - - - - - - - Root global variables - End */
+/* ==================================== Set Global Variables END ==================================== */
 
 
-/* Set Global Classes and ID's */
+
+/* ==================================== Global Classes and ID's START ==================================== */
 /* - - - - - - - - - - Box shadows - Start */
 .box-shadow-sm-grey {
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
@@ -77,7 +80,6 @@
 }
 /* - - - - - - - - - - Box shadows - End */
 
-
 /* - - - - - - - - - - Stroke - Start */
 #words-stroke-shadow {
   /* -webkit-text-stroke: 1px black; */
@@ -85,12 +87,13 @@
 }
 /* - - - - - - - - - - Stroke - End */
 
-
-/* - - - - - - - - - - Other - Start */
+/* - - - - - - - - - - Input, Textarea, Select - Start */
 /* Remove default behavior of textbox style */
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
+
+
 /* - - - - - - - - - - Button Defaults - Start */
 .button-default {
   display: inline-block;
@@ -106,13 +109,16 @@ input:focus, textarea:focus, select:focus{
   width: 150px;
   border: none;
 }
+.button-default:hover {
+  text-decoration: underline;
+}
 .button-default-color-primary {
   color: white;
   background-color: var(--company-primary-color);
   border: none;
 }
-.button-default:hover {
-  text-decoration: underline;
+.button-section-middle {
+  text-align: center;
 }
 /* - - - - - - - - - - Button Defaults - End */
 
@@ -132,4 +138,60 @@ textarea.answer-text-box {
   resize: none;
 }
 /* - - - - - - - - - - Text box Defaults - End */
-/* - - - - - - - - - - Other - End */
+
+/* - - - - - - - - - - Template Page Intro Start */
+.template-page-intro-background {
+  height: 150px;
+  background-color: var(--company-primary-color);
+  width: 100%;
+}
+.template-page-intro {
+  text-align: center;
+}
+.template-page-intro-title, .template-page-intro-sub-title {
+  color: white;
+}
+/* - - - - - - - - - - Template Page Intro - Specific Pages Start */
+.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded {
+  font-size: 60px;
+  padding: 30px 0 0 0;
+}
+.template-page-intro-title-dashboard {
+  font-size: 60px;
+  padding: 0 0 0 0;
+}
+.template-page-intro-sub-title-dashboard {
+  /* font-size: 10px; */
+  padding: 10px;
+}
+/* - - - - - - - - - - Template Page Intro - Specific Pages End */
+/* - - - - - - - - - - Template Page Intro End */
+
+
+/* - - - - - - - - - - Template Small Logo Caricature Bottom Page Start */
+.small-logo-caricature-section {
+  text-align: center;
+  margin: 40px 0;
+}
+img.logo-caricature-img {
+  height: 250px;
+  width: 250px;
+}
+/* - - - - - - - - - - Template Small Logo Caricature Bottom Page End */
+
+
+/* - - - - - - - - - - Template Post Intro Description Start */
+.template-page-post-intro-description-section {
+  border: solid black 1px;
+  text-align: center;
+  margin: 50px 0;
+}
+.template-page-post-intro-description-sub-section {
+  color: var(--company-greyed-out-color);
+  width: 95%;
+  margin: 0 auto;
+}
+/* - - - - - - - - - - Template Post Intro Description End */
+
+
+/* ==================================== Global Classes and ID's END ==================================== */

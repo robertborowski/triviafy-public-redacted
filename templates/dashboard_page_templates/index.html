@@ -23,10 +23,10 @@
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
 
-  <div class="latest-quiz-intro-background box-shadow-sm-black">
-    <div class="latest-quiz-intro">
-      <p class="client-latest-quiz-number" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
-      <p class="client-latest-quiz-due-date">Due: {{ quiz_end_time_to_html }}, {{ quiz_end_day_of_week_to_html[:3] }}, {{ quiz_end_date_to_html }}</p>
+  <div class="template-page-intro-background box-shadow-sm-black">
+    <div class="template-page-intro">
+      <p class="template-page-intro-title template-page-intro-title-dashboard" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
+      <p class="template-page-intro-sub-title template-page-intro-sub-title-dashboard">Due: {{ quiz_end_time_to_html }}, {{ quiz_end_day_of_week_to_html[:3] }}, {{ quiz_end_date_to_html }}</p>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal Start -->
       <a href="#"><p class="modal-see-rules" id="quiz-rules-activate-modal">See Rules</p></a>
       <div id="quiz-rules-details-modal" class="quiz-modal">
@@ -62,7 +62,7 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form Start -->
-  <form action="{{ url_for('submit_quiz_backend.submit_quiz_backend_function') }}" method="post" class='current-quiz-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('submit_quiz_backend.submit_quiz_backend_function') }}" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
     {% for i in quiz_questions_obj_arr_of_dicts_html %}
@@ -125,22 +125,23 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions End -->
 
 
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Start -->
-    <div class="submit-quiz-submit-button">
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+    <div class="button-section-middle">
       <button class="button-default button-default-color-primary" type="submit" value="submit">Submit</button>
     </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz End --> 
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
 
 
   </form>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form END -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
-  <div class="submit-quiz-image-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="logo-submit-quiz-cheering-img">
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
+  <div class="small-logo-caricature-section">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="logo-caricature-img">
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
 
 </main>
 
