@@ -4,11 +4,11 @@
   color: var(--company-greyed-out-color);
   margin-top: 30px;
 }
-.client-company-and-channel-names .client-company-name {
+.client-company-name {
   font-size: 40px;
   padding-bottom: 20px;
 }
-.client-company-and-channel-names .client-channel-name {
+.client-channel-name {
   font-size: 20px;
   padding-bottom: 20px;
 }

@@ -24,20 +24,7 @@ form.quiz-feedback-form {
 
 
 /* - - - - - - - - - - Submit Start */
-.question-feedback-submit-button {
+.button-feedback-page {
   margin: 50px;
-  text-align: center;
 }
 /* - - - - - - - - - - Submit End */
-
-
-/* - - - - - - - - - - Logo Image Start */
-.quiz-feedback-logo-section {
-  text-align: center;
-}
-img.quiz-feedback-logo {
-  /* border: black solid 1px; */
-  height: 300px;
-  width: 300px;
-}
-/* - - - - - - - - - - Logo Image End */

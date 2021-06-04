@@ -1,16 +1,9 @@
-/* ============================================== */
-/* ================= MOBILE ===================== */
-/* ============================================== */
 @media (max-width: 800px) {
   /* - - - - - - - - - - Create Question Intro - Start */
-  main.logged-in.create-question-main .create-question-background .create-question-intro .create-question-title {
-    font-size: 45px;
-    padding-top: 20px;
-  }
   /* - - - - - - - - - - Create Question Intro - End */
 
   /* - - - - - - - - - - Create Question Logo Caricature - Start */
-  main.logged-in.create-question-main .create-question-image-section img.logo-create-question-construction-outfit {
+.create-question-image-section img.logo-create-question-construction-outfit {
     float: none;
     height: 15rem;
     width: 15rem;
@@ -21,7 +14,7 @@
   /* - - - - - - - - - - Create Question Logo Caricature - End */
 
   /* - - - - - - - - - - Create Question Form - Start */
-  main.logged-in.create-question-main form.create-question-form {
+form.create-question-form {
     /* border: 1px solid black; */
     width: 95%;
   }
@@ -50,7 +43,7 @@
 
 
   /* - - - - - - - - - - Create Question Logo Caricature 2 - Start */
-  main.logged-in.create-question-main .create-question-image-section img.logo-create-question-construction-outfit-two {
+.create-question-image-section img.logo-create-question-construction-outfit-two {
     display: block;
     height: 15rem;
     width: 15rem;
@@ -59,7 +52,7 @@
   /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
 
   /* - - - - - - - - - - Create Question - submitted link- Start */
-  main.logged-in.create-question-main .see_submitted_section p.see-submitted-link {
+.see_submitted_section p.see-submitted-link {
     width: 90%;
     text-align: center;
     margin: 0 auto;

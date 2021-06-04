@@ -14,7 +14,7 @@
               link_quiz_feedback_index_js="{{ url_for('quiz_feedback_index_page_render_template.quiz_feedback_index_page_render_template_function') }}">
 </nav-component>
 
-<main class="logged-in create-question-main">
+<main class="logged-in">
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
@@ -108,11 +108,13 @@
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Image Upload End -->
 
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question Start -->
-    <div class="create-question-submit-button">
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+    <div class="button-section-middle">
       <button class="button-default button-default-color-primary" type="submit" value="submit">Submit</button>
     </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Submit Question End -->  
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
+
 
   </form>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Form End -->

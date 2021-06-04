@@ -17,12 +17,45 @@
 </nav-component>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
-<main class="account-main">
+
+<main class="logged-in">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
+  <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
+                                  channel_name_js="{{ user_channel_name_to_html }}">
+  </company-name-channel-component>
+
+  <div class="template-page-intro-background box-shadow-sm-black">
+    <div class="template-page-intro">
+      <p class="template-page-intro-title template-page-intro-title-no-latest-quiz" id='words-stroke-shadow'>Account</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
+  <div class="template-page-post-intro-description-section">
+    <div class="template-page-post-intro-description-sub-section">
+      <p>Your team's first quiz will be available here on Monday, 2021-06-07.</p>
+      <p>You will receive an email and a slack reminder once the weekly quiz is available.</p>
+    </div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
+
   <form action="{{ url_for('logout.logout_function') }}" method="post">
-    <button>Logout</button>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+    <div class="button-section-middle">
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Logout</button>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
   </form>
+
+  
   <form action="{{ url_for('send_channel_test_message.send_channel_test_message_function') }}" method="post">
-    <button>Send test message</button>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+    <div class="button-section-middle">
+      <button class="button-default button-default-color-primary" type="submit" value="submit">Test Message</button>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
   </form>
 </main>
 
