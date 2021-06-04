@@ -85,15 +85,4 @@ p.character-count-tracker {
 /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
 
 /* - - - - - - - - - - Create Question - submitted link- Start */
-.see_submitted_section {
-  text-align: center;
-  padding: 0 0 50px 0;
-}
-.see_submitted_section a, .see_submitted_section a:visited {
-  text-decoration-color: var(--company-primary-color);
-} 
-.see_submitted_section p.see-submitted-link {
-  font-size: 20px;
-  color: var(--company-primary-color);
-}
 /* - - - - - - - - - - Create Question - submitted link- End */

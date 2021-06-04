@@ -55,15 +55,4 @@
 
 
 /* - - - - - - - - - - Quiz Feedback - End */
-.quiz-settings-feedback-section {
-  text-align: center;
-}
-a.quiz-settings-link-a, a.quiz-settings-link-a:visited {
-  text-decoration-color: var(--company-primary-color);
-}
-.quiz-settings-link-to-feedback {
-  margin: 30px 0 80px 0;
-  font-size: 20px;
-  color: var(--company-primary-color);
-}
 /* - - - - - - - - - - Quiz Feedback - End */

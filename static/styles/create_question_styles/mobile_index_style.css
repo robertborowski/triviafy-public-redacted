@@ -52,10 +52,5 @@ form.create-question-form {
   /* - - - - - - - - - - Create Question Logo Caricature 2 - End */
 
   /* - - - - - - - - - - Create Question - submitted link- Start */
-.see_submitted_section p.see-submitted-link {
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
-  }
   /* - - - - - - - - - - Create Question - submitted link- End */
 }

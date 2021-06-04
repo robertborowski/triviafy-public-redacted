@@ -122,6 +122,25 @@ input:focus, textarea:focus, select:focus{
 }
 /* - - - - - - - - - - Button Defaults - End */
 
+
+
+/* - - - - - - - - - - Hyperlink Redirect - Start */
+.template-hyperlink-redirect-section {
+  text-align: center;
+}
+a.template-hyperlink-redirect-section-a, a.template-hyperlink-redirect-section-a:visited {
+  text-decoration-color: var(--company-primary-color);
+}
+.template-hyperlink-redirect-section-p {
+  margin: 30px 0 80px 0;
+  font-size: 20px;
+  color: var(--company-primary-color);
+}
+/* - - - - - - - - - - Hyperlink Redirect - End */
+
+
+
+
 /* - - - - - - - - - - Text box Defaults - Start */
 .answer-text-box {
   width: 70%;
