@@ -78,18 +78,19 @@ def dashboard_index_page_render_template_function():
     # ------------------------ Get Latest Quiz Data END ------------------------
 
 
-    # ------------------------ Check If Latest Quiz Is Graded START ------------------------
-    latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
-    if latest_quiz_is_graded_check == True:
-      print('=========================================== /dashboard Page END ===========================================')
-      print('redirecting to the results page')
-      return redirect('/dashboard/quiz/results', code=302)
-    # ------------------------ Check If Latest Quiz Is Graded END ------------------------
-
 
     # ------------------------ Check If Quiz Is Past Due Date START ------------------------
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     if quiz_is_past_due_date == True:
+      
+      # ------------------------ Check If Latest Quiz Is Graded START ------------------------
+      latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
+      if latest_quiz_is_graded_check == True:
+        print('=========================================== /dashboard Page END ===========================================')
+        print('redirecting to the results page')
+        return redirect('/dashboard/quiz/results', code=302)
+      
+      # ------------------------ Check If Latest Quiz Is Graded END ------------------------
       print('=========================================== /dashboard Page END ===========================================')
       print('redirecting to quiz past due page')
       return redirect('/dashboard/quiz/past/due', code=302)

@@ -57,20 +57,21 @@ def quiz_past_due_page_render_template_function():
       quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
       quiz_end_time = latest_company_quiz_object[9]                                 # str
     # ------------------------ Get Latest Quiz Data END ------------------------
-      # ------------------------ Check If Latest Quiz Is Graded START ------------------------
-      latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
-      if latest_quiz_is_graded_check == True:
-        print('=========================================== /dashboard Page END ===========================================')
-        print('redirecting to the results page')
-        return redirect('/dashboard/quiz/results', code=302)
-      # ------------------------ Check If Latest Quiz Is Graded END ------------------------
-
 
       # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
       quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
       if quiz_is_past_due_date != True:
         print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
         return redirect('/', code=302)
+
+      if quiz_is_past_due_date == True:
+        # ------------------------ Check If Latest Quiz Is Graded START ------------------------
+        latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
+        if latest_quiz_is_graded_check == True:
+          print('=========================================== /dashboard Page END ===========================================')
+          print('redirecting to the results page')
+          return redirect('/dashboard/quiz/results', code=302)
+        # ------------------------ Check If Latest Quiz Is Graded END ------------------------
       # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
 

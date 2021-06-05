@@ -1,11 +1,3 @@
-COMPANY PREFERCNCES
-{
-  category_preferd: [],
-  logo_url: fsgfhh
-  allow_redo: 
-  num_ques_preferred: 
-}
-=================================================================
 =========================================
 POSSIBLE GREY AREA
 -To avoid any issues of "extra pay" because of the giftcard, instead have a message that once someone has enough points to claim a giftcard prize, have a modal be recommended to them saying, we recommend you recieve your giftcard to your personal email address not work email. To avoid any legal complications that could be regarded as extra 'payment'
@@ -14,22 +6,5 @@ TO-DO's
 -Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
 -Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
 =========================================
-Dashboard:
-Mon - Wed 7PM, people are able to view the quiz
-
-Dashboard/Grading/
-If now = After Wed 7PM > redirect to currently grading quiz # page
-On grading page, check if quiz graded = True in the graded quiz's table, if so then redirect to leaderboard page
-link on this page (/Dashboard/Grading/) to "see quiz archive"
-
-leaderboard
-see who got first place and 'bragging rights card' for that week. Only 1 winner no ties (based on correct answers and time last edited)
-Players and their total bragging rights cards won.
-
-Quiz Archive
-Players can view the archive for their previous answers
-
-
-
-=====================
-What happens when a new company signs up not on a Monday? Make it so the first quiz does not get made until the following Monday
+This Week's Winner is page
+Add user 
