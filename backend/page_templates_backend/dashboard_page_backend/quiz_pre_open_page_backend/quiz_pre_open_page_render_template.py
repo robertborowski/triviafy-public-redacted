@@ -72,7 +72,7 @@ def quiz_pre_open_page_render_template_function():
     # ------------------------ Check Cannot View Created Quiz Before Start Date START ------------------------
     today_is_earlier_than_start_date = check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time)
     if today_is_earlier_than_start_date != True:
-      print('=========================================== /dashboard Page END ===========================================')
+      print('=========================================== /dashboard/quiz/pre/open Page END ===========================================')
       print('redirecting to quiz not yet open page')
       return redirect('/', code=302)
     # ------------------------ Check Cannot View Created Quiz Before Start Date END ------------------------

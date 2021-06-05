@@ -5,8 +5,8 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
-from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
+from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
 
 # -------------------------------------------------------------- App Setup
 quiz_past_due_page_render_template = Blueprint("quiz_past_due_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -36,7 +36,8 @@ def quiz_past_due_page_render_template_function():
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
-
+    slack_workspace_team_id = user_nested_dict['slack_team_id']
+    slack_channel_id = user_nested_dict['slack_channel_id']
 
     # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
@@ -52,9 +53,19 @@ def quiz_past_due_page_render_template_function():
       print('Pulled the latest company quiz from DB')
       print('- - - - -')
       # Assign the variables for the HTML inputs based on the pulled object
+      uuid_quiz = latest_company_quiz_object[0]
       quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
       quiz_end_time = latest_company_quiz_object[9]                                 # str
     # ------------------------ Get Latest Quiz Data END ------------------------
+      # ------------------------ Check If Latest Quiz Is Graded START ------------------------
+      latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
+      if latest_quiz_is_graded_check == True:
+        print('=========================================== /dashboard Page END ===========================================')
+        print('redirecting to the results page')
+        return redirect('/dashboard/quiz/results', code=302)
+      # ------------------------ Check If Latest Quiz Is Graded END ------------------------
+
+
       # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
       quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
       if quiz_is_past_due_date != True:
