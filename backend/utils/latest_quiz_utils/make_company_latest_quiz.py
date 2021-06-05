@@ -1,6 +1,5 @@
 # -------------------------------------------------------------- Imports
 from datetime import datetime
-from backend.db.queries.select_queries.select_company_quiz_settings import select_company_quiz_settings_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
@@ -26,20 +25,7 @@ def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_ar
   slack_workspace_team_id = user_nested_dict['slack_team_id']
   slack_channel_id = user_nested_dict['slack_channel_id']
   # ------------------------ Get Variables From User Object END ------------------------
-
-  """
-  # ------------------------ Get Company Quiz Settings START ------------------------
-  # Connect to Postgres database
-  postgres_connection, postgres_cursor = postgres_connect_to_database_function()
-
-  # Get the comapny quiz settings (for number of questions) and cateogry preferences
-  # calculate the due date and due time for this quiz as a variable
-  company_quiz_settings_arr = select_company_quiz_settings_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-
-  # Close postgres db connection
-  postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
-  # ------------------------ Get Company Quiz Settings END ------------------------
-  """
+  
 
   # ------------------------ Set Variables Based On Data So Far START ------------------------
   uuid_quiz = create_uuid_function('uuid_quiz_')

@@ -12,18 +12,6 @@ def check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_chann
 
   # Get all the results from database that match team ID channel ID and Quiz ID
   all_quiz_answers_arr = select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, uuid_quiz)
-
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print(all_quiz_answers_arr)
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
-  print('- - - - - - -')
   
   # If no one submitted any answers for the latest quiz
   if all_quiz_answers_arr == '' or all_quiz_answers_arr == None or all_quiz_answers_arr == []:

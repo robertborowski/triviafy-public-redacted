@@ -18,23 +18,6 @@ def check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time):
   quiz_end_time_comparison = quiz_time_convert_dict[quiz_end_time]    # str
   quiz_end_time_comparison_int = int(quiz_end_time_comparison[0:2])   # int
   # ------------------------ Assign Variables END ------------------------
-
-
-  # ------------------------ Print Variables START ------------------------
-  print('- - - - - - - - - -')
-  print('todays date')
-  print(today_date)
-  print('-')
-  print('quiz_end_date_comparison')
-  print(quiz_end_date_comparison)
-  print('- - - - -')
-  print('current_hour_int')
-  print(current_hour_int)
-  print('-')
-  print('quiz_end_time_comparison_int')
-  print(quiz_end_time_comparison_int)
-  print('- - - - - - - - - -')
-  # ------------------------ Print Variables END ------------------------
   
 
   # ------------------------ Checks START ------------------------

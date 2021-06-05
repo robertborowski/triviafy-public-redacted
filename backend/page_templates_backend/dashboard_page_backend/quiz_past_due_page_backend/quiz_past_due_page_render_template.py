@@ -44,10 +44,7 @@ def quiz_past_due_page_render_template_function():
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
     if latest_company_quiz_object == None:
       print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-      return render_template('dashboard_page_templates/quiz_past_due_page_templates/index.html',
-                              css_cache_busting = cache_busting_output,
-                              user_company_name_to_html = user_company_name,
-                              user_channel_name_to_html = user_channel_name)
+      return redirect('/', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
     
     if latest_company_quiz_object != None:

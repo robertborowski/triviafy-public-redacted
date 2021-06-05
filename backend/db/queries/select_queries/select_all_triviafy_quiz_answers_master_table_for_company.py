@@ -14,10 +14,10 @@ def select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
     if result_arr == None:
-      print('=========================================== select_question_ids_already_asked_to_company_slack_function END ===========================================')
+      print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
       return None
 
-    print('=========================================== select_question_ids_already_asked_to_company_slack_function END ===========================================')  
+    print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')  
     return result_arr
     # ------------------------ Query Result END ------------------------
   

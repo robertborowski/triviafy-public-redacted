@@ -171,7 +171,7 @@ textarea.answer-text-box {
   color: white;
 }
 /* - - - - - - - - - - Template Page Intro - Specific Pages Start */
-.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded {
+.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-quiz-pre-open {
   font-size: 60px;
   padding: 30px 0 0 0;
 }
@@ -188,11 +188,11 @@ textarea.answer-text-box {
 
 
 /* - - - - - - - - - - Template Small Logo Caricature Bottom Page Start */
-.small-logo-caricature-section {
+.template-small-logo-caricature-section {
   text-align: center;
   margin: 40px 0;
 }
-img.logo-caricature-img {
+img.template-logo-caricature-img {
   height: 250px;
   width: 250px;
 }
@@ -201,7 +201,7 @@ img.logo-caricature-img {
 
 /* - - - - - - - - - - Template Post Intro Description Start */
 .template-page-post-intro-description-section {
-  border: solid black 1px;
+  /* border: solid black 1px; */
   text-align: center;
   margin: 50px 0;
 }

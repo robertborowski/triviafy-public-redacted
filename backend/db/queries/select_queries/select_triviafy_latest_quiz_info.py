@@ -1,12 +1,12 @@
 import psycopg2
 from psycopg2 import Error
 
-def select_triviafy_latest_quiz_info_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date):
+def select_triviafy_latest_quiz_info_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date, saturday_date, sunday_date):
   print('=========================================== select_triviafy_latest_quiz_info_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("SELECT * FROM triviafy_quiz_master_table WHERE (quiz_slack_team_id=%s AND quiz_slack_channel_id=%s) AND (quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s)", [slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date])
+    postgres_cursor.execute("SELECT * FROM triviafy_quiz_master_table WHERE (quiz_slack_team_id=%s AND quiz_slack_channel_id=%s) AND (quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s OR quiz_start_date=%s)", [slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date, saturday_date, sunday_date])
     # ------------------------ Query END ------------------------
 
 

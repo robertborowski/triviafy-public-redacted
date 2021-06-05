@@ -12,6 +12,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.page_templates_backend.dashboard_page_backend.get_user_saved_quiz_question_answers import get_user_saved_quiz_question_answers_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
+from backend.utils.latest_quiz_utils.check_if_today_is_earlier_than_latest_quiz_start_date_utils.check_if_today_is_earlier_than_latest_quiz_start_date import check_if_today_is_earlier_than_latest_quiz_start_date_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -44,17 +45,15 @@ def dashboard_index_page_render_template_function():
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
 
-    # ------------------------ 1/2 Get Latest Quiz Data START ------------------------
+    # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
-    # When company first signs up after a Sunday (when the quiz maker runs) then they have no 'latest quiz' and have to wait until next week.
+    # When company first signs up after a Sunday (when the quiz maker runs) then they have no 'latest quiz' and have to wait until next week for the first quiz release.
     if latest_company_quiz_object == None:
       print('=========================================== /dashboard Page END ===========================================')
       print('redirecting to thank you first signed up page')
       return redirect('/dashboard/quiz/first/pending', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
-    # ------------------------ Get Latest Quiz Data START ------------------------
-    
     if latest_company_quiz_object != None:
       print('- - - - -')
       print('Pulled the latest company quiz from DB')
@@ -79,11 +78,6 @@ def dashboard_index_page_render_template_function():
     # ------------------------ Get Latest Quiz Data END ------------------------
 
 
-
-
-
-
-
     # ------------------------ Check If Latest Quiz Is Graded START ------------------------
     latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
     if latest_quiz_is_graded_check == True:
@@ -93,17 +87,23 @@ def dashboard_index_page_render_template_function():
     # ------------------------ Check If Latest Quiz Is Graded END ------------------------
 
 
-
-
-
-
-
-    # ------------------------ If Quiz Is Past Due Date START ------------------------
+    # ------------------------ Check If Quiz Is Past Due Date START ------------------------
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     if quiz_is_past_due_date == True:
       print('=========================================== /dashboard Page END ===========================================')
+      print('redirecting to quiz past due page')
       return redirect('/dashboard/quiz/past/due', code=302)
-    # ------------------------ If Quiz Is Past Due Date END ------------------------
+    # ------------------------ Check If Quiz Is Past Due Date END ------------------------
+
+    
+    # ------------------------ Check If Pre Quiz Block View Date START ------------------------
+    today_is_earlier_than_start_date = check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time)
+    print('- - - - - - - -')
+    if today_is_earlier_than_start_date == True:
+      print('=========================================== /dashboard Page END ===========================================')
+      print('redirecting to quiz not yet open page')
+      return redirect('/dashboard/quiz/pre/open', code=302)
+    # ------------------------ Check If Pre Quiz Block View Date END ------------------------
 
 
     # ------------------------ Pull the Quiz Questions START ------------------------

@@ -1,7 +1,7 @@
 {% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
-<title>Quiz Past Due / Triviafy</title>
+<title>Quiz Pending / Triviafy</title>
 {% endblock %}
 
 
@@ -25,7 +25,7 @@
 
   <div class="template-page-intro-background box-shadow-sm-black">
     <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-quiz-past-due" id='words-stroke-shadow'>Quiz Closed</p>
+      <p class="template-page-intro-title template-page-intro-title-quiz-pre-open" id='words-stroke-shadow'>Quiz Not Yet Open</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
@@ -34,8 +34,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
   <div class="template-page-post-intro-description-section">
     <div class="template-page-post-intro-description-sub-section">
-      <p>Quiz results should be posted by Friday (End of Day).</p>
-      <p>You will receive an email once quiz results are available.</p>
+      <p>Your team's next quiz will be available here on {{ company_quiz_start_day_to_html }}, {{ company_quiz_start_date_to_html }}.</p>
+      <p>You will receive an email & slack reminder once the weekly quiz is available.</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
@@ -43,7 +43,7 @@
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
   <div class="template-small-logo-caricature-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_green.png" alt="Logo cheering green" class="template-logo-caricature-img">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="template-logo-caricature-img">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
 

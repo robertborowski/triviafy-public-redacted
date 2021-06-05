@@ -23,6 +23,8 @@ def get_latest_company_quiz_if_exists_function(user_nested_dict):
   wednesday_date = this_upcoming_week_dates_dict['Wednesday']
   thursday_date = this_upcoming_week_dates_dict['Thursday']
   friday_date = this_upcoming_week_dates_dict['Friday']
+  saturday_date = this_upcoming_week_dates_dict['Saturday']
+  sunday_date = this_upcoming_week_dates_dict['Sunday']
   # ------------------------ This Week Dates Data Dict END ------------------------
 
 
@@ -31,7 +33,7 @@ def get_latest_company_quiz_if_exists_function(user_nested_dict):
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
 
   # Get latest company quiz info
-  latest_quiz_info_arr = select_triviafy_latest_quiz_info_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date)
+  latest_quiz_info_arr = select_triviafy_latest_quiz_info_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date, saturday_date, sunday_date)
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)

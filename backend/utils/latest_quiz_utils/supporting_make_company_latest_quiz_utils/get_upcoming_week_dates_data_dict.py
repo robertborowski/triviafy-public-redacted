@@ -1,5 +1,5 @@
 # -------------------------------------------------------------- Imports
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 
 # -------------------------------------------------------------- Main Function
 def get_upcoming_week_dates_data_dict_function():

@@ -5,8 +5,10 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
-from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
-from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
+from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_next_weeks_dates_data_dict import get_next_weeks_dates_data_dict_function
+from backend.db.queries.select_queries.select_company_quiz_settings import select_company_quiz_settings_function
+from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
+from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 
 # -------------------------------------------------------------- App Setup
 quiz_no_latest_quiz_yet_page_render_template = Blueprint("quiz_no_latest_quiz_yet_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -35,6 +37,10 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
+
+    # Get Company name and channel name (slack ID's)
+    slack_workspace_team_id = user_nested_dict['slack_team_id']
+    slack_channel_id = user_nested_dict['slack_channel_id']
     
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
     # Make sure that there is no latest company quiz if someone goes to this URL
@@ -45,6 +51,32 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
       print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
       return redirect('/dashboard', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
+
+
+    # ------------------------ Get The Company Quiz Settings START ------------------------
+    # Connect to Postgres database
+    postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+
+    # Get quiz settings from DB as arr
+    quiz_settings_arr = select_company_quiz_settings_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+    # Assign the arr values
+    company_quiz_settings_last_updated_timestamp = quiz_settings_arr[1]
+    company_quiz_settings_start_day = quiz_settings_arr[2]
+    company_quiz_settings_start_time = quiz_settings_arr[3]
+    company_quiz_settings_end_day = quiz_settings_arr[4]
+    company_quiz_settings_end_time = quiz_settings_arr[5]
+    company_quiz_settings_questions_per_quiz = quiz_settings_arr[6]
+
+    # Close postgres db connection
+    postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+    # ------------------------ Get The Company Quiz Settings END ------------------------
+
+
+    # ------------------------ Get Next Week's Dates Dict START ------------------------
+    next_week_dates_dict = get_next_weeks_dates_data_dict_function()
+    company_first_quiz_will_be_created_start_day = company_quiz_settings_start_day
+    company_first_quiz_will_be_created_start_date = next_week_dates_dict[company_quiz_settings_start_day]
+    # ------------------------ Get Next Week's Dates Dict End ------------------------
 
 
   except:
@@ -59,4 +91,6 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
   return render_template('dashboard_page_templates/quiz_no_latest_quiz_yet_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
-                          user_channel_name_to_html = user_channel_name)
+                          user_channel_name_to_html = user_channel_name,
+                          company_first_quiz_will_be_created_start_day_to_html = company_first_quiz_will_be_created_start_day,
+                          company_first_quiz_will_be_created_start_date_to_html = company_first_quiz_will_be_created_start_date)
