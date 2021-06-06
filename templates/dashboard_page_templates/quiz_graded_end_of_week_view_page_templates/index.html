@@ -18,7 +18,7 @@
 
 
 <main class="logged-in">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
@@ -28,17 +28,25 @@
       <p class="template-page-intro-title template-page-intro-title-quiz-graded" id='words-stroke-shadow'>This Week's Winner is...</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Winner Start -->
   <div class="template-page-post-intro-description-section">
     <div class="template-page-post-intro-description-sub-section">
-      <p>PERSON NAME HERE</p>
-      <p>Next quiz will go live on INSERT THAT DAY HERE</p>
+      <p class="quiz-winner-name">{{ week_winner_display_name_to_html }}</p>
+      <p class="quiz-winner-num-answers">Number of Correct Answers: {{ week_winner_correct_answers_total_to_html }}</p>
+      <p class="quiz-winner-timestamp">Timestamp Submitted: {{ week_winner_submit_time_to_html }}</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Winner End -->
+
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Bragging Rights Image Start -->
+  <div class="bragging-rights-section">
+    <img src="/static/images/bragging_rights/bragging_rights_card.png" alt="Bragging Rights Card" class="bragging-rights-img">
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Bragging Rights Image END -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
@@ -46,6 +54,12 @@
     <img src="/static/images/logo/Logo_active/Logo_cheering_green.png" alt="Logo cheering green" class="template-logo-caricature-img">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - submitted link Start -->
+  <div class="template-hyperlink-redirect-section">
+    <a href="{{ url_for('create_question_submission_success_page_render_template.create_question_submission_success_page_render_template_function') }}" class="template-hyperlink-redirect-section-a"><p class="template-hyperlink-redirect-section-p">Click to see Leaderboard.</p></a>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - submitted link End -->
 
 </main>
 

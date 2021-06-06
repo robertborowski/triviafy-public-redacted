@@ -8,6 +8,8 @@ from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
+from backend.utils.quiz_calculations_utils.quiz_calculate_quiz_uuid_winner import quiz_calculate_quiz_uuid_winner_function
+from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_winner_insert_to_db_function
 
 # -------------------------------------------------------------- App Setup
 quiz_graded_end_of_week_view_page_render_template = Blueprint("quiz_graded_end_of_week_view_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -66,8 +68,6 @@ def quiz_graded_end_of_week_view_page_render_template_function():
       # Quiz Question ID's have to be converted from 1 string to an arr
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
     # ------------------------ Get Latest Quiz Data END ------------------------
-
-
     # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
@@ -78,7 +78,23 @@ def quiz_graded_end_of_week_view_page_render_template_function():
         print('Latest quiz is not yet fully graded.')
         print('=========================================== /dashboard/quiz/results Page END ===========================================')
         return redirect('/', code=302)
-      # ------------------------ Double Check If Quiz Is Graded END ------------------------
+        # ------------------------ Double Check If Quiz Is Graded END ------------------------
+      if latest_quiz_is_graded_check == True:
+        this_weeks_winner_object = quiz_calculate_quiz_uuid_winner_function(uuid_quiz)
+        if this_weeks_winner_object == False:
+          print('result winner is false')
+          pass
+        if this_weeks_winner_object != False:
+          # Insert to Quiz Winners table
+          winner_user_uuid = this_weeks_winner_object[3]
+          output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
+          print(output_message)
+    else:
+      print('quiz is not past due yet')
+      print('=========================================== /dashboard/quiz/results Page END ===========================================')
+      return redirect('/', code=302)
+      
+    
 
 
   except:
@@ -93,4 +109,7 @@ def quiz_graded_end_of_week_view_page_render_template_function():
   return render_template('dashboard_page_templates/quiz_graded_end_of_week_view_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
-                          user_channel_name_to_html = user_channel_name)
+                          user_channel_name_to_html = user_channel_name,
+                          week_winner_display_name_to_html = this_weeks_winner_object[1],
+                          week_winner_correct_answers_total_to_html = this_weeks_winner_object[0],
+                          week_winner_submit_time_to_html = this_weeks_winner_object[2])

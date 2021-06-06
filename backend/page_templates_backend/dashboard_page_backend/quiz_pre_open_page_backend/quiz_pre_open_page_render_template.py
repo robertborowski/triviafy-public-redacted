@@ -4,7 +4,7 @@ from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
-from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_next_weeks_dates_data_dict import get_next_weeks_dates_data_dict_function
+from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.latest_quiz_utils.check_if_today_is_earlier_than_latest_quiz_start_date_utils.check_if_today_is_earlier_than_latest_quiz_start_date import check_if_today_is_earlier_than_latest_quiz_start_date_function
@@ -99,7 +99,7 @@ def quiz_pre_open_page_render_template_function():
 
 
     # ------------------------ Get Next Week's Dates Dict START ------------------------
-    next_week_dates_dict = get_next_weeks_dates_data_dict_function()
+    next_week_dates_dict = get_upcoming_week_dates_data_dict_function()
 
     company_quiz_start_day = company_quiz_settings_start_day
     company_quiz_start_date = next_week_dates_dict[company_quiz_start_day]
