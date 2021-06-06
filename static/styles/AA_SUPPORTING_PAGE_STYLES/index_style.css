@@ -213,4 +213,13 @@ img.template-logo-caricature-img {
 /* - - - - - - - - - - Template Post Intro Description End */
 
 
+/* - - - - - - - - - - Leaderboard Datatables Start */
+.template-datatable-section {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center;
+}
+/* - - - - - - - - - - Leaderboard Datatables End */
+
+
 /* ==================================== Global Classes and ID's END ==================================== */

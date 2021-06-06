@@ -32,20 +32,36 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Winner Start -->
-  <div class="template-page-post-intro-description-section">
-    <div class="template-page-post-intro-description-sub-section">
-      <p>Hello World</p>
-    </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Datatables Start -->
+  <div class="template-datatable-section">
+    <table id="table_id_triviafy_login" class="display template-datatable-section-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Total Correct Quiz Answers</th>
+          <th>Total Quiz Wins (Bragging-Right-Cards)</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for i in users_leaderboard_arr_of_dicts_to_html %}
+        <tr>
+          <td>{{ i['name'] }}</td>
+          <td>{{ i['total_user_correct_quiz_answers_int'] }}</td>
+          <td>{{ i['total_user_wins_int'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Results Winner End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Datatables End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
   <div class="template-small-logo-caricature-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_green.png" alt="Logo cheering green" class="template-logo-caricature-img">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="template-logo-caricature-img">
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image END -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
 
 </main>
 

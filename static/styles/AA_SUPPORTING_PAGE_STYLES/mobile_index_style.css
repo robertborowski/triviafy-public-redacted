@@ -20,5 +20,13 @@
 /* - - - - - - - - - - Template Page Intro - Specific Pages End */
 /* - - - - - - - - - - Template Page Intro END */
 
+/* - - - - - - - - - - Leaderboard Datatables Start */
+.template-datatable-section {
+  width: 95%;
+  margin: 50px auto;
+  text-align: center;
+}
+/* - - - - - - - - - - Leaderboard Datatables End */
+
 }
 /* ==================================== Mobile Version END ==================================== */
