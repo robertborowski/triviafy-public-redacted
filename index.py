@@ -34,6 +34,8 @@ from backend.page_templates_backend.quiz_settings_page_backend.edit_quiz_setting
 from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_index_page_render_template import quiz_feedback_index_page_render_template
 from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_processing import quiz_feedback_processing
 from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_success_page_render_template import quiz_feedback_success_page_render_template
+# Leaderboard pages
+from backend.page_templates_backend.leaderboard_page_backend.leaderboard_page_render_template import leaderboard_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -93,6 +95,8 @@ app.register_blueprint(edit_quiz_settings_submit_new_quiz_settings, url_prefix="
 app.register_blueprint(quiz_feedback_index_page_render_template, url_prefix="")
 app.register_blueprint(quiz_feedback_processing, url_prefix="")
 app.register_blueprint(quiz_feedback_success_page_render_template, url_prefix="")
+# Leaderboard
+app.register_blueprint(leaderboard_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 

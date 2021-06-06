@@ -171,7 +171,7 @@ textarea.answer-text-box {
   color: white;
 }
 /* - - - - - - - - - - Template Page Intro - Specific Pages Start */
-.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-quiz-pre-open {
+.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-quiz-pre-open, .template-page-intro-title-leaderboard {
   font-size: 60px;
   padding: 30px 0 0 0;
 }

@@ -22,7 +22,7 @@ class NavbarClass extends HTMLElement {
         <ul>
           <li class="drill-down"><a href="#">Score <i class="fas fa-caret-down"></i></a>
             <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
-              <li><a href="#">Leaderboard</a></li>
+              <li><a href="${this.getAttribute("link_leaderboard_js")}">Leaderboard</a></li>
               <li><a href="#">Claim Prize</a></li>
             </ul>
           </li>
