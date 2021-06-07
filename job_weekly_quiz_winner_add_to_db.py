@@ -11,6 +11,7 @@ from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 from backend.utils.quiz_calculations_utils.quiz_calculate_quiz_uuid_winner import quiz_calculate_quiz_uuid_winner_function
 from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_winner_insert_to_db_function
+from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 
 
 # -------------------------------------------------------------- Main Function
@@ -61,7 +62,7 @@ def job_weekly_quiz_winner_add_to_db_function():
 
 
   # ------------------------ Loop Through Each Company Latest Weekly Quiz START ------------------------
-  if latest_quiz_info_all_companies_arr != None and latest_quiz_info_all_companies_arr != []:
+  if latest_quiz_info_all_companies_arr != None:
     # Loop through each company latest quiz
     for company_latest_quiz_arr in latest_quiz_info_all_companies_arr:
       # ------------------------ Assign Variables for Company Quiz START ------------------------
@@ -92,17 +93,20 @@ def job_weekly_quiz_winner_add_to_db_function():
         if latest_quiz_is_graded_check != True:
           print('Latest quiz is not yet fully graded.')
           print('=========================================== job_weekly_quiz_winner_add_to_db_function END ===========================================')
-          # ------------------------ Double Check If Quiz Is Graded END ------------------------
+        # ------------------------ Double Check If Quiz Is Graded END ------------------------
         if latest_quiz_is_graded_check == True:
           this_weeks_winner_object = quiz_calculate_quiz_uuid_winner_function(uuid_quiz)
-          if this_weeks_winner_object == False:
-            print('result winner is false')
-            pass
+
           if this_weeks_winner_object != False:
             # Insert to Quiz Winners table
             winner_user_uuid = this_weeks_winner_object[3]
             output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
             print(output_message)
+
+          if this_weeks_winner_object == False:
+            print('result winner is false')
+            no_winner_timestamp = create_timestamp_function()
+            this_weeks_winner_object = [0, 'No Winner', no_winner_timestamp]
       else:
         print('quiz is not past due yet')
         print('=========================================== job_weekly_quiz_winner_add_to_db_function END ===========================================')
