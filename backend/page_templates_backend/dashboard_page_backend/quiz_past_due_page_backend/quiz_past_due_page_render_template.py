@@ -5,8 +5,10 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
+from backend.utils.latest_quiz_utils.get_previous_week_company_quiz_if_exists import get_previous_week_company_quiz_if_exists_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
+from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 
 # -------------------------------------------------------------- App Setup
 quiz_past_due_page_render_template = Blueprint("quiz_past_due_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -42,21 +44,59 @@ def quiz_past_due_page_render_template_function():
     # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     
-    # ------------------------ If Latest Company Quiz Obj None START ------------------------
+    # ------------------------ Check if This Is Companies First Every Quiz START ------------------------
+    # Check if there is a latest quiz (made on sundays)
+    latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     if latest_company_quiz_object == None:
-      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-      return redirect('/', code=302)
-    # ------------------------ If Latest Company Quiz Obj None END ------------------------
+      # Check if there is a previous week quiz made
+      previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
+      if previous_week_company_quiz_object == None:
+        # This means a company signed up after Sunday
+        print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+        print('redirecting to thank you first signed up page')
+        return redirect('/', code=302)
+    # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
     
+    # ------------------------ Set Variables for Checks/Outputs START ------------------------
     if latest_company_quiz_object != None:
-      print('- - - - -')
-      print('Pulled the latest company quiz from DB')
-      print('- - - - -')
       # Assign the variables for the HTML inputs based on the pulled object
-      uuid_quiz = latest_company_quiz_object[0]
+      uuid_quiz = latest_company_quiz_object[0]                                     # str
+      quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str
+      quiz_slack_team_id = latest_company_quiz_object[2]                            # str
+      quiz_slack_channel_id = latest_company_quiz_object[3]                         # str
+      quiz_start_date = latest_company_quiz_object[4].strftime('%Y-%m-%d')          # str
+      quiz_start_day_of_week = latest_company_quiz_object[5]                        # str
+      quiz_start_time = latest_company_quiz_object[6]                               # str
       quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
+      quiz_end_day_of_week = latest_company_quiz_object[8]                          # str
       quiz_end_time = latest_company_quiz_object[9]                                 # str
-    # ------------------------ Get Latest Quiz Data END ------------------------
+      quiz_number_of_questions = latest_company_quiz_object[10]                     # int
+      quiz_question_ids_str = latest_company_quiz_object[11]                        # str
+      quiz_company_quiz_count = latest_company_quiz_object[12]                      # int
+
+      # Quiz Question ID's have to be converted from 1 string to an arr
+      quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
+    
+    if latest_company_quiz_object == None:
+      if previous_week_company_quiz_object != None:
+        # Assign the variables for the HTML inputs based on the pulled object
+        uuid_quiz = previous_week_company_quiz_object[0]                                     # str
+        quiz_timestamp_created = previous_week_company_quiz_object[1].strftime('%Y-%m-%d')   # str
+        quiz_slack_team_id = previous_week_company_quiz_object[2]                            # str
+        quiz_slack_channel_id = previous_week_company_quiz_object[3]                         # str
+        quiz_start_date = previous_week_company_quiz_object[4].strftime('%Y-%m-%d')          # str
+        quiz_start_day_of_week = previous_week_company_quiz_object[5]                        # str
+        quiz_start_time = previous_week_company_quiz_object[6]                               # str
+        quiz_end_date = previous_week_company_quiz_object[7].strftime('%Y-%m-%d')            # str
+        quiz_end_day_of_week = previous_week_company_quiz_object[8]                          # str
+        quiz_end_time = previous_week_company_quiz_object[9]                                 # str
+        quiz_number_of_questions = previous_week_company_quiz_object[10]                     # int
+        quiz_question_ids_str = previous_week_company_quiz_object[11]                        # str
+        quiz_company_quiz_count = previous_week_company_quiz_object[12]                      # int
+
+        # Quiz Question ID's have to be converted from 1 string to an arr
+        quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
+    # ------------------------ Set Variables for Checks/Outputs START ------------------------
 
       # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
       quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)

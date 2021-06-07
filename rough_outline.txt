@@ -6,5 +6,4 @@ TO-DO's
 -Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
 -Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
 =========================================
-This Week's Winner is page
-Add user 
+You need to make Quiz Winner a Job because if no user ever checks the website on Thursday/Friday then the winner will not be uploaded to DB

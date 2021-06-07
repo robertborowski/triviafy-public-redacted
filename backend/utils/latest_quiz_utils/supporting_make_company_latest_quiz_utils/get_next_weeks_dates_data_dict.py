@@ -16,19 +16,19 @@ def get_next_weeks_dates_data_dict_function():
   # ------------------------ If Today is Sunday START ------------------------
   if today_day_of_week_next_week == 'Sunday':
     # Sunday
-    sunday_date = date.today() + timedelta(days=7)
+    sunday_date = date.today()
     # Monday
-    monday_date = date.today() + timedelta(days=8)
+    monday_date = date.today() + timedelta(days=1)
     # Tuesday
-    tuesday_date = date.today() + timedelta(days=9)
+    tuesday_date = date.today() + timedelta(days=2)
     # Wednesday
-    wednesday_date = date.today() + timedelta(days=10)
+    wednesday_date = date.today() + timedelta(days=3)
     # Thursday
-    thursday_date = date.today() + timedelta(days=11)
+    thursday_date = date.today() + timedelta(days=4)
     # Friday
-    friday_date = date.today() + timedelta(days=12)
+    friday_date = date.today() + timedelta(days=5)
     # Saturday
-    saturday_date = date.today() + timedelta(days=13)
+    saturday_date = date.today() + timedelta(days=6)
   # ------------------------ If Today is Sunday END ------------------------
   # ------------------------ If Today is Monday START ------------------------
   if today_day_of_week_next_week == 'Monday':

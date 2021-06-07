@@ -5,6 +5,7 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
+from backend.utils.latest_quiz_utils.get_previous_week_company_quiz_if_exists import get_previous_week_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.db.queries.select_queries.select_company_quiz_questions_individually import select_company_quiz_questions_individually_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
@@ -37,6 +38,7 @@ def dashboard_index_page_render_template_function():
   # ------------------------ Check if user is signed in START ------------------------
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
+    # ------------------------ Check if user is signed in END ------------------------
     
     # Get user information from the nested dict
     slack_workspace_team_id = user_nested_dict['slack_team_id']
@@ -45,19 +47,22 @@ def dashboard_index_page_render_template_function():
     user_company_name = user_nested_dict['user_company_name']
     user_channel_name = user_nested_dict['slack_channel_name']
 
-    # ------------------------ Get Latest Quiz Data START ------------------------
+    # ------------------------ Check if This Is Companies First Every Quiz START ------------------------
+    # Check if there is a latest quiz (made on sundays)
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
-    # ------------------------ If Latest Company Quiz Obj None START ------------------------
-    # When company first signs up after a Sunday (when the quiz maker runs) then they have no 'latest quiz' and have to wait until next week for the first quiz release.
     if latest_company_quiz_object == None:
-      print('=========================================== /dashboard Page END ===========================================')
-      print('redirecting to thank you first signed up page')
-      return redirect('/dashboard/quiz/first/pending', code=302)
-    # ------------------------ If Latest Company Quiz Obj None END ------------------------
+      # Check if there is a previous week quiz made
+      previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
+      if previous_week_company_quiz_object == None:
+        # This means a company signed up after Sunday
+        print('=========================================== /dashboard Page END ===========================================')
+        print('redirecting to thank you first signed up page')
+        return redirect('/dashboard/quiz/first/pending', code=302)
+    # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
+    
+
+    # ------------------------ Set Variables for Checks/Outputs START ------------------------
     if latest_company_quiz_object != None:
-      print('- - - - -')
-      print('Pulled the latest company quiz from DB')
-      print('- - - - -')
       # Assign the variables for the HTML inputs based on the pulled object
       uuid_quiz = latest_company_quiz_object[0]                                     # str
       quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str
@@ -75,8 +80,27 @@ def dashboard_index_page_render_template_function():
 
       # Quiz Question ID's have to be converted from 1 string to an arr
       quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
-    # ------------------------ Get Latest Quiz Data END ------------------------
+    
+    if latest_company_quiz_object == None:
+      if previous_week_company_quiz_object != None:
+        # Assign the variables for the HTML inputs based on the pulled object
+        uuid_quiz = previous_week_company_quiz_object[0]                                     # str
+        quiz_timestamp_created = previous_week_company_quiz_object[1].strftime('%Y-%m-%d')   # str
+        quiz_slack_team_id = previous_week_company_quiz_object[2]                            # str
+        quiz_slack_channel_id = previous_week_company_quiz_object[3]                         # str
+        quiz_start_date = previous_week_company_quiz_object[4].strftime('%Y-%m-%d')          # str
+        quiz_start_day_of_week = previous_week_company_quiz_object[5]                        # str
+        quiz_start_time = previous_week_company_quiz_object[6]                               # str
+        quiz_end_date = previous_week_company_quiz_object[7].strftime('%Y-%m-%d')            # str
+        quiz_end_day_of_week = previous_week_company_quiz_object[8]                          # str
+        quiz_end_time = previous_week_company_quiz_object[9]                                 # str
+        quiz_number_of_questions = previous_week_company_quiz_object[10]                     # int
+        quiz_question_ids_str = previous_week_company_quiz_object[11]                        # str
+        quiz_company_quiz_count = previous_week_company_quiz_object[12]                      # int
 
+        # Quiz Question ID's have to be converted from 1 string to an arr
+        quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
+    # ------------------------ Set Variables for Checks/Outputs START ------------------------
 
 
     # ------------------------ Check If Quiz Is Past Due Date START ------------------------
@@ -148,7 +172,6 @@ def dashboard_index_page_render_template_function():
   except:
     print('=========================================== /dashboard Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
 
   

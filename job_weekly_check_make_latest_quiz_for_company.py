@@ -34,11 +34,6 @@ def job_weekly_check_make_latest_quiz_for_company_function():
   # ------------------------ Get Today's Date END ------------------------
 
 
-  # ------------------------ Get Upcoming Week Dates START ------------------------
-  this_upcoming_week_dates_dict = get_upcoming_week_dates_data_dict_function()
-  # ------------------------ Get Upcoming Week Dates END ------------------------
-
-
   # ------------------------ Get all slack company quiz settings START ------------------------
   # Connect to Postgres database
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
