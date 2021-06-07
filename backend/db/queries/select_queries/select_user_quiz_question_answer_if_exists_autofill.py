@@ -14,8 +14,8 @@ def select_user_quiz_question_answer_if_exists_autofill_function(postgres_connec
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
     
-    if result_arr == None or not result_arr:
-      print('returning result arr')
+    if result_arr == None or not result_arr or result_arr == []:
+      print('returning None')
       print('=========================================== select_user_quiz_question_answer_if_exists_autofill_function END ===========================================')
       return None
 

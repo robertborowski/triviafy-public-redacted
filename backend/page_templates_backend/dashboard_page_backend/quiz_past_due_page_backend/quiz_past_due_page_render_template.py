@@ -41,9 +41,6 @@ def quiz_past_due_page_render_template_function():
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
 
-    # ------------------------ Get Latest Quiz Data START ------------------------
-    latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
-    
     # ------------------------ Check if This Is Companies First Every Quiz START ------------------------
     # Check if there is a latest quiz (made on sundays)
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
@@ -96,23 +93,24 @@ def quiz_past_due_page_render_template_function():
 
         # Quiz Question ID's have to be converted from 1 string to an arr
         quiz_question_ids_arr = convert_question_ids_from_string_to_arr_function(quiz_question_ids_str)   # list
-    # ------------------------ Set Variables for Checks/Outputs START ------------------------
+        # ------------------------ Set Variables for Checks/Outputs START ------------------------
 
       # ------------------------ Double Check If Quiz Is Past Due Date START ------------------------
-      quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
-      if quiz_is_past_due_date != True:
-        print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-        return redirect('/', code=302)
+      
+    quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
+    if quiz_is_past_due_date != True:
+      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+      return redirect('/', code=302)
 
-      if quiz_is_past_due_date == True:
-        # ------------------------ Check If Latest Quiz Is Graded START ------------------------
-        latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
-        if latest_quiz_is_graded_check == True:
-          print('=========================================== /dashboard Page END ===========================================')
-          print('redirecting to the results page')
-          return redirect('/dashboard/quiz/results', code=302)
-        # ------------------------ Check If Latest Quiz Is Graded END ------------------------
-      # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
+    if quiz_is_past_due_date == True:
+      # ------------------------ Check If Latest Quiz Is Graded START ------------------------
+      latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
+      if latest_quiz_is_graded_check == True:
+        print('=========================================== /dashboard Page END ===========================================')
+        print('redirecting to the results page')
+        return redirect('/dashboard/quiz/results', code=302)
+      # ------------------------ Check If Latest Quiz Is Graded END ------------------------
+    # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
 
   except:

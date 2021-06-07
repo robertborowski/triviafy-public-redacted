@@ -3,6 +3,7 @@ from flask import render_template, Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
+from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
@@ -60,6 +61,7 @@ def quiz_graded_end_of_week_view_page_render_template_function():
 
     # ------------------------ Set Variables for Checks/Outputs START ------------------------
     if latest_company_quiz_object != None:
+      print('assigning variables for the latest graded quiz this week')
       # Assign the variables for the HTML inputs based on the pulled object
       uuid_quiz = latest_company_quiz_object[0]                                     # str
       quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str
@@ -80,6 +82,7 @@ def quiz_graded_end_of_week_view_page_render_template_function():
     
     if latest_company_quiz_object == None:
       if previous_week_company_quiz_object != None:
+        print('assigning variables for the previous graded quiz last week')
         # Assign the variables for the HTML inputs based on the pulled object
         uuid_quiz = previous_week_company_quiz_object[0]                                     # str
         quiz_timestamp_created = previous_week_company_quiz_object[1].strftime('%Y-%m-%d')   # str
@@ -113,14 +116,18 @@ def quiz_graded_end_of_week_view_page_render_template_function():
         # ------------------------ Double Check If Quiz Is Graded END ------------------------
       if latest_quiz_is_graded_check == True:
         this_weeks_winner_object = quiz_calculate_quiz_uuid_winner_function(uuid_quiz)
-        if this_weeks_winner_object == False:
-          print('result winner is false')
-          pass
+        
         if this_weeks_winner_object != False:
           # Insert to Quiz Winners table
           winner_user_uuid = this_weeks_winner_object[3]
           output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
           print(output_message)
+
+        if this_weeks_winner_object == False:
+          print('result winner is false')
+          no_winner_timestamp = create_timestamp_function()
+          this_weeks_winner_object = [0, 'No Winner', no_winner_timestamp]
+
     else:
       print('quiz is not past due yet')
       print('=========================================== /dashboard/quiz/results Page END ===========================================')

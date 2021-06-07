@@ -33,7 +33,7 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Monday START ------------------------
   if today_day_of_week == 'Monday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=1)
+    sunday_date = date.today() - timedelta(days=8)
     # Monday
     monday_date = date.today() - timedelta(days=7)
     # Tuesday
@@ -50,9 +50,9 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Tuesday START ------------------------
   if today_day_of_week == 'Tuesday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=2)
+    sunday_date = date.today() - timedelta(days=9)
     # Monday
-    monday_date = date.today() - timedelta(days=1)
+    monday_date = date.today() - timedelta(days=8)
     # Tuesday
     tuesday_date = date.today() - timedelta(days=7)
     # Wednesday
@@ -67,11 +67,11 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Wednesday START ------------------------
   if today_day_of_week == 'Wednesday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=3)
+    sunday_date = date.today() - timedelta(days=10)
     # Monday
-    monday_date = date.today() - timedelta(days=2)
+    monday_date = date.today() - timedelta(days=9)
     # Tuesday
-    tuesday_date = date.today() - timedelta(days=1)
+    tuesday_date = date.today() - timedelta(days=8)
     # Wednesday
     wednesday_date = date.today() - timedelta(days=7)
     # Thursday
@@ -84,13 +84,13 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Thursday START ------------------------
   if today_day_of_week == 'Thursday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=4)
+    sunday_date = date.today() - timedelta(days=11)
     # Monday
-    monday_date = date.today() - timedelta(days=3)
+    monday_date = date.today() - timedelta(days=10)
     # Tuesday
-    tuesday_date = date.today() - timedelta(days=2)
+    tuesday_date = date.today() - timedelta(days=9)
     # Wednesday
-    wednesday_date = date.today() - timedelta(days=1)
+    wednesday_date = date.today() - timedelta(days=8)
     # Thursday
     thursday_date = date.today() - timedelta(days=7)
     # Friday
@@ -101,15 +101,15 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Friday START ------------------------
   if today_day_of_week == 'Friday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=5)
+    sunday_date = date.today() - timedelta(days=12)
     # Monday
-    monday_date = date.today() - timedelta(days=4)
+    monday_date = date.today() - timedelta(days=11)
     # Tuesday
-    tuesday_date = date.today() - timedelta(days=3)
+    tuesday_date = date.today() - timedelta(days=10)
     # Wednesday
-    wednesday_date = date.today() - timedelta(days=2)
+    wednesday_date = date.today() - timedelta(days=9)
     # Thursday
-    thursday_date = date.today() - timedelta(days=1)
+    thursday_date = date.today() - timedelta(days=8)
     # Friday
     friday_date = date.today() - timedelta(days=7)
     # Saturday
@@ -118,17 +118,17 @@ def get_previous_week_dates_data_dict_function():
   # ------------------------ If Today is Saturday START ------------------------
   if today_day_of_week == 'Saturday':
     # Sunday
-    sunday_date = date.today() - timedelta(days=6)
+    sunday_date = date.today() - timedelta(days=13)
     # Monday
-    monday_date = date.today() - timedelta(days=5)
+    monday_date = date.today() - timedelta(days=12)
     # Tuesday
-    tuesday_date = date.today() - timedelta(days=4)
+    tuesday_date = date.today() - timedelta(days=11)
     # Wednesday
-    wednesday_date = date.today() - timedelta(days=3)
+    wednesday_date = date.today() - timedelta(days=10)
     # Thursday
-    thursday_date = date.today() - timedelta(days=2)
+    thursday_date = date.today() - timedelta(days=9)
     # Friday
-    friday_date = date.today() - timedelta(days=1)
+    friday_date = date.today() - timedelta(days=8)
     # Saturday
     saturday_date = date.today() - timedelta(days=7)
   # ------------------------ If Today is Saturday END ------------------------

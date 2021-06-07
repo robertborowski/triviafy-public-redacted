@@ -34,5 +34,5 @@ def setup_company_default_quiz_settings_function(slack_authed_team_id, slack_aut
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Insert into DB END ------------------------
 
-  print('=========================================== setup_company_default_quiz_settings_function START ===========================================')
+  print('=========================================== setup_company_default_quiz_settings_function END ===========================================')
   return 'Company default quiz settings - set'

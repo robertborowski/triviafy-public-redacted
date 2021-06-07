@@ -47,9 +47,6 @@ def quiz_pre_open_page_render_template_function():
     # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     if latest_company_quiz_object != None:
-      print('- - - - -')
-      print('Pulled the latest company quiz from DB')
-      print('- - - - -')
       # Assign the variables for the HTML inputs based on the pulled object
       uuid_quiz = latest_company_quiz_object[0]                                     # str
       quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str

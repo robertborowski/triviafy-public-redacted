@@ -8,7 +8,7 @@ def get_user_saved_quiz_question_answers_function(postgres_connection, postgres_
   user_quiz_question_answers_arr = select_user_quiz_question_answer_if_exists_autofill_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz)
 
 
-  if user_quiz_question_answers_arr == None:
+  if user_quiz_question_answers_arr == None or user_quiz_question_answers_arr == []:
     print('no answers saved from this user on this quiz & question combo')
     print('=========================================== get_user_saved_quiz_question_answers_function END ===========================================')
     return None

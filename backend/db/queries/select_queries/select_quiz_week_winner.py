@@ -13,8 +13,10 @@ def select_quiz_week_winner_function(postgres_connection, postgres_cursor, uuid_
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     
-    if result_row == None:
-      result_row = 'No winner'
+    if result_row == None or result_row == []:
+      print('No Winner this week')
+      print('=========================================== select_quiz_week_winner_function END ===========================================')
+      return None
     
     print('returining result_row')
     print('=========================================== select_quiz_week_winner_function END ===========================================')

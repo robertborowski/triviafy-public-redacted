@@ -13,10 +13,12 @@ def select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_
     # ------------------------ Query Result START ------------------------
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
-    if result_arr == None:
+    if result_arr == None or result_arr == []:
+      print('returning None')
       print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
       return None
 
+    print('returning result_arr')
     print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')  
     return result_arr
     # ------------------------ Query Result END ------------------------

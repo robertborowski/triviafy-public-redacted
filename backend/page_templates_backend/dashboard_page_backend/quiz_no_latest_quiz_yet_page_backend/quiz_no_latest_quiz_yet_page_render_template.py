@@ -9,6 +9,7 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.g
 from backend.db.queries.select_queries.select_company_quiz_settings import select_company_quiz_settings_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
+from backend.utils.latest_quiz_utils.get_previous_week_company_quiz_if_exists import get_previous_week_company_quiz_if_exists_function
 
 # -------------------------------------------------------------- App Setup
 quiz_no_latest_quiz_yet_page_render_template = Blueprint("quiz_no_latest_quiz_yet_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -51,6 +52,18 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
       print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
       return redirect('/dashboard', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
+
+
+    # ------------------------ Check If Previous Week is None too START ------------------------
+    if latest_company_quiz_object == None:
+      # Check if there is a previous week quiz made
+      previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
+      if previous_week_company_quiz_object != None:
+        print('previous_week_company_quiz_object is != None. Redirecting to dashboard')
+        print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
+        return redirect('/dashboard', code=302)
+    # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
+    # ------------------------ Check If Previous Week is None too END ------------------------
 
 
     # ------------------------ Get The Company Quiz Settings START ------------------------

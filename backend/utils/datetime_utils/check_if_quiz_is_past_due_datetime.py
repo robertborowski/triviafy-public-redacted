@@ -28,7 +28,7 @@ def check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time):
   
   elif today_date == quiz_end_date_comparison:
     if current_hour_int >= quiz_end_time_comparison_int:
-      print('Today is equal to the quiz due date, but current hour is greater than due date hour')
+      print('Today is equal to the quiz due date, and current hour is greater than due date hour')
       print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
       return True
   # ------------------------ Checks END ------------------------

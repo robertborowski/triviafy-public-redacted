@@ -106,7 +106,6 @@ def dashboard_index_page_render_template_function():
     # ------------------------ Check If Quiz Is Past Due Date START ------------------------
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     if quiz_is_past_due_date == True:
-      
       # ------------------------ Check If Latest Quiz Is Graded START ------------------------
       latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
       if latest_quiz_is_graded_check == True:
@@ -123,7 +122,6 @@ def dashboard_index_page_render_template_function():
     
     # ------------------------ Check If Pre Quiz Block View Date START ------------------------
     today_is_earlier_than_start_date = check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time)
-    print('- - - - - - - -')
     if today_is_earlier_than_start_date == True:
       print('=========================================== /dashboard Page END ===========================================')
       print('redirecting to quiz not yet open page')
