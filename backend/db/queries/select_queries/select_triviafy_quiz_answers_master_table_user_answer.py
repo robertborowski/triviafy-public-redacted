@@ -6,7 +6,7 @@ def select_triviafy_quiz_answers_master_table_user_answer_function(postgres_conn
   
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("SELECT quiz_answer_quiz_question_uuid_fk, quiz_answer_actual_user_answer FROM triviafy_quiz_answers_master_table WHERE quiz_answer_quiz_question_uuid_fk=%s AND quiz_answer_user_uuid_fk=%s", [question_id, user_uuid])
+    postgres_cursor.execute("SELECT quiz_answer_quiz_question_uuid_fk, quiz_answer_actual_user_answer, quiz_answer_provided_is_correct FROM triviafy_quiz_answers_master_table WHERE quiz_answer_quiz_question_uuid_fk=%s AND quiz_answer_user_uuid_fk=%s", [question_id, user_uuid])
     # ------------------------ Query END ------------------------
 
 

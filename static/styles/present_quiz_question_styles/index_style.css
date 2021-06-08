@@ -36,7 +36,9 @@
 .quiz-question-sub-section-actual-question p,
 .quiz-question-sub-section-hint p,
 .quiz-question-sub-section-accepted-answers p,
-.quiz-question-sub-section-status p {
+.quiz-question-sub-section-status p,
+.quiz-question-sub-section-user-submitted-answer p,
+.quiz-question-sub-section-result p {
   text-align: center;
   width: 90%;
   margin: 10px auto;

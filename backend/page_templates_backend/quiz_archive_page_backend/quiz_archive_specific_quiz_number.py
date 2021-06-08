@@ -86,17 +86,23 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
     
     
     # ------------------------ Get Info From triviafy_quiz_answers_master_table START ------------------------
-    pull_info_quiz_answers_master_table_dict = {}
+    pull_info_quiz_answers_master_table_answer_dict = {}
+    pull_info_quiz_answers_master_table_result_dict = {}
     for question_id in link_selected_question_ids_str:
       pulled_item_arr = select_triviafy_quiz_answers_master_table_user_answer_function(postgres_connection, postgres_cursor, question_id, user_uuid)
-      pull_info_quiz_answers_master_table_dict[pulled_item_arr[0]] = pulled_item_arr[1]
+      pull_info_quiz_answers_master_table_answer_dict[pulled_item_arr[0]] = pulled_item_arr[1].replace("_", " ")
+      pull_info_quiz_answers_master_table_result_dict[pulled_item_arr[0]] = pulled_item_arr[2]
     # ------------------------ Get Info From triviafy_quiz_answers_master_table END ------------------------
 
 
     # ------------------------ Map User Submitted Answer To Quiz Question Obj START ------------------------
+    question_number_count = 1
     # Loop through array of dicts
     for dict in pull_info_all_questions_table_arr_of_dicts:
-      dict['user_quiz_question_answer'] = pull_info_quiz_answers_master_table_dict[dict['question_uuid']]
+      dict['user_quiz_question_answer'] = pull_info_quiz_answers_master_table_answer_dict[dict['question_uuid']]
+      dict['user_quiz_question_result'] = pull_info_quiz_answers_master_table_result_dict[dict['question_uuid']]
+      dict['quiz_question_number'] = question_number_count
+      question_number_count += 1
     # ------------------------ Map User Submitted Answer To Quiz Question Obj END ------------------------
 
 
