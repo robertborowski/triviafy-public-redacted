@@ -1,7 +1,7 @@
 {% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
-<title>Leaderboard / Triviafy</title>
+<title>Quiz Archive / Triviafy</title>
 {% endblock %}
 
 
@@ -20,47 +20,53 @@
 
 
 <main class="logged-in">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Intro Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Archive Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
 
   <div class="template-page-intro-background box-shadow-sm-black">
     <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-leaderboard" id='words-stroke-shadow'>Leaderboard</p>
+      <p class="template-page-intro-title template-page-intro-title-quiz-archive" id='words-stroke-shadow'>Quiz Archive</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Intro End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Archive Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Datatables Start -->
-  <div class="template-datatable-section">
-    <table id="table_id_triviafy_leaderboard" class="display template-datatable-section-table">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Archive Datatables Start -->
+  <div class="template-datatable-section template-datatable-section-quiz-archive">
+    <table id="table_id_triviafy_quiz_archive" class="display template-datatable-section-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Total Correct Quiz Answers</th>
-          <th>Total Quiz Wins (Bragging-Right-Cards)</th>
+          <th>Quiz #</th>
+          <th>Quiz Start</th>
+          <th>Quiz End</th>
+          <th>Quiz # Questions</th>
+          <th>Quiz Winner</th>
+          <th>Link</th>
         </tr>
       </thead>
       
       <tbody>
-        {% for i in users_leaderboard_arr_of_dicts_to_html %}
+        {% for i in company_quiz_archive_all_graded_quizzes_arr_of_dicts_to_html %}
         <tr>
-          <td>{{ i['name'] }}</td>
-          <td>{{ i['total_user_correct_quiz_answers_int'] }}</td>
-          <td>{{ i['total_user_wins_int'] }}</td>
+          <td>{{ i['company_quiz_count'] }}</td>
+          <td>{{ i['quiz_master_string_start'] }}</td>
+          <td>{{ i['quiz_master_string_end'] }}</td>
+          <td>{{ i['quiz_number_of_questions'] }}</td>
+          <td>{{ i['user_display_name_winner'] }}</td>
+          <th><a href="{{ url_for('quiz_archive_specific_quiz_number.quiz_archive_specific_quiz_number_function', html_variable_quiz_number=i['company_quiz_count']) }}">See Quiz</a></th>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Leaderboard Datatables End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Archive Datatables End -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
   <div class="template-small-logo-caricature-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="template-logo-caricature-img">
+    <img src="/static/images/logo/Logo_active/Logo construction.png" alt="Logo construction purple" class="template-logo-caricature-img">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
 

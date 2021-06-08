@@ -9,24 +9,24 @@
   
   /* - - - - - - - - - - Template Page Intro Start */
   /* - - - - - - - - - - Template Page Intro - Specific Pages Start */
-.template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-dashboard, .template-page-intro-title-quiz-pre-open, .template-page-intro-title-leaderboard {
-  font-size: 50px;
-  padding: 15px 0 0 0;
-}
-.template-page-intro-title-dashboard {
-  font-size: 50px;
-  padding: 0 0 0 0;
-}
-/* - - - - - - - - - - Template Page Intro - Specific Pages End */
-/* - - - - - - - - - - Template Page Intro END */
+  .template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-dashboard, .template-page-intro-title-quiz-pre-open, .template-page-intro-title-leaderboard, .template-page-intro-title-quiz-archive {
+    font-size: 50px;
+    padding: 15px 0 0 0;
+  }
+  .template-page-intro-title-dashboard {
+    font-size: 50px;
+    padding: 0 0 0 0;
+  }
+  /* - - - - - - - - - - Template Page Intro - Specific Pages End */
+  /* - - - - - - - - - - Template Page Intro END */
 
-/* - - - - - - - - - - Leaderboard Datatables Start */
-.template-datatable-section {
-  width: 95%;
-  margin: 50px auto;
-  text-align: center;
-}
-/* - - - - - - - - - - Leaderboard Datatables End */
+  /* - - - - - - - - - - Leaderboard Datatables Start */
+  .template-datatable-section {
+    width: 95%;
+    margin: 50px auto;
+    text-align: center;
+  }
+  /* - - - - - - - - - - Leaderboard Datatables End */
 
 }
 /* ==================================== Mobile Version END ==================================== */

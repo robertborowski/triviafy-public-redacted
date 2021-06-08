@@ -1,0 +1,13 @@
+/* ==================================== Mobile Version START ==================================== */
+@media (max-width: 800px) {
+  
+  /* - - - - - - - - - - Leaderboard Datatables Start */
+  .template-datatable-section-quiz-archive {
+    width: 95%;
+    margin: 50px auto;
+    text-align: center;
+  }
+  /* - - - - - - - - - - Leaderboard Datatables End */
+
+}
+/* ==================================== Mobile Version END ==================================== */
