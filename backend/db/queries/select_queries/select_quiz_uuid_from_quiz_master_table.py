@@ -6,7 +6,7 @@ def select_quiz_uuid_from_quiz_master_table_function(postgres_connection, postgr
   
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("SELECT uuid_quiz FROM triviafy_quiz_master_table WHERE quiz_slack_team_id=%s AND quiz_slack_channel_id=%s AND company_quiz_count=%s", [slack_workspace_team_id, slack_channel_id, int_quiz_number])
+    postgres_cursor.execute("SELECT uuid_quiz, quiz_question_ids, quiz_start_date, quiz_start_day_of_week, quiz_start_time, quiz_end_date, quiz_end_day_of_week, quiz_end_time, company_quiz_count FROM triviafy_quiz_master_table WHERE quiz_slack_team_id=%s AND quiz_slack_channel_id=%s AND company_quiz_count=%s", [slack_workspace_team_id, slack_channel_id, int_quiz_number])
     # ------------------------ Query END ------------------------
 
 

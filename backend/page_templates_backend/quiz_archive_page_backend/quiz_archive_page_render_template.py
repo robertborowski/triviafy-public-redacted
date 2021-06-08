@@ -60,7 +60,7 @@ def quiz_archive_page_render_template_function():
       quiz_master_string_end = i[5].strftime("%Y-%m-%d") + ', ' + i[6] + ', ' + i[7]
       
       temp_dict = {
-        'uuid_quiz' : i[0],
+        # 'uuid_quiz' : i[0],
         'company_quiz_count' : i[1],
         # 'quiz_start_date' : i[2],
         # 'quiz_start_day_of_week' : i[3],
