@@ -21,7 +21,7 @@
 
 
 <main class="logged-in">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Account Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
@@ -31,36 +31,69 @@
       <p class="template-page-intro-title template-page-intro-title-no-latest-quiz" id='words-stroke-shadow'>Account</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Account Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
-  <div class="template-page-post-intro-description-section">
-    <div class="template-page-post-intro-description-sub-section">
-      <p>Your team's first quiz will be available here on Monday, 2021-06-07.</p>
-      <p>You will receive an email and a slack reminder once the weekly quiz is available.</p>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Account Info Start -->
+  <div class="account_info_section box-shadow-reg-grey box-shadow-rounded">
+
+    <div class="account-info-sub-section">
+      <p class="account-info-sub-section-title">Company Name</p>
+      <p class="account-info-sub-section-data">{{ user_company_name_to_html }}</p>
     </div>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
+    
+    <div class="account-info-sub-section">
+      <p class="account-info-sub-section-title">First Name</p>
+      <p class="account-info-sub-section-data">{{ user_first_name_to_html }}</p>
+    </div>
 
-  <form action="{{ url_for('logout.logout_function') }}" method="post">
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+    <div class="account-info-sub-section">
+      <p class="account-info-sub-section-title">Last Name</p>
+      <p class="account-info-sub-section-data">{{ user_last_name_to_html }}</p>
+    </div>
+
+    <div class="account-info-sub-section">
+      <p class="account-info-sub-section-title">Users With Payment Admin Access</p>
+      <p class="account-info-sub-section-sub-title">Payment Admin's manage subscription settings and are able to edit quiz settings. At Least 1 Payment Admin is required.</p>
+      {% for i in company_all_payment_admins_arr_to_html %}
+      <p class="account-info-sub-section-data">{{ i }}</p>
+      {% endfor %}
+    </div>
+
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Account Info End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Account Info Edit Start -->
+  <div class="account-info-edit-section">
+    <a href="{{ url_for('account_edit_settings_page_render_template.account_edit_settings_page_render_template_function') }}"><button class="button-default button-default-color-primary" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Edit Settings</button></a>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Edit End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Start -->
+  <div class="template-hyperlink-redirect-section">
+    <a href="{{ url_for('logout.logout_function') }}" class="template-hyperlink-redirect-section-a"><p class="template-hyperlink-redirect-section-p">Logout</p></a>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logout Start -->
+  <!-- <form action="{{ url_for('logout.logout_function') }}" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     <div class="button-section-middle">
       <button class="button-default button-default-color-primary" type="submit" value="submit">Logout</button>
     </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
-  </form>
-
-  
-  <form action="{{ url_for('send_channel_test_message.send_channel_test_message_function') }}" method="post">
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+  </form> -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Logout End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+  <!-- <form action="{{ url_for('send_channel_test_message.send_channel_test_message_function') }}" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     <div class="button-section-middle">
       <button class="button-default button-default-color-primary" type="submit" value="submit">Test Message</button>
-    </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
-  </form>
+    </div> 
+  </form> -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End -->
+
 </main>
 
-<footer>
-</footer>
+<footer-signed-in-component></footer-signed-in-component>
 {% endblock %}

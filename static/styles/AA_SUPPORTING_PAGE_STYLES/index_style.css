@@ -225,4 +225,20 @@ img.template-logo-caricature-img {
 /* - - - - - - - - - - Leaderboard Datatables End */
 
 
+/* - - - - - - - - - - Checkboxes Appear Start */
+input[type=checkbox] {
+  -webkit-appearance:checkbox;
+}
+/* - - - - - - - - - - Checkboxes Appear End */
+
+
+/* - - - - - - - - - - Divider Line Start */
+hr.template-divider-line-dotted {
+  border-top: 3px dotted #bbb;
+  width: 70%;
+  margin: 0 auto;
+}
+/* - - - - - - - - - - Divider Line End */
+
+
 /* ==================================== Global Classes and ID's END ==================================== */

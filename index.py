@@ -17,6 +17,8 @@ from backend.page_templates_backend.dashboard_page_backend.quiz_no_latest_quiz_y
 from backend.page_templates_backend.dashboard_page_backend.quiz_pre_open_page_backend.quiz_pre_open_page_render_template import quiz_pre_open_page_render_template
 # Slack account pages
 from backend.page_templates_backend.account_page_backend.account_index_page_render_template import account_index_page_render_template
+from backend.page_templates_backend.account_page_backend.account_edit_settings_page_backend.account_edit_settings_page_render_template import account_edit_settings_page_render_template
+from backend.page_templates_backend.account_page_backend.account_edit_settings_page_backend.account_edit_settings_processing_changes_page_render_template import account_edit_settings_processing_changes_page_render_template
 from backend.utils.slack.send_channel_test_message.send_channel_test_message import send_channel_test_message
 from backend.page_templates_backend.account_page_backend.logout import logout
 # Create question pages
@@ -81,6 +83,8 @@ app.register_blueprint(quiz_no_latest_quiz_yet_page_render_template, url_prefix=
 app.register_blueprint(quiz_pre_open_page_render_template, url_prefix="")
 # Slack account pages
 app.register_blueprint(account_index_page_render_template, url_prefix="")
+app.register_blueprint(account_edit_settings_page_render_template, url_prefix="")
+app.register_blueprint(account_edit_settings_processing_changes_page_render_template, url_prefix="")
 app.register_blueprint(send_channel_test_message, url_prefix="")
 app.register_blueprint(logout, url_prefix="")
 # Create question pages
