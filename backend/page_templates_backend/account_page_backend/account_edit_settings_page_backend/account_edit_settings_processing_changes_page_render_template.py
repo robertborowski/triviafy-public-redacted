@@ -6,12 +6,17 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
+from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.utils.sanitize_user_inputs.sanitize_account_edit_settings_company_name import sanitize_account_edit_settings_company_name_function
 from backend.utils.sanitize_user_inputs.sanitize_account_edit_settings_first_last_name import sanitize_account_edit_settings_first_last_name_function
 from backend.db.queries.update_queries.update_account_edit_settings_company_name import update_account_edit_settings_company_name_function
 from backend.db.queries.update_queries.update_account_edit_settings_first_name import update_account_edit_settings_first_name_function
 from backend.db.queries.update_queries.update_account_edit_settings_last_name import update_account_edit_settings_last_name_function
 from backend.db.queries.update_queries.update_account_edit_settings_full_name import update_account_edit_settings_full_name_function
+from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_user_uuids import select_triviafy_user_login_information_table_slack_all_company_user_uuids_function
+from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_payment_admins import select_triviafy_user_login_information_table_slack_all_payment_admins_function
+from backend.db.queries.update_queries.update_account_edit_settings_company_payment_admins import update_account_edit_settings_company_payment_admins_function
+from backend.db.queries.update_queries.update_account_edit_settings_company_non_payment_admin import update_account_edit_settings_company_non_payment_admin_function
 
 # -------------------------------------------------------------- App Setup
 account_edit_settings_processing_changes_page_render_template = Blueprint("account_edit_settings_processing_changes_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -71,7 +76,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
       print('user first name did not change')
       pass
     else:
-      user_input_quiz_settings_edit_first_name = sanitize_account_edit_settings_first_last_name_function('user_input_account_settings_first_name')
+      user_input_quiz_settings_edit_first_name = sanitize_account_edit_settings_first_last_name_function(user_input_quiz_settings_edit_first_name)
       if user_input_quiz_settings_edit_first_name != None:
         # Connect to Postgres database
         postgres_connection, postgres_cursor = postgres_connect_to_database_function()
@@ -91,7 +96,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
       print('user last name did not change')
       pass
     else:
-      user_input_quiz_settings_edit_last_name = sanitize_account_edit_settings_first_last_name_function('user_input_account_settings_last_name')
+      user_input_quiz_settings_edit_last_name = sanitize_account_edit_settings_first_last_name_function(user_input_quiz_settings_edit_last_name)
       if user_input_quiz_settings_edit_last_name != None:
         # Connect to Postgres database
         postgres_connection, postgres_cursor = postgres_connect_to_database_function()
@@ -109,7 +114,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
     if user_input_quiz_settings_edit_first_name == user_first_name and user_input_quiz_settings_edit_last_name == user_last_name:
       print('user first and last name did not change')
     else:
-      user_input_quiz_settings_edit_full_name = user_input_quiz_settings_edit_first_name + ' ' + user_input_quiz_settings_edit_last_name
+      user_input_quiz_settings_edit_full_name = user_input_quiz_settings_edit_first_name + '_' + user_input_quiz_settings_edit_last_name
       # Connect to Postgres database
       postgres_connection, postgres_cursor = postgres_connect_to_database_function()
 
@@ -124,45 +129,47 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
 
 
+
     if user_is_payment_admin == True:
-      # ------------------------ Edit Total Payment Admin Users - Class payment-admin START ------------------------
-      # For payment-admin class
-      no_more_users = False
-      counter_payment_admin = 1
-      while no_more_users == False:
+      # Connect to Postgres database
+      postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+      # Connect to redis database pool (no need to close)
+      redis_connection = redis_connect_to_database_function()
+      # Set variable
+      users_uuid_updated_to_payment_admin = []
+      
+      # Get all company user UUID's
+      company_user_uuids_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+      temp_uuid_and_real_uuid_dict = {}
+      for pulled_user_uuid_arr in company_user_uuids_arr:
+        # Get real_uuid
+        pulled_user_uuid = pulled_user_uuid_arr[0]
+        # Get temp_uuid
+        temp_uuid_value_from_redis = redis_connection.get(pulled_user_uuid).decode('utf-8')
+        # Add to dict - temp_uuid : real_uuid
+        temp_uuid_and_real_uuid_dict[temp_uuid_value_from_redis] = pulled_user_uuid
+        # Check is temp_uuid is checked on in the html file
         try:
-          payment_admin_arr = request.form.get('payment-admin-' + str(counter_payment_admin))
-          
-          if payment_admin_arr == None:
-            no_more_users = True
-
-          if payment_admin_arr != None:
-            counter_payment_admin += 1
-            print('- - - - - - - - - - - - - - - - -')
-            print(payment_admin_arr)
-            print('- - - - - - - - - - - - - - - - -')
+          temp_uuid_value_from_html = request.form.get(temp_uuid_value_from_redis)
+          if temp_uuid_value_from_html != None:
+            output_message = update_account_edit_settings_company_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
+            print('User has been changed to payment admin')
+          else:
+            company_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+            if len(company_payment_admins_arr) != 1:
+              output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
+              print('User has been changed to NON payment admin')
+            else:
+              print('There must always be at least 1 payment admin for a company')
+              pass          
         except:
-          no_more_users = True
-      # ------------------------ Edit Total Payment Admin Users - Class payment-admin END ------------------------
-      # ------------------------ Edit Total Payment Admin Users - Class non-payment-admin START ------------------------
-      # For non-payment-admin class
-      no_more_users = False
-      counter_payment_admin = 1
-      while no_more_users == False:
-        try:
-          payment_admin_arr = request.form.get('non-payment-admin-' + str(counter_payment_admin))
-          
-          if payment_admin_arr == None:
-            no_more_users = True
+          output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
+          print('User has been changed to NON payment admin')
 
-          if payment_admin_arr != None:
-            counter_payment_admin += 1
-            print('- - - - - - - - - - - - - - - - -')
-            print(payment_admin_arr)
-            print('- - - - - - - - - - - - - - - - -')
-        except:
-          no_more_users = True
-      # ------------------------ Edit Total Payment Admin Users - Class non-payment-admin END ------------------------
+
+
+      # Close postgres db connection
+      postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
 
   except:

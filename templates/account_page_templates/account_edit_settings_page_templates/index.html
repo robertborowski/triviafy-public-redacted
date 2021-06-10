@@ -58,14 +58,14 @@
         <p class="account-info-sub-section-sub-title">Only users with already existing Payment Admin access can grant other users Payment Admin Access. At Least 1 Payment Admin is required.</p>
         
         {% for i in company_all_payment_admins_arr_to_html %}
-        <input type="checkbox" id="{{ i[1] }}" name="{{ i[1] }}" value="{{ i[0] }}" checked>
+        <input type="checkbox" id="{{ i[1] }}" name="{{ i[1] }}" value="{{ i[1] }}" checked>
         <label for="{{ i[1] }}">{{ i[0] }}</label><br>
         {% endfor %}
         
         <hr class="template-divider-line-dotted">
 
         {% for i in company_all_non_payment_admins_arr_to_html %}
-        <input type="checkbox" id="{{ i[1] }}" name="{{ i[1] }}" value="{{ i[0] }}">
+        <input type="checkbox" id="{{ i[1] }}" name="{{ i[1] }}" value="{{ i[1] }}">
         <label for="{{ i[1] }}">{{ i[0] }}</label><br>
         {% endfor %}
       </div>

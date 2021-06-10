@@ -236,7 +236,7 @@ input[type=checkbox] {
 hr.template-divider-line-dotted {
   border-top: 3px dotted #bbb;
   width: 70%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 /* - - - - - - - - - - Divider Line End */
 

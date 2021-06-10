@@ -57,7 +57,7 @@ def leaderboard_page_render_template_function():
 
       # Set variables from arr pull
       user_uuid = i[0]
-      user_name = i[1]
+      user_name = i[1].replace('_',' ')
       # Get total quiz wins for each user
       total_user_wins_arr = select_total_user_quiz_wins_function(postgres_connection, postgres_cursor, user_uuid)
       total_user_wins_int = int(total_user_wins_arr[0])
