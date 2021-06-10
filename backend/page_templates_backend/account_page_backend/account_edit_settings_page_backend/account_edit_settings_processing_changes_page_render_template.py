@@ -127,49 +127,92 @@ def account_edit_settings_processing_changes_page_render_template_function():
     # ------------------------ Update User Full Name in DB END ------------------------
 
 
+    # ------------------------ Connect to DB START ------------------------
+    # Connect to Postgres database
+    postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+    # Connect to redis database pool (no need to close)
+    redis_connection = redis_connect_to_database_function()
+    # ------------------------ Connect to DB END ------------------------
+    
 
-
-
+    # ------------------------ Update Payment Admins in DB START ------------------------
     if user_is_payment_admin == True:
-      # Connect to Postgres database
-      postgres_connection, postgres_cursor = postgres_connect_to_database_function()
-      # Connect to redis database pool (no need to close)
-      redis_connection = redis_connect_to_database_function()
-      # Set variable
-      users_uuid_updated_to_payment_admin = []
-      
       # Get all company user UUID's
       company_user_uuids_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-      temp_uuid_and_real_uuid_dict = {}
+      
       for pulled_user_uuid_arr in company_user_uuids_arr:
         # Get real_uuid
         pulled_user_uuid = pulled_user_uuid_arr[0]
-        # Get temp_uuid
+        # Get temp_uuid from redis
         temp_uuid_value_from_redis = redis_connection.get(pulled_user_uuid).decode('utf-8')
-        # Add to dict - temp_uuid : real_uuid
-        temp_uuid_and_real_uuid_dict[temp_uuid_value_from_redis] = pulled_user_uuid
+        
         # Check is temp_uuid is checked on in the html file
         try:
+          # Get temp_uuid value from html
           temp_uuid_value_from_html = request.form.get(temp_uuid_value_from_redis)
+          
+          # If temp_uuid != None, means that user was selected on checkbox
           if temp_uuid_value_from_html != None:
             output_message = update_account_edit_settings_company_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
             print('User has been changed to payment admin')
+            try:
+              redis_connection.delete(pulled_user_uuid)
+            except:
+              pass
+
+          # If temp_uuid == None, means that user was not selected on checkbox
           else:
             company_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-            if len(company_payment_admins_arr) != 1:
+            print('total user payment admins within company')
+            print(len(company_payment_admins_arr))
+            # First check total user payment admins, has to be 2 or more in order to remove payment admin access
+            if len(company_payment_admins_arr) >= 2:
               output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
               print('User has been changed to NON payment admin')
+              try:
+                redis_connection.delete(pulled_user_uuid)
+              except:
+                pass
             else:
               print('There must always be at least 1 payment admin for a company')
-              pass          
+              pass
+
         except:
-          output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
-          print('User has been changed to NON payment admin')
+          company_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+          print('total user payment admins within company')
+          print(len(company_payment_admins_arr))
+          # First check total user payment admins, has to be 2 or more in order to remove payment admin access
+          if len(company_payment_admins_arr) >= 2:
+            output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
+            print('User has been changed to NON payment admin')
+            try:
+              redis_connection.delete(pulled_user_uuid)
+            except:
+              pass
+    else:
+      print('user is not a payment admin and cannot make changes to current payment admin access')
+      pass
+    # ------------------------ Update Payment Admins in DB END ------------------------
 
 
+    # ------------------------ Loop through and delete stored user uuids from Redis START ------------------------
+    # Get all company user UUID's
+    company_user_uuids_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+    
+    for pulled_user_uuid_arr in company_user_uuids_arr:
+      # Get real_uuid
+      pulled_user_uuid = pulled_user_uuid_arr[0]
+      try:
+        redis_connection.delete(pulled_user_uuid)
+      except:
+        pass
+    # ------------------------ Loop through and delete stored user uuids from Redis END ------------------------
 
-      # Close postgres db connection
-      postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+
+    # ------------------------ Close Connection to DB START ------------------------
+    # Close postgres db connection
+    postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+    # ------------------------ Close Connection to DB END ------------------------
 
 
   except:
