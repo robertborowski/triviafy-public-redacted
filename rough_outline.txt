@@ -6,4 +6,8 @@ TO-DO's
 -Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
 -Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
 =========================================
-Fix Modal
+Send email
+-Account Created
+-Account Deleted
+-New Quiz Is Up
+-Latest Week's Quiz has been graded
