@@ -13,7 +13,7 @@ def select_quiz_uuid_from_quiz_master_table_function(postgres_connection, postgr
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     
-    if result_row == None:
+    if result_row == None or result_row == []:
       result_row = 'Company quiz settings do not exists in db table yet'
     
     print('returining result_row')

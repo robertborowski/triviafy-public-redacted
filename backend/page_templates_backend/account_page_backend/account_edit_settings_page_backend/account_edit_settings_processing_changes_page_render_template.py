@@ -17,6 +17,7 @@ from backend.db.queries.select_queries.select_triviafy_user_login_information_ta
 from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_payment_admins import select_triviafy_user_login_information_table_slack_all_payment_admins_function
 from backend.db.queries.update_queries.update_account_edit_settings_company_payment_admins import update_account_edit_settings_company_payment_admins_function
 from backend.db.queries.update_queries.update_account_edit_settings_company_non_payment_admin import update_account_edit_settings_company_non_payment_admin_function
+from backend.utils.cached_login.update_user_nested_dict_information_after_account_edit import update_user_nested_dict_information_after_account_edit_function
 
 # -------------------------------------------------------------- App Setup
 account_edit_settings_processing_changes_page_render_template = Blueprint("account_edit_settings_processing_changes_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -50,12 +51,20 @@ def account_edit_settings_processing_changes_page_render_template_function():
     user_is_payment_admin = user_nested_dict['user_is_payment_admin']
 
 
+    # ------------------------ Set Variables Pre Checks START ------------------------
+    account_settings_company_name_changed = False
+    account_settings_first_name_changed = False
+    account_settings_last_name_changed = False
+    # ------------------------ Set Variables Pre Checks END ------------------------
+
+
     # ------------------------ Sanitize/Update Company Name Input START ------------------------
     user_input_quiz_settings_edit_company_name = request.form.get('user_input_account_settings_company_name')
     if user_input_quiz_settings_edit_company_name == user_company_name:
       print('company name did not change')
       pass
     else:
+      account_settings_company_name_changed = True
       user_input_quiz_settings_edit_company_name = sanitize_account_edit_settings_company_name_function(request.form.get('user_input_account_settings_company_name'))
       if user_input_quiz_settings_edit_company_name != None:
         # Connect to Postgres database
@@ -76,6 +85,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
       print('user first name did not change')
       pass
     else:
+      account_settings_first_name_changed = True
       user_input_quiz_settings_edit_first_name = sanitize_account_edit_settings_first_last_name_function(user_input_quiz_settings_edit_first_name)
       if user_input_quiz_settings_edit_first_name != None:
         # Connect to Postgres database
@@ -96,6 +106,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
       print('user last name did not change')
       pass
     else:
+      account_settings_last_name_changed = True
       user_input_quiz_settings_edit_last_name = sanitize_account_edit_settings_first_last_name_function(user_input_quiz_settings_edit_last_name)
       if user_input_quiz_settings_edit_last_name != None:
         # Connect to Postgres database
@@ -207,6 +218,13 @@ def account_edit_settings_processing_changes_page_render_template_function():
       except:
         pass
     # ------------------------ Loop through and delete stored user uuids from Redis END ------------------------
+
+
+    # ------------------------ Update user_nested_dict Associated With Redis Cookie START ------------------------
+    if account_settings_company_name_changed == True or account_settings_first_name_changed == True or account_settings_last_name_changed == True:
+      output_message = update_user_nested_dict_information_after_account_edit_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid)
+      print(output_message)
+    # ------------------------ Update user_nested_dict Associated With Redis Cookie END ------------------------
 
 
     # ------------------------ Close Connection to DB START ------------------------

@@ -148,6 +148,6 @@ def quiz_graded_end_of_week_view_page_render_template_function():
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          week_winner_display_name_to_html = this_weeks_winner_object[1],
+                          week_winner_display_name_to_html = this_weeks_winner_object[1].replace('_',' '),
                           week_winner_correct_answers_total_to_html = this_weeks_winner_object[0],
                           week_winner_submit_time_to_html = this_weeks_winner_object[2])
