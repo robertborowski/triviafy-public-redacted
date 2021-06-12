@@ -11,3 +11,12 @@ Send email
 -Account Deleted
 -New Quiz Is Up
 -Latest Week's Quiz has been graded
+
+
+
+-Quiz 0 is trial Quiz when a company first signs up
+-Quiz settings make sure you specify EST
+-Trial remaining days
+-Tremendous, just make it a waitlist page
+-Changing the company name is only something Payment Admins can do.
+-Javascript pop up message when quiz answers are submitted saying "answers submitted"
