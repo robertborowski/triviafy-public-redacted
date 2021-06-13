@@ -6,7 +6,18 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
 <!--Navigation bar-->
-<nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component>
+<nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}",
+                              link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}">
+</nav-not-signed-in-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro START -->
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro END -->
+
 
 {% endblock %}

@@ -8,24 +8,33 @@ class NavbarNotSignedInClass extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <nav class="navbar">
-        <div class="name-logo">
-          <a href="#"><img src="/static/images/logo/Logo.png" class="triviafy-logo" alt="Triviafy icon"></a>
-          <div class="brand-title"><a href="#">Triviafy</a></div>
-        </div>
-        <a href="#" class="toggle-button">
-          <span class="bar top-bar"></span>
-          <span class="bar middle-bar"></span>
-          <span class="bar bottom-bar"></span>
-        </a>
-        <div class="navbar-links">
-          <ul>
-            <li><a href="#">Login</a></li>
-            <li><a href="#"><button class="btn btn-create-account">Add Triviafy</button></a></li>
-            <a href="https://slack.com/oauth/v2/authorize?scope=incoming-webhook,commands&client_id=2010284559270.2041074682000&state=${this.getAttribute("slack_state_uuid_js")}"><img alt=""Add to Slack"" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
-          </ul>
-        </div>
-      </nav>
+    <nav class="navbar-not-signed-in box-shadow-sm-grey box-shadow-rounded">
+  
+      <!-- Logo and Company Name -->
+      <div class="company-name-and-logo-navbar-not-signed-in">
+        <!-- Logo -->
+        <a href="${this.getAttribute("link_home_js")}"><img src="/static/images/logo/Logo.png" class="company-logo-navbar-not-signed-in" alt="Triviafy icon/logo"></a>
+        <!-- Company Name -->
+        <h1 class="company-name-navbar-not-signed-in"><a href="${this.getAttribute("link_home_js")}">Triviafy</a></h1>
+      </div>
+    
+      <a href="#" class="toggle-button-not-signed-in">
+        <span class="bar top-bar"></span>
+        <span class="bar middle-bar"></span>
+        <span class="bar bottom-bar"></span>
+      </a>
+    
+      <!-- Navbar links -->
+      <div class="navbar-links-not-signed-in">
+        <ul>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">About</a></li>
+          <!-- <li><a href="#">Join Waitlist</a></li> -->
+          <li><a href="#"><button class="button-default button-default-color-primary" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Join Waitlist</button></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="spacer-navbar-not-signed-in"></div>
     `;
   }
 }
