@@ -44,6 +44,7 @@ h1.company-name-navbar-not-signed-in a, .h1.company-name-navbar-not-signed-in a:
 .navbar-links-not-signed-in ul {
   /* border: 1px black solid; */
   margin-right: 5rem;
+  background-color: white;
 }
 .navbar-links-not-signed-in ul li {
   /* border: 1px black solid; */

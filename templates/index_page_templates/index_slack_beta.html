@@ -1,0 +1,15 @@
+{% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
+
+<!-- head tag block content -->
+{% block title %}
+  <title>Triviafy Slack Beta</title>
+{% endblock %}
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
+<!-- Old Navbar -->
+<nav-not-signed-in-component-slack-beta slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component-slack-beta>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
+
+{% endblock %}

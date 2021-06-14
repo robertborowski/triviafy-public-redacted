@@ -9,7 +9,7 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
 <!-- Old Navbar -->
-<!-- <nav-not-signed-in-component-old slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component> -->
+<!-- <nav-not-signed-in-component-slack-beta slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component-slack-beta> -->
 
 <!--Navigation bar-->
 <nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}",
@@ -22,9 +22,9 @@
 <div class="landing-page-intro-section-background">
   <div class="landing-page-intro-grid-outline">
     <div class="landing-page-intro-title-and-subtitle">
-      <p class="landing-page-intro-title">Weekly asynchronous trivia quizzes.</p>
-      <p class="landing-page-intro-sub-title">You select the trivia schedule & categories, we handle the grading & prizes.</p>
-      <p class="landing-page-intro-sub-title">Guaranteed to strengthen personal connections within your team.</p>
+      <p class="landing-page-intro-title words-stroke-shadow-class">Your team's weekly asynchronous trivia quizzes.</p>
+      <p class="landing-page-intro-sub-title words-stroke-shadow-class">You select the trivia schedule & categories, we handle the grading & prizes.</p>
+      <p class="landing-page-intro-sub-title words-stroke-shadow-class">Guaranteed to strengthen personal connections within your team.</p>
       <a href="#"><button class="button-default button-default-color-secondary landing-page-intro-button" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Join Waitlist</button></a>
       <p class="landing-page-fine-print">No credit card required - Cancel anytime</p>
     </div>
@@ -35,6 +35,58 @@
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Win Gift Cards START -->
+<div class="landing-page-other-companies-container box-shadow-reg-grey box-shadow-rounded">
+  <div class="landing-page-other-company-logos-description">
+    <p>1st place team members win free gift-card prizes to popular companies.</p>
+  </div>
+  <div class="landing-page-other-company-logos-container">
+    <img src="/static/images/logo_other_companies/Logo_Adidas.png" alt="Other company logo" class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_Amazon.png" alt="Other company logo" class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_Disney.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_DoorDash.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_Hulu.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+  </div>
+  <div class="landing-page-other-company-logos-container">
+    <img src="/static/images/logo_other_companies/Logo_LuLuLemon.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-square">
+    <img src="/static/images/logo_other_companies/Logo_Netflix.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_Nike.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+    <img src="/static/images/logo_other_companies/Logo_Starbucks.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-square">
+    <img src="/static/images/logo_other_companies/Logo_Zara.png" alt="Other company logo" 
+    class="landing-page-other-company-logos-container-img-rectangle">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Win Gift Cards END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works START -->
+<div class="landing-page-how-it-works-section">
+  <div class="landing-page-how-it-works-title">
+    <p>How It Works</p>
+  </div>
+
+  <div class="landing-page-choose-platform">
+    <p>Select communication platform:</p>
+  </div>
+  <div class="landing-page-communication-platform">
+    <div class="landing-page-communication-platform-icon-rectangle">
+      <p><i class="far fa-envelope"></i> Email</p>
+    </div>
+    <img src="/static/images/logo_other_companies/Logo_slack.png" alt="Other company logo" 
+    class="landing-page-communication-platform-img-rectangle">
+    <img src="/static/images/logo_other_companies/logo_microsoft_teams.png" alt="Other company logo" class="landing-page-communication-platform-img-rectangle">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works END -->
 
 
 {% endblock %}

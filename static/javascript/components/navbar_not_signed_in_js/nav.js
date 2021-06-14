@@ -27,7 +27,7 @@ class NavbarNotSignedInClass extends HTMLElement {
       <!-- Navbar links -->
       <div class="navbar-links-not-signed-in">
         <ul>
-          <li><a href="#">How It Works</a></li>
+          <!-- <li><a href="#">How It Works</a></li> -->
           <li><a href="#">About</a></li>
           <!-- <li><a href="#">Join Waitlist</a></li> -->
           <li><a href="#"><button class="button-default button-default-color-primary" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Join Waitlist</button></a></li>

@@ -1,0 +1,35 @@
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Intro - Start */
+  .landing-page-intro-section-background {
+    height: 850px;
+  }
+  .landing-page-intro-grid-outline {
+    /* border: 1px solid black; */
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 1fr);
+    width: 95%;
+  }
+  .landing-page-intro-title-and-subtitle {
+    /* border: 1px solid black; */
+    grid-area: 1 / 1 / 2 / 2;
+    padding: 50px 10px 0 10px;
+  }
+  .landing-page-quiz-example-screenshot {
+    /* border: 1px solid black; */
+    grid-area: 2 / 1 / 3 / 2;
+    width: 95%;
+  }
+  /* - - - - - - - - - - Into - End */
+
+
+  /* - - - - - - - - - - Win Gift Cards - Start */
+  .landing-page-other-company-logos-description {
+    width: 95%;
+  }
+  .landing-page-other-company-logos-container {
+    /* border: 1px solid black; */
+    width: 95%;
+    height: 320px;
+  }
+  /* - - - - - - - - - - Win Gift Cards - End */
+}

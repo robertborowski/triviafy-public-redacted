@@ -85,6 +85,10 @@
   /* -webkit-text-stroke: 1px black; */
 	text-shadow: 1px 1px 1px rgb(70, 0, 80);
 }
+.words-stroke-shadow-class {
+  /* -webkit-text-stroke: 1px black; */
+	text-shadow: 1px 1px 1px rgb(70, 0, 80);
+}
 /* - - - - - - - - - - Stroke - End */
 
 /* - - - - - - - - - - Input, Textarea, Select - Start */

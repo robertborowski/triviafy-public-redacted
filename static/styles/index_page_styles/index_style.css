@@ -48,3 +48,76 @@ img.quiz-example-screenshot {
   border-radius: 20px;
 }
 /* - - - - - - - - - - Into - End */
+
+
+/* - - - - - - - - - - Win Gift Cards - Start */
+.landing-page-other-company-logos-description {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--company-primary-color);
+  padding: 60px 0;
+  font-size: 25px;
+}
+.landing-page-other-company-logos-container {
+  /* border: 1px solid black; */
+  width: 90%;
+  margin: 0 auto;
+  height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+img.landing-page-other-company-logos-container-img-rectangle {
+  height: 75px;
+  max-width: 150px;
+  width: 100%;
+}
+img.landing-page-other-company-logos-container-img-square {
+  height: 75px;
+  max-width: 75px;
+  width: 100%;
+}
+/* - - - - - - - - - - Win Gift Cards - End */
+
+
+/* - - - - - - - - - - How It Works - Start */
+.landing-page-how-it-works-title {
+  margin: 20px 0 0 0;
+  text-align: center;
+  font-size: 50px;
+  color: var(--company-primary-color);
+  padding: 15px 0;
+}
+.landing-page-choose-platform {
+  text-align: center;
+  color: var(--company-primary-color);
+  font-size: 15px;
+}
+.landing-page-communication-platform {
+  /* border: 1px solid black; */
+  width: 350px;
+  margin: 20px auto;
+  height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.landing-page-communication-platform-img-rectangle {
+  border: 1px solid var(--company-greyed-out-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 50px;
+  max-width: 100px;
+  width: 100%;
+}
+.landing-page-communication-platform-icon-rectangle {
+  border: 1px solid var(--company-greyed-out-color);
+  border-radius: 10px;
+  height: 50px;
+  max-width: 100px;
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+}
+/* - - - - - - - - - - How It Works - End */
