@@ -1,0 +1,50 @@
+/* - - - - - - - - - - Intro - Start */
+.landing-page-intro-section-background {
+  height: 450px;
+  width: 100%;
+  background-color: var(--company-primary-color);
+}
+.landing-page-intro-grid-outline {
+  /* border: 1px solid black; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+  width: 90%;
+  margin: 0 auto;
+}
+.landing-page-intro-title-and-subtitle {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2;
+  text-align: center;
+  color: white;
+  padding: 90px 0 0 0;
+}
+.landing-page-intro-title {
+  font-size: 50px;
+  padding: 0 0 25px 0;
+}
+.landing-page-intro-sub-title {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+}
+.landing-page-intro-button {
+  margin: 20px 0 0 0;
+}
+.landing-page-fine-print {
+  margin: 10px 0 0 0;
+  font-size: 10px;
+}
+.landing-page-quiz-example-screenshot {
+  /* border: 1px solid black; */
+  grid-area: 1 / 2 / 2 / 3;
+  width: 90%;
+  margin: 70px auto 0 auto;
+}
+img.quiz-example-screenshot {
+  /* border: 1px solid rgb(120, 120, 120); */
+  height: auto;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 20px;
+}
+/* - - - - - - - - - - Into - End */

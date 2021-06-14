@@ -1,4 +1,4 @@
-class NavbarNotSignedInClass extends HTMLElement {  
+class NavbarNotSignedInOldClass extends HTMLElement {  
   constructor() {
     super();
 
@@ -30,4 +30,4 @@ class NavbarNotSignedInClass extends HTMLElement {
   }
 }
 
-customElements.define('nav-not-signed-in-component', NavbarNotSignedInClass);
+customElements.define('nav-not-signed-in-component-old', NavbarNotSignedInOldClass);

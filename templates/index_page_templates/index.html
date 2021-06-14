@@ -8,6 +8,9 @@
 {% block content %}
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
+<!-- Old Navbar -->
+<!-- <nav-not-signed-in-component-old slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component> -->
+
 <!--Navigation bar-->
 <nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}",
                               link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}">
@@ -16,7 +19,21 @@
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro START -->
-
+<div class="landing-page-intro-section-background">
+  <div class="landing-page-intro-grid-outline">
+    <div class="landing-page-intro-title-and-subtitle">
+      <p class="landing-page-intro-title">Weekly asynchronous trivia quizzes.</p>
+      <p class="landing-page-intro-sub-title">You select the trivia schedule & categories, we handle the grading & prizes.</p>
+      <p class="landing-page-intro-sub-title">Guaranteed to strengthen personal connections within your team.</p>
+      <a href="#"><button class="button-default button-default-color-secondary landing-page-intro-button" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Join Waitlist</button></a>
+      <p class="landing-page-fine-print">No credit card required - Cancel anytime</p>
+    </div>
+    
+    <div class="landing-page-quiz-example-screenshot">
+      <img src="/static/images/screenshots/quiz_screenshot.png" alt="Quiz Screenshot" class="quiz-example-screenshot">
+    </div>
+  </div>
+</div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro END -->
 
 
