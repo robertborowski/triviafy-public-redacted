@@ -1,0 +1,28 @@
+.footer-not-signed-in-background {
+  background-color: rgb(18, 18, 18);
+  height: 180px;
+  width: 100%;
+  margin: 0 auto;
+}
+.footer-not-signed-in-links {
+  text-align: center;
+  padding: 10px 0;
+}
+.footer-not-signed-in-links ul li {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.footer-not-signed-in-links ul li a, .footer-not-signed-in-links ul li a:visited {
+  text-decoration: none;
+  color: grey;
+}
+.footer-not-signed-in-links ul li a:hover {
+  color: white;
+}
+.footer-not-signed-in-copyright {
+  text-align: center;
+}
+.footer-not-signed-in-copyright p {
+  color: grey;
+  margin: 10px 0;
+}

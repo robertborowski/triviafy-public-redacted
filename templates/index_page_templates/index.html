@@ -8,9 +8,6 @@
 {% block content %}
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
-<!-- Old Navbar -->
-<!-- <nav-not-signed-in-component-slack-beta slack_state_uuid_js="{{ slack_state_uuid_html }}"></nav-not-signed-in-component-slack-beta> -->
-
 <!--Navigation bar-->
 <nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}",
                               link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}">
@@ -22,10 +19,12 @@
 <div class="landing-page-intro-section-background">
   <div class="landing-page-intro-grid-outline">
     <div class="landing-page-intro-title-and-subtitle">
-      <p class="landing-page-intro-title words-stroke-shadow-class">Your team's weekly asynchronous trivia quizzes.</p>
-      <p class="landing-page-intro-sub-title words-stroke-shadow-class">You select the trivia schedule & categories, we handle the grading & prizes.</p>
+      <p class="landing-page-intro-title words-stroke-shadow-class">Your team's weekly trivia quiz.</p>
+      <p class="landing-page-intro-sub-title words-stroke-shadow-class">Asynchronous: employees submit answers on their own time weekly.</p>
+      <p class="landing-page-intro-sub-title words-stroke-shadow-class">You select the quiz schedule + categories, we handle the grading & prizes.</p>
       <p class="landing-page-intro-sub-title words-stroke-shadow-class">Guaranteed to strengthen personal connections within your team.</p>
-      <a href="#"><button class="button-default button-default-color-secondary landing-page-intro-button" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Join Waitlist</button></a>
+      <a href="#"><button class="button-default button-default-color-secondary landing-page-intro-button" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Add Triviafy</button></a>
+      <p class="landing-page-fine-print">First month free.</p>
       <p class="landing-page-fine-print">No credit card required - Cancel anytime</p>
     </div>
     
@@ -40,7 +39,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Win Gift Cards START -->
 <div class="landing-page-other-companies-container box-shadow-reg-grey box-shadow-rounded">
   <div class="landing-page-other-company-logos-description">
-    <p>1st place team members win free gift-card prizes to popular companies.</p>
+    <p>1st-place team members win free gift-card prizes to popular companies.</p>
   </div>
   <div class="landing-page-other-company-logos-container">
     <img src="/static/images/logo_other_companies/Logo_Adidas.png" alt="Other company logo" class="landing-page-other-company-logos-container-img-rectangle">
@@ -75,7 +74,7 @@
   </div>
 
   <div class="landing-page-choose-platform">
-    <p>Select communication platform:</p>
+    <p>Add to company's communication platform:</p>
   </div>
   <div class="landing-page-communication-platform">
     <div class="landing-page-communication-platform-icon-rectangle">
@@ -87,6 +86,114 @@
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Receive Quiz START -->
+<div class="landing-page-step-section">
+  <div class="landing-page-left-grid landing-page-img-center">
+    <img src="/static/images/screenshots/slack_message.png" alt="Quiz Screenshot" class="box-shadow-reg-grey box-shadow-rounded screenshot-quiz-open">
+  </div>
+
+  <div class="landing-page-step-sub-section-description-section landing-page-right-grid landing-page-text-margin-right">
+    <p class="landing-page-step-sub-section-description-sub-section-title">Receive weekly <em>quiz open</em> notification.</p>
+    <ul class="landing-page-step-sub-section-description-sub-section-ul">
+      <li>Submit quiz responses based on your team's schedule.</li>
+      <li>Awesome way to discover co-worker passions.</li>
+      <li>Great conversation starter.</li>
+    </ul>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Receive Quiz END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answer Question START -->
+<div class="landing-page-step-section">
+  <div class="landing-page-right-grid landing-page-img-left">
+    <img src="/static/images/screenshots/quiz_question_screenshot.png" alt="Quiz Screenshot" class="screenshot-quiz-question-example">
+  </div>
+
+  <div class="landing-page-left-grid landing-page-text-margin-left">
+    <p class="landing-page-step-sub-section-description-sub-section-title">Answer quiz questions.</p>
+    <ul class="landing-page-step-sub-section-description-sub-section-ul">
+      <li>Exact spelling does not matter, try your best.</li>
+      <li>Showcase your trivia knowledge.</li>
+      <li>Impress your co-workers.</li>
+    </ul>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answer Question END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Rewards START -->
+<div class="landing-page-step-section">
+  <div class="landing-page-left-grid landing-page-img-center">
+    <img src="/static/images/bragging_rights/Earn_Rewards_Horizontal.png" alt="Quiz Screenshot" class="screenshot-quiz-rewards">
+  </div>
+
+  <div class="landing-page-right-grid landing-page-text-margin-right">
+    <p class="landing-page-step-sub-section-description-sub-section-title">Collect end-of-week rewards.</p>
+    <ul class="landing-page-step-sub-section-description-sub-section-ul">
+      <li>Earn 'Bragging-Rights-Cards.'</li>
+      <li>Win free gift-cards.</li>
+      <li>Take pride in your trivia knowledge.</li>
+    </ul>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Rewards END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Customize Settings START -->
+<div class="landing-page-step-section">
+  <div class="landing-page-right-grid landing-page-img-left">
+    <img src="/static/images/bragging_rights/customize_quiz_horizontal.png" alt="Quiz Screenshot" class="screenshot-quiz-rewards">
+  </div>
+
+  <div class="landing-page-left-grid landing-page-text-margin-left">
+    <p class="landing-page-step-sub-section-description-sub-section-title">Customize your team's weekly quizzes.</p>
+    <ul class="landing-page-step-sub-section-description-sub-section-ul">
+      <li>Adjust start/end date and time.</li>
+      <li>Adjust number of questions per quiz.</li>
+      <li>Adjust question categories.</li>
+      <li>Create custom triviafy questions.</li>
+    </ul>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Customize Settings END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider START -->
+<div class="landing-page-divide-section">  
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Pricing START -->
+<div class="landing-page-pricing-section">
+  <div class="landing-page-pricing-sub-section-title">
+    <p><strong><em>Triviafy</em></strong> your workspace.</p>
+    <p>One flat low price.</p>
+  </div>
+  <div class="landing-page-pricing-sub-section-price">
+    <p><strong>$199</strong><span style="font-size:12px">/month</span></p>
+  </div>
+  <div class="landing-page-pricing-sub-section-features">
+    <p>Inculdes:</p>
+    <ul>
+      <li>Unlimited team members per company.</li>
+      <li>Gift card prizes.</li>
+      <li>Create custom questions.</li>
+      <li>Quiz winner's leaderboard.</li>
+      <li>Quiz archive.</li>
+    </ul>
+  </div>
+  <div class="landing-page-pricing-sub-section-button">
+    <a href="#"><button class="button-default button-default-color-secondary landing-page-pricing-button" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Add Triviafy</button></a>
+    <p class="landing-page-fine-print">First month free.</p>
+    <p class="landing-page-fine-print">No credit card required - Cancel anytime</p>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Pricing END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer START -->
+<!-- Footer Not Signed In -->
+<footer-not-signed-in-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}">
+</footer-not-signed-in-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer END -->
 
 
 {% endblock %}

@@ -17,22 +17,22 @@
   grid-area: 1 / 1 / 2 / 2;
   text-align: center;
   color: white;
-  padding: 90px 0 0 0;
+  padding: 50px 0 0 0;
 }
 .landing-page-intro-title {
-  font-size: 50px;
+  font-size: 60px;
   padding: 0 0 25px 0;
 }
 .landing-page-intro-sub-title {
-  font-size: 20px;
-  margin: 0 0 5px 0;
+  font-size: 18px;
+  margin: 10px 0 10px 0;
 }
 .landing-page-intro-button {
   margin: 20px 0 0 0;
 }
 .landing-page-fine-print {
-  margin: 10px 0 0 0;
-  font-size: 10px;
+  margin: 7px 0 0 0;
+  font-size: 12px;
 }
 .landing-page-quiz-example-screenshot {
   /* border: 1px solid black; */
@@ -41,7 +41,7 @@
   margin: 70px auto 0 auto;
 }
 img.quiz-example-screenshot {
-  /* border: 1px solid rgb(120, 120, 120); */
+  border: 5px solid var(--company-greyed-out-color);
   height: auto;
   width: 100%;
   max-width: 650px;
@@ -51,6 +51,9 @@ img.quiz-example-screenshot {
 
 
 /* - - - - - - - - - - Win Gift Cards - Start */
+/* .landing-page-other-companies-container {
+  background-color: rgb(239, 239, 239);
+} */
 .landing-page-other-company-logos-description {
   width: 90%;
   margin: 0 auto;
@@ -121,3 +124,128 @@ img.landing-page-other-company-logos-container-img-square {
   padding: 15px 10px;
 }
 /* - - - - - - - - - - How It Works - End */
+
+
+/* - - - - - - - - - - Receive Quiz - Start */
+.landing-page-step-section {
+  /* border: 1px solid black; */
+  height: 400px;
+  width: 90%;
+  margin: 50px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+}
+/* .landing-page-step-sub-section-description-section {
+  padding: 0 0 0 50px;
+  margin: 0 0 0 50px;
+} */
+img.landing-page-step-sub-section-img-section-screenshot {
+  border: 5px solid var(--company-primary-color);
+  border-radius: 20px;
+}
+.landing-page-step-sub-section-description-sub-section-title {
+  font-size: 40px;
+  color: var(--company-primary-color);
+}
+.landing-page-step-sub-section-description-sub-section-ul {
+  margin: 0 0 0 25px;
+}
+.landing-page-step-sub-section-description-sub-section-ul li {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+/* Position attributes */
+.landing-page-left-grid {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2;
+}
+.landing-page-right-grid {
+  /* border: 1px solid black; */
+  grid-area: 1 / 2 / 2 / 3;
+}
+.landing-page-img-center {
+  text-align: center;
+}
+.landing-page-img-left {
+  float: inline-start;
+}
+.landing-page-text-margin-left {
+  margin: 50px 0 0 25%;
+}
+.landing-page-text-margin-right {
+  margin: 50px 25% 0 30px;
+}
+
+/* Img attributes */
+img.screenshot-quiz-open {
+  height: 350px;
+  max-width: 100%;
+}
+img.screenshot-quiz-question-example {
+  height: 400px;
+  max-width: 100%;
+}
+img.screenshot-quiz-rewards {
+  height: 300px;
+  max-width: 100%;
+}
+/* - - - - - - - - - - Receive Quiz - End */
+
+
+/* - - - - - - - - - - Divider - Start */
+.landing-page-divide-section {
+  margin: 75px auto;
+}
+/* - - - - - - - - - - Divider - End */
+
+
+/* - - - - - - - - - - Pricing - Start */
+.landing-page-pricing-section {
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  background-color: rgba(253, 241, 255, 0.848);
+}
+.landing-page-pricing-sub-section-title {
+  /* border: 1px solid black; */
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+.landing-page-pricing-sub-section-title p {
+  /* border: 1px solid black; */
+  color: var(--company-primary-color);
+  font-size: 50px;
+  margin: 10px 0;
+}
+.landing-page-pricing-sub-section-price {
+  /* border: 1px solid black; */
+  text-align: center;
+  margin: 40px 0;
+}
+.landing-page-pricing-sub-section-price p {
+  font-size: 80px;
+  /* color: var(--company-primary-color); */
+}
+.landing-page-pricing-sub-section-features {
+  /* border: 1px solid black; */
+  width: 25%;
+  margin: 0 auto;
+}
+.landing-page-pricing-sub-section-features p {
+  text-align: center;
+  margin: 10px 0;
+}
+.landing-page-pricing-sub-section-features ul {
+  margin: 0 0 0 10%;
+}
+.landing-page-pricing-sub-section-features ul li {
+  margin: 10px 0;
+}
+.landing-page-pricing-sub-section-button {
+  text-align: center;
+  margin: 35px 0 0 0;
+}
+/* - - - - - - - - - - Pricing - End */

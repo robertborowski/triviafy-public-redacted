@@ -32,4 +32,57 @@
     height: 320px;
   }
   /* - - - - - - - - - - Win Gift Cards - End */
+
+
+  /* - - - - - - - - - - Receive Quiz - Start */
+  .landing-page-step-section {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* Position attributes */
+  .landing-page-left-grid {
+    /* border: 1px solid black; */
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .landing-page-right-grid {
+    /* border: 1px solid black; */
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .landing-page-img-left {
+    text-align: center;
+  }
+  .landing-page-text-margin-left {
+    margin: 0 0 0 0;
+  }
+  .landing-page-text-margin-right {
+    margin: 0 0 0 0;
+  }
+
+  /* Img attributes */
+  img.screenshot-quiz-open {
+    height: 200px;
+    max-width: 100%;
+  }
+  img.screenshot-quiz-question-example {
+    height: 200px;
+    max-width: 100%;
+  }
+  img.screenshot-quiz-rewards {
+    height: 200px;
+    max-width: 100%;
+  }
+  /* - - - - - - - - - - Receive Quiz - End */
+
+  
+  /* - - - - - - - - - - Pricing - Start */
+  .landing-page-pricing-sub-section-features {
+    /* border: 1px solid black; */
+    width: 90%;
+  }
+  /* - - - - - - - - - - Pricing - End */
 }
