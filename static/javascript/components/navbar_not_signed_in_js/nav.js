@@ -28,7 +28,7 @@ class NavbarNotSignedInClass extends HTMLElement {
       <div class="navbar-links-not-signed-in">
         <ul>
           <!-- <li><a href="#">How It Works</a></li> -->
-          <li><a href="#">About</a></li>
+          <li><a href="${this.getAttribute("link_about_js")}">About</a></li>
           <!-- <li><a href="#">Add Triviafy</a></li> -->
           <li><a href="#"><button class="button-default button-default-color-primary" type="submit" value="submit" onclick="return clickSubmitButtonOnce()">Add Triviafy</button></a></li>
         </ul>

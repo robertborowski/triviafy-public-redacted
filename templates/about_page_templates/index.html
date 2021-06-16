@@ -1,0 +1,33 @@
+{% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
+
+<!-- head tag block content -->
+{% block title %}
+  <title>About | Triviafy</title>
+{% endblock %}
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
+<!--Navigation bar-->
+<nav-not-signed-in-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+                              link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}">
+</nav-not-signed-in-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider START -->
+<div class="landing-page-divide-section">
+  <p>Hello</p>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer START -->
+<!-- Footer Not Signed In -->
+<footer-not-signed-in-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+                                link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}">
+</footer-not-signed-in-component>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer END -->
+
+
+{% endblock %}

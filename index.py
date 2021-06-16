@@ -7,6 +7,8 @@ from flask import Flask, session, url_for, send_from_directory, render_template
 # Index page
 from backend.page_templates_backend.index_page_backend.index_page_render_template import index_page_render_template
 from backend.page_templates_backend.index_page_backend.slack_beta_index_page_render_template import slack_beta_index_page_render_template
+# About page
+from backend.page_templates_backend.about_page_backend.about_index_page_render_template import about_index_page_render_template
 # Slack authentication pages
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
 # Slack dashboard pages
@@ -74,6 +76,8 @@ def not_found(e):
 # Index page
 app.register_blueprint(index_page_render_template, url_prefix="")
 app.register_blueprint(slack_beta_index_page_render_template, url_prefix="")
+# About page
+app.register_blueprint(about_index_page_render_template, url_prefix="")
 # Slack authentication pages
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
 # Slack dashboard pages
