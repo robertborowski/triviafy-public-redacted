@@ -1,0 +1,88 @@
+/* - - - - - - - - - - Intro - Start */
+.about-section, .about-founder-section {
+  /* border: 1px solid black; */
+  width: 50%;
+  margin: 0 auto;
+}
+.about-sub-section-title-and-subtitle-section, .about-founder-sub-section-title-section {
+  text-align: center;
+}
+p.about-sub-section-title {
+  color: var(--company-primary-color);
+  font-size: 60px;
+  padding: 50px 0 10px 0;
+}
+p.about-sub-section-sub-title {
+  color: var(--company-primary-color);
+  font-size: 25px;
+}
+.about-sub-section-description {
+  /* border: 1px solid black; */
+  padding: 25px 0;
+}
+.about-sub-section-sub-description {
+  /* border: 1px solid black; */
+  padding: 10px 0;
+}
+.about-sub-section-sub-description p {
+  margin: 20px 0;
+  line-height: 1.5rem;
+  font-size: 15px;
+}
+.about-span {
+  color: var(--company-primary-color);
+  font-size: 19px;
+}
+/* - - - - - - - - - - Pricing - End */
+
+
+/* - - - - - - - - - - Divider - Start */
+.about-section-divider-line {
+  width: 75%;
+  margin: 0 auto;
+  border: 1px solid var(--company-greyed-out-color);
+}
+/* - - - - - - - - - - Divider - End */
+
+
+/* - - - - - - - - - - Founder - Start */
+.about-founder-sub-section-title {
+  font-size: 40px;
+  color: var(--company-primary-color);
+  padding: 50px 0 10px 0;
+}
+img.person-sub-section-img {
+  height: 400px;
+  width: 400px;
+  margin: 25px 0 0 0;
+  border: 5px solid grey;
+  border-radius: 20px;
+}
+.person-sub-section-name-and-description-section {
+  padding: 20px 0;
+}
+p.person-sub-section-name {
+  font-size: 25px;
+  margin: 0 0 10px 0;
+}
+p.person-sub-section-description {
+  font-size: 20px;
+  margin: 5px 0;
+}
+/* - - - - - - - - - - Founder - End */
+
+
+/* - - - - - - - - - - Celebrate Logos - Start */
+.about-celebrate-logos-section {
+  /* border: 1px solid black; */
+  width: 90%;
+  margin: 50px auto 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+img.about-celebrate-logo-sub-section-img {
+  height: 300px;
+  width: 300px;
+}
+/* - - - - - - - - - - Celebrate Logos - End */

@@ -1,0 +1,28 @@
+@media (max-width: 800px) {
+  /* - - - - - - - - - - Intro - Start */
+  .about-section, .about-founder-section {
+    /* border: 1px solid black; */
+    width: 90%;
+  }
+  /* - - - - - - - - - - Pricing - End */
+
+
+  /* - - - - - - - - - - Divider - Start */
+  /* - - - - - - - - - - Divider - End */
+
+
+  /* - - - - - - - - - - Founder - Start */
+  img.person-sub-section-img {
+    height: 300px;
+    width: 300px;
+  }
+  /* - - - - - - - - - - Founder - End */
+
+
+  /* - - - - - - - - - - Celebrate Logos - Start */
+  img.about-celebrate-logo-sub-section-img {
+    height: 150px;
+    width: 150px;
+  }
+  /* - - - - - - - - - - Celebrate Logos - End */
+}
