@@ -1,22 +1,25 @@
 =========================================
 POSSIBLE GREY AREA
+
 -To avoid any issues of "extra pay" because of the giftcard, instead have a message that once someone has enough points to claim a giftcard prize, have a modal be recommended to them saying, we recommend you recieve your giftcard to your personal email address not work email. To avoid any legal complications that could be regarded as extra 'payment'
 =========================================
-TO-DO's
--Categories - Make them like twitter hastags (no need for the actual hashtag) but remove all spaces and make it ProperCaseWords,LikeThis,CategoryExamples
--Design a Bragging Right card. Have it look like a winning ticket (admission ticket/skiball win ticket style)
-=========================================
 Send email
+
 -Account Created
 -Account Deleted
 -New Quiz Is Up
 -Latest Week's Quiz has been graded
+=========================================
+To-Do's
 
-
-
--Quiz 0 is trial Quiz when a company first signs up
--Quiz settings make sure you specify EST
--Trial remaining days
--Tremendous, just make it a waitlist page
+-Make 10 questions
+-Setup the send email triggers
+-Quiz 0 is trial Quiz when a company first signs up that week.
+-Javascript modal saying 1. thank you for submitting answers this week 2. You have already submitted answers for this week but are still able to change them if you'd like
+-Quiz settings make sure you specify EST for time start (it is fine for now to have 1 timezone)
+-Trial remaining days should be on the dashboard before the quiz questions begin.
+-Tremendous, just make it a waitlist page for now, you can send people giftcards directly without it being automated
 -Changing the company name is only something Payment Admins can do.
--Javascript pop up message when quiz answers are submitted saying "answers submitted"
+-Company name should be presented without underscores, only spaces.
+-Auto grading answers
+-Stripe setup
