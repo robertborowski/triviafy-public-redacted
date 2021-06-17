@@ -9,6 +9,7 @@ from backend.db.queries.insert_queries.insert_triviafy_slack_user_login_informat
 from backend.db.queries.select_queries.select_check_assign_payment_admin import select_check_assign_payment_admin_function
 from backend.utils.slack.user_info_data_manipulation.transpose_slack_user_data_to_nested_dict import transpose_slack_user_data_to_nested_dict_function
 from backend.utils.quiz_settings_page_utils.setup_company_default_quiz_settings import setup_company_default_quiz_settings_function
+from backend.utils.send_emails.send_email_template import send_email_template_function
 # ------------------------ Imports END ------------------------
 
 
@@ -101,6 +102,16 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title)
     print('user info stored in postgres database')
     # ------------------------ Insert New User to DB END ------------------------
+
+
+    # ------------------------ Send Account Created Email START ------------------------
+    output_email = slack_authed_user_email
+    output_subject_line = 'Triviafy Account Created'
+    output_message_content = f'Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nYou will be notified by email once your weekly quiz is open.\n\nBest,\nRob from Triviafy'
+
+    email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+    print(email_sent_successfully)
+    # ------------------------ Send Account Created Email END ------------------------
 
 
     # Close postgres db connection

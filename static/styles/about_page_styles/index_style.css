@@ -55,7 +55,7 @@ img.person-sub-section-img {
   height: 400px;
   width: 400px;
   margin: 25px 0 0 0;
-  border: 5px solid grey;
+  border: 5px solid var(--company-primary-color);
   border-radius: 20px;
 }
 .person-sub-section-name-and-description-section {

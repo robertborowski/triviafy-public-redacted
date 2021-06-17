@@ -11,8 +11,9 @@ def send_test_email_function():
   # ------------------------ Test 1 START ------------------------
   # message = Mail(
   #   from_email='robert@triviafy.com',
+  #   name='Triviafy',
   #   to_emails='rborowski141@gmail.com',
-  #   subject='Testing Send Grid',
+  #   subject='Testing Send Grid2',
   #   html_content='Hello World!')
   # try:
   #   sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY_TRIVIAFY'))
@@ -21,7 +22,7 @@ def send_test_email_function():
   #   print(response.body)
   #   print(response.headers)
   # except Exception as e:
-  #   print(e.message)  
+  #   print(e.message)
   # ------------------------ Test 1 END ------------------------
 
 
@@ -30,8 +31,8 @@ def send_test_email_function():
   sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY_TRIVIAFY'))
   from_email = Email(email = "robert@triviafy.com", name = "TRIVIAFY")  # Change to your verified sender
   to_email = To('rborowski141@gmail.com')  # Change to your recipient
-  subject = "Weekly Recap"
-  content = Content("text/plain","HELLO WORLD")
+  subject = "Test Email 2"
+  content = Content("text/plain","Hi this is a test/n/nHow are you doing on this fine day?")
   mail = Mail(from_email, to_email, subject, content)
 
   # Get a JSON-ready representation of the Mail object
@@ -39,7 +40,11 @@ def send_test_email_function():
 
   # Send an HTTP POST request to /mail/send
   #response = sg.client.mail.send.post(request_body=mail_json)
-  sg.client.mail.send.post(request_body=mail_json)
+  try:
+    sg.client.mail.send.post(request_body=mail_json)
+    print('email sent successfully!')
+  except:
+    print('email did not send successfully...')
   # ------------------------ Test 2 END ------------------------
 
   print('=========================================== send_test_email_function END ===========================================')

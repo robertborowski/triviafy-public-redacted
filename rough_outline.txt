@@ -3,17 +3,23 @@ POSSIBLE GREY AREA
 
 -To avoid any issues of "extra pay" because of the giftcard, instead have a message that once someone has enough points to claim a giftcard prize, have a modal be recommended to them saying, we recommend you recieve your giftcard to your personal email address not work email. To avoid any legal complications that could be regarded as extra 'payment'
 =========================================
-Send email
+Send emails when:
 
--Account Created
--Account Deleted
+-[DONE] Account Created
+-Account Deleted (This is not priority, this is after you actually have customers signed up, they could alway email you if they want to be deleted)
 -New Quiz Is Up
--Latest Week's Quiz has been graded
+-Latest Week's Quiz has been graded (Do this after you build the grading automation logic)
+-Person who won the quiz for that week. Tell them how many more wins they need to get a gift-card
 =========================================
 To-Do's
 
--Make 10 questions
+-Make 5 questions daily
+-Reach out to everyone on your LinkedIn telling them about Triviafy
+- - - - - - - - - - - - - - - - - -
 -Setup the send email triggers
+- - - - - - - - - - - - - - - - - -
+-Account mark for deletion
+-aws auto backup all DB tables daily
 -Quiz 0 is trial Quiz when a company first signs up that week.
 -Javascript modal saying 1. thank you for submitting answers this week 2. You have already submitted answers for this week but are still able to change them if you'd like
 -Quiz settings make sure you specify EST for time start (it is fine for now to have 1 timezone)
@@ -22,4 +28,7 @@ To-Do's
 -Changing the company name is only something Payment Admins can do.
 -Company name should be presented without underscores, only spaces.
 -Auto grading answers
+-Fix Quiz Settings Edit page (too slim)
 -Stripe setup
+-Test Slack app on another computer like Daniel signing up with coderbyte
+-Release app to Slack app store
