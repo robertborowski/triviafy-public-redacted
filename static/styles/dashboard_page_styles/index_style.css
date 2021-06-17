@@ -73,13 +73,10 @@
 
 
 /* - - - - - - - - - - Quiz Zero Desc Start */
-.dashboard-download-pdf {
-  font-size: 22px;
-  padding: 15px 0;
-  text-decoration: underline;
+.dashboard-page-sample-and-pdf-section {
+  text-align: center;
 }
-.dashboard-download-pdf a, .dashboard-download-pdf a:visited {
-  color: var(--company-primary-color);
-  text-decoration: none;
+.dashboard-page-sample-and-pdf-section a {
+  display: block;
 }
 /* - - - - - - - - - - Quiz Zero Desc End */

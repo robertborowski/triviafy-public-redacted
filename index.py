@@ -45,6 +45,8 @@ from backend.page_templates_backend.quiz_archive_page_backend.quiz_archive_page_
 from backend.page_templates_backend.quiz_archive_page_backend.quiz_archive_specific_quiz_number import quiz_archive_specific_quiz_number
 # Leaderboard pages
 from backend.page_templates_backend.leaderboard_page_backend.leaderboard_page_render_template import leaderboard_page_render_template
+# Sample Quiz pages
+from backend.page_templates_backend.sample_quiz_page_backend.sample_quiz_index_page_render_template import sample_quiz_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -115,6 +117,8 @@ app.register_blueprint(quiz_archive_page_render_template, url_prefix="")
 app.register_blueprint(quiz_archive_specific_quiz_number, url_prefix="")
 # Leaderboard pages
 app.register_blueprint(leaderboard_page_render_template, url_prefix="")
+# Sample Quiz pages
+app.register_blueprint(sample_quiz_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
