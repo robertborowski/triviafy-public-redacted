@@ -129,6 +129,24 @@ input:focus, textarea:focus, select:focus{
 .button-section-middle {
   text-align: center;
 }
+
+.button-default-longer {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 10px 20px;
+  font-size: 20px;
+  line-height: 1.5;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 300px;
+  border: none;
+}
+.button-default-longer:hover {
+  text-decoration: underline;
+}
 /* - - - - - - - - - - Button Defaults - End */
 
 

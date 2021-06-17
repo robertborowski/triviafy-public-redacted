@@ -24,6 +24,8 @@ To-Do's
 -Reach out to everyone on your LinkedIn telling them about Triviafy
 - - - - - - - - - - - - - - - - - -
 -Setup the send email triggers
+-On quiz 0 page, Click a button to go to take a sample quiz. Once they click submit they get graded
+-Add link for PDF to the main page
 - - - - - - - - - - - - - - - - - -
 -Quiz settings make sure you specify EST for time start (it is fine for now to have 1 timezone)
 -Javascript modal saying 1. thank you for submitting answers this week 2. You have already submitted answers for this week but are still able to change them if you'd like

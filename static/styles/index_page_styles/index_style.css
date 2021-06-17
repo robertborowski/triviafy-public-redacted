@@ -41,7 +41,7 @@
   margin: 70px auto 0 auto;
 }
 img.quiz-example-screenshot {
-  border: 5px solid var(--company-greyed-out-color);
+  border: 5px solid rgba(167, 32, 185, 0.648);
   height: auto;
   width: 100%;
   max-width: 650px;
@@ -199,6 +199,13 @@ img.screenshot-quiz-rewards {
   margin: 75px auto;
 }
 /* - - - - - - - - - - Divider - End */
+
+
+/* - - - - - - - - - - Sample Quiz PDF - Start */
+.landing-page-pdf-section {
+  text-align: center;
+}
+/* - - - - - - - - - - Sample Quiz PDF - End */
 
 
 /* - - - - - - - - - - Pricing - Start */
