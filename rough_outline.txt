@@ -24,7 +24,6 @@ To-Do's
 -Reach out to everyone on your LinkedIn telling them about Triviafy
 - - - - - - - - - - - - - - - - - -
 -Setup the send email triggers
--Quiz 0 is trial Quiz when a company first signs up that week.
 - - - - - - - - - - - - - - - - - -
 -Quiz settings make sure you specify EST for time start (it is fine for now to have 1 timezone)
 -Javascript modal saying 1. thank you for submitting answers this week 2. You have already submitted answers for this week but are still able to change them if you'd like
