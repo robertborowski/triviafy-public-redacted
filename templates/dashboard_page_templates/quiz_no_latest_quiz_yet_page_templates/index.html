@@ -20,7 +20,7 @@
 
 
 <main class="logged-in">
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Zero Intro Start -->
   <company-name-channel-component company_name_js="{{ user_company_name_to_html }}",
                                   channel_name_js="{{ user_channel_name_to_html }}">
   </company-name-channel-component>
@@ -30,17 +30,19 @@
       <p class="template-page-intro-title template-page-intro-title-no-latest-quiz" id='words-stroke-shadow'>Welcome to Triviafy!</p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Intro End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Zero Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Zero Desc Start -->
   <div class="template-page-post-intro-description-section">
     <div class="template-page-post-intro-description-sub-section">
-      <p>Your team's first quiz will be available here on {{ company_first_quiz_will_be_created_start_day_to_html }}, {{ company_first_quiz_will_be_created_start_date_to_html }}.</p>
-      <p>You will receive an email & slack reminder once the weekly quiz is available.</p>
+      <p>We believe that all team members should have a fair start on quiz #1.</p>
+      <p>Therefore, your team's first quiz will be available here on <span style='color:var(--company-primary-color);'>{{ company_first_quiz_will_be_created_start_day_to_html }}, {{ company_first_quiz_will_be_created_start_date_to_html }}</span>.</p>
+      <p>You will receive an email & slack reminder once the weekly quiz is open and available.</p>
+      <p class="dashboard-download-pdf"><a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}">Click here to view a PDF of an example quiz.</a></p>
     </div>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Zero Desc End -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Quiz Image Start -->

@@ -92,6 +92,11 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
     # ------------------------ Get Next Week's Dates Dict End ------------------------
 
 
+    # ------------------------ Get PDF Quiz Example to Present to User START ------------------------
+    
+    # ------------------------ Get PDF Quiz Example to Present to User END ------------------------
+
+
   except:
     print('except error hit')
     print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')

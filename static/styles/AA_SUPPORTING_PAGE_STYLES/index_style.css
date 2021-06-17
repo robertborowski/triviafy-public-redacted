@@ -222,6 +222,9 @@ img.template-logo-caricature-img {
   width: 95%;
   margin: 0 auto;
 }
+.template-page-post-intro-description-sub-section p {
+  margin: 10px 0;  
+}
 /* - - - - - - - - - - Template Post Intro Description End */
 
 

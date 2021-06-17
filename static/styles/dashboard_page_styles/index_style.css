@@ -70,3 +70,16 @@
 /* Separate file in the present_quiz_question_styles
 /* Separate file in the AA_SUPPORTING_PAGE_STYLES
 /* - - - - - - - - - - Current Quiz Form End */
+
+
+/* - - - - - - - - - - Quiz Zero Desc Start */
+.dashboard-download-pdf {
+  font-size: 22px;
+  padding: 15px 0;
+  text-decoration: underline;
+}
+.dashboard-download-pdf a, .dashboard-download-pdf a:visited {
+  color: var(--company-primary-color);
+  text-decoration: none;
+}
+/* - - - - - - - - - - Quiz Zero Desc End */
