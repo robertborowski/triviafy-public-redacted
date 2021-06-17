@@ -16,5 +16,6 @@ def before_request():
 @download_example_quiz_pdf_redirect.route("/download/example/quiz/pdf", methods=['GET','POST'])
 def download_example_quiz_pdf_redirect_function():
   print('=========================================== /download/example/quiz/pdf Page START ===========================================')
-  
+
+  print('=========================================== /download/example/quiz/pdf Page END ===========================================')
   return send_file("static/images/pdfs/triviafy_example_quiz.pdf", as_attachment=True)
