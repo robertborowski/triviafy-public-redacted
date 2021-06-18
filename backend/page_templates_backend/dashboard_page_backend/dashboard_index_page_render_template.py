@@ -158,10 +158,13 @@ def dashboard_index_page_render_template_function():
 
 
     # ------------------------ Add User Autofill Answers to Obj START ------------------------
+    user_submitted_answers = ''
     if user_quiz_saved_answers_dict != None:
+      user_submitted_answers = 'Your answers have been submitted. You can update your answers and resubmit this quiz anytime before its due date/time.'
       for i in quiz_questions_obj_arr_of_dicts:
         i['users_most_recent_submitted_answer'] = user_quiz_saved_answers_dict[i['question_uuid']]
     else:
+      user_submitted_answers = ''
       for i in quiz_questions_obj_arr_of_dicts:
         i['users_most_recent_submitted_answer'] = ''
     # ------------------------ Add User Autofill Answers to Obj END ------------------------
@@ -183,4 +186,5 @@ def dashboard_index_page_render_template_function():
                           quiz_end_time_to_html = quiz_end_time,
                           quiz_end_day_of_week_to_html = quiz_end_day_of_week,
                           quiz_end_date_to_html = quiz_end_date,
+                          user_submitted_answers_to_html = user_submitted_answers,
                           quiz_questions_obj_arr_of_dicts_html = quiz_questions_obj_arr_of_dicts)

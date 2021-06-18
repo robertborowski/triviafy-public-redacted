@@ -66,6 +66,22 @@
 /* - - - - - - - - - - Quiz Intro - End */
 
 
+/* - - - - - - - - - - Answers Submitted Message - Start */
+.user-answers-submitted-message-section {
+  text-align: center;
+  margin: 50px auto;
+  width: 50%;
+  padding: 25px;
+  background-color: rgb(255, 255, 186);
+  display: none;
+}
+.user-answers-submitted-message-section p {
+  /* color: var(--company-primary-color); */
+  font-size: 20px;
+}
+/* - - - - - - - - - - Answers Submitted Message - End */
+
+
 /* - - - - - - - - - - Current Quiz Form Start */
 /* Separate file in the present_quiz_question_styles
 /* Separate file in the AA_SUPPORTING_PAGE_STYLES

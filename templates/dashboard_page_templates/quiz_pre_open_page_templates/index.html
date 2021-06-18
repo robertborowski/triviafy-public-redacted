@@ -36,9 +36,15 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc Start -->
   <div class="template-page-post-intro-description-section">
     <div class="template-page-post-intro-description-sub-section">
-      <p>Your team's next quiz will be available here on {{ company_quiz_start_day_to_html }}, {{ company_quiz_start_date_to_html }}.</p>
-      <p>You will receive an email & slack reminder once the weekly quiz is available.</p>
+      <p>Your team's next quiz will be available here on <span style='color:var(--company-primary-color);'>{{ company_quiz_start_day_to_html }}, {{ company_quiz_start_date_to_html }} at {{ company_quiz_settings_start_time_to_html }} EST (New York Time)</span>.</p>
+      <p>You will receive an email & Slack reminder once the weekly quiz is available.</p>
     </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Example PDF START -->
+    <div class="dashboard-page-sample-and-pdf-section">
+      <a href="{{ url_for('sample_quiz_index_page_render_template.sample_quiz_index_page_render_template_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">Complete Sample Quiz</button></a>
+      <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">View Example Quiz PDF</button></a>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Example PDF END -->
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Past Due Desc End -->
 

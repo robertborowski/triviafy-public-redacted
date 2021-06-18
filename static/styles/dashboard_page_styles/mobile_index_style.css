@@ -14,4 +14,10 @@
     font-size: 15px;
   }
   /* - - - - - - - - - - Modal - End */
+
+  /* - - - - - - - - - - Answers Submitted Message - Start */
+  .user-answers-submitted-message-section {
+    width: 95%;
+  }
+  /* - - - - - - - - - - Answers Submitted Message - End */
 }

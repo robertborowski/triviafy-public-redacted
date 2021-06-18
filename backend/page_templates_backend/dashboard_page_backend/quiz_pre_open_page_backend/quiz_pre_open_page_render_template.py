@@ -117,4 +117,5 @@ def quiz_pre_open_page_render_template_function():
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
                           company_quiz_start_day_to_html = company_quiz_start_day,
+                          company_quiz_settings_start_time_to_html = company_quiz_settings_start_time,
                           company_quiz_start_date_to_html = company_quiz_start_date)
