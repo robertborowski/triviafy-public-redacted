@@ -12,7 +12,7 @@ def select_user_quiz_question_answer_if_exists_function(postgres_connection, pos
 
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
-    if result_row == None:
+    if result_row == None or result_row == []:
       print('=========================================== select_user_quiz_question_answer_if_exists_function END ===========================================')
       return None, None
     

@@ -74,6 +74,7 @@
   padding: 25px;
   background-color: rgb(255, 255, 186);
   display: none;
+  border-radius: 50px;
 }
 .user-answers-submitted-message-section p {
   /* color: var(--company-primary-color); */

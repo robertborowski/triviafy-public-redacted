@@ -10,6 +10,7 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.c
 from backend.page_templates_backend.submit_quiz_backend.map_question_id_user_answers_dict import map_question_id_user_answers_dict_function
 from backend.page_templates_backend.submit_quiz_backend.push_update_postgres_db_with_answers import push_update_postgres_db_with_answers_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
+from backend.utils.grade_user_answers_utils.grade_user_answers import grade_user_answers_function
 
 # -------------------------------------------------------------- App Setup
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
@@ -75,9 +76,6 @@ def submit_quiz_backend_function():
 
     # ------------------------ Get Latest Quiz Data START ------------------------
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
-    print('- - - - -')
-    print('Pulled the latest company quiz from DB')
-    print('- - - - -')
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
     if latest_company_quiz_object == None:
       print('=========================================== /dashboard Page END ===========================================')
@@ -126,7 +124,14 @@ def submit_quiz_backend_function():
     # ------------------------ Put User Inputs Into DB END ------------------------
 
 
+    # ------------------------ Grade Answers Algorithm START ------------------------
+    output_message = grade_user_answers_function(uuid_quiz, user_uuid)
+    print(output_message)
+    # ------------------------ Grade Answers Algorithm END ------------------------
+
+
   except:
+    print('no user is logged in')
     print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
     return redirect('/', code=302)
   # ------------------------ Check if user is signed in END ------------------------

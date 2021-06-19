@@ -1,5 +1,4 @@
 def sanitize_quiz_question_user_answer_text_function(user_input):
-  """Check if valid input"""
   print('=========================================== sanitize_quiz_question_user_answer_text_function START ===========================================')
 
   # Check Character count limits
@@ -23,7 +22,7 @@ def sanitize_quiz_question_user_answer_text_function(user_input):
     user_input_words_arr[word] = user_input_words_arr[word].capitalize()
 
 
-  # Join the array back together but replace the whitespace with something else
+  # Join the array back together but replace the whitespace with something else. To avoid harming your DB with words like drop user --> *becomes* -->  drop_user
   user_input_sanitize_output = "_".join(user_input_words_arr)
 
 
