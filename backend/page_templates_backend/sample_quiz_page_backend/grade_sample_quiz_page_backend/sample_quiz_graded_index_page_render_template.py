@@ -137,6 +137,15 @@ def sample_quiz_graded_index_page_render_template_function():
           dict['user_quiz_question_result'] = str(result_grading_checks)
       # ------------------------ Run Checks For All Answers END ------------------------
     # ------------------------ Grade Sample Quiz - User Answers END ------------------------
+
+
+    # ------------------------ Get Total Correct Answers START ------------------------
+    total_questions_for_quiz = len(sample_questions_arr_of_dicts)
+    total_correct_answers_for_quiz = 0
+    for dict in sample_questions_arr_of_dicts:
+      if dict['user_quiz_question_result'] == True or dict['user_quiz_question_result'] == 'True':
+        total_correct_answers_for_quiz += 1
+    # ------------------------ Get Total Correct Answers END ------------------------
     
 
   except:
@@ -150,4 +159,6 @@ def sample_quiz_graded_index_page_render_template_function():
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          quiz_questions_obj_arr_of_dicts_html = sample_questions_arr_of_dicts)
+                          quiz_questions_obj_arr_of_dicts_html = sample_questions_arr_of_dicts,
+                          total_questions_for_quiz_to_html = total_questions_for_quiz,
+                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz)

@@ -46,8 +46,10 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
 
 
     # ------------------------ Get Info From triviafy_quiz_master_table START ------------------------
+    # ------------------------ Open Connections START ------------------------
     # Connect to Postgres database
     postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+    # ------------------------ Open Connections END ------------------------
 
     # From Quiz Number link selected, get Quiz UUID and Question UUID's 
     link_selected_quiz_master_table_arr = select_quiz_uuid_from_quiz_master_table_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, int_quiz_number)
@@ -106,8 +108,19 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
     # ------------------------ Map User Submitted Answer To Quiz Question Obj END ------------------------
 
 
+    # ------------------------ Close Connections START ------------------------
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+    # ------------------------ Close Connections END ------------------------
+
+
+    # ------------------------ Get Total Correct Answers START ------------------------
+    total_questions_for_quiz = len(pull_info_all_questions_table_arr_of_dicts)
+    total_correct_answers_for_quiz = 0
+    for dict in pull_info_all_questions_table_arr_of_dicts:
+      if dict['user_quiz_question_result'] == True or dict['user_quiz_question_result'] == 'True':
+        total_correct_answers_for_quiz += 1
+    # ------------------------ Get Total Correct Answers END ------------------------
 
 
   except:
@@ -124,4 +137,6 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
                           link_selected_quiz_archive_intro_dict_to_html = link_selected_quiz_archive_intro_dict,
-                          pull_info_all_questions_table_arr_of_dicts_to_html = pull_info_all_questions_table_arr_of_dicts)
+                          pull_info_all_questions_table_arr_of_dicts_to_html = pull_info_all_questions_table_arr_of_dicts,
+                          total_questions_for_quiz_to_html = total_questions_for_quiz,
+                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz)

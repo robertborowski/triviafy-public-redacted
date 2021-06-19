@@ -271,4 +271,19 @@ hr.template-divider-line-dotted {
 /* - - - - - - - - - - Divider Line End */
 
 
+/* - - - - - - - - - - Quiz Results Start */
+.template-quiz-correct-answers-ratio {
+  text-align: center;
+  margin: 50px 0 0 0;
+}
+.template-quiz-correct-answers-ratio-small-title {
+  font-size: 20px;
+  color: var(--company-greyed-out-color);
+}
+.template-quiz-correct-answers-ratio-large-title {
+  font-size: 60px;
+}
+/* - - - - - - - - - - Quiz Results End */
+
+
 /* ==================================== Global Classes and ID's END ==================================== */
