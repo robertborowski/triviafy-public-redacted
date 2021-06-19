@@ -57,9 +57,8 @@ def check_user_answer_vs_admin_answer_function(question_admin_correct_answer, qu
     print('- - - - - - - - - - - -')
     print('answer_match_score')
     print(answer_match_score)
-    print(type(answer_match_score))
     print('- - - - - - - - - - - -')
-    if answer_match_score > 85:
+    if answer_match_score > 80:
       print('- - - - - - - - -')
       print('CORRECT ANSWER!')
       print('- - - - - - - - -')

@@ -63,7 +63,7 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Current Quiz Form Start -->
-  <form action="#" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('sample_quiz_graded_index_page_render_template.sample_quiz_graded_index_page_render_template_function') }}" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
     {% for i in quiz_questions_obj_arr_of_dicts_html %}
