@@ -46,8 +46,9 @@
 #quiz-settings-if-payment-admin {
   display: none;
 }
-.quiz-settings-edit-sub-section-permission {
+.quiz-settings-explain-sub-section-permission {
   color: var(--company-greyed-out-color);
+  text-align: center;
   font-size: 12px;
   margin: 5px 0;
 }
