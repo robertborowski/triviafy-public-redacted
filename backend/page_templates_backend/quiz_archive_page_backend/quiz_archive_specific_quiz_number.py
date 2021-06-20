@@ -11,6 +11,7 @@ from datetime import datetime
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.db.queries.select_queries.select_triviafy_all_questions_table_question_info import select_triviafy_all_questions_table_question_info_function
 from backend.db.queries.select_queries.select_triviafy_quiz_answers_master_table_user_answer import select_triviafy_quiz_answers_master_table_user_answer_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 quiz_archive_specific_quiz_number = Blueprint("quiz_archive_specific_quiz_number", __name__, static_folder="static", template_folder="templates")
@@ -39,6 +40,7 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
     # Get user information from the nested dict
     user_uuid = user_nested_dict['user_uuid']
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']

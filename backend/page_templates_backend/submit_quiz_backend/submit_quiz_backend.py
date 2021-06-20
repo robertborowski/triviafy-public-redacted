@@ -11,6 +11,7 @@ from backend.page_templates_backend.submit_quiz_backend.map_question_id_user_ans
 from backend.page_templates_backend.submit_quiz_backend.push_update_postgres_db_with_answers import push_update_postgres_db_with_answers_function
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 from backend.utils.grade_user_answers_utils.grade_user_answers import grade_user_answers_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
@@ -45,6 +46,7 @@ def submit_quiz_backend_function():
 
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
 
 

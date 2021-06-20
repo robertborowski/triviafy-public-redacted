@@ -8,6 +8,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.select_latest_feedback_user_uuid import select_latest_feedback_user_uuid_function
 from datetime import date, datetime
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_index_page_render_template = Blueprint("quiz_feedback_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -35,6 +36,7 @@ def quiz_feedback_index_page_render_template_function():
 
     user_uuid = user_nested_dict['user_uuid']
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
 
     

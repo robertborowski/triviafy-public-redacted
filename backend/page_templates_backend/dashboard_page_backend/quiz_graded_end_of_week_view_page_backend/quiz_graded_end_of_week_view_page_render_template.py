@@ -12,6 +12,7 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.c
 from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 from backend.utils.quiz_calculations_utils.quiz_calculate_quiz_uuid_winner import quiz_calculate_quiz_uuid_winner_function
 from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_winner_insert_to_db_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 quiz_graded_end_of_week_view_page_render_template = Blueprint("quiz_graded_end_of_week_view_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -40,6 +41,7 @@ def quiz_graded_end_of_week_view_page_render_template_function():
     
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     # Get user information from the nested dict
     slack_workspace_team_id = user_nested_dict['slack_team_id']

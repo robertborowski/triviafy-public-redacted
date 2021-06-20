@@ -9,6 +9,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.select_company_users import select_company_users_function
 from backend.db.queries.select_queries.select_total_user_quiz_wins import select_total_user_quiz_wins_function
 from backend.db.queries.select_queries.select_total_user_correct_quiz_answers import select_total_user_correct_quiz_answers_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 leaderboard_page_render_template = Blueprint("leaderboard_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -36,6 +37,7 @@ def leaderboard_page_render_template_function():
     
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']

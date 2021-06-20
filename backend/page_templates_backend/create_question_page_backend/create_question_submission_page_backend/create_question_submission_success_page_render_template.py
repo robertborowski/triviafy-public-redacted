@@ -8,6 +8,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.create_question_queries.select_all_questions_created_by_owner_email import select_all_questions_created_by_owner_email_function
 import os
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 create_question_submission_success_page_render_template = Blueprint("create_question_submission_success_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -35,6 +36,7 @@ def create_question_submission_success_page_render_template_function():
 
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:

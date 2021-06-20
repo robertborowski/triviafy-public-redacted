@@ -8,6 +8,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.select_triviafy_sample_questions_table_all import select_triviafy_sample_questions_table_all_function
 from backend.db.queries.select_queries.select_company_quiz_questions_individually import select_company_quiz_questions_individually_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 sample_quiz_index_page_render_template = Blueprint("sample_quiz_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -34,6 +35,7 @@ def sample_quiz_index_page_render_template_function():
     user_nested_dict = check_if_user_login_through_cookies_function()
 
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
 
     # Get Company name and channel name (slack ID's)

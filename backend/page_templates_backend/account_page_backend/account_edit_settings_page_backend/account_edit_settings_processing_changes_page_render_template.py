@@ -18,6 +18,7 @@ from backend.db.queries.select_queries.select_triviafy_user_login_information_ta
 from backend.db.queries.update_queries.update_account_edit_settings_company_payment_admins import update_account_edit_settings_company_payment_admins_function
 from backend.db.queries.update_queries.update_account_edit_settings_company_non_payment_admin import update_account_edit_settings_company_non_payment_admin_function
 from backend.utils.cached_login.update_user_nested_dict_information_after_account_edit import update_user_nested_dict_information_after_account_edit_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 account_edit_settings_processing_changes_page_render_template = Blueprint("account_edit_settings_processing_changes_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -43,6 +44,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_first_name = user_nested_dict['user_first_name']
     user_last_name = user_nested_dict['user_last_name']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
@@ -59,23 +61,24 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
 
     # ------------------------ Sanitize/Update Company Name Input START ------------------------
-    user_input_quiz_settings_edit_company_name = request.form.get('user_input_account_settings_company_name')
-    if user_input_quiz_settings_edit_company_name == user_company_name:
-      print('company name did not change')
-      pass
-    else:
-      account_settings_company_name_changed = True
-      user_input_quiz_settings_edit_company_name = sanitize_account_edit_settings_company_name_function(request.form.get('user_input_account_settings_company_name'))
-      if user_input_quiz_settings_edit_company_name != None:
-        # Connect to Postgres database
-        postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+    if user_is_payment_admin == True:
+      user_input_quiz_settings_edit_company_name = request.form.get('user_input_account_settings_company_name')
+      if user_input_quiz_settings_edit_company_name == user_company_name:
+        print('company name did not change')
+        pass
+      else:
+        account_settings_company_name_changed = True
+        user_input_quiz_settings_edit_company_name = sanitize_account_edit_settings_company_name_function(request.form.get('user_input_account_settings_company_name'))
+        if user_input_quiz_settings_edit_company_name != None:
+          # Connect to Postgres database
+          postgres_connection, postgres_cursor = postgres_connect_to_database_function()
 
-        # Update the company name
-        output_message = update_account_edit_settings_company_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_company_name, slack_workspace_team_id, slack_channel_id)
-        print(output_message)
+          # Update the company name
+          output_message = update_account_edit_settings_company_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_company_name, slack_workspace_team_id, slack_channel_id)
+          print(output_message)
 
-        # Close postgres db connection
-        postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+          # Close postgres db connection
+          postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
     # ------------------------ Sanitize/Update Company Name Input END ------------------------
 
 

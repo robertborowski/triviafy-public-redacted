@@ -4,6 +4,7 @@ from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_success_page_render_template = Blueprint("quiz_feedback_success_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -29,6 +30,7 @@ def quiz_feedback_success_page_render_template_function():
   try:
     user_nested_dict = check_if_user_login_through_cookies_function()
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
 
   except:

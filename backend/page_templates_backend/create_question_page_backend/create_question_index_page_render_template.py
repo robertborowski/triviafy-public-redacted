@@ -5,6 +5,7 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 import os
+from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 
 # -------------------------------------------------------------- App Setup
 create_question_index_page_render_template = Blueprint("create_question_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -31,6 +32,7 @@ def create_question_index_page_render_template_function():
 
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
   except:

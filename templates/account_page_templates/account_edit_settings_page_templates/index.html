@@ -41,6 +41,7 @@
       <div class="account-info-sub-section">
         <p class="account-info-sub-section-title">Company Name</p>
         <p class="account-info-sub-section-sub-title">Changing the Company Name will affect all users.</p>
+        <p class="account-info-sub-section-sub-title">Only Payment Admins can change the company name.</p>
         <input type="text" id="user_input_account_settings_company_name" name="user_input_account_settings_company_name" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="50" pattern="[a-zA-z0-9-_ ]{1,50}" value="{{ user_company_name_to_html }}" required>
       </div>
       
@@ -81,6 +82,11 @@
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End -->
   </form>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider START -->
+  <div class="template-divide-section">  
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider END -->
   
 </main>
 

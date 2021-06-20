@@ -25,8 +25,8 @@ def sanitize_account_edit_settings_company_name_function(user_input):
       return None
     
     # Make word proper case
-    user_input_words_arr[word] = user_input_words_arr[word].lower()
-    user_input_words_arr[word] = user_input_words_arr[word].capitalize()
+    # user_input_words_arr[word] = user_input_words_arr[word].lower()
+    # user_input_words_arr[word] = user_input_words_arr[word].capitalize()
 
 
   # Join the array back together but replace the whitespace with something else
