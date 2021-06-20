@@ -1,4 +1,8 @@
 /* - - - - - - - - - - Quiz Settings - Start */
+form.edit-quiz-settings-form {
+  width: 100%;
+  margin: 0 auto;
+}
 label.edit-quiz-label {
   display: block;
 }

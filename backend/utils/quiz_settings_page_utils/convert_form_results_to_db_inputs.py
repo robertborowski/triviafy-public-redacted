@@ -8,6 +8,14 @@ def convert_form_results_to_db_inputs_function(user_form_input_quiz_start_day, u
     'wednesday' : 'Wednesday'
   }
   quiz_settings_convert_time_dict = {
+    'one_am' : '1 AM',
+    'two_am' : '2 AM',
+    'three_am' : '3 AM',
+    'four_am' : '4 AM',
+    'five_am' : '5 AM',
+    'six_am' : '6 AM',
+    'seven_am' : '7 AM',
+    'eight_am' : '8 AM',
     'nine_am' : '9 AM',
     'ten_am' : '10 AM',
     'eleven_am' : '11 AM',
@@ -18,7 +26,11 @@ def convert_form_results_to_db_inputs_function(user_form_input_quiz_start_day, u
     'four_pm' : '4 PM',
     'five_pm' : '5 PM',
     'six_pm' : '6 PM',
-    'seven_pm' : '7 PM'
+    'seven_pm' : '7 PM',
+    'eight_pm' : '8 PM',
+    'nine_pm' : '9 PM',
+    'ten_pm' : '10 PM',
+    'eleven_pm' : '11 PM'
   }
 
   # Map the correct new values

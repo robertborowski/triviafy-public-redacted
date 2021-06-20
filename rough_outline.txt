@@ -20,18 +20,12 @@ Send emails when:
 =========================================
 To-Do's
 
--Make 5 questions daily
--Reach out to everyone on your LinkedIn telling them about Triviafy
 - - - - - - - - - - - - - - - - - -
 -Setup the send email triggers
 - - - - - - - - - - - - - - - - - -
--Quiz settings make sure you specify EST for time start (it is fine for now to have 1 timezone)
--Javascript modal saying 1. thank you for submitting answers this week 2. You have already submitted answers for this week but are still able to change them if you'd like
--Trial remaining days should be on the dashboard before the quiz questions begin.
+-Trial remaining days should be on the dashboard before the quiz questions begin. Should be javascript answered section but should be red instead of yellow
 -Company name should be presented without underscores, only spaces.
 -Changing the company name is only something Payment Admins can do.
--Auto grading answers
--Fix Quiz Settings Edit page (too slim)
 -Stripe setup
 -Test Slack app on another computer like Daniel signing up with coderbyte
 -Release app to Slack app store
@@ -39,4 +33,4 @@ To-Do's
 
 -aws auto backup all DB tables daily
 -Account mark for deletion
--Clicking cancel on the post slack sign in button
+-Clicking cancel on the post slack sign in button.

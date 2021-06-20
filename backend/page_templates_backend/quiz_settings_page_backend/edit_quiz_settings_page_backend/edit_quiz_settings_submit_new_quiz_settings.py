@@ -81,17 +81,29 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
       'wednesday' : 3
     }
     quiz_settings_logic_time_dict = {
-      'nine_am' : 1,
-      'ten_am' : 2,
-      'eleven_am' : 3,
-      'noon' : 4,
-      'one_pm' : 5,
-      'two_pm' : 6,
-      'three_pm' : 7,
-      'four_pm' : 8,
-      'five_pm' : 9,
-      'six_pm' : 10,
-      'seven_pm' : 11
+      'one_am' : 1,
+      'two_am' : 2,
+      'three_am' : 3,
+      'four_am' : 4,
+      'five_am' : 5,
+      'six_am' : 6,
+      'seven_am' : 7,
+      'eight_am' : 8,
+      'nine_am' : 9,
+      'ten_am' : 10,
+      'eleven_am' : 11,
+      'noon' : 12,
+      'one_pm' : 13,
+      'two_pm' : 14,
+      'three_pm' : 15,
+      'four_pm' : 16,
+      'five_pm' : 17,
+      'six_pm' : 18,
+      'seven_pm' : 19,
+      'eight_pm' : 20,
+      'nine_pm' : 21,
+      'ten_pm' : 22,
+      'eleven_pm' : 23
     }
 
     # Check if days make sense

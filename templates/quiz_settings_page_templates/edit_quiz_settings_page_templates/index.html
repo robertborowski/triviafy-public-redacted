@@ -34,12 +34,12 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Form Start -->
-  <form action="{{ url_for('edit_quiz_settings_submit_new_quiz_settings.edit_quiz_settings_submit_new_quiz_settings_function') }}" method="post" class='create-question-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <form action="{{ url_for('edit_quiz_settings_submit_new_quiz_settings.edit_quiz_settings_submit_new_quiz_settings_function') }}" method="post" class='edit-quiz-settings-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Start -->
     <div class="quiz-settings-section">
       <div class="quiz-settings-sub-section box-shadow-reg-grey box-shadow-rounded">
         <p class="quiz-settings-sub-section-title">Quiz Start</p>
-        <p class="quiz-settings-sub-section-title-description">Recommended: Monday, 9 AM</p>
+        <p class="quiz-settings-sub-section-title-description">Recommended: Monday, 9 AM - EST (New York Time)</p>
         <div class="quiz-settings-sub-section-items-group">
 
           <label for="edit-quiz-start-day" class="edit-quiz-label">Select Start Day</label>
@@ -49,8 +49,16 @@
             <option value="wednesday">Wednesday</option>
           </select>
 
-          <label for="edit-quiz-start-time" class="edit-quiz-label">Select Start Time</label>
+          <label for="edit-quiz-start-time" class="edit-quiz-label">Select Start Time - EST (New York Time)</label>
           <select name="edit-quiz-start-time" id="edit-quiz-start-time" class="edit-quiz-select">
+            <option value="one_am">1 AM</option>
+            <option value="two_am">2 AM</option>
+            <option value="three_am">3 AM</option>
+            <option value="four_am">4 AM</option>
+            <option value="five_am">5 AM</option>
+            <option value="six_am">6 AM</option>
+            <option value="seven_am">7 AM</option>
+            <option value="eight_am">8 AM</option>
             <option value="nine_am" selected>9 AM</option>
             <option value="ten_am">10 AM</option>
             <option value="eleven_am">11 AM</option>
@@ -61,7 +69,11 @@
             <option value="four_pm">4 PM</option>
             <option value="five_pm">5 PM</option>
             <option value="six_pm">6 PM</option>
-            <option value="seven_pm">7 PM</option> 
+            <option value="seven_pm">7 PM</option>
+            <option value="eight_pm">8 PM</option>
+            <option value="nine_pm">9 PM</option>
+            <option value="ten_pm">10 PM</option>
+            <option value="eleven_pm">11 PM</option>
           </select>
 
         </div>
@@ -70,7 +82,7 @@
 
       <div class="quiz-settings-sub-section box-shadow-reg-grey box-shadow-rounded">
         <p class="quiz-settings-sub-section-title">Quiz End</p>
-        <p class="quiz-settings-sub-section-title-description">Recommended: Wednesday, 7 PM</p>
+        <p class="quiz-settings-sub-section-title-description">Recommended: Wednesday, 7 PM - EST (New York Time)</p>
         <div class="quiz-settings-sub-section-items-group">
           
           <label for="edit-quiz-end-day" class="edit-quiz-label">Select End Day</label>
@@ -80,8 +92,16 @@
             <option value="wednesday" selected>Wednesday</option>
           </select>
 
-          <label for="edit-quiz-end-time" class="edit-quiz-label">Select End Time</label>
+          <label for="edit-quiz-end-time" class="edit-quiz-label">Select End Time - EST (New York Time)</label>
           <select name="edit-quiz-end-time" id="edit-quiz-end-time" class="edit-quiz-select">
+            <option value="one_am">1 AM</option>
+            <option value="two_am">2 AM</option>
+            <option value="three_am">3 AM</option>
+            <option value="four_am">4 AM</option>
+            <option value="five_am">5 AM</option>
+            <option value="six_am">6 AM</option>
+            <option value="seven_am">7 AM</option>
+            <option value="eight_am">8 AM</option>
             <option value="nine_am">9 AM</option>
             <option value="ten_am">10 AM</option>
             <option value="eleven_am">11 AM</option>
@@ -92,7 +112,11 @@
             <option value="four_pm">4 PM</option>
             <option value="five_pm">5 PM</option>
             <option value="six_pm">6 PM</option>
-            <option value="seven_pm" selected>7 PM</option> 
+            <option value="seven_pm" selected>7 PM</option>
+            <option value="eight_pm">8 PM</option>
+            <option value="nine_pm">9 PM</option>
+            <option value="ten_pm">10 PM</option>
+            <option value="eleven_pm">11 PM</option>
           </select>
 
         </div>
@@ -140,6 +164,11 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Settings Form End -->
 
 </main>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider START -->
+<div class="template-divide-section">  
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider END -->
 
 <footer-signed-in-component></footer-signed-in-component>
 {% endblock %}

@@ -286,4 +286,11 @@ hr.template-divider-line-dotted {
 /* - - - - - - - - - - Quiz Results End */
 
 
+/* - - - - - - - - - - Divider - Start */
+.template-divide-section {
+  margin: 75px auto;
+}
+/* - - - - - - - - - - Divider - End */
+
+
 /* ==================================== Global Classes and ID's END ==================================== */
