@@ -31,8 +31,6 @@ def check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_chann
       print('Cannot provide results until all user answers have been graded for this company quiz')
       print('=========================================== check_if_latest_quiz_is_graded_function END ===========================================')
       return False
-    
-    print('user answer is graded')
 
 
   # Close postgres db connection

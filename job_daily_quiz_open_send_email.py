@@ -6,7 +6,7 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.g
 from backend.db.queries.select_queries.select_triviafy_latest_quiz_info_all_companies import select_triviafy_latest_quiz_info_all_companies_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.latest_quiz_utils.check_if_today_is_greater_than_equal_to_latest_quiz_start_date_utils.check_if_today_is_greater_than_equal_to_latest_quiz_start_date import check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function
-from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_open_email import select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_open_email_function
+from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email import select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email_function
 from backend.db.queries.select_queries.select_triviafy_emails_sent_table_search_user_uuid_category import select_triviafy_emails_sent_table_search_user_uuid_category_function
 from backend.utils.send_emails.send_email_template import send_email_template_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
@@ -14,8 +14,8 @@ from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_f
 from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 
 # -------------------------------------------------------------- Main Function
-def job_weekly_quiz_winner_add_to_db_function():
-  print('=========================================== job_weekly_quiz_winner_add_to_db_function START ===========================================')
+def job_daily_quiz_open_send_email_function():
+  print('=========================================== job_daily_quiz_open_send_email_function START ===========================================')
 
   # ------------------------ Get Today's Date START ------------------------
   # Today's date
@@ -25,7 +25,7 @@ def job_weekly_quiz_winner_add_to_db_function():
 
   if today_day_of_week == 'Saturday' or today_day_of_week == 'Sunday':
     print('Today is Saturday or Sunday.')
-    print('=========================================== job_weekly_quiz_winner_add_to_db_function END ===========================================')
+    print('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
     return True
   # ------------------------ Get Today's Date END ------------------------
 
@@ -84,7 +84,7 @@ def job_weekly_quiz_winner_add_to_db_function():
       # ------------------------ Pull Company User Info START ------------------------
       # If ^ yes than pull all the user_uuid's and user company emails associated with team-id and channel-id
       if check_if_quiz_is_open_datetime == True:
-        company_users_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_open_email_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
+        company_users_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
         # ------------------------ Loop Through Each Company User START ------------------------
         for company_user in company_users_arr:
           company_user_uuid = company_user[0]
@@ -124,10 +124,10 @@ def job_weekly_quiz_winner_add_to_db_function():
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  print('=========================================== job_weekly_quiz_winner_add_to_db_function END ===========================================')
+  print('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
   return True
 
 
 # ---------------------------------------------------------------------------------------------------------------------------- Job to Run The Main Function
 if __name__ == "__main__":
-  job_weekly_quiz_winner_add_to_db_function()
+  job_daily_quiz_open_send_email_function()
