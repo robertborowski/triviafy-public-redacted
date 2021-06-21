@@ -10,6 +10,7 @@ from backend.db.queries.select_queries.select_check_assign_payment_admin import 
 from backend.utils.slack.user_info_data_manipulation.transpose_slack_user_data_to_nested_dict import transpose_slack_user_data_to_nested_dict_function
 from backend.utils.quiz_settings_page_utils.setup_company_default_quiz_settings import setup_company_default_quiz_settings_function
 from backend.utils.send_emails.send_email_template import send_email_template_function
+from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 # ------------------------ Imports END ------------------------
 
 
@@ -111,6 +112,16 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
     email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
     print(email_sent_successfully)
+
+    # Insert this sent email into DB
+    uuid_email_sent = create_uuid_function('email_sent_')
+    email_sent_timestamp = create_timestamp_function()
+    # - - -
+    email_sent_search_category = 'Account Created'
+    uuid_quiz = None
+    # - - -
+    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz)
+    print(output_message)
     # ------------------------ Send Account Created Email END ------------------------
 
 
