@@ -76,13 +76,11 @@ def job_daily_quiz_open_send_email_function():
 
 
       # ------------------------ Check Date Time Comparison START ------------------------
-      # Check if current date is equal to quiz start date. Then check if current time is equal to or greater than quiz start time.
       check_if_quiz_is_open_datetime = check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time)
       # ------------------------ Check Date Time Comparison END ------------------------
 
 
       # ------------------------ Pull Company User Info START ------------------------
-      # If ^ yes than pull all the user_uuid's and user company emails associated with team-id and channel-id
       if check_if_quiz_is_open_datetime == True:
         company_users_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
         # ------------------------ Loop Through Each Company User START ------------------------
@@ -94,17 +92,14 @@ def job_daily_quiz_open_send_email_function():
           company_user_slack_token_type = company_user[4]
           company_user_slack_access_token = company_user[5]
           
-          # Loop through the user uuid and use a select statement to check if user was already sent an email today in the emails table about quiz open
-          #(Emails table should be ONE table, but there should be a column called category, in this case the category would be "quiz open")
           email_sent_search_category = 'Quiz Open'
           check_if_email_already_sent_to_company_user = select_triviafy_emails_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, email_sent_search_category, uuid_quiz)
 
           if check_if_email_already_sent_to_company_user == None:
-            # Still in loop. If ^ user was not sent an email then send them an email and add that to the emails sent table
             # ------------------------ Send Account Created Email START ------------------------
             output_email = company_user_email
-            output_subject_line = 'Triviafy Quiz Open - ' + quiz_start_date
-            output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz is now open!\nLogin and submit your answers at: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+            output_subject_line = 'Triviafy ' + email_sent_search_category + ' - ' + quiz_start_date
+            output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz is now open!\n\nLogin and submit your answers at: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
             print(email_sent_successfully)

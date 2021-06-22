@@ -13,7 +13,7 @@ def select_company_quiz_settings_all_companies_function(postgres_connection, pos
     # ------------------------ Query Result START ------------------------
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
-    if result_arr == None:
+    if result_arr == None or result_arr == []:
       print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
       return None
 

@@ -91,7 +91,8 @@ def job_daily_quiz_close_grade_winner_send_email_function():
         if latest_quiz_is_fully_graded != True:
           print('company user quiz answers have not yet been fully graded')
           print('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
-          continue
+          # continue
+          pass
         # ------------------------ Check If Lates Quiz Is Graded END ------------------------
 
         # ------------------------ Select Winner Arr START ------------------------
@@ -99,9 +100,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
 
         if this_weeks_winner_object == False:
           print('there is no winner this week, no one answered any questions or no one answered any questions correctly.')
-          no_winner_timestamp = create_timestamp_function()
           winner_user_full_name = 'No Winner'
-          this_weeks_winner_object = [0, 'No Winner', no_winner_timestamp]
 
         if this_weeks_winner_object != False:
           # Insert to Quiz Winners table
@@ -121,17 +120,17 @@ def job_daily_quiz_close_grade_winner_send_email_function():
           company_user_slack_token_type = company_user[4]
           company_user_slack_access_token = company_user[5]
           
-          # Loop through the user uuid and use a select statement to check if user was already sent an email today in the emails table about quiz open
-          #(Emails table should be ONE table, but there should be a column called category, in this case the category would be "quiz open")
           email_sent_search_category = 'Quiz Closed and Graded'
           check_if_email_already_sent_to_company_user = select_triviafy_emails_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, email_sent_search_category, uuid_quiz)
 
           if check_if_email_already_sent_to_company_user == None:
-            # Still in loop. If ^ user was not sent an email then send them an email and add that to the emails sent table
             # ------------------------ Send Account Created Email START ------------------------
             output_email = company_user_email
-            output_subject_line = 'Triviafy Quiz Closed and Graded - ' + quiz_end_date
-            output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nCongrats to {winner_user_full_name} for winning this week's Triviafy quiz!\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+            output_subject_line = 'Triviafy ' + email_sent_search_category + ' - ' + quiz_end_date
+            if winner_user_full_name == 'No Winner':
+              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nThere is '{winner_user_full_name}' for this week's Triviafy quiz. No one subitted a correct answer.\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+            else:
+              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nCongrats to team member '{winner_user_full_name}' for winning this week's Triviafy quiz!\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
             print(email_sent_successfully)

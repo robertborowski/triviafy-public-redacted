@@ -32,7 +32,11 @@ def check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function(quiz
 
 
   # ------------------------ Check If Today Is Earlier Than Latest Quiz Start Date START ------------------------
-  if today_date == quiz_official_start_date:
+  if today_date > quiz_official_start_date:
+    print('=========================================== check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function END ===========================================')
+    return True
+
+  elif today_date == quiz_official_start_date:
     if current_hour_int >= quiz_start_time_comparison_int:
       print('=========================================== check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function END ===========================================')
       return True

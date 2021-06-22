@@ -9,8 +9,8 @@ from backend.utils.latest_quiz_utils.make_company_latest_quiz import make_compan
 import os
 
 # -------------------------------------------------------------- Main Function
-def job_weekly_check_make_latest_quiz_for_company_function():
-  print('=========================================== job_weekly_check_make_latest_quiz_for_company_function START ===========================================')
+def job_weekly_make_latest_quizzes_for_all_companies_function():
+  print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function START ===========================================')
   
   # ------------------------ Running on localhost START ------------------------
   # Check environment variable that was passed in from user on the command line
@@ -29,7 +29,7 @@ def job_weekly_check_make_latest_quiz_for_company_function():
 
     if today_day_of_week != 'Sunday':
       print('Today is not sunday.')
-      print('=========================================== job_weekly_check_make_latest_quiz_for_company_function END ===========================================')
+      print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
       return True
   # ------------------------ Get Today's Date END ------------------------
 
@@ -70,12 +70,12 @@ def job_weekly_check_make_latest_quiz_for_company_function():
     # ------------------------ Make The Latest Quiz For The Week END ------------------------
   # ------------------------ Make Quiz For Every Company This Week END ------------------------
 
-  print('=========================================== job_weekly_check_make_latest_quiz_for_company_function END ===========================================')
+  print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
   return True
 
 
 
 # ---------------------------------------------------------------------------------------------------------------------------- Job to Run The Main Function
 if __name__ == "__main__":
-  job_weekly_check_make_latest_quiz_for_company_function()
+  job_weekly_make_latest_quizzes_for_all_companies_function()
   
