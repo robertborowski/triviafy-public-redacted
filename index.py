@@ -41,6 +41,7 @@ from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_ind
 from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_processing import quiz_feedback_processing
 from backend.page_templates_backend.quiz_feedback_page_backend.quiz_feedback_submission_page_backend.quiz_feedback_success_page_render_template import quiz_feedback_success_page_render_template
 # Quiz Archive pages
+from backend.page_templates_backend.quiz_archive_page_backend.quiz_archive_none_yet_page_backend.quiz_archive_none_yet_page_render_template import quiz_archive_none_yet_page_render_template
 from backend.page_templates_backend.quiz_archive_page_backend.quiz_archive_page_render_template import quiz_archive_page_render_template
 from backend.page_templates_backend.quiz_archive_page_backend.quiz_archive_specific_quiz_number import quiz_archive_specific_quiz_number
 # Leaderboard pages
@@ -114,6 +115,7 @@ app.register_blueprint(quiz_feedback_index_page_render_template, url_prefix="")
 app.register_blueprint(quiz_feedback_processing, url_prefix="")
 app.register_blueprint(quiz_feedback_success_page_render_template, url_prefix="")
 # Quiz Archive pages
+app.register_blueprint(quiz_archive_none_yet_page_render_template, url_prefix="")
 app.register_blueprint(quiz_archive_page_render_template, url_prefix="")
 app.register_blueprint(quiz_archive_specific_quiz_number, url_prefix="")
 # Leaderboard pages

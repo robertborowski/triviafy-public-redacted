@@ -129,8 +129,10 @@ def job_daily_quiz_close_grade_winner_send_email_function():
             output_subject_line = 'Triviafy ' + email_sent_search_category + ' - ' + quiz_end_date
             if winner_user_full_name == 'No Winner':
               output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nThere is '{winner_user_full_name}' for this week's Triviafy quiz. No one subitted a correct answer.\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+              output_message_content_str_for_db = output_message_content
             else:
               output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nCongrats to team member '{winner_user_full_name}' for winning this week's Triviafy quiz!\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+              output_message_content_str_for_db = output_message_content
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
             print(email_sent_successfully)
@@ -138,7 +140,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
             # Insert this sent email into DB
             uuid_email_sent = create_uuid_function('email_sent_')
             email_sent_timestamp = create_timestamp_function()
-            output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, company_user_uuid, email_sent_search_category, uuid_quiz)
+            output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, company_user_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
             print(output_message)
             # ------------------------ Send Account Created Email END ------------------------
         # ------------------------ Loop Through Each Company User END ------------------------

@@ -1,16 +1,16 @@
 import psycopg2
 from psycopg2 import Error
 
-def insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, user_uuid, email_category, uuid_quiz):
+def insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, user_uuid, email_category, uuid_quiz, output_message_content_str_for_db):
   print('=========================================== insert_triviafy_emails_sent_table_function START ===========================================')
   
   # ------------------------ Query START ------------------------
-  postgres_insert_query = """INSERT INTO triviafy_emails_sent_table(uuid_email_sent,email_sent_timestamp,email_sent_to_user_uuid_fk,email_sent_category,email_sent_quiz_uuid_fk) VALUES(%s,%s,%s,%s,%s)"""
+  postgres_insert_query = """INSERT INTO triviafy_emails_sent_table(uuid_email_sent,email_sent_timestamp,email_sent_to_user_uuid_fk,email_sent_category,email_sent_quiz_uuid_fk,email_sent_output_message) VALUES(%s,%s,%s,%s,%s,%s)"""
   # ------------------------ Query END ------------------------
 
 
   # ------------------------ Record row START ------------------------
-  record_to_insert = (uuid_email_sent, email_sent_timestamp, user_uuid, email_category, uuid_quiz)
+  record_to_insert = (uuid_email_sent, email_sent_timestamp, user_uuid, email_category, uuid_quiz, output_message_content_str_for_db)
   # ------------------------ Record row END ------------------------
 
 

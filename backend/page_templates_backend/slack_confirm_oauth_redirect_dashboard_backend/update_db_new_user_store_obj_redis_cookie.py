@@ -110,6 +110,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     output_email = slack_authed_user_email
     output_subject_line = 'Triviafy Account Created'
     output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nYou will be notified by email once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
+    output_message_content_str_for_db = output_message_content
 
     email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
     print(email_sent_successfully)
@@ -121,7 +122,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     email_sent_search_category = 'Account Created'
     uuid_quiz = None
     # - - -
-    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz)
+    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
     print(output_message)
     # ------------------------ Send Account Created Email END ------------------------
 
