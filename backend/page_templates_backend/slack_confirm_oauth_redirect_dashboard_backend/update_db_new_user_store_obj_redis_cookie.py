@@ -11,6 +11,7 @@ from backend.utils.slack.user_info_data_manipulation.transpose_slack_user_data_t
 from backend.utils.quiz_settings_page_utils.setup_company_default_quiz_settings import setup_company_default_quiz_settings_function
 from backend.utils.send_emails.send_email_template import send_email_template_function
 from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
+from backend.db.queries.select_queries.select_triviafy_user_login_information_table_company_name_check import select_triviafy_user_login_information_table_company_name_check_function
 # ------------------------ Imports END ------------------------
 
 
@@ -125,11 +126,21 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     # ------------------------ Send Account Created Email END ------------------------
 
 
+    # ------------------------ Use Company Name of Already Existing Users (If Changed) START ------------------------
+    try:
+      company_name_arr = select_triviafy_user_login_information_table_company_name_check_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id, slack_db_uuid)
+      if company_name_arr == None:
+        company_name = slack_authed_team_name
+      else:
+        company_name = company_name_arr[0]
+    except:
+      # Transpose user data to nested dictionary
+      company_name = slack_authed_team_name
+    # ------------------------ Use Company Name of Already Existing Users (If Changed) END ------------------------
+
+
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
-
-    # Transpose user data to nested dictionary
-    company_name = slack_authed_team_name  
   # ------------------------ Account Does Not Exist END ------------------------  
 
 
@@ -157,7 +168,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     slack_authed_user_timezone_label = check_slack_user_combo_already_exists_arr[18]
     slack_authed_user_timezone_offset = check_slack_user_combo_already_exists_arr[19]
     slack_authed_user_job_title = check_slack_user_combo_already_exists_arr[20]
-  # ------------------------ Account Already Exist END ------------------------  
+  # ------------------------ Account Already Exist END ------------------------
 
 
   # ------------------------ Transpose the SQL pulled table to dict START ------------------------
