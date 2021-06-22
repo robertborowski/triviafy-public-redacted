@@ -12,7 +12,6 @@ Send emails when:
 -[DONE Email] Account Created
 -[DONE Email] New Quiz Is Up
 -Latest Week's Quiz has been graded
-- ^ and Person who won the quiz for that week. Tell them how many more wins they need to get a gift-card
 
 -Account Deleted (This is not priority, this is after you actually have customers signed up, they could alway email you if they want to be deleted)
 =========================================
