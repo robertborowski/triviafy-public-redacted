@@ -7,7 +7,11 @@ from slack_sdk.errors import SlackApiError
 def send_team_channel_message_quiz_close_function(slack_bot_token, user_channel, user_slack_authed_id):
   print('=========================================== send_team_channel_message_quiz_close_function START ===========================================')
   
-  output_text = f":wave: Hi <!here>, your team's weekly Triviafy quiz is now CLOSED!\n:tada: Congrats to this week's Triviafy 'Bragging-Rights-Card' winner: <@{user_slack_authed_id}>!\n:gift: For every 10th win that a person achieves, we send them a free gift-card prize!\n:100: Login and checkout your team's leaderboard at: https://triviafy.com/leaderboard"
+  if user_slack_authed_id == 'No Winner':
+    output_text = f":wave: Hi <!here>, your team's weekly Triviafy quiz is now CLOSED!\n:ghost: This week there was {user_slack_authed_id}!\n:gift: For every 10th win that a person achieves, we send them a free gift-card prize!\n:100: Login and checkout your team's leaderboard at: https://triviafy.com/leaderboard"
+  else:
+    output_text = f":wave: Hi <!here>, your team's weekly Triviafy quiz is now CLOSED!\n:tada: Congrats to this week's Triviafy 'Bragging-Rights-Card' winner: <@{user_slack_authed_id}>!\n:gift: For every 10th win that a person achieves, we send them a free gift-card prize!\n:100: Login and checkout your team's leaderboard at: https://triviafy.com/leaderboard"
+
 
   # Set up client with the USER's Bot Access Token. NOT your's from the environment variable
   client = WebClient(token=slack_bot_token)
