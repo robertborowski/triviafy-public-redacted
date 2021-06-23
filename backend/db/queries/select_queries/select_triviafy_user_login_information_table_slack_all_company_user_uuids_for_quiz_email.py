@@ -6,7 +6,7 @@ def select_triviafy_user_login_information_table_slack_all_company_user_uuids_fo
   
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("SELECT user_uuid, user_email, user_display_name, user_is_payment_admin_teamid_channelid, user_slack_token_type, user_slack_access_token FROM triviafy_user_login_information_table_slack WHERE user_slack_workspace_team_id=%s AND user_slack_channel_id=%s", [slack_workspace_team_id, slack_channel_id])
+    postgres_cursor.execute("SELECT user_uuid, user_email, user_display_name, user_is_payment_admin_teamid_channelid, user_slack_token_type, user_slack_access_token, user_slack_authed_id FROM triviafy_user_login_information_table_slack WHERE user_slack_workspace_team_id=%s AND user_slack_channel_id=%s", [slack_workspace_team_id, slack_channel_id])
     # ------------------------ Query END ------------------------
 
 

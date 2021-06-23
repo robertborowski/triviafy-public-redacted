@@ -7,11 +7,14 @@ from backend.db.queries.select_queries.select_triviafy_latest_quiz_info_all_comp
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.latest_quiz_utils.check_if_today_is_greater_than_equal_to_latest_quiz_start_date_utils.check_if_today_is_greater_than_equal_to_latest_quiz_start_date import check_if_today_is_greater_than_equal_to_latest_quiz_start_date_function
 from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email import select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email_function
+from backend.db.queries.select_queries.select_triviafy_slack_messages_sent_table_search_user_uuid_category import select_triviafy_slack_messages_sent_table_search_user_uuid_category_function
 from backend.db.queries.select_queries.select_triviafy_emails_sent_table_search_user_uuid_category import select_triviafy_emails_sent_table_search_user_uuid_category_function
 from backend.utils.send_emails.send_email_template import send_email_template_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
+from backend.db.queries.insert_queries.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
+from backend.utils.slack.send_team_channel_message_utils.send_team_channel_message_quiz_open import send_team_channel_message_quiz_open_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_open_send_email_function():
@@ -91,6 +94,7 @@ def job_daily_quiz_open_send_email_function():
           company_user_is_payment_admin = company_user[3]
           company_user_slack_token_type = company_user[4]
           company_user_slack_access_token = company_user[5]
+          user_slack_authed_id = company_user[6]
           
           email_sent_search_category = 'Quiz Open'
           check_if_email_already_sent_to_company_user = select_triviafy_emails_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, email_sent_search_category, uuid_quiz)
@@ -112,6 +116,24 @@ def job_daily_quiz_open_send_email_function():
             print(output_message)
             # ------------------------ Send Account Created Email END ------------------------
         # ------------------------ Loop Through Each Company User END ------------------------
+        
+
+        # ------------------------ Send Account Slack Message START ------------------------
+        slack_message_sent_search_category = 'Quiz Open'
+        check_if_slack_message_already_sent_to_company_user = select_triviafy_slack_messages_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, slack_message_sent_search_category, uuid_quiz)
+
+        if check_if_slack_message_already_sent_to_company_user == None:
+          result, output_message_content_str_for_db = send_team_channel_message_quiz_open_function(company_user_slack_access_token, quiz_slack_channel_id, quiz_end_day_of_week, quiz_end_time)
+          print(result)
+
+          # Insert this sent email into DB
+          uuid_slack_message_sent = create_uuid_function('slack_sent_')
+          slack_message_sent_timestamp = create_timestamp_function()
+          output_message = insert_triviafy_slack_messages_sent_table_function(postgres_connection, postgres_cursor, uuid_slack_message_sent, slack_message_sent_timestamp, company_user_uuid, slack_message_sent_search_category, uuid_quiz, output_message_content_str_for_db)
+          print(output_message)
+        # ------------------------ Send Account Slack Message START ------------------------
+
+
       # ------------------------ Pull Company User Info END ------------------------
   # ------------------------ Loop Through Each Company Latest Weekly Quiz END ------------------------
 

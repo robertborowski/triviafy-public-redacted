@@ -15,6 +15,9 @@ from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import 
 from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
 from backend.utils.quiz_calculations_utils.quiz_calculate_quiz_uuid_winner import quiz_calculate_quiz_uuid_winner_function
 from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_winner_insert_to_db_function
+from backend.utils.slack.send_team_channel_message_utils.send_team_channel_message_quiz_close import send_team_channel_message_quiz_close_function
+from backend.db.queries.select_queries.select_triviafy_slack_messages_sent_table_search_user_uuid_category import select_triviafy_slack_messages_sent_table_search_user_uuid_category_function
+from backend.db.queries.insert_queries.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_close_grade_winner_send_email_function():
@@ -119,6 +122,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
           company_user_is_payment_admin = company_user[3]
           company_user_slack_token_type = company_user[4]
           company_user_slack_access_token = company_user[5]
+          user_slack_authed_id = company_user[6]
           
           email_sent_search_category = 'Quiz Closed and Graded'
           check_if_email_already_sent_to_company_user = select_triviafy_emails_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, email_sent_search_category, uuid_quiz)
@@ -144,6 +148,24 @@ def job_daily_quiz_close_grade_winner_send_email_function():
             print(output_message)
             # ------------------------ Send Account Created Email END ------------------------
         # ------------------------ Loop Through Each Company User END ------------------------
+
+        # ------------------------ Send Account Slack Message START ------------------------
+        slack_message_sent_search_category = 'Quiz Closed and Graded'
+        check_if_slack_message_already_sent_to_company_user = select_triviafy_slack_messages_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, slack_message_sent_search_category, uuid_quiz)
+
+        if check_if_slack_message_already_sent_to_company_user == None:
+          if winner_user_full_name == 'No Winner':
+            user_slack_authed_id = 'No Winner'
+          result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, user_slack_authed_id)
+          print(result)
+
+          # Insert this sent email into DB
+          uuid_slack_message_sent = create_uuid_function('slack_sent_')
+          slack_message_sent_timestamp = create_timestamp_function()
+          output_message = insert_triviafy_slack_messages_sent_table_function(postgres_connection, postgres_cursor, uuid_slack_message_sent, slack_message_sent_timestamp, company_user_uuid, slack_message_sent_search_category, uuid_quiz, output_message_content_str_for_db)
+          print(output_message)
+        # ------------------------ Send Account Slack Message START ------------------------
+
       # ------------------------ Pull Company User Info END ------------------------
   # ------------------------ Loop Through Each Company Latest Weekly Quiz END ------------------------
 
