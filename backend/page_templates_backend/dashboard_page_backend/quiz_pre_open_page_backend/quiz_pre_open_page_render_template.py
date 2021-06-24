@@ -43,7 +43,14 @@ def quiz_pre_open_page_render_template_function():
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:
       return redirect('/subscription', code=302)
+
+    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+    if user_nested_dict['trial_period_days_left_int'] == 1:
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+
+    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
+    
     
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
@@ -128,5 +135,4 @@ def quiz_pre_open_page_render_template_function():
                           company_quiz_start_day_to_html = company_quiz_start_day,
                           company_quiz_settings_start_time_to_html = company_quiz_settings_start_time,
                           company_quiz_start_date_to_html = company_quiz_start_date,
-                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
-                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])
+                          free_trial_ends_info_to_html = free_trial_ends_info)

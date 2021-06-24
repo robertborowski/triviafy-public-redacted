@@ -36,12 +36,19 @@ def account_edit_settings_page_render_template_function():
     # ------------------------ Page Load User Pre Checks START ------------------------
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
-    
+
     # Check if user free trial is expired
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:
       return redirect('/subscription', code=302)
+
+    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+    if user_nested_dict['trial_period_days_left_int'] == 1:
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+
+    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
+
 
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
@@ -105,5 +112,4 @@ def account_edit_settings_page_render_template_function():
                           user_last_name_to_html = user_last_name,
                           company_all_payment_admins_arr_to_html = company_all_payment_admins_arr,
                           company_all_non_payment_admins_arr_to_html = company_all_non_payment_admins_arr,
-                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
-                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])
+                          free_trial_ends_info_to_html = free_trial_ends_info)

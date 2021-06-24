@@ -44,6 +44,12 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:
       return redirect('/subscription', code=302)
+
+    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+    if user_nested_dict['trial_period_days_left_int'] == 1:
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+
+    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
 
     # Get Company name and channel name (slack ID's)

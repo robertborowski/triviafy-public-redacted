@@ -38,7 +38,14 @@ def waitlist_create_question_page_render_template_function():
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:
       return redirect('/subscription', code=302)
+
+    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+    if user_nested_dict['trial_period_days_left_int'] == 1:
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+
+    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
+
 
     user_email = user_nested_dict['user_email']
     user_uuid = user_nested_dict['user_uuid']
@@ -71,5 +78,4 @@ def waitlist_create_question_page_render_template_function():
   return render_template('waitlist_page_templates/waitlist_create_question_page_template/index.html',
                           css_cache_busting = cache_busting_output,
                           user_email_html = user_email,
-                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
-                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])
+                          free_trial_ends_info_to_html = free_trial_ends_info)
