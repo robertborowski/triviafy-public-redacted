@@ -8,6 +8,7 @@ from backend.db.queries.select_queries.select_company_quiz_settings import selec
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
+from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 
 # -------------------------------------------------------------- App Setup
 quiz_settings_index_page_render_template = Blueprint("quiz_settings_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -29,9 +30,16 @@ def quiz_settings_index_page_render_template_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Check if user free trial is expired
+    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+    if user_nested_dict == None or user_nested_dict == True:
+      return redirect('/subscription', code=302)
+    # ------------------------ Page Load User Pre Checks END ------------------------
 
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     user_company_name = user_nested_dict['user_company_name']
@@ -63,7 +71,6 @@ def quiz_settings_index_page_render_template_function():
   except:
     print('=========================================== /quiz/team/settings Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
   
   print('=========================================== /quiz/team/settings Page END ===========================================')

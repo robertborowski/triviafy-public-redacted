@@ -9,6 +9,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.insert_queries.insert_triviafy_quiz_feedback_responses_table import insert_triviafy_quiz_feedback_responses_table_function
 from backend.utils.sanitize_user_inputs.sanitize_feedback_user import sanitize_feedback_user_function
+from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_processing = Blueprint("quiz_feedback_processing", __name__, static_folder="static", template_folder="templates")
@@ -30,9 +31,17 @@ def quiz_feedback_processing_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Check if user free trial is expired
+    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+    if user_nested_dict == None or user_nested_dict == True:
+      return redirect('/subscription', code=302)
+    # ------------------------ Page Load User Pre Checks END ------------------------
+    
     user_uuid = user_nested_dict['user_uuid']
 
 
@@ -64,7 +73,6 @@ def quiz_feedback_processing_function():
   except:
     print('=========================================== /quiz/team/feedback/processing Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
   
   print('=========================================== /quiz/team/feedback/processing Page END ===========================================')

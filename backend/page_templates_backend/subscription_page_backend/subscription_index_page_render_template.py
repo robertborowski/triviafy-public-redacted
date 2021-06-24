@@ -26,9 +26,11 @@ def subscription_index_page_render_template_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+    # ------------------------ Page Load User Pre Checks END ------------------------
 
     # ------------------------ Get Variables From User Nested Dict START ------------------------
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
@@ -42,7 +44,6 @@ def subscription_index_page_render_template_function():
   except:
     print('=========================================== /subscription Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
   
   print('=========================================== /subscription Page END ===========================================')

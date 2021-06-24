@@ -13,6 +13,7 @@ from backend.utils.sanitize_user_inputs.sanitize_edit_quiz_setting_time import s
 from backend.utils.sanitize_user_inputs.sanitize_edit_quiz_setting_num_questions import sanitize_edit_quiz_setting_num_questions_function
 from backend.db.queries.update_queries.update_edit_quiz_settings import update_edit_quiz_settings_function
 from backend.utils.quiz_settings_page_utils.convert_form_results_to_db_inputs import convert_form_results_to_db_inputs_function
+from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 
 # -------------------------------------------------------------- App Setup
 edit_quiz_settings_submit_new_quiz_settings = Blueprint("edit_quiz_settings_submit_new_quiz_settings", __name__, static_folder="static", template_folder="templates")
@@ -34,9 +35,16 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Check if user free trial is expired
+    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+    if user_nested_dict == None or user_nested_dict == True:
+      return redirect('/subscription', code=302)
+    # ------------------------ Page Load User Pre Checks END ------------------------
 
     # Get Company name and channel name (slack ID's)
     slack_workspace_team_id = user_nested_dict['slack_team_id']
@@ -160,7 +168,6 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
   except:
     print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
   
   print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')

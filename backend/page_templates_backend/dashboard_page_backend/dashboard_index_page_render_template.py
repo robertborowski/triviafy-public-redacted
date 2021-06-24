@@ -37,17 +37,17 @@ def dashboard_index_page_render_template_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
     # ------------------------ Page Load User Pre Checks START ------------------------
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
     # Check if user free trial is expired
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:
       return redirect('/subscription', code=302)
     # ------------------------ Page Load User Pre Checks END ------------------------
-    # ------------------------ Check if user is signed in END ------------------------
+
     
     # Get user information from the nested dict
     slack_workspace_team_id = user_nested_dict['slack_team_id']

@@ -12,6 +12,7 @@ from backend.utils.sanitize_user_inputs.sanitize_quiz_question_user_answer_text 
 from backend.utils.grade_user_answers_utils.check_if_admin_answer_is_arr_of_answers import check_if_admin_answer_is_arr_of_answers_function
 from backend.utils.grade_user_answers_utils.check_user_answer_vs_admin_answer import check_user_answer_vs_admin_answer_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
+from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 
 # -------------------------------------------------------------- App Setup
 sample_quiz_graded_index_page_render_template = Blueprint("sample_quiz_graded_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -33,9 +34,16 @@ def sample_quiz_graded_index_page_render_template_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Check if user free trial is expired
+    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+    if user_nested_dict == None or user_nested_dict == True:
+      return redirect('/subscription', code=302)
+    # ------------------------ Page Load User Pre Checks END ------------------------
 
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
@@ -153,7 +161,6 @@ def sample_quiz_graded_index_page_render_template_function():
   except:
     print('=========================================== /sample/quiz/graded Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
   
   print('=========================================== /sample/quiz/graded Page END ===========================================')

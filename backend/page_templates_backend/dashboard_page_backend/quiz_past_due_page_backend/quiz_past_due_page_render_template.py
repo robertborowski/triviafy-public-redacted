@@ -10,6 +10,7 @@ from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import chec
 from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_if_latest_quiz_is_graded import check_if_latest_quiz_is_graded_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
+from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 
 # -------------------------------------------------------------- App Setup
 quiz_past_due_page_render_template = Blueprint("quiz_past_due_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -32,9 +33,16 @@ def quiz_past_due_page_render_template_function():
   # ------------------------ CSS support END ------------------------
 
 
-  # ------------------------ Check if user is signed in START ------------------------
   try:
+    # ------------------------ Page Load User Pre Checks START ------------------------
+    # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+
+    # Check if user free trial is expired
+    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+    if user_nested_dict == None or user_nested_dict == True:
+      return redirect('/subscription', code=302)
+    # ------------------------ Page Load User Pre Checks END ------------------------
     
     # Get user information from the nested dict
     user_company_name = user_nested_dict['user_company_name']
@@ -119,7 +127,6 @@ def quiz_past_due_page_render_template_function():
     print('except error hit')
     print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
     return redirect('/', code=302)
-  # ------------------------ Check if user is signed in END ------------------------
 
 
   
