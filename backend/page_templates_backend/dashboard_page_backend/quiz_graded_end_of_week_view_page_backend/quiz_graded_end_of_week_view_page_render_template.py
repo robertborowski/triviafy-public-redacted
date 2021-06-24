@@ -158,4 +158,6 @@ def quiz_graded_end_of_week_view_page_render_template_function():
                           user_channel_name_to_html = user_channel_name,
                           week_winner_display_name_to_html = this_weeks_winner_object[1].replace('_',' '),
                           week_winner_correct_answers_total_to_html = this_weeks_winner_object[0],
-                          week_winner_submit_time_to_html = this_weeks_winner_object[2])
+                          week_winner_submit_time_to_html = this_weeks_winner_object[2],
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

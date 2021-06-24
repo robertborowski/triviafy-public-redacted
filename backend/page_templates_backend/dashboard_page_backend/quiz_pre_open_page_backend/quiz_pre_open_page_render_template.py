@@ -127,4 +127,6 @@ def quiz_pre_open_page_render_template_function():
                           user_channel_name_to_html = user_channel_name,
                           company_quiz_start_day_to_html = company_quiz_start_day,
                           company_quiz_settings_start_time_to_html = company_quiz_settings_start_time,
-                          company_quiz_start_date_to_html = company_quiz_start_date)
+                          company_quiz_start_date_to_html = company_quiz_start_date,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

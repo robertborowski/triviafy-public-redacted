@@ -108,4 +108,6 @@ def quiz_archive_page_render_template_function():
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          company_quiz_archive_all_graded_quizzes_arr_of_dicts_to_html = company_quiz_archive_all_graded_quizzes_arr_of_dicts)
+                          company_quiz_archive_all_graded_quizzes_arr_of_dicts_to_html = company_quiz_archive_all_graded_quizzes_arr_of_dicts,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

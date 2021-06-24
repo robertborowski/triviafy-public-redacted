@@ -172,4 +172,6 @@ def sample_quiz_graded_index_page_render_template_function():
                           user_channel_name_to_html = user_channel_name,
                           quiz_questions_obj_arr_of_dicts_html = sample_questions_arr_of_dicts,
                           total_questions_for_quiz_to_html = total_questions_for_quiz,
-                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz)
+                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

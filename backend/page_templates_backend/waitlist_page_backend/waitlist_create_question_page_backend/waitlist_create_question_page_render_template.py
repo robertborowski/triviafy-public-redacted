@@ -70,4 +70,6 @@ def waitlist_create_question_page_render_template_function():
   print('=========================================== /create/question/user/waitlist Page END ===========================================')
   return render_template('waitlist_page_templates/waitlist_create_question_page_template/index.html',
                           css_cache_busting = cache_busting_output,
-                          user_email_html = user_email)
+                          user_email_html = user_email,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

@@ -95,4 +95,6 @@ def edit_quiz_settings_index_page_render_template_function():
                           company_quiz_settings_end_day_html = company_quiz_settings_end_day,
                           company_quiz_settings_end_time_html = company_quiz_settings_end_time,
                           company_quiz_settings_questions_per_quiz_html = company_quiz_settings_questions_per_quiz,
-                          user_payment_admin_status_html = user_payment_admin_status)
+                          user_payment_admin_status_html = user_payment_admin_status,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

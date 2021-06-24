@@ -77,4 +77,6 @@ def account_index_page_render_template_function():
                           user_channel_name_to_html = user_channel_name,
                           user_first_name_to_html = user_first_name,
                           user_last_name_to_html = user_last_name,
-                          company_all_payment_admins_arr_to_html = company_all_payment_admins_arr)
+                          company_all_payment_admins_arr_to_html = company_all_payment_admins_arr,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

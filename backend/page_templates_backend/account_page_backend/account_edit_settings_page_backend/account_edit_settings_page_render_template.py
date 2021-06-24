@@ -104,4 +104,6 @@ def account_edit_settings_page_render_template_function():
                           user_first_name_to_html = user_first_name,
                           user_last_name_to_html = user_last_name,
                           company_all_payment_admins_arr_to_html = company_all_payment_admins_arr,
-                          company_all_non_payment_admins_arr_to_html = company_all_non_payment_admins_arr)
+                          company_all_non_payment_admins_arr_to_html = company_all_non_payment_admins_arr,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

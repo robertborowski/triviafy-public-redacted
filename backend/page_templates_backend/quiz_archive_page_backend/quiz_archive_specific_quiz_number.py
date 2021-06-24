@@ -149,4 +149,6 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
                           link_selected_quiz_archive_intro_dict_to_html = link_selected_quiz_archive_intro_dict,
                           pull_info_all_questions_table_arr_of_dicts_to_html = pull_info_all_questions_table_arr_of_dicts,
                           total_questions_for_quiz_to_html = total_questions_for_quiz,
-                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz)
+                          total_correct_answers_for_quiz_to_html = total_correct_answers_for_quiz,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

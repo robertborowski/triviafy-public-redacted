@@ -198,4 +198,6 @@ def dashboard_index_page_render_template_function():
                           quiz_end_day_of_week_to_html = quiz_end_day_of_week,
                           quiz_end_date_to_html = quiz_end_date,
                           user_submitted_answers_to_html = user_submitted_answers,
-                          quiz_questions_obj_arr_of_dicts_html = quiz_questions_obj_arr_of_dicts)
+                          quiz_questions_obj_arr_of_dicts_html = quiz_questions_obj_arr_of_dicts,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

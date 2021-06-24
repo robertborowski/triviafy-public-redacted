@@ -86,7 +86,9 @@ def create_question_submission_success_page_render_template_function():
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
                           user_email_to_html = user_email,
-                          user_all_submitted_questions_html = user_all_questions_submitted_dict)
+                          user_all_submitted_questions_html = user_all_questions_submitted_dict,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])
 
 
 
