@@ -12,4 +12,10 @@
   font-size: 20px;
   padding-bottom: 20px;
 }
+.client-free-trial-period {
+  color: red;
+  font-size: 13px;
+  padding-bottom: 10px;
+  display: block;
+}
 /* - - - - - - - - - - Company and Channel name - End */

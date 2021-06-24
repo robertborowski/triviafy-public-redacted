@@ -116,4 +116,6 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
                           company_first_quiz_will_be_created_start_day_to_html = company_first_quiz_will_be_created_start_day,
-                          company_first_quiz_will_be_created_start_date_to_html = company_first_quiz_will_be_created_start_date)
+                          company_first_quiz_will_be_created_start_date_to_html = company_first_quiz_will_be_created_start_date,
+                          free_trial_days_left_to_html = user_nested_dict['trial_period_days_left_int'],
+                          free_trial_end_date_to_html = user_nested_dict['free_trial_end_date'])

@@ -24,7 +24,7 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
   user_free_trial_row_status_arr = select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function(postgres_connection, postgres_cursor, user_slack_authed_id)
   if user_free_trial_row_status_arr == None:
     print('=========================================== check_if_free_trial_period_is_expired_days_left_function END ===========================================')
-    return None, -1, 'no info in free trial table'
+    return None
   
   # Assign variables based on result arr
   free_trial_end_timestamp = user_free_trial_row_status_arr[3].date()   # datetime.date

@@ -36,7 +36,7 @@ class NavbarClass extends HTMLElement {
           </li>
           <li class="drill-down"><a href="#">Account <i class="fas fa-caret-down"></i></a>
             <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
-              <li><a href="#">Subscription</a></li>
+              <li><a href="${this.getAttribute("link_subscription_js")}">Subscription</a></li>
               <li><a href="${this.getAttribute("link_account_js")}">Settings</a></li>
             </ul>
           </li>
