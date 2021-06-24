@@ -1,4 +1,5 @@
 # -------------------------------------------------------------- Imports
+from flask import redirect
 from datetime import date, timedelta
 from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
@@ -56,10 +57,10 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
   # ------------------------ Append User Nested Dict START ------------------------
   if free_trial_period_is_expired == None:
     print('There is no user found in the free trial table')
-    user_nested_dict == None
+    return None
   elif free_trial_period_is_expired == True:
     print('user free trial has expired')
-    user_nested_dict == None
+    return None
   else:
     user_nested_dict['free_trial_period_is_expired'] = free_trial_period_is_expired
     user_nested_dict['trial_period_days_left_int'] = trial_period_days_left_int
