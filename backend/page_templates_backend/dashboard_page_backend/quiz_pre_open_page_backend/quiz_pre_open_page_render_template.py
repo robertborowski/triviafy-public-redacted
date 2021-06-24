@@ -112,11 +112,11 @@ def quiz_pre_open_page_render_template_function():
     company_quiz_start_date = next_week_dates_dict[company_quiz_start_day]
     # ------------------------ Get Next Week's Dates Dict End ------------------------
 
-
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /dashboard/quiz/pre/open Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

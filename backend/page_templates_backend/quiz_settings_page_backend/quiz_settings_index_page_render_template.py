@@ -69,8 +69,10 @@ def quiz_settings_index_page_render_template_function():
     # ------------------------ Get Quiz Settings Info END ------------------------
     
   except:
+    print('page load except error hit')
     print('=========================================== /quiz/team/settings Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /quiz/team/settings Page END ===========================================')

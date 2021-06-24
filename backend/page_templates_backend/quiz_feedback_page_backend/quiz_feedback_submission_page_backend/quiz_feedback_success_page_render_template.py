@@ -43,8 +43,10 @@ def quiz_feedback_success_page_render_template_function():
     user_channel_name = user_nested_dict['slack_channel_name']
 
   except:
+    print('page load except error hit')
     print('=========================================== /quiz/team/feedback/submit Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /quiz/team/feedback/submit Page END ===========================================')

@@ -65,8 +65,10 @@ def account_index_page_render_template_function():
     # ------------------------ Get All User Payment Admins END ------------------------
 
   except:
+    print('page load except error hit')
     print('=========================================== /account Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
   
   print('=========================================== /account Page END ===========================================')
   return render_template('account_page_templates/index.html',

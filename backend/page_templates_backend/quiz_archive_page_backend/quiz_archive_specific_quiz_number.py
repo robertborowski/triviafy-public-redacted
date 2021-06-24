@@ -134,9 +134,10 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
 
 
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

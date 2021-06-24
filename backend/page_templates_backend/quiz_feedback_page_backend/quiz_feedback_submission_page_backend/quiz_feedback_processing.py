@@ -71,8 +71,10 @@ def quiz_feedback_processing_function():
 
     
   except:
+    print('page load except error hit')
     print('=========================================== /quiz/team/feedback/processing Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /quiz/team/feedback/processing Page END ===========================================')

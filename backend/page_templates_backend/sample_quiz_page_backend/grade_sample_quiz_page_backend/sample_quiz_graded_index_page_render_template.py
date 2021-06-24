@@ -159,8 +159,10 @@ def sample_quiz_graded_index_page_render_template_function():
     
 
   except:
+    print('page load except error hit')
     print('=========================================== /sample/quiz/graded Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /sample/quiz/graded Page END ===========================================')

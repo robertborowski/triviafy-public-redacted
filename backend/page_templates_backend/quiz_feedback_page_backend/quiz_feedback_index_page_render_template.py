@@ -71,8 +71,10 @@ def quiz_feedback_index_page_render_template_function():
 
     
   except:
+    print('page load except error hit')
     print('=========================================== /quiz/team/feedback Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /quiz/team/feedback Page END ===========================================')

@@ -91,8 +91,10 @@ def account_edit_settings_page_render_template_function():
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
   except:
+    print('page load except error hit')
     print('=========================================== /account/edit/settings Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
   
   print('=========================================== /account/edit/settings Page END ===========================================')
   return render_template('account_page_templates/account_edit_settings_page_templates/index.html',

@@ -141,9 +141,10 @@ def submit_quiz_backend_function():
 
 
   except:
-    print('no user is logged in')
+    print('page load except error hit')
     print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, request, session, make_response
+from flask import Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function

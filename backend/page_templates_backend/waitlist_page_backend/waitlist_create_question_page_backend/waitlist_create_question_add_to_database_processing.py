@@ -44,9 +44,12 @@ def waitlist_create_question_add_to_database_processing_function():
 
     user_email = user_nested_dict['user_email']
     user_uuid = user_nested_dict['user_uuid']
+
   except:
+    print('page load except error hit')
     print('=========================================== /create/question/user/waitlist/processing Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   # ------------------------ Check if user is already on this waitlist START ------------------------

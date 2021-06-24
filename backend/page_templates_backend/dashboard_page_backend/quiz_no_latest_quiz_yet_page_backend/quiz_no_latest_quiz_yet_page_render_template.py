@@ -52,7 +52,7 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
     # Get Company name and channel name (slack ID's)
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
-    
+
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
     # Make sure that there is no latest company quiz if someone goes to this URL
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
@@ -103,9 +103,10 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
 
 
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

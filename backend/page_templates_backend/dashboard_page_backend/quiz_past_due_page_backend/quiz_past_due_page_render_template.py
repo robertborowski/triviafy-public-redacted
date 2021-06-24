@@ -122,11 +122,11 @@ def quiz_past_due_page_render_template_function():
       # ------------------------ Check If Latest Quiz Is Graded END ------------------------
     # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
-
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

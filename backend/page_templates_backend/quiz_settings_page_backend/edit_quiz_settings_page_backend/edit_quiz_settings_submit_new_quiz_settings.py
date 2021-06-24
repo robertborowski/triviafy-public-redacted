@@ -166,8 +166,10 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
 
 
   except:
+    print('page load except error hit')
     print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')

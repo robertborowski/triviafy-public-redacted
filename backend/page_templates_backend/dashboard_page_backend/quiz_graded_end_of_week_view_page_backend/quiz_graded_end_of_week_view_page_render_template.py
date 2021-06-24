@@ -142,13 +142,12 @@ def quiz_graded_end_of_week_view_page_render_template_function():
       print('quiz is not past due yet')
       print('=========================================== /dashboard/quiz/results Page END ===========================================')
       return redirect('/', code=302)
-    
-
 
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /dashboard/quiz/results Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

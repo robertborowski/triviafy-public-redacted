@@ -9,7 +9,6 @@ from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_f
 
 # -------------------------------------------------------------- Main Function
 def push_update_postgres_db_with_answers_function(dict_question_id_user_answers, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz):
-  """ Map together the quiz question ID and the user answers """
   print('=========================================== push_update_postgres_db_with_answers_function START ===========================================')
 
   # ------------------------ Put User Inputs Into DB START ------------------------

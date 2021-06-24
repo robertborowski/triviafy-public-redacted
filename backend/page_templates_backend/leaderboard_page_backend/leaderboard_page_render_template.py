@@ -89,9 +89,10 @@ def leaderboard_page_render_template_function():
 
 
   except:
-    print('except error hit')
+    print('page load except error hit')
     print('=========================================== /leaderboard Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

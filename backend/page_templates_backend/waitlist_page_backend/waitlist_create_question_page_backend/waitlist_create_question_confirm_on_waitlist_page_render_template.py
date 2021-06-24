@@ -41,9 +41,12 @@ def waitlist_create_question_confirm_on_waitlist_page_render_template_function()
     # ------------------------ Page Load User Pre Checks END ------------------------
 
     user_uuid = user_nested_dict['user_uuid']
+
   except:
+    print('page load except error hit')
     print('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   # ------------------------ Check if user is already on this waitlist START ------------------------

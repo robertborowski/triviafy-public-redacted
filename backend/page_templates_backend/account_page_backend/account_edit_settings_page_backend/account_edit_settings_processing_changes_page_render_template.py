@@ -246,8 +246,10 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
 
   except:
+    print('page load except error hit')
     print('=========================================== /account/edit/settings/processing Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
   
   print('=========================================== /account/edit/settings/processing Page END ===========================================')
   return redirect('/account', code=302)

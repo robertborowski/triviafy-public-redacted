@@ -47,9 +47,12 @@ def create_question_submission_success_page_render_template_function():
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
     user_email = user_nested_dict['user_email']
+
   except:
+    print('page load except error hit')
     print('=========================================== /create/question/user/form/submit/success Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   # ------------------------ Check create question accesss START ------------------------

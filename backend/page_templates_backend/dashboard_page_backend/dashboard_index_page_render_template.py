@@ -181,9 +181,10 @@ def dashboard_index_page_render_template_function():
 
 
   except:
-    print('user not logged in through cookies')
+    print('page load except error hit')
     print('=========================================== /dashboard Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
 
   

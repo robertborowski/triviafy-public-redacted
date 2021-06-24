@@ -42,8 +42,10 @@ def subscription_index_page_render_template_function():
     
     
   except:
+    print('page load except error hit')
     print('=========================================== /subscription Page END ===========================================')
-    return redirect('/', code=302)
+    return redirect('/logout', code=302)
+    # return redirect('/', code=302)
 
   
   print('=========================================== /subscription Page END ===========================================')
