@@ -1,8 +1,10 @@
+# -------------------------------------------------------------- Imports
 from flask import redirect, request
 import os
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 import json
 
+# -------------------------------------------------------------- Main Function
 def check_if_user_login_through_cookies_function():
   print('=========================================== check_if_user_login_through_cookies_function START ===========================================')
   
