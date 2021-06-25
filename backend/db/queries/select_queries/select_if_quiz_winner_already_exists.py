@@ -26,6 +26,6 @@ def select_if_quiz_winner_already_exists_function(postgres_connection, postgres_
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_if_quiz_winner_already_exists_function END ===========================================')
       return 'Winner not yet stored in DB for this quiz'

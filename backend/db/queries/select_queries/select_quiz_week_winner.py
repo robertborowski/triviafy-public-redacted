@@ -26,6 +26,6 @@ def select_quiz_week_winner_function(postgres_connection, postgres_cursor, uuid_
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_quiz_week_winner_function END ===========================================')
       return 'Except error hit'

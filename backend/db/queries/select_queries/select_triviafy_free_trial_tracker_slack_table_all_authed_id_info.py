@@ -26,6 +26,6 @@ def select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function(p
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function END ===========================================')
       return None

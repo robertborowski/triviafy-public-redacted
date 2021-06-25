@@ -24,6 +24,6 @@ def select_check_assign_payment_admin_function(postgres_connection, postgres_cur
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: Account does not yet exist! ", error)
+      print('Status: Account does not yet exist! ', error)
       print('=========================================== select_check_assign_payment_admin_function END ===========================================')
       return 'No team_id + channel_id payment_admin yet'

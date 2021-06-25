@@ -22,7 +22,7 @@ def update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_co
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       #return 'none'
       output_message = 'Did not update DB'
       print('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function END ===========================================')

@@ -32,6 +32,6 @@ def select_company_quiz_questions_individually_function(postgres_connection, pos
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_company_quiz_questions_individually_function END ===========================================')
       return None

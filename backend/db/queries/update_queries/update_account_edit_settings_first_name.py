@@ -21,6 +21,6 @@ def update_account_edit_settings_first_name_function(postgres_connection, postgr
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== update_account_edit_settings_first_name_function END ===========================================')
       return None

@@ -31,6 +31,6 @@ def select_x_questions_for_company_quiz_never_asked_before_function(postgres_con
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function END ===========================================')
       return 'none'

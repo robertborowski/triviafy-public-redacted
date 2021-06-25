@@ -22,6 +22,6 @@ def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: Account does not yet exist! ", error)
+      print('Status: Account does not yet exist! ', error)
       print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
       return 'User does not exists in db table yet'

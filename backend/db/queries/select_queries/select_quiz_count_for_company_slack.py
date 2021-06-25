@@ -25,6 +25,6 @@ def select_quiz_count_for_company_slack_function(postgres_connection, postgres_c
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: No quiz's yet! ", error)
+      print('Status: No quizs yet! ', error)
       print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
       return 0

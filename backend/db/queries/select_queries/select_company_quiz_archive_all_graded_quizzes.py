@@ -26,6 +26,6 @@ def select_company_quiz_archive_all_graded_quizzes_function(postgres_connection,
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_company_quiz_archive_all_graded_quizzes_function END ===========================================')
       return result_arr

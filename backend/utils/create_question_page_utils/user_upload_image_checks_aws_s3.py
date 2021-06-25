@@ -13,13 +13,13 @@ def user_upload_image_checks_aws_s3_function(image, file_size):
 
   # Ensuring the filesize is allowed
   if not allowed_image_filesize_function(file_size, max_image_filesize_value):
-    print("Filesize exceeded maximum limit (50 MB)")
+    print('Filesize exceeded maximum limit (50 MB)')
     print('=========================================== Check user image file upload END ===========================================')
     return redirect('/create/question', code=302)
 
   # Ensuring the file has a name
   if image.filename == "":
-    print("No filename")
+    print('No filename')
     print('=========================================== Check user image file upload END ===========================================')
     return redirect('/create/question', code=302)
 
@@ -34,6 +34,6 @@ def user_upload_image_checks_aws_s3_function(image, file_size):
     return True
   
   else:
-    print("That file extension is not allowed")
+    print('That file extension is not allowed')
     print('=========================================== Check user image file upload END ===========================================')
     return redirect('/create/question', code=302)

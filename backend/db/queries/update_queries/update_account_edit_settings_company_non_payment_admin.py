@@ -21,6 +21,6 @@ def update_account_edit_settings_company_non_payment_admin_function(postgres_con
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== update_account_edit_settings_company_non_payment_admin_function END ===========================================')
       return None

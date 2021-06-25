@@ -24,6 +24,6 @@ def select_question_ids_already_asked_to_company_slack_function(postgres_connect
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: No questions asked to company yet! ", error)
+      print('Status: No questions asked to company yet! ', error)
       print('=========================================== select_question_ids_already_asked_to_company_slack_function END ===========================================')
       return result_arr

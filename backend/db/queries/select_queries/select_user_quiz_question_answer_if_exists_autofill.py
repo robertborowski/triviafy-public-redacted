@@ -27,6 +27,6 @@ def select_user_quiz_question_answer_if_exists_autofill_function(postgres_connec
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: This user did not submit an answer for this quiz & question combo yet. ", error)
+      print('Status: This user did not submit an answer for this quiz & question combo yet. ', error)
       print('=========================================== select_user_quiz_question_answer_if_exists_autofill_function END ===========================================')
       return None

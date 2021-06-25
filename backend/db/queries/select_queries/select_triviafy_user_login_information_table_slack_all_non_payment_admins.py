@@ -24,6 +24,6 @@ def select_triviafy_user_login_information_table_slack_all_non_payment_admins_fu
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_triviafy_user_login_information_table_slack_all_non_payment_admins_function END ===========================================')
       return None

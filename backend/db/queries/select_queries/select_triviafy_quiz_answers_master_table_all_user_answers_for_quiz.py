@@ -24,6 +24,6 @@ def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz END ===========================================')
       return None

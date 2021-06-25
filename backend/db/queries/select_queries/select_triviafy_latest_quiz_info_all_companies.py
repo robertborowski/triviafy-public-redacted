@@ -24,6 +24,6 @@ def select_triviafy_latest_quiz_info_all_companies_function(postgres_connection,
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: No company quiz created yet for this week ", error)
+      print('Status: No company quiz created yet for this week ', error)
       print('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')
       return None

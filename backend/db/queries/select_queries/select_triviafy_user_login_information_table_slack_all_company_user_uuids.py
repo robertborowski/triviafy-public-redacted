@@ -24,6 +24,6 @@ def select_triviafy_user_login_information_table_slack_all_company_user_uuids_fu
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_triviafy_user_login_information_table_slack_all_company_user_uuids_function END ===========================================')
       return None

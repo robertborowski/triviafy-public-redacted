@@ -24,6 +24,6 @@ def select_if_slack_user_combo_already_exists_function(postgres_connection, post
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: Account does not yet exist! ", error)
+      print('Status: Account does not yet exist! ', error)
       print('=========================================== select_if_slack_user_combo_already_exists_function END ===========================================')
       return 'Account Does Not Exist'

@@ -3,7 +3,6 @@ from botocore.exceptions import NoCredentialsError
 import os
 
 def create_question_upload_image_aws_s3_function(image_obj):
-  """Upload user image to aws s3"""
   print('=========================================== AWS s3 upload to bucket START ===========================================')  
   # Env variables
   aws_s3_bucket = os.environ.get('AWS_TRIVIAFY_BUCKET_NAME')
@@ -21,6 +20,6 @@ def create_question_upload_image_aws_s3_function(image_obj):
     print('=========================================== AWS s3 upload to bucket END ===========================================')
   except Exception as e:
     # This is a catch all exception, edit this part to fit your needs.
-    print("Something Happened: ", e)
+    print('Something Happened: ', e)
     print('=========================================== AWS s3 upload to bucket END ===========================================')
     return e

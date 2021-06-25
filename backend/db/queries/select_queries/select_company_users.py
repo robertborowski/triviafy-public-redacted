@@ -24,6 +24,6 @@ def select_company_users_function(postgres_connection, postgres_cursor, slack_wo
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: No questions asked to company yet! ", error)
+      print('Status: No questions asked to company yet! ', error)
       print('=========================================== select_company_users_function END ===========================================')
       return result_arr

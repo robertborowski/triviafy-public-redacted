@@ -33,6 +33,6 @@ def select_all_questions_created_by_owner_email_function(postgres_connection, po
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_all_questions_created_by_owner_email_function END ===========================================')
       return None

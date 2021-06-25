@@ -26,6 +26,6 @@ def select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: Error. ", error)
+      print('Status: Error. ', error)
       print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
       return None

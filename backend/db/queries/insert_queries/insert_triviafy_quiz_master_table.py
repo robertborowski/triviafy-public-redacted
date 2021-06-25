@@ -24,7 +24,7 @@ def insert_triviafy_quiz_master_table_function(postgres_connection, postgres_cur
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       output_message = 'Did not insert info database'
       print('=========================================== insert_triviafy_quiz_master_table_function END ===========================================')
       return output_message

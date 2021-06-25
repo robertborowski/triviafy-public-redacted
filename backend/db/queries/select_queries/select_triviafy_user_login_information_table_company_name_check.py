@@ -26,6 +26,6 @@ def select_triviafy_user_login_information_table_company_name_check_function(pos
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== select_triviafy_user_login_information_table_company_name_check_function END ===========================================')
       return None

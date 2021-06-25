@@ -21,6 +21,6 @@ def update_triviafy_free_trial_tracker_slack_table_expired_user_function(postgre
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print("Status: ", error)
+      print('Status: ', error)
       print('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
       return None
