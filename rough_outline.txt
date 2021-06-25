@@ -9,7 +9,7 @@ POSSIBLE GREY AREA
 =========================================
 To-Do's
 
--Trial remaining days should be on the dashboard before the quiz questions begin. Should be javascript answered section but should be red instead of yellow
+-Subscription page
 -Tremendous, just make it a waitlist page for now, you can send people giftcards directly without it being automated
 -Stripe setup
 -Test Slack app on another computer like Daniel signing up with coderbyte
