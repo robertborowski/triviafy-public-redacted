@@ -61,8 +61,8 @@ def slack_beta_index_page_render_template_function():
   # If cookie exists then check if info is cached in redis db
   if get_cookie_value_from_browser != '' and get_cookie_value_from_browser != None:
     redis_user_nested_dict = cached_login_info_function(get_cookie_value_from_browser)
-    if redis_user_nested_dict == 'No obj stored in redis for this browser cookie.' or redis_user_nested_dict == '' or redis_user_nested_dict == None:
-      print('No obj stored in redis for this browser cookie.')
+    if redis_user_nested_dict == None or redis_user_nested_dict == '':
+      pass
     else:
       print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
       print('=========================================== slack_beta_index_page_render_template_function END ===========================================')

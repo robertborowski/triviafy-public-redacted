@@ -1,8 +1,12 @@
+# -------------------------------------------------------------- Imports
 import redis
 import os
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def redis_connect_to_database_function():
-  print('=========================================== redis_connect_to_database_function START ===========================================')
+  # print('=========================================== redis_connect_to_database_function START ===========================================')
+  localhost_print_function('=========================================== redis_connect_to_database_function START ===========================================')
 
   try:
     """
@@ -23,10 +27,13 @@ def redis_connect_to_database_function():
     redis_connection = redis.StrictRedis(connection_pool=pool)
   
   except:
-    print('redis connection failed!')
-    print('=========================================== redis_connect_to_database_function END ===========================================')
+    # print('redis connection failed!')
+    # print('=========================================== redis_connect_to_database_function END ===========================================')
+    localhost_print_function('redis connection failed!')
+    localhost_print_function('=========================================== redis_connect_to_database_function END ===========================================')
     return 'redis connection failed!'
     
   # Return the connection
-  print('=========================================== redis_connect_to_database_function END ===========================================')
+  # print('=========================================== redis_connect_to_database_function END ===========================================')
+  localhost_print_function('=========================================== redis_connect_to_database_function END ===========================================')
   return redis_connection

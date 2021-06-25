@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 import os, time
 import datetime
-from flask import Flask, session, url_for, send_from_directory, render_template
+from flask import Flask, session, render_template
 
 # ------------------------ Pages START ------------------------
 # Index page

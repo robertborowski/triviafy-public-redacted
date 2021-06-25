@@ -7,6 +7,7 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 import datetime
 from backend.utils.cached_login.cached_login_info import cached_login_info_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 index_page_render_template = Blueprint("index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -20,7 +21,9 @@ def before_request():
 # -------------------------------------------------------------- App
 @index_page_render_template.route("/", methods=['GET','POST'])
 def index_page_render_template_function():
-  print('=========================================== Landing Page START ===========================================')
+  
+  # print('=========================================== Landing Page START ===========================================')
+  localhost_print_function('=========================================== Landing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -61,11 +64,13 @@ def index_page_render_template_function():
   # If cookie exists then check if info is cached in redis db
   if get_cookie_value_from_browser != '' and get_cookie_value_from_browser != None:
     redis_user_nested_dict = cached_login_info_function(get_cookie_value_from_browser)
-    if redis_user_nested_dict == 'No obj stored in redis for this browser cookie.' or redis_user_nested_dict == '' or redis_user_nested_dict == None:
-      print('No obj stored in redis for this browser cookie.')
+    if redis_user_nested_dict == None or redis_user_nested_dict == '':
+      pass
     else:
-      print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
-      print('=========================================== Landing Page END ===========================================')
+      # print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
+      # print('=========================================== Landing Page END ===========================================')
+      localhost_print_function('User sign in saved on cookie, redirecting user to loggedin dashboard!')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return redirect("/dashboard", code=302)
   # ------------------------ Check Broswer For Existing Cookie Then Redirect END ------------------------
 
@@ -94,10 +99,12 @@ def index_page_render_template_function():
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
-      print('=========================================== Landing Page END ===========================================')
+      # print('=========================================== Landing Page END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
-      print('=========================================== Landing Page END ===========================================')
+      # print('=========================================== Landing Page END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value)
 
   # -------------------------------------------------------------- NOT running on localhost
@@ -109,8 +116,10 @@ def index_page_render_template_function():
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
-      print('=========================================== Landing Page END ===========================================')
+      # print('=========================================== Landing Page END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
-      print('=========================================== Landing Page END ===========================================')
+      # print('=========================================== Landing Page END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value'])
