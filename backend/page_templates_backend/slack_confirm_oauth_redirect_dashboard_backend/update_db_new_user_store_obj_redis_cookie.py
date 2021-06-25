@@ -1,4 +1,4 @@
-# ------------------------ Imports START ------------------------
+# -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.select_if_slack_user_combo_already_exists import select_if_slack_user_combo_already_exists_function
@@ -15,11 +15,11 @@ from backend.db.queries.select_queries.select_triviafy_user_login_information_ta
 from datetime import datetime
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_insert_free_trial_info_team import update_insert_free_trial_info_team_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_start_end_free_trial_info_whole_team import update_start_end_free_trial_info_whole_team_function
-# ------------------------ Imports END ------------------------
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
-
+# -------------------------------------------------------------- Main Function
 def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj):
-  print('=========================================== update_db_new_user_store_obj_redis_cookie_function START ===========================================')
+  localhost_print_function('=========================================== update_db_new_user_store_obj_redis_cookie_function START ===========================================')
   
   # Get bare minimum info to check if user already exists in database table
   slack_authed_user_id = authed_response_obj['authed_user']['id']
@@ -33,7 +33,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
   
   # ------------------------ Account Does Not Exist START ------------------------
-  if check_slack_user_combo_already_exists_arr == 'Account Does Not Exist':
+  if check_slack_user_combo_already_exists_arr == None:
     
     # ------------------------ Get User Basic Info START ------------------------
     # Get nessesary variables from the authed response Slack obj for database check/insert
@@ -84,7 +84,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     # If this is the first user on this team_id + channel_id combination then they will be asigned role of payment_admin (payment manager) but this can changed within website once logged in
     first_user_payment_admin = False
     check_if_team_id_channel_id_combo_contains_payment_admin = select_check_assign_payment_admin_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id)
-    if check_if_team_id_channel_id_combo_contains_payment_admin == 'No team_id + channel_id payment_admin yet':
+    if check_if_team_id_channel_id_combo_contains_payment_admin == None:
       
       # ------------------------ Make Person Payment Admin START ------------------------
       first_user_payment_admin = True
@@ -92,7 +92,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       
       # ------------------------ Create Default Quiz Settings for new Slack team/channel ID-combo START ------------------------
       new_quiz_settings_row_created = setup_company_default_quiz_settings_function(slack_authed_team_id, slack_authed_channel_id)
-      print(new_quiz_settings_row_created)
+      localhost_print_function(new_quiz_settings_row_created)
       # ------------------------ Create Default Quiz Settings for new Slack team/channel ID-combo END ------------------------
     # ------------------------ Once New User Created END ------------------------
 
@@ -108,15 +108,13 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
 
     # ------------------------ Insert New User to DB START ------------------------
-    # Insert into database
     db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title)
-    print('user info stored in postgres database')
     # ------------------------ Insert New User to DB END ------------------------
 
 
-    # ------------------------ Free Trial Period Tracker START ------------------------
+    # ------------------------ Free Trial Period Tracker Update START ------------------------
     output_message = update_start_end_free_trial_info_whole_team_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id)
-    # ------------------------ Free Trial Period Tracker END ------------------------
+    # ------------------------ Free Trial Period Tracker Update END ------------------------
 
 
     # ------------------------ Send Account Created Email START ------------------------
@@ -126,7 +124,6 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     output_message_content_str_for_db = output_message_content
 
     email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
-    print(email_sent_successfully)
 
     # Insert this sent email into DB
     uuid_email_sent = create_uuid_function('email_sent_')
@@ -136,7 +133,6 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     uuid_quiz = None
     # - - -
     output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-    print(output_message)
     # ------------------------ Send Account Created Email END ------------------------
 
 
@@ -159,8 +155,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
 
   # ------------------------ Account Already Exist START ------------------------
-  elif check_slack_user_combo_already_exists_arr != 'Account Does Not Exist':
-    print('user info was already stored in postgres database')
+  elif check_slack_user_combo_already_exists_arr != None:
     # Pull the user info from DB
     slack_db_uuid = check_slack_user_combo_already_exists_arr[0]
     slack_db_timestamp_created = check_slack_user_combo_already_exists_arr[1]
@@ -194,5 +189,5 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  print('=========================================== update_db_new_user_store_obj_redis_cookie_function END ===========================================')
+  localhost_print_function('=========================================== update_db_new_user_store_obj_redis_cookie_function END ===========================================')
   return user_nested_dict

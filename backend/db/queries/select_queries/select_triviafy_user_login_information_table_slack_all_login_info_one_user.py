@@ -14,7 +14,6 @@ def select_triviafy_user_login_information_table_slack_all_login_info_one_user_f
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      print('returining none')
       print('=========================================== select_triviafy_user_login_information_table_slack_all_login_info_one_user_function END ===========================================')
       return None
     

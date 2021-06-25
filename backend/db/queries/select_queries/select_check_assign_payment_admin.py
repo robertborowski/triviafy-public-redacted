@@ -1,9 +1,11 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_check_assign_payment_admin_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id):
-
-  print('=========================================== select_check_assign_payment_admin_function START ===========================================')
+  localhost_print_function('=========================================== select_check_assign_payment_admin_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -13,17 +15,17 @@ def select_check_assign_payment_admin_function(postgres_connection, postgres_cur
 
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
-    if result_row == None:
-      print('=========================================== select_check_assign_payment_admin_function END ===========================================')
-      return 'No team_id + channel_id payment_admin yet'
+    if result_row == None or result_row == []:
+      localhost_print_function('=========================================== select_check_assign_payment_admin_function END ===========================================')
+      return None
     
-    print('=========================================== select_check_assign_payment_admin_function END ===========================================')
-    return 'Already a payment_admin for this team_id + channel_id combination'
+    localhost_print_function('=========================================== select_check_assign_payment_admin_function END ===========================================')
+    return True
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: Account does not yet exist! ', error)
-      print('=========================================== select_check_assign_payment_admin_function END ===========================================')
-      return 'No team_id + channel_id payment_admin yet'
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== select_check_assign_payment_admin_function END ===========================================')
+      return None

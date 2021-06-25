@@ -14,7 +14,7 @@ def select_latest_feedback_user_uuid_function(postgres_connection, postgres_curs
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     
-    if result_row == None:
+    if result_row == None or result_row == []:
       result_row = 'User has not submitted any feedback yet today'
     
     print('=========================================== select_latest_feedback_user_uuid_function END ===========================================')

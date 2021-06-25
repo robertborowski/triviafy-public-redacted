@@ -1,9 +1,10 @@
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 import json
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 
 def user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser):
-  print('=========================================== user_store_loggedin_data_redis_function START ===========================================')
+  localhost_print_function('=========================================== user_store_loggedin_data_redis_function START ===========================================')
 
   try:
     # Connect to redis database pool (no need to close)
@@ -12,9 +13,9 @@ def user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_f
     # Upload dictionary to redis based on cookies
     redis_connection.set(get_cookie_value_from_browser, json.dumps(user_nested_dict).encode('utf-8'))
 
-    print('=========================================== user_store_loggedin_data_redis_function END ===========================================')
-    return 'user info stored in redis database'
+    localhost_print_function('=========================================== user_store_loggedin_data_redis_function END ===========================================')
+    return None
 
   except:
-    print('=========================================== user_store_loggedin_data_redis_function END ===========================================')
-    return 'user info NOT stored in redis database'
+    localhost_print_function('=========================================== user_store_loggedin_data_redis_function END ===========================================')
+    return True

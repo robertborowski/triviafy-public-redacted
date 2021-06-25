@@ -1,4 +1,4 @@
-# ------------------------ Imports START ------------------------
+# -------------------------------------------------------------- Imports
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.utils.free_trial_period_utils.free_trial_period_start_end import free_trial_period_start_end_function
@@ -6,12 +6,12 @@ from backend.db.queries.insert_queries.insert_triviafy_free_trial_tracker_slack_
 from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids import select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids_function
 from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
 from datetime import datetime
-from backend.db.queries.update_queries.update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team import update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team_function
-# ------------------------ Imports END ------------------------
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 
+# -------------------------------------------------------------- Main Function
 def update_insert_free_trial_info_team_function(postgres_connection, postgres_cursor, slack_authed_user_id, slack_authed_team_id, slack_authed_channel_id, slack_db_uuid):
-  print('=========================================== update_insert_free_trial_info_team_function START ===========================================')
+  localhost_print_function('=========================================== update_insert_free_trial_info_team_function START ===========================================')
 
   # ------------------------ Free Trial Period Tracker START ------------------------
   # Check if user slack authed id is already in the free trial table
@@ -49,9 +49,9 @@ def update_insert_free_trial_info_team_function(postgres_connection, postgres_cu
 
     # ------------------------ Insert Free Trial Info To DB START ------------------------
     output_message = insert_triviafy_free_trial_tracker_slack_table_function(postgres_connection, postgres_cursor, uuid_free_trial, free_trial_created_timestamp, free_trial_start_timestamp, free_trial_end_timestamp, free_trial_user_slack_authed_id_fk, free_trial_user_slack_workspace_team_id_fk, free_trial_user_slack_channel_id_fk, free_trial_period_is_expired, free_trial_user_uuid_fk)
-    print(output_message)
+    localhost_print_function(output_message)
     # ------------------------ Insert Free Trial Info To DB END ------------------------
   # ------------------------ Free Trial Period Tracker END ------------------------
 
-  print('=========================================== update_insert_free_trial_info_team_function END ===========================================')
+  localhost_print_function('=========================================== update_insert_free_trial_info_team_function END ===========================================')
   return True

@@ -1,13 +1,13 @@
-# ------------------------ Imports START ------------------------
+# -------------------------------------------------------------- Imports
 from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids import select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids_function
 from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
 from datetime import datetime
 from backend.db.queries.update_queries.update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team import update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team_function
-# ------------------------ Imports END ------------------------
-
-
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+ 
+# -------------------------------------------------------------- Main Function
 def update_start_end_free_trial_info_whole_team_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id):
-  print('=========================================== update_start_end_free_trial_info_whole_team_function START ===========================================')
+  localhost_print_function('=========================================== update_start_end_free_trial_info_whole_team_function START ===========================================')
 
   # ------------------------ Update All Team Members Same Start End Dates START ------------------------
   all_current_team_members_authed_id_for_this_user_arr = select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id)
@@ -33,5 +33,5 @@ def update_start_end_free_trial_info_whole_team_function(postgres_connection, po
       output_message = update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team_function(postgres_connection, postgres_cursor, free_trial_start_timestamp, free_trial_end_timestamp, team_member_authed_id[0])
   # ------------------------ Update All Team Members Same Start End Dates END ------------------------
 
-  print('=========================================== update_start_end_free_trial_info_whole_team_function END ===========================================')
+  localhost_print_function('=========================================== update_start_end_free_trial_info_whole_team_function END ===========================================')
   return True

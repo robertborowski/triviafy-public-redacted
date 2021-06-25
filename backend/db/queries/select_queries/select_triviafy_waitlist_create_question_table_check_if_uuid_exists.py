@@ -11,7 +11,7 @@ def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
 
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
-    if result_row == None:
+    if result_row == None or result_row == []:
       print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
       return 'User does not exists in db table yet'
     

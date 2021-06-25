@@ -13,7 +13,7 @@ def select_question_ids_already_asked_to_company_slack_function(postgres_connect
     # ------------------------ Query Result START ------------------------
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
-    if result_arr == None:
+    if result_arr == None or result_arr == []:
       print('=========================================== select_question_ids_already_asked_to_company_slack_function END ===========================================')
       return None
 

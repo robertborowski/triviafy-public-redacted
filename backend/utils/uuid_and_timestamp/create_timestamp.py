@@ -1,9 +1,14 @@
+# -------------------------------------------------------------- Imports
 from datetime import datetime
 import os, time
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main
 def create_timestamp_function():
-  print('=========================================== create_timestamp_function START ===========================================')
+  localhost_print_function('=========================================== create_timestamp_function START ===========================================')
+  
   os.environ['TZ'] = 'US/Eastern'
   time.tzset()
-  print('=========================================== create_timestamp_function END ===========================================')
+
+  localhost_print_function('=========================================== create_timestamp_function END ===========================================')
   return datetime.now().strftime('%Y-%m-%d %H:%M:%S')

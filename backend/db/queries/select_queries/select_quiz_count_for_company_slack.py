@@ -12,7 +12,7 @@ def select_quiz_count_for_company_slack_function(postgres_connection, postgres_c
 
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
-    if result_row == None:
+    if result_row == None or result_row == []:
       print('returning result row')
       print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
       return 0

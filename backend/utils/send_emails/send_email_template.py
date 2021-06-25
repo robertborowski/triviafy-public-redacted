@@ -3,10 +3,11 @@ import os
 import sendgrid
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def send_email_template_function(output_email, output_subject_line, output_message_content):
-  print('=========================================== send_email_template_function START ===========================================')
+  localhost_print_function('=========================================== send_email_template_function START ===========================================')
 
   sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY_TRIVIAFY'))
   from_email = Email(email = os.environ.get('TRIVIAFY_MAIN_EMAIL'), name = "Triviafy")  # Change to your verified sender
@@ -23,11 +24,11 @@ def send_email_template_function(output_email, output_subject_line, output_messa
   #response = sg.client.mail.send.post(request_body=mail_json)
   try:
     sg.client.mail.send.post(request_body=mail_json)
-    print('email sent successfully! ' + output_subject_line + " - To: " + output_email)
+    localhost_print_function('email sent successfully! ' + output_subject_line + " - To: " + output_email)
   except:
-    print('email did not send successfully...' + output_subject_line)
-    print('=========================================== send_email_template_function END ===========================================')
+    localhost_print_function('email did not send successfully...' + output_subject_line)
+    localhost_print_function('=========================================== send_email_template_function END ===========================================')
     return False
 
-  print('=========================================== send_email_template_function END ===========================================')
+  localhost_print_function('=========================================== send_email_template_function END ===========================================')
   return True

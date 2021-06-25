@@ -7,6 +7,7 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 import datetime
 from backend.utils.cached_login.cached_login_info import cached_login_info_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 slack_beta_index_page_render_template = Blueprint("slack_beta_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -20,7 +21,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_beta_index_page_render_template.route("/slack_beta", methods=['GET','POST'])
 def slack_beta_index_page_render_template_function():
-  print('=========================================== slack_beta_index_page_render_template_function START ===========================================')
+  localhost_print_function('=========================================== Landing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -64,8 +65,8 @@ def slack_beta_index_page_render_template_function():
     if redis_user_nested_dict == None or redis_user_nested_dict == '':
       pass
     else:
-      print('User sign in saved on cookie, redirecting user to loggedin dashboard!')
-      print('=========================================== slack_beta_index_page_render_template_function END ===========================================')
+      localhost_print_function('User sign in saved on cookie, redirecting user to loggedin dashboard!')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return redirect("/dashboard", code=302)
   # ------------------------ Check Broswer For Existing Cookie Then Redirect END ------------------------
 
@@ -94,10 +95,10 @@ def slack_beta_index_page_render_template_function():
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index_slack_beta.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
-      print('=========================================== slack_beta_index_page_render_template_function END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
-      print('=========================================== slack_beta_index_page_render_template_function END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return render_template('index_page_templates/index_slack_beta.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value)
 
   # -------------------------------------------------------------- NOT running on localhost
@@ -109,8 +110,8 @@ def slack_beta_index_page_render_template_function():
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index_slack_beta.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
       browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
-      print('=========================================== slack_beta_index_page_render_template_function END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
-      print('=========================================== slack_beta_index_page_render_template_function END ===========================================')
+      localhost_print_function('=========================================== Landing Page END ===========================================')
       return render_template('index_page_templates/index_slack_beta.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value'])

@@ -1,10 +1,11 @@
 # -------------------------------------------------------------- Imports
 from datetime import date, timedelta
 import os, time
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def free_trial_period_start_end_function():
-  print('=========================================== free_trial_period_start_end_function START ===========================================')
+  localhost_print_function('=========================================== free_trial_period_start_end_function START ===========================================')
 
   os.environ['TZ'] = 'US/Eastern'
   time.tzset()
@@ -19,6 +20,5 @@ def free_trial_period_start_end_function():
   # ------------------------ Free Trial Periods END ------------------------
 
 
-  print('returning free trial start and end dates')
-  print('=========================================== free_trial_period_start_end_function END ===========================================')
+  localhost_print_function('=========================================== free_trial_period_start_end_function END ===========================================')
   return free_trial_start_timestamp, free_trial_end_timestamp

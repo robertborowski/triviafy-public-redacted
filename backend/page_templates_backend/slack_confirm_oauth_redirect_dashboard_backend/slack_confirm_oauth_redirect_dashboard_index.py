@@ -8,7 +8,7 @@ from slack_sdk import WebClient
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
-from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 slack_confirm_oauth_redirect_dashboard_index = Blueprint("slack_confirm_oauth_redirect_dashboard_index", __name__, static_folder="static", template_folder="templates")
@@ -22,7 +22,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
-  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
+  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -81,14 +81,15 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       # ------------------------ Slack repsonse - Before DB - END ------------------------
       # Store in redis
       user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
-      print(user_store_in_redis_status)
+      localhost_print_function(user_store_in_redis_status)
+    
     except:
-      print('Error while running "slack_receive_http_oauth_user" script.')
+      localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
+      return redirect("/", code=302)
     # ------------------------ Slack Authentication END ------------------------
 
 
 
-  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
+  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  #return render_template('dashboard_page_templates/index.html', css_cache_busting = cache_busting_output)
   return redirect("/dashboard", code=302)
