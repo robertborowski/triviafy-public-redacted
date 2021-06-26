@@ -1,14 +1,13 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_previous_week_dates_data_dict import get_previous_week_dates_data_dict_function
 from backend.db.queries.select_queries.select_triviafy_latest_quiz_info import select_triviafy_latest_quiz_info_function
-
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def get_previous_week_company_quiz_if_exists_function(user_nested_dict):
-  print('=========================================== get_previous_week_company_quiz_if_exists_function START ===========================================')
+  localhost_print_function('=========================================== get_previous_week_company_quiz_if_exists_function START ===========================================')
 
   # ------------------------ Get Variables From User Object START ------------------------
   slack_workspace_team_id = user_nested_dict['slack_team_id']
@@ -40,6 +39,6 @@ def get_previous_week_company_quiz_if_exists_function(user_nested_dict):
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Get Company Latest Quiz Info END ------------------------
 
-  print('returing previous_week_quiz_info_arr')
-  print('=========================================== get_previous_week_company_quiz_if_exists_function END ===========================================')
+  localhost_print_function('returing previous_week_quiz_info_arr')
+  localhost_print_function('=========================================== get_previous_week_company_quiz_if_exists_function END ===========================================')
   return previous_week_quiz_info_arr

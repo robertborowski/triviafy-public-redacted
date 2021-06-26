@@ -1,6 +1,8 @@
+# -------------------------------------------------------------- Imports
 from flask import render_template, Blueprint, session, request, redirect
 from urllib.parse import urlparse, urlunparse
 
+# -------------------------------------------------------------- Main Function
 def remove_www_from_domain_function(current_url):
   """Returns: Redirect www requests to non-www."""
   urlparts = urlparse(current_url)

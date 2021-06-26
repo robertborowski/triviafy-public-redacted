@@ -15,7 +15,7 @@ def update_account_edit_settings_first_name_function(postgres_connection, postgr
     postgres_connection.commit()
     print('Updated Information')
     print('=========================================== update_account_edit_settings_first_name_function END ===========================================')
-    return 'Updated Information'
+    return True
     # ------------------------ Query Result END ------------------------
 
 

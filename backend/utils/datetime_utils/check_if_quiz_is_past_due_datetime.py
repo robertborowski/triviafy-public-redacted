@@ -1,10 +1,11 @@
 # -------------------------------------------------------------- Imports
 from datetime import date, datetime
 from backend.utils.datetime_utils.quiz_due_time_convert_dict import quiz_due_time_convert_dict_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time):
-  print('=========================================== check_if_quiz_is_past_due_datetime_function START ===========================================')
+  localhost_print_function('=========================================== check_if_quiz_is_past_due_datetime_function START ===========================================')
   
   # ------------------------ Assign Variables START ------------------------
   # Variables for comparing dates
@@ -22,18 +23,18 @@ def check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time):
 
   # ------------------------ Checks START ------------------------
   if today_date > quiz_end_date_comparison:
-    print('Today is greater than the quiz due date')
-    print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
+    localhost_print_function('Today is greater than the quiz due date')
+    localhost_print_function('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
     return True
   
   elif today_date == quiz_end_date_comparison:
     if current_hour_int >= quiz_end_time_comparison_int:
-      print('Today is equal to the quiz due date, and current hour is greater than due date hour')
-      print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
+      localhost_print_function('Today is equal to the quiz due date, and current hour is greater than due date hour')
+      localhost_print_function('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
       return True
   # ------------------------ Checks END ------------------------
 
 
-  print('quiz is not past due yet')
-  print('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
+  localhost_print_function('quiz is not past due yet')
+  localhost_print_function('=========================================== check_if_quiz_is_past_due_datetime_function END ===========================================')
   return None

@@ -1,8 +1,11 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, uuid_quiz):
-  print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function START ===========================================')
+  localhost_print_function('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
@@ -11,21 +14,19 @@ def select_all_triviafy_quiz_answers_master_table_for_company_function(postgres_
 
 
     # ------------------------ Query Result START ------------------------
-    # Get the results arr
     result_arr = postgres_cursor.fetchall()
+
     if result_arr == None or result_arr == []:
-      print('returning None')
-      print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
+      localhost_print_function('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
       return None
 
-    print('returning result_arr')
-    print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')  
+    localhost_print_function('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')  
     return result_arr
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: Error. ', error)
-      print('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== select_all_triviafy_quiz_answers_master_table_for_company_function END ===========================================')
       return None

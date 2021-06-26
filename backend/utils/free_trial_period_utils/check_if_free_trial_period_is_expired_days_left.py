@@ -5,10 +5,11 @@ from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.update_queries.update_triviafy_free_trial_tracker_slack_table_expired_user import update_triviafy_free_trial_tracker_slack_table_expired_user_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
-  print('=========================================== check_if_free_trial_period_is_expired_days_left_function START ===========================================')
+  localhost_print_function('=========================================== check_if_free_trial_period_is_expired_days_left_function START ===========================================')
 
   # Assign Variable
   user_slack_authed_id = user_nested_dict['slack_user_id']
@@ -23,7 +24,7 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
   # Get slack user info from free trial table, this should not be blank, it was inserted when account was made
   user_free_trial_row_status_arr = select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function(postgres_connection, postgres_cursor, user_slack_authed_id)
   if user_free_trial_row_status_arr == None:
-    print('=========================================== check_if_free_trial_period_is_expired_days_left_function END ===========================================')
+    localhost_print_function('=========================================== check_if_free_trial_period_is_expired_days_left_function END ===========================================')
     return None
   
   # Assign variables based on result arr
@@ -44,7 +45,6 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
     free_trial_period_is_expired == True
     trial_period_days_left_int = -1
     output_message = update_triviafy_free_trial_tracker_slack_table_expired_user_function(postgres_connection, postgres_cursor, user_slack_authed_id)
-    print(output_message)
   # ------------------------ Update Free Trial Expire END ------------------------
 
 
@@ -56,10 +56,10 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
 
   # ------------------------ Append User Nested Dict START ------------------------
   if free_trial_period_is_expired == None:
-    print('There is no user found in the free trial table')
+    localhost_print_function('There is no user found in the free trial table')
     return None
   elif free_trial_period_is_expired == True:
-    print('user free trial has expired')
+    localhost_print_function('user free trial has expired')
     return None
   else:
     user_nested_dict['free_trial_period_is_expired'] = free_trial_period_is_expired
@@ -68,5 +68,5 @@ def check_if_free_trial_period_is_expired_days_left_function(user_nested_dict):
   # ------------------------ Append User Nested Dict END ------------------------
   
 
-  print('=========================================== check_if_free_trial_period_is_expired_days_left_function END ===========================================')
+  localhost_print_function('=========================================== check_if_free_trial_period_is_expired_days_left_function END ===========================================')
   return user_nested_dict

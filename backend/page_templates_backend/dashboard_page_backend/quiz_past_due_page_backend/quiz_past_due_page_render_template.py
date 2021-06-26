@@ -11,6 +11,7 @@ from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.convert_question_ids_from_string_to_arr import convert_question_ids_from_string_to_arr_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_past_due_page_render_template = Blueprint("quiz_past_due_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -25,7 +26,7 @@ def before_request():
 @quiz_past_due_page_render_template.route("/dashboard/quiz/past/due", methods=['GET','POST'])
 def quiz_past_due_page_render_template_function():
   """Returns /dashboard/quiz/past/due page"""
-  print('=========================================== /dashboard/quiz/past/due Page START ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/past/due Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -66,8 +67,8 @@ def quiz_past_due_page_render_template_function():
       previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
       if previous_week_company_quiz_object == None:
         # This means a company signed up after Sunday
-        print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
-        print('redirecting to thank you first signed up page')
+        localhost_print_function('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+        localhost_print_function('redirecting to thank you first signed up page')
         return redirect('/', code=302)
     # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
     
@@ -116,28 +117,28 @@ def quiz_past_due_page_render_template_function():
       
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     if quiz_is_past_due_date != True:
-      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+      localhost_print_function('=========================================== /dashboard/quiz/past/due Page END ===========================================')
       return redirect('/', code=302)
 
     if quiz_is_past_due_date == True:
       # ------------------------ Check If Latest Quiz Is Graded START ------------------------
       latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
       if latest_quiz_is_graded_check == True:
-        print('=========================================== /dashboard Page END ===========================================')
-        print('redirecting to the results page')
+        localhost_print_function('=========================================== /dashboard Page END ===========================================')
+        localhost_print_function('redirecting to the results page')
         return redirect('/dashboard/quiz/results', code=302)
       # ------------------------ Check If Latest Quiz Is Graded END ------------------------
     # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
   except:
-    print('page load except error hit')
-    print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /dashboard/quiz/past/due Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/past/due Page END ===========================================')
   return render_template('dashboard_page_templates/quiz_past_due_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

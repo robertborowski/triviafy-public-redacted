@@ -2,10 +2,11 @@
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
 from datetime import date, datetime
 from backend.utils.datetime_utils.quiz_due_time_convert_dict import quiz_due_time_convert_dict_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time):
-  print('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function START ===========================================')
+  localhost_print_function('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function START ===========================================')
 
 
   # ------------------------ This Week Dates Data Dict START ------------------------
@@ -33,14 +34,14 @@ def check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_da
 
   # ------------------------ Check If Today Is Earlier Than Latest Quiz Start Date START ------------------------
   if today_date < quiz_official_start_date:
-    print('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
+    localhost_print_function('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
     return True
   if today_date == quiz_official_start_date:
     if current_hour_int < quiz_start_time_comparison_int:
-      print('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
+      localhost_print_function('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
       return True
   # ------------------------ Check If Today Is Earlier Than Latest Quiz Start Date END ------------------------
 
 
-  print('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
+  localhost_print_function('=========================================== check_if_today_is_earlier_than_latest_quiz_start_date_function END ===========================================')
   return False

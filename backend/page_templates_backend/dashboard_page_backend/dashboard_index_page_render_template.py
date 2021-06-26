@@ -16,6 +16,7 @@ from backend.utils.latest_quiz_utils.check_if_latest_quiz_is_graded_utils.check_
 from backend.utils.latest_quiz_utils.check_if_today_is_earlier_than_latest_quiz_start_date_utils.check_if_today_is_earlier_than_latest_quiz_start_date import check_if_today_is_earlier_than_latest_quiz_start_date_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -29,7 +30,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @dashboard_index_page_render_template.route("/dashboard", methods=['GET','POST'])
 def dashboard_index_page_render_template_function():
-  print('=========================================== /dashboard Page START ===========================================')
+  localhost_print_function('=========================================== /dashboard Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -71,8 +72,8 @@ def dashboard_index_page_render_template_function():
       previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
       if previous_week_company_quiz_object == None:
         # This means a company signed up after Sunday
-        print('=========================================== /dashboard Page END ===========================================')
-        print('redirecting to thank you first signed up page')
+        localhost_print_function('=========================================== /dashboard Page END ===========================================')
+        localhost_print_function('redirecting to thank you first signed up page')
         return redirect('/dashboard/quiz/first/pending', code=302)
     # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
     
@@ -125,13 +126,13 @@ def dashboard_index_page_render_template_function():
       # ------------------------ Check If Latest Quiz Is Graded START ------------------------
       latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
       if latest_quiz_is_graded_check == True:
-        print('=========================================== /dashboard Page END ===========================================')
-        print('redirecting to the results page')
+        localhost_print_function('=========================================== /dashboard Page END ===========================================')
+        localhost_print_function('redirecting to the results page')
         return redirect('/dashboard/quiz/results', code=302)
       
       # ------------------------ Check If Latest Quiz Is Graded END ------------------------
-      print('=========================================== /dashboard Page END ===========================================')
-      print('redirecting to quiz past due page')
+      localhost_print_function('=========================================== /dashboard Page END ===========================================')
+      localhost_print_function('redirecting to quiz past due page')
       return redirect('/dashboard/quiz/past/due', code=302)
     # ------------------------ Check If Quiz Is Past Due Date END ------------------------
 
@@ -139,8 +140,8 @@ def dashboard_index_page_render_template_function():
     # ------------------------ Check If Pre Quiz Block View Date START ------------------------
     today_is_earlier_than_start_date = check_if_today_is_earlier_than_latest_quiz_start_date_function(quiz_start_day_of_week, quiz_start_time)
     if today_is_earlier_than_start_date == True:
-      print('=========================================== /dashboard Page END ===========================================')
-      print('redirecting to quiz not yet open page')
+      localhost_print_function('=========================================== /dashboard Page END ===========================================')
+      localhost_print_function('redirecting to quiz not yet open page')
       return redirect('/dashboard/quiz/pre/open', code=302)
     # ------------------------ Check If Pre Quiz Block View Date END ------------------------
 
@@ -187,14 +188,14 @@ def dashboard_index_page_render_template_function():
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /dashboard Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /dashboard Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /dashboard Page END ===========================================')
+  localhost_print_function('=========================================== /dashboard Page END ===========================================')
   return render_template('dashboard_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

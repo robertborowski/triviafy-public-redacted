@@ -18,7 +18,7 @@ def select_triviafy_quiz_answers_master_table_user_answer_function(postgres_conn
       print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
       return None
     
-    print('returining result_row')
+
     print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------

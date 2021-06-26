@@ -1,8 +1,11 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
-from psycopg2 import Error, extras
+from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_company_quiz_questions_individually_function(postgres_connection, postgres_cursor, question_id):
-  print('=========================================== select_company_quiz_questions_individually_function START ===========================================')
+  localhost_print_function('=========================================== select_company_quiz_questions_individually_function START ===========================================')
 
   try:
     # ------------------------ Dict Cursor START ------------------------
@@ -25,13 +28,13 @@ def select_company_quiz_questions_individually_function(postgres_connection, pos
       result_arr_dicts.append(dict(row))
     
     # Return results dict
-    print('=========================================== select_company_quiz_questions_individually_function END ===========================================')
+    localhost_print_function('=========================================== select_company_quiz_questions_individually_function END ===========================================')
     return result_arr_dicts
     # ------------------------ Query Result END ------------------------
 
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
-      print('=========================================== select_company_quiz_questions_individually_function END ===========================================')
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== select_company_quiz_questions_individually_function END ===========================================')
       return None

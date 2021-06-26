@@ -1,9 +1,12 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 import psycopg2.extras
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def update_triviafy_free_trial_tracker_slack_table_expired_user_function(postgres_connection, postgres_cursor, user_slack_authed_id):
-  print('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function START ===========================================')
+  localhost_print_function('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
@@ -13,14 +16,14 @@ def update_triviafy_free_trial_tracker_slack_table_expired_user_function(postgre
 
     # ------------------------ Query Result START ------------------------
     postgres_connection.commit()
-    print('Updated Information')
-    print('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
-    return 'Updated Information'
+    localhost_print_function('Updated Information')
+    localhost_print_function('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
+    return True
     # ------------------------ Query Result END ------------------------
 
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
-      print('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
       return None

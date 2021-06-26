@@ -1,8 +1,11 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_quiz_week_winner_function(postgres_connection, postgres_cursor, uuid_quiz):
-  print('=========================================== select_quiz_week_winner_function START ===========================================')
+  localhost_print_function('=========================================== select_quiz_week_winner_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -14,18 +17,16 @@ def select_quiz_week_winner_function(postgres_connection, postgres_cursor, uuid_
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      print('No Winner this week')
-      print('=========================================== select_quiz_week_winner_function END ===========================================')
+      localhost_print_function('=========================================== select_quiz_week_winner_function END ===========================================')
       return None
     
-    print('returining result_row')
-    print('=========================================== select_quiz_week_winner_function END ===========================================')
+    localhost_print_function('=========================================== select_quiz_week_winner_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
-      print('=========================================== select_quiz_week_winner_function END ===========================================')
-      return 'Except error hit'
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== select_quiz_week_winner_function END ===========================================')
+      return None

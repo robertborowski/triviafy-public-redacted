@@ -17,7 +17,7 @@ def select_triviafy_user_login_information_table_slack_all_login_info_one_user_f
       print('=========================================== select_triviafy_user_login_information_table_slack_all_login_info_one_user_function END ===========================================')
       return None
     
-    print('returining result_row')
+
     print('=========================================== select_triviafy_user_login_information_table_slack_all_login_info_one_user_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------

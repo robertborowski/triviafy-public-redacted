@@ -26,4 +26,4 @@ def select_company_quiz_settings_all_companies_function(postgres_connection, pos
     if(postgres_connection):
       print('Status: Company quiz settings do not exists in db table yet! ', error)
       print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
-      return 'Company quiz settings do not exists in db table yet'
+      return None

@@ -1,5 +1,9 @@
+# -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+
+# -------------------------------------------------------------- Main Function
 def sanitize_page_output_company_name_function(user_company_name):
-  print('=========================================== sanitize_page_output_company_name_function START ===========================================')
+  localhost_print_function('=========================================== sanitize_page_output_company_name_function START ===========================================')
   try:
     user_company_name = user_company_name.replace('-',' ')
   except:
@@ -10,5 +14,5 @@ def sanitize_page_output_company_name_function(user_company_name):
   except:
     pass
 
-  print('=========================================== sanitize_page_output_company_name_function END ===========================================')
+  localhost_print_function('=========================================== sanitize_page_output_company_name_function END ===========================================')
   return user_company_name

@@ -1,9 +1,10 @@
 # -------------------------------------------------------------- Imports
 from datetime import date, timedelta
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def get_next_weeks_dates_data_dict_function():
-  print('=========================================== get_next_weeks_dates_data_dict_function START ===========================================')
+  localhost_print_function('=========================================== get_next_weeks_dates_data_dict_function START ===========================================')
   
   # ------------------------ Get Today's Date START ------------------------
   # Today's date
@@ -146,6 +147,5 @@ def get_next_weeks_dates_data_dict_function():
   }
   # ------------------------ This Week's Dates Dict END ------------------------
 
-  print('returning this_upcoming_week_dates_dict')
-  print('=========================================== get_next_weeks_dates_data_dict_function END ===========================================')
+  localhost_print_function('=========================================== get_next_weeks_dates_data_dict_function END ===========================================')
   return next_week_dates_dict

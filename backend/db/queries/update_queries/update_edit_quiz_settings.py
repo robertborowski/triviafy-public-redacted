@@ -15,7 +15,7 @@ def update_edit_quiz_settings_function(postgres_connection, postgres_cursor, com
     postgres_connection.commit()
     print('Updated Information')
     print('=========================================== update_edit_quiz_settings_function END ===========================================')
-    #return 'Updated Information'
+    #return True
     # ------------------------ Query Result END ------------------------
 
 

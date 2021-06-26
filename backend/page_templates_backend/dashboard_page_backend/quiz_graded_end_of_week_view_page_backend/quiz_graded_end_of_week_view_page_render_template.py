@@ -14,6 +14,7 @@ from backend.utils.quiz_calculations_utils.quiz_calculate_quiz_uuid_winner impor
 from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_winner_insert_to_db_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_graded_end_of_week_view_page_render_template = Blueprint("quiz_graded_end_of_week_view_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -27,8 +28,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_graded_end_of_week_view_page_render_template.route("/dashboard/quiz/results", methods=['GET','POST'])
 def quiz_graded_end_of_week_view_page_render_template_function():
-  """Returns /dashboard/quiz/results page"""
-  print('=========================================== /dashboard/quiz/results Page START ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/results Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -70,15 +70,15 @@ def quiz_graded_end_of_week_view_page_render_template_function():
       previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
       if previous_week_company_quiz_object == None:
         # This means a company signed up after Sunday
-        print('=========================================== /dashboard/quiz/results Page END ===========================================')
-        print('redirecting to thank you first signed up page')
+        localhost_print_function('=========================================== /dashboard/quiz/results Page END ===========================================')
+        localhost_print_function('redirecting to thank you first signed up page')
         return redirect('/', code=302)
     # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
 
 
     # ------------------------ Set Variables for Checks/Outputs START ------------------------
     if latest_company_quiz_object != None:
-      print('assigning variables for the latest graded quiz this week')
+      localhost_print_function('assigning variables for the latest graded quiz this week')
       # Assign the variables for the HTML inputs based on the pulled object
       uuid_quiz = latest_company_quiz_object[0]                                     # str
       quiz_timestamp_created = latest_company_quiz_object[1].strftime('%Y-%m-%d')   # str
@@ -99,7 +99,7 @@ def quiz_graded_end_of_week_view_page_render_template_function():
     
     if latest_company_quiz_object == None:
       if previous_week_company_quiz_object != None:
-        print('assigning variables for the previous graded quiz last week')
+        localhost_print_function('assigning variables for the previous graded quiz last week')
         # Assign the variables for the HTML inputs based on the pulled object
         uuid_quiz = previous_week_company_quiz_object[0]                                     # str
         quiz_timestamp_created = previous_week_company_quiz_object[1].strftime('%Y-%m-%d')   # str
@@ -127,8 +127,8 @@ def quiz_graded_end_of_week_view_page_render_template_function():
       # ------------------------ Double Check If Quiz Is Graded START ------------------------
       latest_quiz_is_graded_check = check_if_latest_quiz_is_graded_function(slack_workspace_team_id, slack_channel_id, uuid_quiz)
       if latest_quiz_is_graded_check != True:
-        print('Latest quiz is not yet fully graded.')
-        print('=========================================== /dashboard/quiz/results Page END ===========================================')
+        localhost_print_function('Latest quiz is not yet fully graded.')
+        localhost_print_function('=========================================== /dashboard/quiz/results Page END ===========================================')
         return redirect('/', code=302)
         # ------------------------ Double Check If Quiz Is Graded END ------------------------
       if latest_quiz_is_graded_check == True:
@@ -138,27 +138,26 @@ def quiz_graded_end_of_week_view_page_render_template_function():
           # Insert to Quiz Winners table
           winner_user_uuid = this_weeks_winner_object[3]
           output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
-          print(output_message)
 
         if this_weeks_winner_object == False:
-          print('result winner is false')
+          localhost_print_function('result winner is false')
           no_winner_timestamp = create_timestamp_function()
           this_weeks_winner_object = [0, 'No Winner', no_winner_timestamp]
 
     else:
-      print('quiz is not past due yet')
-      print('=========================================== /dashboard/quiz/results Page END ===========================================')
+      localhost_print_function('quiz is not past due yet')
+      localhost_print_function('=========================================== /dashboard/quiz/results Page END ===========================================')
       return redirect('/', code=302)
 
   except:
-    print('page load except error hit')
-    print('=========================================== /dashboard/quiz/results Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /dashboard/quiz/results Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /dashboard/quiz/results Page END ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/results Page END ===========================================')
   return render_template('dashboard_page_templates/quiz_graded_end_of_week_view_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

@@ -15,7 +15,7 @@ def update_account_edit_settings_company_payment_admins_function(postgres_connec
     postgres_connection.commit()
     print('Updated Information')
     print('=========================================== update_account_edit_settings_company_payment_admins_function END ===========================================')
-    return 'Updated Information'
+    return True
     # ------------------------ Query Result END ------------------------
 
 

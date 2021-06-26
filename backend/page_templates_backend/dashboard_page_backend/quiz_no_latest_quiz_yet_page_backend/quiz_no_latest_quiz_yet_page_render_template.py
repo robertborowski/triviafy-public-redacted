@@ -12,6 +12,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.utils.latest_quiz_utils.get_previous_week_company_quiz_if_exists import get_previous_week_company_quiz_if_exists_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_no_latest_quiz_yet_page_render_template = Blueprint("quiz_no_latest_quiz_yet_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -25,7 +26,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_no_latest_quiz_yet_page_render_template.route("/dashboard/quiz/first/pending", methods=['GET','POST'])
 def quiz_no_latest_quiz_yet_page_render_template_function():
-  print('=========================================== /dashboard/quiz/first/pending Page START ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/first/pending Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -65,8 +66,8 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
 
     if latest_company_quiz_object != None:
-      print('latest_company_quiz_object is != None. Redirecting to dashboard')
-      print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
+      localhost_print_function('latest_company_quiz_object is != None. Redirecting to dashboard')
+      localhost_print_function('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
       return redirect('/dashboard', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------
 
@@ -76,8 +77,8 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
       # Check if there is a previous week quiz made
       previous_week_company_quiz_object = get_previous_week_company_quiz_if_exists_function(user_nested_dict)
       if previous_week_company_quiz_object != None:
-        print('previous_week_company_quiz_object is != None. Redirecting to dashboard')
-        print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
+        localhost_print_function('previous_week_company_quiz_object is != None. Redirecting to dashboard')
+        localhost_print_function('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
         return redirect('/dashboard', code=302)
     # ------------------------ Check if This Is Companies First Every Quiz END ------------------------
     # ------------------------ Check If Previous Week is None too END ------------------------
@@ -110,14 +111,14 @@ def quiz_no_latest_quiz_yet_page_render_template_function():
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
+  localhost_print_function('=========================================== /dashboard/quiz/first/pending Page END ===========================================')
   return render_template('dashboard_page_templates/quiz_no_latest_quiz_yet_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

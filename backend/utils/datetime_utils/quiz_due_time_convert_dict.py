@@ -1,9 +1,10 @@
 # -------------------------------------------------------------- Imports
-
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def quiz_due_time_convert_dict_function():
-  print('=========================================== quiz_due_time_convert_dict_function START ===========================================')
+  localhost_print_function('=========================================== quiz_due_time_convert_dict_function START ===========================================')
+  
   quiz_time_convert_dict = {
     '1 AM' : "01:00:00",
     '2 AM' : "02:00:00",
@@ -30,5 +31,5 @@ def quiz_due_time_convert_dict_function():
     '11 PM' : "23:00:00",
   }
 
-  print('=========================================== quiz_due_time_convert_dict_function END ===========================================')
+  localhost_print_function('=========================================== quiz_due_time_convert_dict_function END ===========================================')
   return quiz_time_convert_dict

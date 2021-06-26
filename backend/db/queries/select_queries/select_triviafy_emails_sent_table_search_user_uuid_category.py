@@ -14,11 +14,9 @@ def select_triviafy_emails_sent_table_search_user_uuid_category_function(postgre
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      print('returning None')
       print('=========================================== select_triviafy_emails_sent_table_search_user_uuid_category_function END ===========================================')
       return None
 
-    print('returning result_row:')
     print('=========================================== select_triviafy_emails_sent_table_search_user_uuid_category_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
