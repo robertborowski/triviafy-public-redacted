@@ -1,11 +1,11 @@
 # -------------------------------------------------------------- Imports
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
-
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def send_team_channel_message_quiz_close_function(slack_bot_token, user_channel, user_slack_authed_id):
-  print('=========================================== send_team_channel_message_quiz_close_function START ===========================================')
+  localhost_print_function('=========================================== send_team_channel_message_quiz_close_function START ===========================================')
   
   if user_slack_authed_id == 'No Winner':
     output_text = f":wave: Hi <!here>, your team's weekly Triviafy quiz is now CLOSED!\n:ghost: This week there was {user_slack_authed_id}!\n:gift: For every 10th win that a person achieves, we send them a free gift-card prize!\n:100: Login and checkout your team's leaderboard at: https://triviafy.com/leaderboard"
@@ -21,10 +21,10 @@ def send_team_channel_message_quiz_close_function(slack_bot_token, user_channel,
       channel=user_channel,
       text=output_text
     )
-    print('sent slack message')
+    localhost_print_function('sent slack message')
   except SlackApiError as e:
-    print('did not send message to slack channel')
+    localhost_print_function('did not send message to slack channel')
     print(e.response['error'])
 
-  print('=========================================== send_team_channel_message_quiz_close_function END ===========================================')
+  localhost_print_function('=========================================== send_team_channel_message_quiz_close_function END ===========================================')
   return True, output_text

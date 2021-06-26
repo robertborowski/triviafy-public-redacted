@@ -3,11 +3,11 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def sanitize_quiz_question_user_answer_text_function(user_input):
-  print('=========================================== sanitize_quiz_question_user_answer_text_function START ===========================================')
+  localhost_print_function('=========================================== sanitize_quiz_question_user_answer_text_function START ===========================================')
 
   # Check Character count limits
   if len(user_input) < 1 or len(user_input) > 100:
-    print('Answer cannot be blank or over 100 characters')
+    localhost_print_function('Answer cannot be blank or over 100 characters')
     return None
 
   # Split the word into a words arr, by default split function is any whitespace
@@ -19,7 +19,7 @@ def sanitize_quiz_question_user_answer_text_function(user_input):
     # Check if word is alphnumeric
     check_is_only_alpha_numeric = user_input_words_arr[word].isalnum()
     if check_is_only_alpha_numeric == False:
-      print('Answer is not alpha-numeric')
+      localhost_print_function('Answer is not alpha-numeric')
       return None
     # Make word proper case
     user_input_words_arr[word] = user_input_words_arr[word].lower()
@@ -30,5 +30,5 @@ def sanitize_quiz_question_user_answer_text_function(user_input):
   user_input_sanitize_output = "_".join(user_input_words_arr)
 
 
-  print('=========================================== sanitize_quiz_question_user_answer_text_function END ===========================================')
+  localhost_print_function('=========================================== sanitize_quiz_question_user_answer_text_function END ===========================================')
   return user_input_sanitize_output

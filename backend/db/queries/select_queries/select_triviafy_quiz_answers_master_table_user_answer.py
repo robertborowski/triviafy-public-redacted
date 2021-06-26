@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_triviafy_quiz_answers_master_table_user_answer_function(postgres_connection, postgres_cursor, question_id, user_uuid):
-  print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function START ===========================================')
+  localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -17,12 +17,10 @@ def select_triviafy_quiz_answers_master_table_user_answer_function(postgres_conn
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      print('returining None')
-      print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
       return None
-    
 
-    print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
+    localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
@@ -30,5 +28,5 @@ def select_triviafy_quiz_answers_master_table_user_answer_function(postgres_conn
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_user_answer_function END ===========================================')
       return None

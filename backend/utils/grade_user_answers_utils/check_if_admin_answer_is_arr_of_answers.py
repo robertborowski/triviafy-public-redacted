@@ -1,8 +1,9 @@
 # -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def check_if_admin_answer_is_arr_of_answers_function(question_admin_correct_answer):
-  print('=========================================== check_if_admin_answer_is_arr_of_answers_function START ===========================================')
+  localhost_print_function('=========================================== check_if_admin_answer_is_arr_of_answers_function START ===========================================')
 
 
   # ------------------------ Check If Admin Answer Is Arr START ------------------------
@@ -26,5 +27,5 @@ def check_if_admin_answer_is_arr_of_answers_function(question_admin_correct_answ
   # ------------------------ Check If Admin Answer Is Arr END ------------------------
 
 
-  print('=========================================== check_if_admin_answer_is_arr_of_answers_function END ===========================================')
+  localhost_print_function('=========================================== check_if_admin_answer_is_arr_of_answers_function END ===========================================')
   return question_has_multiple_answers, question_admin_correct_answers_arr

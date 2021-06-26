@@ -11,10 +11,11 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.select_x_questions_for_company_quiz_never_asked_before import select_x_questions_for_company_quiz_never_asked_before_function
 from backend.db.queries.insert_queries.insert_triviafy_quiz_questions_asked_to_company_slack_table import insert_triviafy_quiz_questions_asked_to_company_slack_table_function
 from backend.db.queries.insert_queries.insert_triviafy_quiz_master_table import insert_triviafy_quiz_master_table_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_arr):
-  print('=========================================== make_company_latest_quiz_function START ===========================================')
+  localhost_print_function('=========================================== make_company_latest_quiz_function START ===========================================')
 
   # ------------------------ This Week Dates Data Dict START ------------------------
   this_upcoming_week_dates_dict = get_upcoming_week_dates_data_dict_function()
@@ -73,17 +74,16 @@ def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_ar
     
     # Insert function
     output_message = insert_triviafy_quiz_questions_asked_to_company_slack_table_function(postgres_connection, postgres_cursor, uuid_quiz_question_asked_tracking, quiz_question_asked_tracking_timestamp, slack_workspace_team_id, slack_channel_id, uuid_quiz, question_id)
-    print(output_message)
   # ------------------------ Insert The Current Questions to the Question History DB Table END ------------------------
 
 
   # ------------------------ Insert The Quiz Info Into the Quiz Master Table START ------------------------
   # Insert Query
   output_message = insert_triviafy_quiz_master_table_function(postgres_connection, postgres_cursor, uuid_quiz, quiz_timestamp_created, slack_workspace_team_id, slack_channel_id, quiz_start_date, quiz_start_day_of_week, quiz_start_time, quiz_end_date, quiz_end_day_of_week, quiz_end_time, quiz_number_of_questions, current_quiz_question_ids_arr, latest_company_quiz_count)
-  print('- - - - - - -')
-  print('Inserted the quiz object to database.')
-  print(output_message)
-  print('- - - - - - -')
+  localhost_print_function('- - - - - - -')
+  localhost_print_function('Inserted the quiz object to database.')
+  localhost_print_function(output_message)
+  localhost_print_function('- - - - - - -')
   # ------------------------ Insert The Quiz Info Into the Quiz Master Table END ------------------------
 
   
@@ -95,5 +95,5 @@ def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_ar
   latest_company_quiz_object = [uuid_quiz, quiz_timestamp_created, slack_workspace_team_id, slack_channel_id, quiz_start_date, quiz_start_day_of_week, quiz_start_time, quiz_end_date, quiz_end_day_of_week, quiz_end_time, quiz_number_of_questions, current_quiz_question_ids_arr, latest_company_quiz_count]
   # ------------------------ Put Together Quiz Object to Use on Dashboard END ------------------------
 
-  print('=========================================== make_company_latest_quiz_function END ===========================================')
+  localhost_print_function('=========================================== make_company_latest_quiz_function END ===========================================')
   return latest_company_quiz_object

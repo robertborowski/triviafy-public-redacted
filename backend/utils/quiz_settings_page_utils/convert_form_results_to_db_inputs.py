@@ -1,5 +1,9 @@
+# -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+
+# -------------------------------------------------------------- Main Function
 def convert_form_results_to_db_inputs_function(user_form_input_quiz_start_day, user_form_input_quiz_start_time, user_form_input_quiz_end_day, user_form_input_quiz_end_time):
-  print('=========================================== convert_form_results_to_db_inputs_function START ===========================================')
+  localhost_print_function('=========================================== convert_form_results_to_db_inputs_function START ===========================================')
 
   # Set the conversion dicts
   quiz_settings_convert_day_dict = {
@@ -39,6 +43,6 @@ def convert_form_results_to_db_inputs_function(user_form_input_quiz_start_day, u
   converted_end_day = quiz_settings_convert_day_dict[user_form_input_quiz_end_day]
   converted_end_time = quiz_settings_convert_time_dict[user_form_input_quiz_end_time]
 
-  print('=========================================== convert_form_results_to_db_inputs_function END ===========================================')
+  localhost_print_function('=========================================== convert_form_results_to_db_inputs_function END ===========================================')
   # return the results
   return converted_start_day, converted_start_time, converted_end_day, converted_end_time

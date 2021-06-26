@@ -3,7 +3,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def sanitize_edit_quiz_setting_time_function(user_input_form):
-  print('=========================================== sanitize_edit_quiz_setting_time_function START ===========================================')
+  localhost_print_function('=========================================== sanitize_edit_quiz_setting_time_function START ===========================================')
 
   if (user_input_form != 'one_am' and len(user_input_form) != 6) and \
     (user_input_form != 'two_am' and len(user_input_form) != 6) and \
@@ -28,8 +28,8 @@ def sanitize_edit_quiz_setting_time_function(user_input_form):
                                           (user_input_form != 'nine_pm' and len(user_input_form) != 7) and \
                                             (user_input_form != 'ten_pm' and len(user_input_form) != 6) and \
                                               (user_input_form != 'eleven_pm' and len(user_input_form) != 9):
-    print('=========================================== sanitize_edit_quiz_setting_time_function END ===========================================')
+    localhost_print_function('=========================================== sanitize_edit_quiz_setting_time_function END ===========================================')
     return None
   
-  print('=========================================== sanitize_edit_quiz_setting_time_function END ===========================================')
+  localhost_print_function('=========================================== sanitize_edit_quiz_setting_time_function END ===========================================')
   return user_input_form

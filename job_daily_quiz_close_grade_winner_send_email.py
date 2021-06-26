@@ -18,10 +18,11 @@ from backend.utils.quiz_calculations_utils.quiz_winner_insert_to_db import quiz_
 from backend.utils.slack.send_team_channel_message_utils.send_team_channel_message_quiz_close import send_team_channel_message_quiz_close_function
 from backend.db.queries.select_queries.select_triviafy_slack_messages_sent_table_search_user_uuid_category import select_triviafy_slack_messages_sent_table_search_user_uuid_category_function
 from backend.db.queries.insert_queries.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_close_grade_winner_send_email_function():
-  print('=========================================== job_daily_quiz_close_grade_winner_send_email_function START ===========================================')
+  localhost_print_function('=========================================== job_daily_quiz_close_grade_winner_send_email_function START ===========================================')
 
   # ------------------------ Get Today's Date START ------------------------
   # Today's date
@@ -30,8 +31,8 @@ def job_daily_quiz_close_grade_winner_send_email_function():
   today_day_of_week = today_date.strftime('%A')
 
   if today_day_of_week == 'Saturday' or today_day_of_week == 'Sunday':
-    print('Today is Saturday or Sunday.')
-    print('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
+    localhost_print_function('Today is Saturday or Sunday.')
+    localhost_print_function('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
     return True
   # ------------------------ Get Today's Date END ------------------------
 
@@ -92,8 +93,8 @@ def job_daily_quiz_close_grade_winner_send_email_function():
         # ------------------------ Check If Lates Quiz Is Graded START ------------------------
         latest_quiz_is_fully_graded = check_if_latest_quiz_is_graded_function(quiz_slack_team_id, quiz_slack_channel_id, uuid_quiz)
         if latest_quiz_is_fully_graded != True:
-          print('company user quiz answers have not yet been fully graded')
-          print('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
+          localhost_print_function('company user quiz answers have not yet been fully graded')
+          localhost_print_function('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
           # continue
           pass
         # ------------------------ Check If Lates Quiz Is Graded END ------------------------
@@ -102,7 +103,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
         this_weeks_winner_object = quiz_calculate_quiz_uuid_winner_function(uuid_quiz)
 
         if this_weeks_winner_object == False:
-          print('there is no winner this week, no one answered any questions or no one answered any questions correctly.')
+          localhost_print_function('there is no winner this week, no one answered any questions or no one answered any questions correctly.')
           winner_user_full_name = 'No Winner'
 
         if this_weeks_winner_object != False:
@@ -110,7 +111,6 @@ def job_daily_quiz_close_grade_winner_send_email_function():
           winner_user_uuid = this_weeks_winner_object[3]
           winner_user_full_name = this_weeks_winner_object[1]
           output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
-          print(output_message)
         # ------------------------ Select Winner Arr END ------------------------
         
         company_users_arr = select_triviafy_user_login_information_table_slack_all_company_user_uuids_for_quiz_email_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
@@ -139,13 +139,11 @@ def job_daily_quiz_close_grade_winner_send_email_function():
               output_message_content_str_for_db = output_message_content
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
-            print(email_sent_successfully)
 
             # Insert this sent email into DB
             uuid_email_sent = create_uuid_function('email_sent_')
             email_sent_timestamp = create_timestamp_function()
             output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, company_user_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-            print(output_message)
             # ------------------------ Send Account Created Email END ------------------------
         # ------------------------ Loop Through Each Company User END ------------------------
 
@@ -157,13 +155,11 @@ def job_daily_quiz_close_grade_winner_send_email_function():
           if winner_user_full_name == 'No Winner':
             user_slack_authed_id = 'No Winner'
           result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, user_slack_authed_id)
-          print(result)
 
           # Insert this sent email into DB
           uuid_slack_message_sent = create_uuid_function('slack_sent_')
           slack_message_sent_timestamp = create_timestamp_function()
           output_message = insert_triviafy_slack_messages_sent_table_function(postgres_connection, postgres_cursor, uuid_slack_message_sent, slack_message_sent_timestamp, company_user_uuid, slack_message_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-          print(output_message)
         # ------------------------ Send Account Slack Message START ------------------------
 
       # ------------------------ Pull Company User Info END ------------------------
@@ -174,7 +170,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  print('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
+  localhost_print_function('=========================================== job_daily_quiz_close_grade_winner_send_email_function END ===========================================')
   return True
 
 

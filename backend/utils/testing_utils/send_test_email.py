@@ -3,10 +3,11 @@ import os
 import sendgrid
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def send_test_email_function():
-  print('=========================================== send_test_email_function START ===========================================')
+  localhost_print_function('=========================================== send_test_email_function START ===========================================')
   
   # ------------------------ Test 1 START ------------------------
   # message = Mail(
@@ -18,11 +19,11 @@ def send_test_email_function():
   # try:
   #   sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY_TRIVIAFY'))
   #   response = sg.send(message)
-  #   print(response.status_code)
-  #   print(response.body)
-  #   print(response.headers)
+  #   localhost_print_function(response.status_code)
+  #   localhost_print_function(response.body)
+  #   localhost_print_function(response.headers)
   # except Exception as e:
-  #   print(e.message)
+  #   localhost_print_function(e.message)
   # ------------------------ Test 1 END ------------------------
 
 
@@ -42,12 +43,12 @@ def send_test_email_function():
   #response = sg.client.mail.send.post(request_body=mail_json)
   try:
     sg.client.mail.send.post(request_body=mail_json)
-    print('email sent successfully!')
+    localhost_print_function('email sent successfully!')
   except:
-    print('email did not send successfully...')
+    localhost_print_function('email did not send successfully...')
   # ------------------------ Test 2 END ------------------------
 
-  print('=========================================== send_test_email_function END ===========================================')
+  localhost_print_function('=========================================== send_test_email_function END ===========================================')
   return True
 
 # ---------------------------------------------------------------------------------------------------------------------------- Job to Run The Main Function

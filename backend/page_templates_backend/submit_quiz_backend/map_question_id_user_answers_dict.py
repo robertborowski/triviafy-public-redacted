@@ -1,9 +1,9 @@
 # -------------------------------------------------------------- Imports
-
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def map_question_id_user_answers_dict_function(quiz_number_of_questions, quiz_question_ids_arr, user_answer_to_q1, user_answer_to_q2, user_answer_to_q3, user_answer_to_q4, user_answer_to_q5, user_answer_to_q6, user_answer_to_q7, user_answer_to_q8, user_answer_to_q9, user_answer_to_q10):
-  print('=========================================== map_question_id_user_answers_dict_function START ===========================================')
+  localhost_print_function('=========================================== map_question_id_user_answers_dict_function START ===========================================')
   
   # 5 Question Quiz
   if quiz_number_of_questions == 5:
@@ -30,5 +30,5 @@ def map_question_id_user_answers_dict_function(quiz_number_of_questions, quiz_qu
       quiz_question_ids_arr[9] : user_answer_to_q10
     }
 
-  print('=========================================== map_question_id_user_answers_dict_function END ===========================================')
+  localhost_print_function('=========================================== map_question_id_user_answers_dict_function END ===========================================')
   return dict_question_id_user_answers

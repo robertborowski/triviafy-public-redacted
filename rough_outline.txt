@@ -11,6 +11,7 @@ To-Do's
 
 -Try removing all print statements.
 -Company top printing information for all files should be organized in same way that login cache check is done
+-Quiz Sample is only working with 5 questions not 6+
 -Subscription page
 -Tremendous, just make it a waitlist page for now, you can send people giftcards directly without it being automated
 -Stripe setup

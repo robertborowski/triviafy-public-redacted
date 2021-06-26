@@ -13,6 +13,7 @@ from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import chec
 from backend.utils.grade_user_answers_utils.grade_user_answers import grade_user_answers_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 submit_quiz_backend = Blueprint("submit_quiz_backend", __name__, static_folder="static", template_folder="templates")
@@ -26,7 +27,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @submit_quiz_backend.route("/dashboard/user/submit/quiz", methods=['GET','POST'])
 def submit_quiz_backend_function():
-  print('=========================================== /dashboard/user/submit/quiz Page START ===========================================')
+  localhost_print_function('=========================================== /dashboard/user/submit/quiz Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -84,8 +85,8 @@ def submit_quiz_backend_function():
       user_answer_to_q10 = 'Only 5 question quiz'
 
     if user_answer_to_q1 == None or user_answer_to_q2 == None or user_answer_to_q3 == None or user_answer_to_q4 == None or user_answer_to_q5 == None or user_answer_to_q6 == None or user_answer_to_q7 == None or user_answer_to_q8 == None or user_answer_to_q9 == None or user_answer_to_q10 == None:
-      print('inputs are not valid')
-      print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
+      localhost_print_function('inputs are not valid')
+      localhost_print_function('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
       return redirect('/dashboard', code=302)
     # ------------------------ Sanitize User Inputs END ------------------------
 
@@ -94,8 +95,8 @@ def submit_quiz_backend_function():
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(user_nested_dict)
     # ------------------------ If Latest Company Quiz Obj None START ------------------------
     if latest_company_quiz_object == None:
-      print('=========================================== /dashboard Page END ===========================================')
-      print('Note, this should be redirecting you to a building in progress page now grading.')
+      localhost_print_function('=========================================== /dashboard Page END ===========================================')
+      localhost_print_function('Note, this should be redirecting you to a building in progress page now grading.')
       return redirect('/dashboard/quiz/past/due', code=302)
     # ------------------------ If Latest Company Quiz Obj None END ------------------------    
     if latest_company_quiz_object != None:
@@ -123,8 +124,8 @@ def submit_quiz_backend_function():
     # In case someone tries to submit answers through postman to a quiz that has already closed
     quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
     if quiz_is_past_due_date == True:
-      print('Cannot submit answers since the quiz is past due.')
-      print('=========================================== /dashboard/quiz/past/due Page END ===========================================')
+      localhost_print_function('Cannot submit answers since the quiz is past due.')
+      localhost_print_function('=========================================== /dashboard/quiz/past/due Page END ===========================================')
       return redirect('/', code=302)
     # ------------------------ Double Check If Quiz Is Past Due Date END ------------------------
 
@@ -136,23 +137,23 @@ def submit_quiz_backend_function():
 
     # ------------------------ Put User Inputs Into DB START ------------------------
     output_message = push_update_postgres_db_with_answers_function(dict_question_id_user_answers, slack_workspace_team_id, slack_channel_id, user_uuid, uuid_quiz)
-    print(output_message)
+    localhost_print_function(output_message)
     # ------------------------ Put User Inputs Into DB END ------------------------
 
 
     # ------------------------ Grade Answers Algorithm START ------------------------
     output_message = grade_user_answers_function(uuid_quiz, user_uuid)
-    print(output_message)
+    localhost_print_function(output_message)
     # ------------------------ Grade Answers Algorithm END ------------------------
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
+  localhost_print_function('=========================================== /dashboard/user/submit/quiz Page END ===========================================')
   return redirect('/dashboard', code=302)

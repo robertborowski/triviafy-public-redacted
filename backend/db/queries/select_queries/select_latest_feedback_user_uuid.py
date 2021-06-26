@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_latest_feedback_user_uuid_function(postgres_connection, postgres_cursor, user_uuid):
-  print('=========================================== select_latest_feedback_user_uuid_function START ===========================================')
+  localhost_print_function('=========================================== select_latest_feedback_user_uuid_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -18,16 +18,15 @@ def select_latest_feedback_user_uuid_function(postgres_connection, postgres_curs
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      result_row = 'User has not submitted any feedback yet today'
+      return None
     
-    print('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
+    localhost_print_function('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: Error pulling! ', error)
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
-      return 'User has not submitted any feedback yet today'
+      localhost_print_function('=========================================== select_latest_feedback_user_uuid_function END ===========================================')
+      return None

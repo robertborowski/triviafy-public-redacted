@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_company_quiz_settings_all_companies_function(postgres_connection, postgres_cursor):
-  print('=========================================== select_company_quiz_settings_all_companies_function START ===========================================')
+  localhost_print_function('=========================================== select_company_quiz_settings_all_companies_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -17,17 +17,16 @@ def select_company_quiz_settings_all_companies_function(postgres_connection, pos
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
     if result_arr == None or result_arr == []:
-      print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
+      localhost_print_function('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
       return None
 
-    print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
+    localhost_print_function('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
     return result_arr
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: Company quiz settings do not exists in db table yet! ', error)
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
+      localhost_print_function('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
       return None

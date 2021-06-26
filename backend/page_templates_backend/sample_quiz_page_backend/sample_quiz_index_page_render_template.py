@@ -10,6 +10,7 @@ from backend.db.queries.select_queries.select_triviafy_sample_questions_table_al
 from backend.db.queries.select_queries.select_company_quiz_questions_individually import select_company_quiz_questions_individually_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 sample_quiz_index_page_render_template = Blueprint("sample_quiz_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -23,7 +24,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @sample_quiz_index_page_render_template.route("/sample/quiz", methods=['GET','POST'])
 def sample_quiz_index_page_render_template_function():
-  print('=========================================== /sample/quiz Page START ===========================================')
+  localhost_print_function('=========================================== /sample/quiz Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -92,13 +93,13 @@ def sample_quiz_index_page_render_template_function():
     # ------------------------ Close Connections END ------------------------
     
   except:
-    print('page load except error hit')
-    print('=========================================== /sample/quiz Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /sample/quiz Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  print('=========================================== /sample/quiz Page END ===========================================')
+  localhost_print_function('=========================================== /sample/quiz Page END ===========================================')
   return render_template('sample_quiz_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

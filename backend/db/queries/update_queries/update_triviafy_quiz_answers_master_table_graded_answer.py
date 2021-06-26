@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_connection, postgres_cursor, question_answer_has_been_graded, question_answer_provided_is_correct, uuid_question, user_uuid):
-  print('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function START ===========================================')
+  localhost_print_function('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
@@ -15,15 +15,13 @@ def update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_co
 
     # ------------------------ Query Result START ------------------------
     postgres_connection.commit()
-    output_message = 'Updated DB with grading for user-question'
-    print('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function END ===========================================')
-    return output_message
+    localhost_print_function('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function END ===========================================')
+    return True
     # ------------------------ Query Result END ------------------------
 
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      output_message = 'Did not update DB'
-      print('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function END ===========================================')
-      return output_message
+      localhost_print_function('=========================================== update_triviafy_quiz_answers_master_table_graded_answer_function END ===========================================')
+      return None

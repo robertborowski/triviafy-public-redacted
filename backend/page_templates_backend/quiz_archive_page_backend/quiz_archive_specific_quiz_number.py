@@ -13,6 +13,7 @@ from backend.db.queries.select_queries.select_triviafy_all_questions_table_quest
 from backend.db.queries.select_queries.select_triviafy_quiz_answers_master_table_user_answer import select_triviafy_quiz_answers_master_table_user_answer_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_archive_specific_quiz_number = Blueprint("quiz_archive_specific_quiz_number", __name__, static_folder="static", template_folder="templates")
@@ -26,7 +27,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_archive_specific_quiz_number.route("/quiz/archive/<html_variable_quiz_number>", methods=['GET','POST'])
 def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
-  print('=========================================== /quiz/archive/<html_variable_quiz_number> Page START ===========================================')
+  localhost_print_function('=========================================== /quiz/archive/<html_variable_quiz_number> Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -86,8 +87,8 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
 
     # Check to make sure archive quiz number is correct
     if int_quiz_number != link_selected_company_quiz_count:
-      print('quiz link int does not match pulled quiz int number')
-      print('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
+      localhost_print_function('quiz link int does not match pulled quiz int number')
+      localhost_print_function('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
       return redirect('/', code=302)
     # ------------------------ Get Info From triviafy_quiz_master_table END ------------------------
 
@@ -140,14 +141,14 @@ def quiz_archive_specific_quiz_number_function(html_variable_quiz_number):
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
+  localhost_print_function('=========================================== /quiz/archive/<html_variable_quiz_number> Page END ===========================================')
   return render_template('quiz_archive_page_templates/quiz_archive_specific_version.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

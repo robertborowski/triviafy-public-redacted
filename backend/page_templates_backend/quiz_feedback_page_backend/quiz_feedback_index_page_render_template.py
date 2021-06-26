@@ -10,6 +10,7 @@ from backend.db.queries.select_queries.select_latest_feedback_user_uuid import s
 from datetime import date, datetime
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_index_page_render_template = Blueprint("quiz_feedback_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -23,7 +24,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_feedback_index_page_render_template.route("/quiz/team/feedback", methods=['GET','POST'])
 def quiz_feedback_index_page_render_template_function():
-  print('=========================================== /quiz/team/feedback Page START ===========================================')
+  localhost_print_function('=========================================== /quiz/team/feedback Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -63,13 +64,13 @@ def quiz_feedback_index_page_render_template_function():
     # Select latest feedback data based on uuid
     latest_feedback_from_user_uuid = select_latest_feedback_user_uuid_function(postgres_connection, postgres_cursor, user_uuid)
 
-    if latest_feedback_from_user_uuid != 'User has not submitted any feedback yet today' and latest_feedback_from_user_uuid[0] != None:
+    if latest_feedback_from_user_uuid != None and latest_feedback_from_user_uuid[0] != None:
       today = date.today().strftime('%Y-%m-%d')
       latest_feedback_from_user_uuid = latest_feedback_from_user_uuid[0].strftime('%Y-%m-%d')
       
       if today == latest_feedback_from_user_uuid:
-        print('user already submitted feedback today')
-        print('=========================================== /quiz/team/feedback Page END ===========================================')
+        localhost_print_function('user already submitted feedback today')
+        localhost_print_function('=========================================== /quiz/team/feedback Page END ===========================================')
         return redirect('/quiz/team/feedback/submit', code=302)
     
     # Close postgres db connection
@@ -78,13 +79,13 @@ def quiz_feedback_index_page_render_template_function():
 
     
   except:
-    print('page load except error hit')
-    print('=========================================== /quiz/team/feedback Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /quiz/team/feedback Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  print('=========================================== /quiz/team/feedback Page END ===========================================')
+  localhost_print_function('=========================================== /quiz/team/feedback Page END ===========================================')
   return render_template('quiz_feedback_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

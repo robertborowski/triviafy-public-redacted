@@ -10,6 +10,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.insert_queries.insert_triviafy_quiz_feedback_responses_table import insert_triviafy_quiz_feedback_responses_table_function
 from backend.utils.sanitize_user_inputs.sanitize_feedback_user import sanitize_feedback_user_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 quiz_feedback_processing = Blueprint("quiz_feedback_processing", __name__, static_folder="static", template_folder="templates")
@@ -23,7 +24,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @quiz_feedback_processing.route("/quiz/team/feedback/processing", methods=['GET','POST'])
 def quiz_feedback_processing_function():
-  print('=========================================== /quiz/team/feedback/processing Page START ===========================================')
+  localhost_print_function('=========================================== /quiz/team/feedback/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -70,7 +71,6 @@ def quiz_feedback_processing_function():
     
     # Insert feedback to DB
     output_message = insert_triviafy_quiz_feedback_responses_table_function(postgres_connection, postgres_cursor, user_feedback_uuid, user_feedback_timestamp, user_uuid, user_input_feedback_form)
-    print(output_message)
     
     # Close postgres db connection
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -78,11 +78,11 @@ def quiz_feedback_processing_function():
 
     
   except:
-    print('page load except error hit')
-    print('=========================================== /quiz/team/feedback/processing Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /quiz/team/feedback/processing Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  print('=========================================== /quiz/team/feedback/processing Page END ===========================================')
+  localhost_print_function('=========================================== /quiz/team/feedback/processing Page END ===========================================')
   return redirect('/quiz/team/feedback/submit', code=302)

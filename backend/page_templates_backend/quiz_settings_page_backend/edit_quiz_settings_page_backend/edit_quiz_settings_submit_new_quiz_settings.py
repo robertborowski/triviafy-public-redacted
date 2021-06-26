@@ -14,6 +14,7 @@ from backend.utils.sanitize_user_inputs.sanitize_edit_quiz_setting_num_questions
 from backend.db.queries.update_queries.update_edit_quiz_settings import update_edit_quiz_settings_function
 from backend.utils.quiz_settings_page_utils.convert_form_results_to_db_inputs import convert_form_results_to_db_inputs_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 edit_quiz_settings_submit_new_quiz_settings = Blueprint("edit_quiz_settings_submit_new_quiz_settings", __name__, static_folder="static", template_folder="templates")
@@ -27,7 +28,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @edit_quiz_settings_submit_new_quiz_settings.route("/quiz/team/settings/payment/admin/edit/submit/processing", methods=['GET','POST'])
 def edit_quiz_settings_submit_new_quiz_settings_function():
-  print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page START ===========================================')
+  localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -61,8 +62,8 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
     # See if user is payment admin. If not then they cannot edit quiz settings
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     if user_payment_admin_status != True:
-      print('User is not a payment admin on their team/channel ID combo')
-      print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
+      localhost_print_function('User is not a payment admin on their team/channel ID combo')
+      localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
       return redirect('/quiz/team/settings', code=302)
     # ------------------------ Check if user is payment admin in END ------------------------
 
@@ -77,7 +78,7 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
 
     # ------------------------ Invalid Inputs START ------------------------
     if user_form_input_quiz_start_day == None or user_form_input_quiz_start_time == None or user_form_input_quiz_end_day == None or user_form_input_quiz_end_time == None or user_form_input_quiz_num_questions == None:
-      print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
+      localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
       return redirect('/', code=302)
     # ------------------------ Invalid Inputs END ------------------------
 
@@ -131,7 +132,8 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
     
     # Check if time is the same on the same day error
     if (user_form_input_quiz_start_time == user_form_input_quiz_end_time) and (user_form_input_quiz_start_day == user_form_input_quiz_end_day):
-      print('quiz start/end time cannot be the same on the same day')
+      localhost_print_function('quiz start/end time cannot be the same on the same day')
+      pass
     
     # Check if quiz times make sense
     quiz_start_time_index = quiz_settings_logic_time_dict[user_form_input_quiz_start_time]
@@ -172,11 +174,11 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  print('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
+  localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
   return redirect('/quiz/team/settings', code=302)

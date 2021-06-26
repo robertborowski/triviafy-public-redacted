@@ -8,6 +8,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.select_triviafy_waitlist_create_question_table_check_if_uuid_exists import select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 waitlist_create_question_confirm_on_waitlist_page_render_template = Blueprint("waitlist_create_question_confirm_on_waitlist_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -21,7 +22,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @waitlist_create_question_confirm_on_waitlist_page_render_template.route("/create/question/user/waitlist/confirm", methods=['GET','POST'])
 def waitlist_create_question_confirm_on_waitlist_page_render_template_function():
-  print('=========================================== /create/question/user/waitlist/confirm Page START ===========================================')
+  localhost_print_function('=========================================== /create/question/user/waitlist/confirm Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -49,8 +50,8 @@ def waitlist_create_question_confirm_on_waitlist_page_render_template_function()
     user_uuid = user_nested_dict['user_uuid']
 
   except:
-    print('page load except error hit')
-    print('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
@@ -64,10 +65,9 @@ def waitlist_create_question_confirm_on_waitlist_page_render_template_function()
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  if if_uuid_exists != 'User already exists in db table':
-    print(if_uuid_exists)
-    print('redirecting user to the waitlist signup page')
-    print('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
+  if if_uuid_exists != True:
+    localhost_print_function('redirecting user to the waitlist signup page')
+    localhost_print_function('=========================================== /create/question/user/waitlist/confirm Page END ===========================================')
     return redirect('/create/question/user/waitlist', code=302)
   # ------------------------ Check if user is already on this waitlist END ------------------------
 

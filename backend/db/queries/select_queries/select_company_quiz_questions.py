@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_company_quiz_questions_function(postgres_connection, postgres_cursor, quiz_question_ids_arr, quiz_number_of_questions):
-  print('=========================================== select_company_quiz_questions_function START ===========================================')
+  localhost_print_function('=========================================== select_company_quiz_questions_function START ===========================================')
 
   try:
     # ------------------------ Dict Cursor START ------------------------
@@ -35,7 +35,7 @@ def select_company_quiz_questions_function(postgres_connection, postgres_cursor,
       result_arr_dicts.append(dict(row))
     
     # Retunr results dict
-    print('=========================================== select_company_quiz_questions_function END ===========================================')
+    localhost_print_function('=========================================== select_company_quiz_questions_function END ===========================================')
     return result_arr_dicts
     # ------------------------ Query Result END ------------------------
 
@@ -43,5 +43,5 @@ def select_company_quiz_questions_function(postgres_connection, postgres_cursor,
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_company_quiz_questions_function END ===========================================')
+      localhost_print_function('=========================================== select_company_quiz_questions_function END ===========================================')
       return None

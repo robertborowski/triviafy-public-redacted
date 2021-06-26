@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function(postgres_connection, postgres_cursor, user_uuid):
-  print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function START ===========================================')
+  localhost_print_function('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function START ===========================================')
   try:
     # ------------------------ Query START ------------------------
     postgres_cursor.execute("SELECT * FROM triviafy_waitlist_create_question_table WHERE waitlist_user_uuid_signed_up=%s", [user_uuid])
@@ -15,17 +15,16 @@ def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
     # ------------------------ Query Result START ------------------------
     result_row = postgres_cursor.fetchone()
     if result_row == None or result_row == []:
-      print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
-      return 'User does not exists in db table yet'
+      localhost_print_function('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
+      return None
     
-    print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
-    return 'User already exists in db table'
+    localhost_print_function('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
+    return True
     # ------------------------ Query Result END ------------------------
   
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: Account does not yet exist! ', error)
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
-      return 'User does not exists in db table yet'
+      localhost_print_function('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
+      return None

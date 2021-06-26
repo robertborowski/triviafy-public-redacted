@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_triviafy_all_questions_table_question_info_function(postgres_connection, postgres_cursor, question_id):
-  print('=========================================== select_triviafy_all_questions_table_question_info_function START ===========================================')
+  localhost_print_function('=========================================== select_triviafy_all_questions_table_question_info_function START ===========================================')
 
   try:
     # ------------------------ Dict Cursor START ------------------------
@@ -28,7 +28,7 @@ def select_triviafy_all_questions_table_question_info_function(postgres_connecti
       result_arr_dicts.append(dict(row))
     
     # Return results dict
-    print('=========================================== select_triviafy_all_questions_table_question_info_function END ===========================================')
+    localhost_print_function('=========================================== select_triviafy_all_questions_table_question_info_function END ===========================================')
     return result_arr_dicts
     # ------------------------ Query Result END ------------------------
 
@@ -36,5 +36,5 @@ def select_triviafy_all_questions_table_question_info_function(postgres_connecti
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_triviafy_all_questions_table_question_info_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_all_questions_table_question_info_function END ===========================================')
       return None

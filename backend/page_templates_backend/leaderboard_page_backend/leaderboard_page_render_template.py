@@ -11,6 +11,7 @@ from backend.db.queries.select_queries.select_total_user_quiz_wins import select
 from backend.db.queries.select_queries.select_total_user_correct_quiz_answers import select_total_user_correct_quiz_answers_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 leaderboard_page_render_template = Blueprint("leaderboard_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -24,7 +25,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @leaderboard_page_render_template.route("/leaderboard", methods=['GET','POST'])
 def leaderboard_page_render_template_function():
-  print('=========================================== /leaderboard Page START ===========================================')
+  localhost_print_function('=========================================== /leaderboard Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -96,14 +97,14 @@ def leaderboard_page_render_template_function():
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /leaderboard Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /leaderboard Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
 
   
-  print('=========================================== /leaderboard Page END ===========================================')
+  localhost_print_function('=========================================== /leaderboard Page END ===========================================')
   return render_template('leaderboad_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

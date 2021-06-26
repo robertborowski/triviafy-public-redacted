@@ -15,10 +15,11 @@ from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_f
 from backend.db.queries.insert_queries.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 from backend.db.queries.insert_queries.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
 from backend.utils.slack.send_team_channel_message_utils.send_team_channel_message_quiz_open import send_team_channel_message_quiz_open_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_open_send_email_function():
-  print('=========================================== job_daily_quiz_open_send_email_function START ===========================================')
+  localhost_print_function('=========================================== job_daily_quiz_open_send_email_function START ===========================================')
 
   # ------------------------ Get Today's Date START ------------------------
   # Today's date
@@ -27,8 +28,8 @@ def job_daily_quiz_open_send_email_function():
   today_day_of_week = today_date.strftime('%A')
 
   if today_day_of_week == 'Saturday' or today_day_of_week == 'Sunday':
-    print('Today is Saturday or Sunday.')
-    print('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
+    localhost_print_function('Today is Saturday or Sunday.')
+    localhost_print_function('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
     return True
   # ------------------------ Get Today's Date END ------------------------
 
@@ -107,13 +108,11 @@ def job_daily_quiz_open_send_email_function():
             output_message_content_str_for_db = output_message_content
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
-            print(email_sent_successfully)
 
             # Insert this sent email into DB
             uuid_email_sent = create_uuid_function('email_sent_')
             email_sent_timestamp = create_timestamp_function()
             output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, company_user_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-            print(output_message)
             # ------------------------ Send Account Created Email END ------------------------
         # ------------------------ Loop Through Each Company User END ------------------------
         
@@ -124,13 +123,11 @@ def job_daily_quiz_open_send_email_function():
 
         if check_if_slack_message_already_sent_to_company_user == None:
           result, output_message_content_str_for_db = send_team_channel_message_quiz_open_function(company_user_slack_access_token, quiz_slack_channel_id, quiz_end_day_of_week, quiz_end_time)
-          print(result)
 
           # Insert this sent email into DB
           uuid_slack_message_sent = create_uuid_function('slack_sent_')
           slack_message_sent_timestamp = create_timestamp_function()
           output_message = insert_triviafy_slack_messages_sent_table_function(postgres_connection, postgres_cursor, uuid_slack_message_sent, slack_message_sent_timestamp, company_user_uuid, slack_message_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-          print(output_message)
         # ------------------------ Send Account Slack Message START ------------------------
 
 
@@ -142,7 +139,7 @@ def job_daily_quiz_open_send_email_function():
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
-  print('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
+  localhost_print_function('=========================================== job_daily_quiz_open_send_email_function END ===========================================')
   return True
 
 

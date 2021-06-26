@@ -7,16 +7,18 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.make_company_latest_quiz import make_company_latest_quiz_function
 import os
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def job_weekly_make_latest_quizzes_for_all_companies_function():
-  print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function START ===========================================')
+  localhost_print_function('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function START ===========================================')
   
   # ------------------------ Running on localhost START ------------------------
   # Check environment variable that was passed in from user on the command line
   server_env = os.environ.get('TESTING', 'false')
   if server_env and server_env == 'true':
-    print('testing mode')
+    localhost_print_function('testing mode')
+    pass
   # ------------------------ Running on localhost END ------------------------
 
 
@@ -28,8 +30,8 @@ def job_weekly_make_latest_quizzes_for_all_companies_function():
     today_day_of_week = today_date.strftime('%A')
 
     if today_day_of_week != 'Sunday':
-      print('Today is not sunday.')
-      print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
+      localhost_print_function('Today is not sunday.')
+      localhost_print_function('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
       return True
   # ------------------------ Get Today's Date END ------------------------
 
@@ -61,16 +63,17 @@ def job_weekly_make_latest_quizzes_for_all_companies_function():
     # Check if a quiz was already made for this company
     latest_company_quiz_object = get_latest_company_quiz_if_exists_function(function_input_dict)
     if latest_company_quiz_object != None:
-      print('There is already a latest quiz made for this company.')
+      localhost_print_function('There is already a latest quiz made for this company.')
+      pass
     # ------------------------ Check If Latest Quiz Already Exists END ------------------------
     # ------------------------ Make The Latest Quiz For The Week START ------------------------
     else:
       latest_company_quiz_object = make_company_latest_quiz_function(function_input_dict, indv_company_quiz_settings_arr)
-      print('Made the latest company quiz from scratch and stored in DB')
+      localhost_print_function('Made the latest company quiz from scratch and stored in DB')
     # ------------------------ Make The Latest Quiz For The Week END ------------------------
   # ------------------------ Make Quiz For Every Company This Week END ------------------------
 
-  print('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
+  localhost_print_function('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function END ===========================================')
   return True
 
 

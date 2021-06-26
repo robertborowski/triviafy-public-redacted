@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres_connection, postgres_cursor, question_id, user_uuid):
-  print('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz START ===========================================')
+  localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -17,10 +17,10 @@ def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
     if result_arr == None or result_arr == []:
-      print('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')
       return None
 
-    print('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')  
+    localhost_print_function('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')  
     return result_arr
     # ------------------------ Query Result END ------------------------
   
@@ -28,5 +28,5 @@ def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz END ===========================================')
       return None

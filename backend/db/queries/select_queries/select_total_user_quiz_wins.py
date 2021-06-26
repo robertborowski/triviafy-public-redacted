@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_total_user_quiz_wins_function(postgres_connection, postgres_cursor, user_uuid):
-  print('=========================================== select_total_user_quiz_wins_function START ===========================================')
+  localhost_print_function('=========================================== select_total_user_quiz_wins_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
@@ -17,10 +17,10 @@ def select_total_user_quiz_wins_function(postgres_connection, postgres_cursor, u
     result_row = postgres_cursor.fetchone()
     
     if result_row == None or result_row == []:
-      print('=========================================== select_total_user_quiz_wins_function END ===========================================')
+      localhost_print_function('=========================================== select_total_user_quiz_wins_function END ===========================================')
       return 0
     
-    print('=========================================== select_total_user_quiz_wins_function END ===========================================')
+    localhost_print_function('=========================================== select_total_user_quiz_wins_function END ===========================================')
     return result_row
     # ------------------------ Query Result END ------------------------
   
@@ -28,5 +28,5 @@ def select_total_user_quiz_wins_function(postgres_connection, postgres_cursor, u
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_total_user_quiz_wins_function END ===========================================')
+      localhost_print_function('=========================================== select_total_user_quiz_wins_function END ===========================================')
       return result_row

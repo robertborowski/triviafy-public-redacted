@@ -5,7 +5,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 
 # -------------------------------------------------------------- Main Function
 def select_triviafy_sample_questions_table_all_function(postgres_connection, postgres_cursor):
-  print('=========================================== select_triviafy_sample_questions_table_all_function START ===========================================')
+  localhost_print_function('=========================================== select_triviafy_sample_questions_table_all_function START ===========================================')
   
   try:
     # ------------------------ Query START ------------------------
@@ -17,10 +17,10 @@ def select_triviafy_sample_questions_table_all_function(postgres_connection, pos
     # Get the results arr
     result_arr = postgres_cursor.fetchall()
     if result_arr == None or result_arr == []:
-      print('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
       return None
 
-    print('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
+    localhost_print_function('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
     return result_arr
     # ------------------------ Query Result END ------------------------
   
@@ -28,5 +28,5 @@ def select_triviafy_sample_questions_table_all_function(postgres_connection, pos
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      print('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
+      localhost_print_function('=========================================== select_triviafy_sample_questions_table_all_function END ===========================================')
       return None

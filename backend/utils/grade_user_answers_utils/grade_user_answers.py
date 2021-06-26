@@ -5,10 +5,11 @@ from backend.db.queries.select_queries.select_triviafy_quiz_answers_master_table
 from backend.utils.grade_user_answers_utils.check_user_answer_vs_admin_answer import check_user_answer_vs_admin_answer_function
 from backend.db.queries.update_queries.update_triviafy_quiz_answers_master_table_graded_answer import update_triviafy_quiz_answers_master_table_graded_answer_function
 from backend.utils.grade_user_answers_utils.check_if_admin_answer_is_arr_of_answers import check_if_admin_answer_is_arr_of_answers_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def grade_user_answers_function(uuid_quiz, user_uuid):
-  print('=========================================== grade_user_answers_function START ===========================================')
+  localhost_print_function('=========================================== grade_user_answers_function START ===========================================')
   # ------------------------ Open Connections START ------------------------
   # Connect to Postgres database
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
@@ -56,14 +57,12 @@ def grade_user_answers_function(uuid_quiz, user_uuid):
           question_answer_has_been_graded = True
           question_answer_provided_is_correct = True
           output_message = update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_connection, postgres_cursor, question_answer_has_been_graded, question_answer_provided_is_correct, uuid_question, user_uuid)
-          print(output_message)
           # continue
           break
         else:
           question_answer_has_been_graded = True
           question_answer_provided_is_correct = False
           output_message = update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_connection, postgres_cursor, question_answer_has_been_graded, question_answer_provided_is_correct, uuid_question, user_uuid)
-          print(output_message)
 
     if question_has_multiple_answers == False:
       # Run all checks against the user-answer-attempt vs the admin-correct-answer
@@ -72,13 +71,11 @@ def grade_user_answers_function(uuid_quiz, user_uuid):
         question_answer_has_been_graded = True
         question_answer_provided_is_correct = True
         output_message = update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_connection, postgres_cursor, question_answer_has_been_graded, question_answer_provided_is_correct, uuid_question, user_uuid)
-        print(output_message)
         # continue
       else:
         question_answer_has_been_graded = True
         question_answer_provided_is_correct = False
         output_message = update_triviafy_quiz_answers_master_table_graded_answer_function(postgres_connection, postgres_cursor, question_answer_has_been_graded, question_answer_provided_is_correct, uuid_question, user_uuid)
-        print(output_message)
     # ------------------------ Run Checks For All Answers END ------------------------
   # ------------------------ Pull All Answers At User-Quiz Level END ------------------------
 
@@ -88,6 +85,6 @@ def grade_user_answers_function(uuid_quiz, user_uuid):
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Close Connections END ------------------------
 
-  print('=========================================== grade_user_answers_function END ===========================================')
+  localhost_print_function('=========================================== grade_user_answers_function END ===========================================')
   output_message = 'Graded all responses for this user-quiz'
   return output_message

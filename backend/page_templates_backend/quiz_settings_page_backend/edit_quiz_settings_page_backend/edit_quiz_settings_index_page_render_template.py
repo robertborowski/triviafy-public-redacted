@@ -9,6 +9,7 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 edit_quiz_settings_index_page_render_template = Blueprint("edit_quiz_settings_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -22,7 +23,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @edit_quiz_settings_index_page_render_template.route("/quiz/team/settings/payment/admin/edit", methods=['GET','POST'])
 def edit_quiz_settings_index_page_render_template_function():
-  print('=========================================== /quiz/team/settings/payment/admin/edit Page START ===========================================')
+  localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -52,8 +53,8 @@ def edit_quiz_settings_index_page_render_template_function():
     # See if user is payment admin. If not then they cannot edit quiz settings
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     if user_payment_admin_status != True:
-      print('User is not a payment admin on their team/channel ID combo')
-      print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
+      localhost_print_function('User is not a payment admin on their team/channel ID combo')
+      localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
       return redirect('/quiz/team/settings', code=302)
     # ------------------------ Check if user is payment admin in END ------------------------
 
@@ -85,13 +86,13 @@ def edit_quiz_settings_index_page_render_template_function():
     # ------------------------ Get Quiz Settings Info END ------------------------
     
   except:
-    print('page load except error hit')
-    print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  print('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
+  localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit Page END ===========================================')
   return render_template('quiz_settings_page_templates/edit_quiz_settings_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
