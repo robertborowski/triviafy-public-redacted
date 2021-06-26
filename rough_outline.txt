@@ -9,8 +9,7 @@ POSSIBLE GREY AREA
 =========================================
 To-Do's
 
--Claim Prize page
--Stripe setup / Subscription page
+-Stripe setup / Subscription page --> Cannot setup Stripe unless it is a legit LLC business. Use Pay-Pal invoices instead.
 -Test Slack app on another computer like Daniel signing up with coderbyte
 -Release app to Slack app store
 

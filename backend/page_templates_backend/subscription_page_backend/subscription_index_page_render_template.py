@@ -5,6 +5,9 @@ from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
+from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
+from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
+from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_payment_admins_with_email import select_triviafy_user_login_information_table_slack_all_payment_admins_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
@@ -41,9 +44,36 @@ def subscription_index_page_render_template_function():
 
     # ------------------------ Get Variables From User Nested Dict START ------------------------
     user_payment_admin_status = user_nested_dict['user_is_payment_admin']
+    slack_workspace_team_id = user_nested_dict['slack_team_id']
+    slack_channel_id = user_nested_dict['slack_channel_id']
     # ------------------------ Get Variables From User Nested Dict END ------------------------
 
+
+    # ------------------------ Connect to DB START ------------------------
+    # Connect to Postgres database
+    postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+    # ------------------------ Connect to DB END ------------------------
+
+
+    # ------------------------ SQL Pull Data START ------------------------
+    all_team_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+
+    localhost_print_function('- - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - -')
+    localhost_print_function(all_team_payment_admins_arr)
+    localhost_print_function('- - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - -')
     
+    all_team_payment_admin_emails_arr = []
+    for i in all_team_payment_admins_arr:
+      all_team_payment_admin_emails_arr.append(i[2])
+    # ------------------------ SQL Pull Data END ------------------------
+
+
+    # ------------------------ Close Connection to DB START ------------------------
+    # Close postgres db connection
+    postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+    # ------------------------ Close Connection to DB END ------------------------    
     
   except:
     localhost_print_function('page load except error hit')
@@ -57,4 +87,5 @@ def subscription_index_page_render_template_function():
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          user_payment_admin_status_html = user_payment_admin_status)
+                          user_payment_admin_status_html = user_payment_admin_status,
+                          all_team_payment_admin_emails_arr_to_html = all_team_payment_admin_emails_arr)

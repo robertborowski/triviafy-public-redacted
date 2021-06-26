@@ -1,7 +1,7 @@
 {% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
-<title>Quiz Settings / Triviafy</title>
+<title>Subscription / Triviafy</title>
 {% endblock %}
 
 
@@ -30,12 +30,36 @@
 
   <div class="template-page-intro-background box-shadow-sm-black">
     <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-quiz-settings"id='words-stroke-shadow'>Subscription</p>
+      <p class="template-page-intro-title template-page-intro-title-quiz-feedback" id='words-stroke-shadow'>Subscription</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
 
-  
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form Start -->
+  <form action="#" method="post" class='subscription-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+    
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Text Box Start -->
+    <div class="subscription-section box-shadow-reg-grey box-shadow-rounded">
+      <label for="user_input_quiz_feedback"><p class="subscription-section-description">Subscription Invoicing</p></label>
+      <p class="subscription-section-sub-description">Every month your team's Payment Admin's will be sent an invoice, through PayPal, of $199 (+ taxes/fees).</p>
+      <p class="subscription-section-payment-admin-title">Payment Admin Emails</p>
+      {% for i in all_team_payment_admin_emails_arr_to_html %}
+      <p class="subscription-section-payment-admin-item">{{ i }}</p>
+      {% endfor %}
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Text Box End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
+    <div class="subscription-paypal-section">
+      <img src="/static/images/logo/paypal_logo/Paypal_logo.png" alt="PayPal Logo" class="subscription-paypal-img">
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
+
+
+  </form>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form End -->
 </main>
 
 <footer-signed-in-component></footer-signed-in-component>
