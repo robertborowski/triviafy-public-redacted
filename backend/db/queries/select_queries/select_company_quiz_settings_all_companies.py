@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_company_quiz_settings_all_companies_function(postgres_connection, postgres_cursor):
   print('=========================================== select_company_quiz_settings_all_companies_function START ===========================================')
   
@@ -25,5 +28,6 @@ def select_company_quiz_settings_all_companies_function(postgres_connection, pos
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print('Status: Company quiz settings do not exists in db table yet! ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_company_quiz_settings_all_companies_function END ===========================================')
       return None

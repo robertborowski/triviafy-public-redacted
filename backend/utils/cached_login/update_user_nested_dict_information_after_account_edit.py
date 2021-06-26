@@ -4,10 +4,11 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_login_info_one_user import select_triviafy_user_login_information_table_slack_all_login_info_one_user_function
 import os
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def update_user_nested_dict_information_after_account_edit_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid):
-  print('=========================================== update_user_nested_dict_information_after_account_edit_function START ===========================================')
+  localhost_print_function('=========================================== update_user_nested_dict_information_after_account_edit_function START ===========================================')
   
   # Pull all login information from DB
   pulled_user_arr = select_triviafy_user_login_information_table_slack_all_login_info_one_user_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid)
@@ -40,9 +41,6 @@ def update_user_nested_dict_information_after_account_edit_function(postgres_con
   server_env = os.environ.get('TESTING', 'false')
   # If running on localhost
   if server_env == 'true':
-    print('- - - - - - - - - - - -')
-    print('running on local host')
-    print('- - - - - - - - - - - -')
     # Connect to redis database pool (no need to close)
     redis_connection = redis_connect_to_database_function()
 
@@ -51,17 +49,15 @@ def update_user_nested_dict_information_after_account_edit_function(postgres_con
     get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
 
   # -------------------------------------------------------------- NOT running on localhost
+  # If running on production
   else:
-    print('- - - - - - - - - - - -')
-    print('running on production')
-    print('- - - - - - - - - - - -')
     get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
     pass
   # ------------------------ Check Server Running END ------------------------
 
   # Store in redis
   user_store_in_redis_status = user_store_loggedin_data_redis_function(user_dict, get_cookie_value_from_browser)
-  print(user_store_in_redis_status)
   
-  print('=========================================== update_user_nested_dict_information_after_account_edit_function END ===========================================')
-  return "Updated Redis with new account information"
+  
+  localhost_print_function('=========================================== update_user_nested_dict_information_after_account_edit_function END ===========================================')
+  return True

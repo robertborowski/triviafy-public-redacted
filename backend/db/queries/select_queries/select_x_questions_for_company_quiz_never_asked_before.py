@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error, extras
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions):
   print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function START ===========================================')
   try:
@@ -31,6 +34,6 @@ def select_x_questions_for_company_quiz_never_asked_before_function(postgres_con
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_x_questions_for_company_quiz_never_asked_before_function END ===========================================')
       return 'none'

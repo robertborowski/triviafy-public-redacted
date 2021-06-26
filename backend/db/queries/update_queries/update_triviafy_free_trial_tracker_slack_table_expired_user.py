@@ -16,7 +16,6 @@ def update_triviafy_free_trial_tracker_slack_table_expired_user_function(postgre
 
     # ------------------------ Query Result START ------------------------
     postgres_connection.commit()
-    localhost_print_function('Updated Information')
     localhost_print_function('=========================================== update_triviafy_free_trial_tracker_slack_table_expired_user_function END ===========================================')
     return True
     # ------------------------ Query Result END ------------------------

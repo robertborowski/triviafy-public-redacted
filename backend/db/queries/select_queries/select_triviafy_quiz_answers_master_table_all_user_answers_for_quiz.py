@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres_connection, postgres_cursor, question_id, user_uuid):
   print('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz START ===========================================')
   
@@ -24,6 +27,6 @@ def select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz(postgres
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz END ===========================================')
       return None

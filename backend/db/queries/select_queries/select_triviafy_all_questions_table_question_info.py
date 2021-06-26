@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error, extras
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_triviafy_all_questions_table_question_info_function(postgres_connection, postgres_cursor, question_id):
   print('=========================================== select_triviafy_all_questions_table_question_info_function START ===========================================')
 
@@ -32,6 +35,6 @@ def select_triviafy_all_questions_table_question_info_function(postgres_connecti
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_triviafy_all_questions_table_question_info_function END ===========================================')
       return None

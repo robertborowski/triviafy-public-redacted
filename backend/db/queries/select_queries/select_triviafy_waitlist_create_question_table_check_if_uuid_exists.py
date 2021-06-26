@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function(postgres_connection, postgres_cursor, user_uuid):
   print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function START ===========================================')
   try:
@@ -23,5 +26,6 @@ def select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print('Status: Account does not yet exist! ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function END ===========================================')
       return 'User does not exists in db table yet'

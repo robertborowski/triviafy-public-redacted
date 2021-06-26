@@ -1,7 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
-import psycopg2.extras
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def update_edit_quiz_settings_function(postgres_connection, postgres_cursor, company_quiz_settings_last_updated_timestamp, converted_start_day, converted_start_time, converted_end_day, converted_end_time, user_form_input_quiz_num_questions, uuid_company_quiz_settings):
   print('=========================================== update_edit_quiz_settings_function START ===========================================')
 
@@ -13,7 +15,6 @@ def update_edit_quiz_settings_function(postgres_connection, postgres_cursor, com
 
     # ------------------------ Query Result START ------------------------
     postgres_connection.commit()
-    print('Updated Information')
     print('=========================================== update_edit_quiz_settings_function END ===========================================')
     #return True
     # ------------------------ Query Result END ------------------------
@@ -21,6 +22,6 @@ def update_edit_quiz_settings_function(postgres_connection, postgres_cursor, com
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== update_edit_quiz_settings_function END ===========================================')
       #return 'none'

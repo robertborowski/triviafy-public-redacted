@@ -20,6 +20,7 @@ from backend.db.queries.update_queries.update_account_edit_settings_company_non_
 from backend.utils.cached_login.update_user_nested_dict_information_after_account_edit import update_user_nested_dict_information_after_account_edit_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 account_edit_settings_processing_changes_page_render_template = Blueprint("account_edit_settings_processing_changes_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -33,7 +34,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @account_edit_settings_processing_changes_page_render_template.route("/account/edit/settings/processing", methods=['GET','POST'])
 def account_edit_settings_processing_changes_page_render_template_function():
-  print('=========================================== /account/edit/settings/processing Page START ===========================================')
+  localhost_print_function('=========================================== /account/edit/settings/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -80,7 +81,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
     if user_is_payment_admin == True:
       user_input_quiz_settings_edit_company_name = request.form.get('user_input_account_settings_company_name')
       if user_input_quiz_settings_edit_company_name == user_company_name:
-        print('company name did not change')
+        localhost_print_function('company name did not change')
         pass
       else:
         account_settings_company_name_changed = True
@@ -91,7 +92,6 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
           # Update the company name
           output_message = update_account_edit_settings_company_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_company_name, slack_workspace_team_id, slack_channel_id)
-          print(output_message)
 
           # Close postgres db connection
           postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -101,7 +101,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
     # ------------------------ Sanitize/Update User First Name Input START ------------------------
     user_input_quiz_settings_edit_first_name = request.form.get('user_input_account_settings_first_name')
     if user_input_quiz_settings_edit_first_name == user_first_name:
-      print('user first name did not change')
+      localhost_print_function('user first name did not change')
       pass
     else:
       account_settings_first_name_changed = True
@@ -112,7 +112,6 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
         # Update the company name
         output_message = update_account_edit_settings_first_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_first_name, user_uuid)
-        print(output_message)
 
         # Close postgres db connection
         postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -122,7 +121,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
     # ------------------------ Sanitize/Update User Last Name Input START ------------------------
     user_input_quiz_settings_edit_last_name = request.form.get('user_input_account_settings_last_name')
     if user_input_quiz_settings_edit_last_name == user_last_name:
-      print('user last name did not change')
+      localhost_print_function('user last name did not change')
       pass
     else:
       account_settings_last_name_changed = True
@@ -133,7 +132,6 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
         # Update the company name
         output_message = update_account_edit_settings_last_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_last_name, user_uuid)
-        print(output_message)
 
         # Close postgres db connection
         postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -142,7 +140,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
     # ------------------------ Update User Full Name in DB START ------------------------
     if user_input_quiz_settings_edit_first_name == user_first_name and user_input_quiz_settings_edit_last_name == user_last_name:
-      print('user first and last name did not change')
+      localhost_print_function('user first and last name did not change')
     else:
       user_input_quiz_settings_edit_full_name = user_input_quiz_settings_edit_first_name + '_' + user_input_quiz_settings_edit_last_name
       # Connect to Postgres database
@@ -150,7 +148,6 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
       # Update the company name
       output_message = update_account_edit_settings_full_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_full_name, user_uuid)
-      print(output_message)
 
       # Close postgres db connection
       postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
@@ -184,7 +181,7 @@ def account_edit_settings_processing_changes_page_render_template_function():
           # If temp_uuid != None, means that user was selected on checkbox
           if temp_uuid_value_from_html != None:
             output_message = update_account_edit_settings_company_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
-            print('User has been changed to payment admin')
+            localhost_print_function('User has been changed to payment admin')
             try:
               redis_connection.delete(pulled_user_uuid)
             except:
@@ -193,34 +190,32 @@ def account_edit_settings_processing_changes_page_render_template_function():
           # If temp_uuid == None, means that user was not selected on checkbox
           else:
             company_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-            print('total user payment admins within company')
-            print(len(company_payment_admins_arr))
             # First check total user payment admins, has to be 2 or more in order to remove payment admin access
             if len(company_payment_admins_arr) >= 2:
               output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
-              print('User has been changed to NON payment admin')
+              localhost_print_function('User has been changed to NON payment admin')
               try:
                 redis_connection.delete(pulled_user_uuid)
               except:
                 pass
             else:
-              print('There must always be at least 1 payment admin for a company')
+              localhost_print_function('There must always be at least 1 payment admin for a company')
               pass
 
         except:
           company_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-          print('total user payment admins within company')
-          print(len(company_payment_admins_arr))
+          localhost_print_function('total user payment admins within company')
+          localhost_print_function(len(company_payment_admins_arr))
           # First check total user payment admins, has to be 2 or more in order to remove payment admin access
           if len(company_payment_admins_arr) >= 2:
             output_message = update_account_edit_settings_company_non_payment_admin_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, pulled_user_uuid)
-            print('User has been changed to NON payment admin')
+            localhost_print_function('User has been changed to NON payment admin')
             try:
               redis_connection.delete(pulled_user_uuid)
             except:
               pass
     else:
-      print('user is not a payment admin and cannot make changes to current payment admin access')
+      localhost_print_function('user is not a payment admin and cannot make changes to current payment admin access')
       pass
     # ------------------------ Update Payment Admins in DB END ------------------------
 
@@ -242,7 +237,6 @@ def account_edit_settings_processing_changes_page_render_template_function():
     # ------------------------ Update user_nested_dict Associated With Redis Cookie START ------------------------
     if account_settings_company_name_changed == True or account_settings_first_name_changed == True or account_settings_last_name_changed == True:
       output_message = update_user_nested_dict_information_after_account_edit_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id, user_uuid)
-      print(output_message)
     # ------------------------ Update user_nested_dict Associated With Redis Cookie END ------------------------
 
 
@@ -253,10 +247,10 @@ def account_edit_settings_processing_changes_page_render_template_function():
 
 
   except:
-    print('page load except error hit')
-    print('=========================================== /account/edit/settings/processing Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /account/edit/settings/processing Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
   
-  print('=========================================== /account/edit/settings/processing Page END ===========================================')
+  localhost_print_function('=========================================== /account/edit/settings/processing Page END ===========================================')
   return redirect('/account', code=302)

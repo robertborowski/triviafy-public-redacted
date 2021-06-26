@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_quiz_count_for_company_slack_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id):
   print('=========================================== select_quiz_count_for_company_slack_function START ===========================================')
   
@@ -26,5 +29,6 @@ def select_quiz_count_for_company_slack_function(postgres_connection, postgres_c
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print('Status: No quizs yet! ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_quiz_count_for_company_slack_function END ===========================================')
       return 0

@@ -1,10 +1,14 @@
+# -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+
+# -------------------------------------------------------------- Main Function
 def sanitize_account_edit_settings_company_name_function(user_input):
-  print('=========================================== sanitize_account_edit_settings_company_name_function START ===========================================')
+  localhost_print_function('=========================================== sanitize_account_edit_settings_company_name_function START ===========================================')
 
   # Check Character count limits
   if len(user_input) < 1 or len(user_input) > 50:
-    print('Answer cannot be blank or over 50 characters')
-    print('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
+    localhost_print_function('Answer cannot be blank or over 50 characters')
+    localhost_print_function('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
     return None
 
   # Replace any dashes or underscores with a space
@@ -20,8 +24,8 @@ def sanitize_account_edit_settings_company_name_function(user_input):
     # Check if word is alphnumeric
     check_is_only_alpha_numeric = user_input_words_arr[word].isalnum()
     if check_is_only_alpha_numeric == False:
-      print('Answer is not alpha-numeric')
-      print('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
+      localhost_print_function('Answer is not alpha-numeric')
+      localhost_print_function('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
       return None
     
     # Make word proper case
@@ -33,5 +37,5 @@ def sanitize_account_edit_settings_company_name_function(user_input):
   user_input_sanitize_output = "_".join(user_input_words_arr)
 
 
-  print('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
+  localhost_print_function('=========================================== sanitize_account_edit_settings_company_name_function END ===========================================')
   return user_input_sanitize_output

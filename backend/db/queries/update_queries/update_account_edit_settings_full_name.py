@@ -1,9 +1,11 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
-import psycopg2.extras
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def update_account_edit_settings_full_name_function(postgres_connection, postgres_cursor, user_input_quiz_settings_edit_full_name, user_uuid):
-  print('=========================================== update_account_edit_settings_full_name_function START ===========================================')
+  localhost_print_function('=========================================== update_account_edit_settings_full_name_function START ===========================================')
 
   try:
     # ------------------------ Query START ------------------------
@@ -13,14 +15,13 @@ def update_account_edit_settings_full_name_function(postgres_connection, postgre
 
     # ------------------------ Query Result START ------------------------
     postgres_connection.commit()
-    print('Updated Information')
-    print('=========================================== update_account_edit_settings_full_name_function END ===========================================')
+    localhost_print_function('=========================================== update_account_edit_settings_full_name_function END ===========================================')
     return True
     # ------------------------ Query Result END ------------------------
 
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
-      print('=========================================== update_account_edit_settings_full_name_function END ===========================================')
+      localhost_print_function('Except error hit: ', error)
+      localhost_print_function('=========================================== update_account_edit_settings_full_name_function END ===========================================')
       return None

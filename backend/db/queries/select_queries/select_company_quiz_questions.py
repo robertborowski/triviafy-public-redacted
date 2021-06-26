@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error, extras
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_company_quiz_questions_function(postgres_connection, postgres_cursor, quiz_question_ids_arr, quiz_number_of_questions):
   print('=========================================== select_company_quiz_questions_function START ===========================================')
 
@@ -39,6 +42,6 @@ def select_company_quiz_questions_function(postgres_connection, postgres_cursor,
 
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
-      print('Status: ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_company_quiz_questions_function END ===========================================')
       return None

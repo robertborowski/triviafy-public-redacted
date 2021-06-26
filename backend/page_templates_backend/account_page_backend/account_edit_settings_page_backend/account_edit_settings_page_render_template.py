@@ -12,6 +12,7 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 from backend.utils.account_page_uuid_mapping_check_utils.account_page_uuid_mapping_check import account_page_uuid_mapping_check_function
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 account_edit_settings_page_render_template = Blueprint("account_edit_settings_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -25,7 +26,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @account_edit_settings_page_render_template.route("/account/edit/settings", methods=['GET','POST'])
 def account_edit_settings_page_render_template_function():
-  print('=========================================== /account/edit/settings Page START ===========================================')
+  localhost_print_function('=========================================== /account/edit/settings Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -98,12 +99,12 @@ def account_edit_settings_page_render_template_function():
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
 
   except:
-    print('page load except error hit')
-    print('=========================================== /account/edit/settings Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /account/edit/settings Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
   
-  print('=========================================== /account/edit/settings Page END ===========================================')
+  localhost_print_function('=========================================== /account/edit/settings Page END ===========================================')
   return render_template('account_page_templates/account_edit_settings_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,

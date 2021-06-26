@@ -1,6 +1,9 @@
+# -------------------------------------------------------------- Imports
 import psycopg2
 from psycopg2 import Error
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
+# -------------------------------------------------------------- Main Function
 def select_triviafy_latest_quiz_info_all_companies_function(postgres_connection, postgres_cursor, monday_date, tuesday_date, wednesday_date, thursday_date, friday_date, saturday_date, sunday_date):
   print('=========================================== select_triviafy_latest_quiz_info_all_companies_function START ===========================================')
   
@@ -25,5 +28,6 @@ def select_triviafy_latest_quiz_info_all_companies_function(postgres_connection,
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       print('Status: No company quiz created yet for this week ', error)
+      localhost_print_function('Except error hit: ', error)
       print('=========================================== select_triviafy_latest_quiz_info_all_companies_function END ===========================================')
       return None
