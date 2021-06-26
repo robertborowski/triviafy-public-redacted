@@ -133,7 +133,8 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
     # Check if time is the same on the same day error
     if (user_form_input_quiz_start_time == user_form_input_quiz_end_time) and (user_form_input_quiz_start_day == user_form_input_quiz_end_day):
       localhost_print_function('quiz start/end time cannot be the same on the same day')
-      pass
+      localhost_print_function('=========================================== /quiz/team/settings/payment/admin/edit/submit/processing Page END ===========================================')
+      return redirect('/quiz/team/settings', code=302)
     
     # Check if quiz times make sense
     quiz_start_time_index = quiz_settings_logic_time_dict[user_form_input_quiz_start_time]
