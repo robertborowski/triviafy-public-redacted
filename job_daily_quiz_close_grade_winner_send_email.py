@@ -132,10 +132,10 @@ def job_daily_quiz_close_grade_winner_send_email_function():
             output_email = company_user_email
             output_subject_line = 'Triviafy ' + email_sent_search_category + ' - ' + quiz_end_date
             if winner_user_full_name == 'No Winner':
-              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nThere is '{winner_user_full_name}' for this week's Triviafy quiz. No one subitted a correct answer.\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nThere is '{winner_user_full_name}' for this week's Triviafy quiz. No one subitted a correct answer.\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/leaderboard \n\nBest,\nRob\nTriviafy your workspace."
               output_message_content_str_for_db = output_message_content
             else:
-              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nCongrats to team member '{winner_user_full_name}' for winning this week's Triviafy quiz!\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/ \n\nBest,\nRob\nTriviafy your workspace."
+              output_message_content = f"Hi {company_user_full_name},\n\nYour team's weekly Triviafy quiz has been graded!\n\nCongrats to team member '{winner_user_full_name}' for winning this week's Triviafy quiz!\n\nLogin to view your score and your team's Leaderboard: https://triviafy.com/leaderboard \n\nBest,\nRob\nTriviafy your workspace."
               output_message_content_str_for_db = output_message_content
 
             email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
