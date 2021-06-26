@@ -3,19 +3,23 @@
   text-align: center;
   color: var(--company-greyed-out-color);
   margin-top: 30px;
+  word-wrap: break-word;
 }
 .client-company-name {
   font-size: 40px;
   padding-bottom: 20px;
+  word-wrap: break-word;
 }
 .client-channel-name {
   font-size: 20px;
   padding-bottom: 20px;
+  word-wrap: break-word;
 }
 .client-free-trial-period {
   color: red;
   font-size: 13px;
   padding-bottom: 10px;
   display: block;
+  word-wrap: break-word;
 }
 /* - - - - - - - - - - Company and Channel name - End */
