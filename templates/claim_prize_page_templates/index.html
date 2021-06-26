@@ -1,7 +1,7 @@
 {% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
-<title>Quiz Feedback / Triviafy</title>
+<title>Claim Prize / Triviafy</title>
 {% endblock %}
 
 
@@ -30,40 +30,34 @@
 
   <div class="template-page-intro-background box-shadow-sm-black">
     <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-quiz-feedback" id='words-stroke-shadow'>Quiz Feedback</p>
+      <p class="template-page-intro-title template-page-intro-title-quiz-feedback" id='words-stroke-shadow'>Claim Prize</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
 
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Form Start -->
-  <form action="{{ url_for('quiz_feedback_processing.quiz_feedback_processing_function') }}" method="post" class='quiz-feedback-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form Start -->
+  <form action="#" method="post" class='claim-prize-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Text Box Start -->
-    <div class="question-feedback-section box-shadow-reg-grey box-shadow-rounded">
-      <label for="user_input_quiz_feedback"><p class="quiz-feedback-section-description">All Feedback</p></label>
-      <p class="quiz-feedback-section-sub-description">Type in the categories that you would want to see more of.</p>
-      <input type="text" id="user_input_quiz_feedback" name="user_input_quiz_feedback" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="280" pattern="[a-zA-z0-9 ]{1,280}">
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Text Box Start -->
+    <div class="claim-prize-section box-shadow-reg-grey box-shadow-rounded">
+      <label for="user_input_quiz_feedback"><p class="claim-prize-section-description">Claim My Gift Card Prizes</p></label>
+      <p class="claim-prize-section-sub-description">For every <span class="claim-prize-span">10th quiz win</span> that you achieve, we will send you a <span class="claim-prize-span">gift card</span>.</p>
+      <p class="claim-prize-section-sub-description">Your gift card prize will be sent to: <span class="claim-prize-span">{{ user_email_to_html }}</span></p>
+      <p class="claim-prize-section-sub-description">Look out for an email from: robert@triviafy.com by this Sunday.</p>
     </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Text Box End -->
-
-
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
-    <div class="button-section-middle">
-      <button class="button-default button-default-color-primary button-feedback-page" type="submit" value="submit">Submit</button>
-    </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Text Box End -->
 
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
     <div class="template-small-logo-caricature-section">
-      <img src="/static/images/logo/Logo_active/Logo_feedback_bubble.png" alt="Logo feedback" class="template-logo-caricature-img">
+      <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering" class="template-logo-caricature-img">
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
 
 
   </form>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Form End -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form End -->
 </main>
 
 <footer-signed-in-component></footer-signed-in-component>

@@ -50,6 +50,8 @@ from backend.page_templates_backend.sample_quiz_page_backend.sample_quiz_index_p
 from backend.page_templates_backend.sample_quiz_page_backend.grade_sample_quiz_page_backend.sample_quiz_graded_index_page_render_template import sample_quiz_graded_index_page_render_template
 # Subscription pages
 from backend.page_templates_backend.subscription_page_backend.subscription_index_page_render_template import subscription_index_page_render_template
+# Claim Prize pages
+from backend.page_templates_backend.claim_prize_page_backend.claim_prize_index_page_render_template import claim_prize_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -125,6 +127,8 @@ app.register_blueprint(sample_quiz_index_page_render_template, url_prefix="")
 app.register_blueprint(sample_quiz_graded_index_page_render_template, url_prefix="")
 # Subscription pages
 app.register_blueprint(subscription_index_page_render_template, url_prefix="")
+# Claim Prize pages
+app.register_blueprint(claim_prize_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
