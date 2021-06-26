@@ -52,17 +52,18 @@ def submit_quiz_backend_function():
     free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
 
+    # ------------------------ Page Company Info START ------------------------
+    user_company_name = user_nested_dict['user_company_name']
+    user_company_name = sanitize_page_output_company_name_function(user_company_name)
+    user_channel_name = user_nested_dict['slack_channel_name']
+    # ------------------------ Page Company Info END ------------------------
+    
+
     # ------------------------ Get Variables for DB Insert START ------------------------
     user_uuid = user_nested_dict['user_uuid']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
     # ------------------------ Get Variables for DB Insert END ------------------------
-
-
-    # Get user information from the nested dict
-    user_company_name = user_nested_dict['user_company_name']
-    user_company_name = sanitize_page_output_company_name_function(user_company_name)
-    user_channel_name = user_nested_dict['slack_channel_name']
 
 
     # ------------------------ Sanitize User Inputs START ------------------------

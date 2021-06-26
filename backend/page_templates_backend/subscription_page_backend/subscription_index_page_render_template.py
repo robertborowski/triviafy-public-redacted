@@ -33,11 +33,14 @@ def subscription_index_page_render_template_function():
     user_nested_dict = check_if_user_login_through_cookies_function()
     # ------------------------ Page Load User Pre Checks END ------------------------
 
-    # ------------------------ Get Variables From User Nested Dict START ------------------------
-    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
+    # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
+    # ------------------------ Page Company Info END ------------------------
+
+    # ------------------------ Get Variables From User Nested Dict START ------------------------
+    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     # ------------------------ Get Variables From User Nested Dict END ------------------------
 
     

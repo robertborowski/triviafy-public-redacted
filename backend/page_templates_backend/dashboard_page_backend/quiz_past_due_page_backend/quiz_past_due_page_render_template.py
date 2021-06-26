@@ -52,10 +52,13 @@ def quiz_past_due_page_render_template_function():
     # ------------------------ Page Load User Pre Checks END ------------------------
     
     
-    # Get user information from the nested dict
+    # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
+    # ------------------------ Page Company Info END ------------------------
+    
+    # Get additional variables
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
 

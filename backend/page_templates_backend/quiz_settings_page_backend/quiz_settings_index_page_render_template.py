@@ -48,13 +48,14 @@ def quiz_settings_index_page_render_template_function():
     free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
     # ------------------------ Page Load User Pre Checks END ------------------------
 
-
-    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
+    # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
-
-    # Get Company name and channel name (slack ID's)
+    # ------------------------ Page Company Info END ------------------------
+    
+    # Get additional variables
+    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
 

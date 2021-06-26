@@ -60,9 +60,14 @@ def dashboard_index_page_render_template_function():
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
     user_uuid = user_nested_dict['user_uuid']
+
+
+    # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)
     user_channel_name = user_nested_dict['slack_channel_name']
+    # ------------------------ Page Company Info END ------------------------
+
 
     # ------------------------ Check if This Is Companies First Every Quiz START ------------------------
     # Check if there is a latest quiz (made on sundays)
