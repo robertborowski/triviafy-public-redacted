@@ -22,7 +22,6 @@ def insert_triviafy_company_quiz_settings_slack_table_function(postgres_connecti
     postgres_cursor.execute(postgres_insert_query, record_to_insert)
     postgres_connection.commit()
 
-    localhost_print_function('Postgres Database Insert Successful!')
     localhost_print_function('=========================================== insert_triviafy_company_quiz_settings_slack_table_function END ===========================================')
     return True
   

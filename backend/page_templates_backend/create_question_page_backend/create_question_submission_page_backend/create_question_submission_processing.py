@@ -1,5 +1,5 @@
 # -------------------------------------------------------------- Imports
-from flask import render_template, Blueprint, redirect, request
+from flask import Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
@@ -19,6 +19,7 @@ from backend.db.queries.insert_queries.insert_triviafy_all_questions_table impor
 import os
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
 create_question_submission_processing = Blueprint("create_question_submission_processing", __name__, static_folder="static", template_folder="templates")
@@ -32,7 +33,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @create_question_submission_processing.route("/create/question/user/form/submit/processing", methods=['GET','POST'])
 def create_question_submission_processing_function():
-  print('=========================================== /create/question/user/form/submit/processing Page START ===========================================')
+  localhost_print_function('=========================================== /create/question/user/form/submit/processing Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -64,8 +65,8 @@ def create_question_submission_processing_function():
     user_email = user_nested_dict['user_email']
 
   except:
-    print('page load except error hit')
-    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    localhost_print_function('page load except error hit')
+    localhost_print_function('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
@@ -76,8 +77,8 @@ def create_question_submission_processing_function():
 
   # If user does not have access to create questions then redirect to waitlist page
   if user_email != personal_email:
-    print('redirecting to the create question wait list page!')
-    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    localhost_print_function('redirecting to the create question wait list page!')
+    localhost_print_function('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
     return redirect('/create/question/user/waitlist', code=302)
   # ------------------------ Check create question accesss END ------------------------
 
@@ -97,8 +98,8 @@ def create_question_submission_processing_function():
   # ------------------------ Check sanitized results START ------------------------
   # Check if sanitized inputs are valid and if code can move on
   if user_create_question_categories == None or user_create_question_title == None or user_create_question_actual_question == None or user_create_question_accepted_answers == None or user_create_question_difficulty == None or user_create_question_hint == None:
-    print('invalid inputs')
-    print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+    localhost_print_function('invalid inputs')
+    localhost_print_function('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
     return redirect('/create/question/user/form', code=302)
   # ------------------------ Check sanitized results END ------------------------
   
@@ -142,16 +143,14 @@ def create_question_submission_processing_function():
 
             # Check and upload the user file image
             user_image_upload_status = user_upload_image_checks_aws_s3_function(image, file_size)
-            print('- - -')
-            print('User create question > uploaded image > uploaded to AWS s3!')
-            print('- - -')
             
             if image.filename != 'no image uuid':
               # Finalize image variables
               user_create_question_contains_image = True
               create_question_uploaded_image_aws_url = 'https://' + os.environ.get('AWS_TRIVIAFY_BUCKET_NAME') + '.s3.' + os.environ.get('AWS_TRIVIAFY_REGION') + '.amazonaws.com/' + image.filename
   except:
-    print('user image upload did not work!')
+    localhost_print_function('user image upload did not work!')
+    pass
   # ------------------------ Image Upload END ------------------------
 
 
@@ -162,16 +161,14 @@ def create_question_submission_processing_function():
   # Attempt to upload to database
   try:
     insert_db_output_message = insert_triviafy_all_questions_table_function(postgres_connection, postgres_cursor, create_question_uuid, create_question_timestamp, user_email, user_create_question_categories, user_create_question_actual_question, user_create_question_accepted_answers, user_create_question_difficulty, user_create_question_hint_allowed, user_create_question_hint, user_create_question_is_deprecated, user_create_question_title, user_create_question_is_approved_for_release, user_create_question_contains_image, create_question_uploaded_image_uuid, create_question_uploaded_image_aws_url, create_question_upload_image_original_filename,question_submission_status)
-    print('- - -')
-    print(insert_db_output_message)
-    print('- - -')
   except:
-    print('failed to insert question into database')
+    localhost_print_function('failed to insert question into database')
+    pass
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
   # ------------------------ Upload Question to database END ------------------------
 
   
-  print('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
+  localhost_print_function('=========================================== /create/question/user/form/submit/processing Page END ===========================================')
   return redirect('/create/question/user/form/submit/success', code=302)

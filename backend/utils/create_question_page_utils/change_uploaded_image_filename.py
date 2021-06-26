@@ -1,5 +1,9 @@
+# -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+
+# -------------------------------------------------------------- Main Function
 def change_uploaded_image_filename_function(image, create_question_uploaded_image_uuid):
-  print('=========================================== change_uploaded_image_filename_function START ===========================================')
+  localhost_print_function('=========================================== change_uploaded_image_filename_function START ===========================================')
   # Get the filename
   filename = image.filename
 
@@ -15,5 +19,5 @@ def change_uploaded_image_filename_function(image, create_question_uploaded_imag
   # Assign to the image filename
   image.filename = filename
 
-  print('=========================================== change_uploaded_image_filename_function END ===========================================')
+  localhost_print_function('=========================================== change_uploaded_image_filename_function END ===========================================')
   return image

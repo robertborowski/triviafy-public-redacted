@@ -21,14 +21,13 @@ def insert_triviafy_quiz_answers_master_table_function(postgres_connection, post
   try:
     postgres_cursor.execute(postgres_insert_query, record_to_insert)
     postgres_connection.commit()
-    output_message = 'Postgres Database Insert Successful!'
+
     localhost_print_function('=========================================== insert_triviafy_quiz_answers_master_table_function END ===========================================')
-    return output_message
+    return True
   
   except (Exception, psycopg2.Error) as error:
     if(postgres_connection):
       localhost_print_function('Except error hit: ', error)
-      output_message = 'Did not insert info database'
       localhost_print_function('=========================================== insert_triviafy_quiz_answers_master_table_function END ===========================================')
-      return output_message
+      return False
   # ------------------------ Insert attempt END ------------------------

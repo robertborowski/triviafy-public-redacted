@@ -22,7 +22,6 @@ def insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cur
     postgres_cursor.execute(postgres_insert_query, record_to_insert)
     postgres_connection.commit()
 
-    localhost_print_function('Postgres Database Insert Successful!')
     localhost_print_function('=========================================== insert_triviafy_emails_sent_table_function END ===========================================')
     return True
   

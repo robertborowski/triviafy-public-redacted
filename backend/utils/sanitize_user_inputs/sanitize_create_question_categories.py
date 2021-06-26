@@ -1,9 +1,13 @@
+# -------------------------------------------------------------- Imports
+from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+
+# -------------------------------------------------------------- Main Function
 def sanitize_create_question_categories_function(user_input_form):
-  print('=========================================== sanitize_create_question_categories_function START ===========================================')
+  localhost_print_function('=========================================== sanitize_create_question_categories_function START ===========================================')
   
   if len(user_input_form) < 1 or len(user_input_form) > 50:
-    print('=========================================== sanitize_create_question_categories_function END ===========================================')
+    localhost_print_function('=========================================== sanitize_create_question_categories_function END ===========================================')
     return None
   
-  print('=========================================== sanitize_create_question_categories_function END ===========================================')
+  localhost_print_function('=========================================== sanitize_create_question_categories_function END ===========================================')
   return user_input_form
