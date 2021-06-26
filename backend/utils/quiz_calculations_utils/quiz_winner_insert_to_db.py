@@ -15,6 +15,8 @@ def quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid):
   # Connect to Postgres database
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
 
+  output_message = None
+  
   # First check if winner is already stored in DB for this quiz uuid
   check_if_quiz_winner_already_exists = select_if_quiz_winner_already_exists_function(postgres_connection, postgres_cursor, uuid_quiz, winner_user_uuid)
   if check_if_quiz_winner_already_exists == False:
