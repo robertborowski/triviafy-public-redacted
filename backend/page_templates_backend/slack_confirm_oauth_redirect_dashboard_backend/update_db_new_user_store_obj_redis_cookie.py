@@ -43,12 +43,23 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     slack_authed_token_type = authed_response_obj['token_type']
     slack_authed_access_token = authed_response_obj['access_token']
 
+    localhost_print_function('- - - - - - 0 - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('ABOUT TO RUN')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - - - - - - - - -')
+    localhost_print_function('- - - - - - 0 - - - - - - - -')
     try:
       # Authed user, get user information object, slack method
       user_information_obj = client.users_info(
         user = slack_authed_user_id
       )
-      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - 1 - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
@@ -58,7 +69,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - 1 - - - - - - - -')
       # Get additional user information for the database check/insert
       slack_authed_user_name = user_information_obj['user']['name']
       slack_authed_user_real_full_name = user_information_obj['user']['real_name']
@@ -67,6 +78,17 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       slack_authed_user_name = 'unavailable'
       slack_authed_user_real_full_name = 'unavailable'
       slack_authed_user_email = 'unavailable'
+      localhost_print_function('- - - - - - 2 - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('FAILED')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - 2 - - - - - - - -')
     
     try:
       # From the slack full name provided try to guess the first last name
