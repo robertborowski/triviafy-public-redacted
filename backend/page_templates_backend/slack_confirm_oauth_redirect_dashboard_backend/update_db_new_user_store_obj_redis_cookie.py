@@ -55,6 +55,17 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     localhost_print_function('- - - - - - - - - - - - - -')
     localhost_print_function('- - - - - - 0 - - - - - - - -')
     try:
+      localhost_print_function('- - - - - - 0.5 - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function(slack_authed_user_id)
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - 0.5 - - - - - - - -')
       # Authed user, get user information object, slack method
       user_information_obj = client.users_info(
         user = slack_authed_user_id
