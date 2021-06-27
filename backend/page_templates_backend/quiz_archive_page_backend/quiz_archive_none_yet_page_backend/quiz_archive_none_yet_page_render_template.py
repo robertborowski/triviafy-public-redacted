@@ -21,7 +21,7 @@ def before_request():
     return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@quiz_archive_none_yet_page_render_template.route("/quiz/archive", methods=['GET','POST'])
+@quiz_archive_none_yet_page_render_template.route("/quiz/archive/none", methods=['GET','POST'])
 def quiz_archive_none_yet_page_render_template_function():
   localhost_print_function('=========================================== /quiz/archive/none Page START ===========================================')
   
