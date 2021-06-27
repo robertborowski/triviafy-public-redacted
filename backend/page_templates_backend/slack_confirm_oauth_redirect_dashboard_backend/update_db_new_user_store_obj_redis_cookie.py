@@ -48,6 +48,17 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       user_information_obj = client.users_info(
         user = slack_authed_user_id
       )
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function(user_information_obj)
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function('- - - - - - - - - - - - - -')
       # Get additional user information for the database check/insert
       slack_authed_user_name = user_information_obj['user']['name']
       slack_authed_user_real_full_name = user_information_obj['user']['real_name']

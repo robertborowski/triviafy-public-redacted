@@ -75,19 +75,6 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
         client_secret = my_slack_client_secret,
         code = auth_code_received
       )
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function(client)
-      localhost_print_function('- - -')
-      localhost_print_function(authed_response_obj)
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       # With the response object, update the postgres database for user
       # ------------------------ Slack repsonse - Before DB - START ------------------------
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
