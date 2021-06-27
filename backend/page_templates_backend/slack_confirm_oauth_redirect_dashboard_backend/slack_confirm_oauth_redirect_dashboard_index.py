@@ -80,6 +80,8 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
+      localhost_print_function(client)
+      localhost_print_function('- - -')
       localhost_print_function(authed_response_obj)
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
