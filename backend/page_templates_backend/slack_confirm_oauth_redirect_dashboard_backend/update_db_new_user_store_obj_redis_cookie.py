@@ -45,40 +45,25 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
     localhost_print_function('- - - - - - 0 - - - - - - - -')
     localhost_print_function('- - - - - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - - - - -')
     localhost_print_function('ABOUT TO RUN')
-    localhost_print_function('- - - - - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - - - - -')
     localhost_print_function('- - - - - - - - - - - - - -')
     localhost_print_function('- - - - - - 0 - - - - - - - -')
     try:
       localhost_print_function('- - - - - - 0.5 - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function(slack_authed_user_id)
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - 0.5 - - - - - - - -')
       # Authed user, get user information object, slack method
       user_information_obj = client.users_info(
-        user = slack_authed_user_id
+        user = slack_authed_user_id,
+        # - - - - -
+        token=slack_authed_access_token
+        # - - - - -
       )
       localhost_print_function('- - - - - - 1 - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function(user_information_obj)
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - 1 - - - - - - - -')
       # Get additional user information for the database check/insert
@@ -91,13 +76,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
       slack_authed_user_email = 'unavailable'
       localhost_print_function('- - - - - - 2 - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('FAILED')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
-      localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - - - - - - - - -')
       localhost_print_function('- - - - - - 2 - - - - - - - -')
     
