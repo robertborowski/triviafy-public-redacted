@@ -14,6 +14,7 @@ class FooterNotSignedInClass extends HTMLElement {
           <ul>
             <li><a href="${this.getAttribute("link_home_js")}">Home</a></li>
             <li><a href="${this.getAttribute("link_about_js")}">About</a></li>
+            <li><a href="${this.getAttribute("link_privacy_js")}">Privacy</a></li>
           </ul>
         </div>
         <div class="footer-not-signed-in-copyright">
