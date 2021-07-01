@@ -79,3 +79,8 @@ h1.company-name-navbar-not-signed-in a, .h1.company-name-navbar-not-signed-in a:
   background-color: white;
 }
 /* - - - - - - - - - - Spacer - End */
+
+
+img.slack-image-button-li {
+  margin: -10px 0 0 0;
+}
