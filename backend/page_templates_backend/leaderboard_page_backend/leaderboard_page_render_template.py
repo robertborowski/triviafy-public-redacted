@@ -12,6 +12,8 @@ from backend.db.queries.select_queries.select_total_user_correct_quiz_answers im
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
+from backend.utils.datetime_utils.check_if_quiz_is_past_due_datetime import check_if_quiz_is_past_due_datetime_function
 
 # -------------------------------------------------------------- App Setup
 leaderboard_page_render_template = Blueprint("leaderboard_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -69,6 +71,37 @@ def leaderboard_page_render_template_function():
     # Get the UUID and Display name of all users at this company/team/channel
     company_users_arr = select_company_users_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
 
+
+    # ------------------------ Get Latest Quiz ID For Company START ------------------------
+    # Dict for latest company quiz
+    function_input_dict = {
+      'slack_team_id' : slack_workspace_team_id,
+      'slack_channel_id' : slack_channel_id 
+    }
+    # Check if a quiz was already made for this company
+    latest_company_quiz_object = get_latest_company_quiz_if_exists_function(function_input_dict)
+
+    if latest_company_quiz_object == None:
+      # Nothing to exclude from correct answer count
+      company_latest_quiz_id = ''
+    # ------------------------ Get Latest Quiz ID For Company END ------------------------
+
+
+    # ------------------------ Check If Quiz Is Past Due START ------------------------
+    if latest_company_quiz_object != None:
+      # Exclude from correct answer count
+      company_latest_quiz_id = latest_company_quiz_object[0]
+      quiz_end_date = latest_company_quiz_object[7].strftime('%Y-%m-%d')            # str
+      quiz_end_time = latest_company_quiz_object[9]                                 # str
+
+      quiz_is_past_due_date = check_if_quiz_is_past_due_datetime_function(quiz_end_date, quiz_end_time)
+
+      if quiz_is_past_due_date != None:
+        # Nothing to exclude from correct answer count
+        company_latest_quiz_id = ''
+    # ------------------------ Check If Quiz Is Past Due END ------------------------
+
+
     # Master array of dicts for the Leaderboard datatables html
     users_leaderboard_arr_of_dicts = []
 
@@ -83,7 +116,7 @@ def leaderboard_page_render_template_function():
       total_user_wins_arr = select_total_user_quiz_wins_function(postgres_connection, postgres_cursor, user_uuid)
       total_user_wins_int = int(total_user_wins_arr[0])
       # Get total correct answers for each user
-      total_user_correct_quiz_answers_arr = select_total_user_correct_quiz_answers_function(postgres_connection, postgres_cursor, user_uuid)
+      total_user_correct_quiz_answers_arr = select_total_user_correct_quiz_answers_function(postgres_connection, postgres_cursor, user_uuid, company_latest_quiz_id)
       total_user_correct_quiz_answers_int = int(total_user_correct_quiz_answers_arr[0])
 
       # Set the dictionary values for user
