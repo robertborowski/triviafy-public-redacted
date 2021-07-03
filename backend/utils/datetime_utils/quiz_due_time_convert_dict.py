@@ -28,7 +28,7 @@ def quiz_due_time_convert_dict_function():
     '8 PM' : "20:00:00",
     '9 PM' : "21:00:00",
     '10 PM' : "22:00:00",
-    '11 PM' : "23:00:00",
+    '11 PM' : "23:00:00"
   }
 
   localhost_print_function('=========================================== quiz_due_time_convert_dict_function END ===========================================')
