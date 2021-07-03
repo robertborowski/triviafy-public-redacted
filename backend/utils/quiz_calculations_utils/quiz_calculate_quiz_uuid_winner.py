@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.select_queries.select_quiz_week_winner import select_quiz_week_winner_function
+from backend.db.queries.select_queries.select_queries_joined_tables.select_quiz_week_winner import select_quiz_week_winner_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function

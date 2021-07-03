@@ -3,7 +3,7 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.insert_queries.insert_triviafy_company_quiz_settings_slack_table import insert_triviafy_company_quiz_settings_slack_table_function
+from backend.db.queries.insert_queries.insert_queries_triviafy_company_quiz_settings_slack_table.insert_triviafy_company_quiz_settings_slack_table import insert_triviafy_company_quiz_settings_slack_table_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function

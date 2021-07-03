@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 from datetime import date
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_upcoming_week_dates_data_dict import get_upcoming_week_dates_data_dict_function
-from backend.db.queries.select_queries.select_company_quiz_settings_all_companies import select_company_quiz_settings_all_companies_function
+from backend.db.queries.select_queries.select_queries_triviafy_company_quiz_settings_slack_table.select_company_quiz_settings_all_companies import select_company_quiz_settings_all_companies_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function

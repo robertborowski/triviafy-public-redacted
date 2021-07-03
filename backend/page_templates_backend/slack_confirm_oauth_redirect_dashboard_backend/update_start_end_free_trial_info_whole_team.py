@@ -1,8 +1,8 @@
 # -------------------------------------------------------------- Imports
-from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids import select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids_function
-from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids import select_triviafy_user_login_information_table_slack_all_company_slack_authed_ids_function
+from backend.db.queries.select_queries.select_queries_triviafy_free_trial_tracker_slack_table.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
 from datetime import datetime
-from backend.db.queries.update_queries.update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team import update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team_function
+from backend.db.queries.update_queries.update_queries_triviafy_free_trial_tracker_slack_table.update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team import update_triviafy_free_trial_tracker_slack_table_earliest_start_end_whole_team_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
  
 # -------------------------------------------------------------- Main Function

@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 from flask import request
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
-from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_login_info_one_user import select_triviafy_user_login_information_table_slack_all_login_info_one_user_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_slack_all_login_info_one_user import select_triviafy_user_login_information_table_slack_all_login_info_one_user_function
 import os
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function

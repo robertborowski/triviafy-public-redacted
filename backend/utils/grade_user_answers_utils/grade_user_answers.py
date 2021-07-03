@@ -1,9 +1,9 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.select_queries.select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz import select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz
+from backend.db.queries.select_queries.select_queries_joined_tables.select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz import select_triviafy_quiz_answers_master_table_all_user_answers_for_quiz
 from backend.utils.grade_user_answers_utils.check_user_answer_vs_admin_answer import check_user_answer_vs_admin_answer_function
-from backend.db.queries.update_queries.update_triviafy_quiz_answers_master_table_graded_answer import update_triviafy_quiz_answers_master_table_graded_answer_function
+from backend.db.queries.update_queries.update_queries_triviafy_quiz_answers_master_table.update_triviafy_quiz_answers_master_table_graded_answer import update_triviafy_quiz_answers_master_table_graded_answer_function
 from backend.utils.grade_user_answers_utils.check_if_admin_answer_is_arr_of_answers import check_if_admin_answer_is_arr_of_answers_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 

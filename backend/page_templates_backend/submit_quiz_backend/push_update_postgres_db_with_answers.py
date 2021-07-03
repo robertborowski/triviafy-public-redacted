@@ -1,9 +1,9 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.insert_queries.insert_triviafy_quiz_answers_master_table import insert_triviafy_quiz_answers_master_table_function
-from backend.db.queries.select_queries.select_user_quiz_question_answer_if_exists import select_user_quiz_question_answer_if_exists_function
-from backend.db.queries.update_queries.update_triviafy_quiz_answers_master_table import update_triviafy_quiz_answers_master_table_function
+from backend.db.queries.insert_queries.insert_queries_triviafy_quiz_answers_master_table.insert_triviafy_quiz_answers_master_table import insert_triviafy_quiz_answers_master_table_function
+from backend.db.queries.select_queries.select_queries_triviafy_quiz_answers_master_table.select_user_quiz_question_answer_if_exists import select_user_quiz_question_answer_if_exists_function
+from backend.db.queries.update_queries.update_queries_triviafy_quiz_answers_master_table.update_triviafy_quiz_answers_master_table import update_triviafy_quiz_answers_master_table_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function

@@ -1,5 +1,5 @@
 # -------------------------------------------------------------- Imports
-from backend.db.queries.select_queries.select_user_quiz_question_answer_if_exists_autofill import select_user_quiz_question_answer_if_exists_autofill_function
+from backend.db.queries.select_queries.select_queries_triviafy_quiz_answers_master_table.select_user_quiz_question_answer_if_exists_autofill import select_user_quiz_question_answer_if_exists_autofill_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function

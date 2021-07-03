@@ -7,7 +7,7 @@ from backend.utils.cached_login.check_if_user_login_through_cookies import check
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.select_queries.select_triviafy_user_login_information_table_slack_all_payment_admins_with_email import select_triviafy_user_login_information_table_slack_all_payment_admins_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_slack_all_payment_admins_with_email import select_triviafy_user_login_information_table_slack_all_payment_admins_with_email_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
@@ -56,7 +56,7 @@ def subscription_index_page_render_template_function():
 
 
     # ------------------------ SQL Pull Data START ------------------------
-    all_team_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+    all_team_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_with_email_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
 
     localhost_print_function('- - - - - - - - - - -')
     localhost_print_function('- - - - - - - - - - -')

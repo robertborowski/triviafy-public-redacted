@@ -2,7 +2,7 @@
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.get_previous_week_dates_data_dict import get_previous_week_dates_data_dict_function
-from backend.db.queries.select_queries.select_triviafy_latest_quiz_info import select_triviafy_latest_quiz_info_function
+from backend.db.queries.select_queries.select_queries_triviafy_quiz_master_table.select_triviafy_latest_quiz_info import select_triviafy_latest_quiz_info_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function

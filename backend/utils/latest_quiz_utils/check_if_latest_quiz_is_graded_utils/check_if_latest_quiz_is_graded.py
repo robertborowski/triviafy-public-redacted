@@ -1,7 +1,7 @@
 # -------------------------------------------------------------- Imports
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.select_queries.select_all_triviafy_quiz_answers_master_table_for_company import select_all_triviafy_quiz_answers_master_table_for_company_function
+from backend.db.queries.select_queries.select_queries_triviafy_quiz_answers_master_table.select_all_triviafy_quiz_answers_master_table_for_company import select_all_triviafy_quiz_answers_master_table_for_company_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function

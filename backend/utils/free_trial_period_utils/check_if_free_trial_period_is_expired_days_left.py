@@ -1,10 +1,10 @@
 # -------------------------------------------------------------- Imports
 from flask import redirect
 from datetime import date, timedelta
-from backend.db.queries.select_queries.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
+from backend.db.queries.select_queries.select_queries_triviafy_free_trial_tracker_slack_table.select_triviafy_free_trial_tracker_slack_table_all_authed_id_info import select_triviafy_free_trial_tracker_slack_table_all_authed_id_info_function
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
-from backend.db.queries.update_queries.update_triviafy_free_trial_tracker_slack_table_expired_user import update_triviafy_free_trial_tracker_slack_table_expired_user_function
+from backend.db.queries.update_queries.update_queries_triviafy_free_trial_tracker_slack_table.update_triviafy_free_trial_tracker_slack_table_expired_user import update_triviafy_free_trial_tracker_slack_table_expired_user_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
