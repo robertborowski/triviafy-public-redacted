@@ -6,12 +6,20 @@ from backend.db.connection.postgres_connect_to_database import postgres_connect_
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.utils.latest_quiz_utils.get_latest_company_quiz_if_exists import get_latest_company_quiz_if_exists_function
 from backend.utils.latest_quiz_utils.make_company_latest_quiz import make_company_latest_quiz_function
-import os
+import os, time
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
 def job_weekly_make_latest_quizzes_for_all_companies_function():
   localhost_print_function('=========================================== job_weekly_make_latest_quizzes_for_all_companies_function START ===========================================')
+  
+
+  # ------------------------ Set Timezone START ------------------------
+  # Set the timezone of the application when user creates account is will be in US/Easterm time
+  os.environ['TZ'] = 'US/Eastern'
+  time.tzset()
+  # ------------------------ Set Timezone END ------------------------
+  
   
   # ------------------------ Running on localhost START ------------------------
   # Check environment variable that was passed in from user on the command line
