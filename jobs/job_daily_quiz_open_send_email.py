@@ -16,10 +16,19 @@ from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table
 from backend.db.queries.insert_queries.insert_queries_triviafy_slack_messages_sent_table.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
 from backend.utils.slack.send_team_channel_message_utils.send_team_channel_message_quiz_open import send_team_channel_message_quiz_open_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+import os, time
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_open_send_email_function():
   localhost_print_function('=========================================== job_daily_quiz_open_send_email_function START ===========================================')
+
+  
+  # ------------------------ Set Timezone START ------------------------
+  # Set the timezone of the application when user creates account is will be in US/Easterm time
+  os.environ['TZ'] = 'US/Eastern'
+  time.tzset()
+  # ------------------------ Set Timezone END ------------------------
+
 
   # ------------------------ Get Today's Date START ------------------------
   # Today's date

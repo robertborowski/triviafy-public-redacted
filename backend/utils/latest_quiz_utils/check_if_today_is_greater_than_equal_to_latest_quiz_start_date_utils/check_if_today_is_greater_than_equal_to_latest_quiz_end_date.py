@@ -3,10 +3,18 @@ from backend.utils.latest_quiz_utils.supporting_make_company_latest_quiz_utils.g
 from datetime import date, datetime
 from backend.utils.datetime_utils.quiz_due_time_convert_dict import quiz_due_time_convert_dict_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+import os, time
 
 # -------------------------------------------------------------- Main Function
 def check_if_today_is_greater_than_equal_to_latest_quiz_end_date_function(quiz_end_day_of_week, quiz_end_time):
   localhost_print_function('=========================================== check_if_today_is_greater_than_equal_to_latest_quiz_end_date_function START ===========================================')
+
+
+  # ------------------------ Set Timezone START ------------------------
+  # Set the timezone of the application when user creates account is will be in US/Easterm time
+  os.environ['TZ'] = 'US/Eastern'
+  time.tzset()
+  # ------------------------ Set Timezone END ------------------------
 
 
   # ------------------------ This Week Dates Data Dict START ------------------------
