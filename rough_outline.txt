@@ -12,7 +12,6 @@ To-Do's
 -Stripe setup / Subscription page --> Cannot setup Stripe unless it is a legit LLC business. Use Pay-Pal invoices instead.
 -Release app to Slack app store
 -When users are taking their current quiz. They submit answers, then go to Leaderboard, they can see how many answers they got right. Fix that!. Get all the answer count only for quizzes that have been closed (past due date)
--Quiz open slack message and email sent at 7:11 AM, and did not sent at the right time (9 AM) on Monday
 
 -aws auto backup all DB tables daily
 -Account mark for deletion
