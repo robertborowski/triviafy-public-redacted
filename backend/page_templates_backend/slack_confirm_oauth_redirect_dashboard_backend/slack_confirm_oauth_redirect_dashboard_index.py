@@ -22,8 +22,10 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
+  # ------------------------ Slack Testing - START ------------------------
   #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
+  # ------------------------ Slack Testing - END ------------------------
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -85,8 +87,8 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       localhost_print_function(user_store_in_redis_status)
     
     except:
-      #localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
       # ------------------------ Slack Testing - START ------------------------
+      #localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
       print('- - - - - - - - - - -')
       print('- - - - - - - - - - -')
       print('- - - - - - - - - - -')
@@ -99,8 +101,9 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
     # ------------------------ Slack Authentication END ------------------------
 
 
-
+  # ------------------------ Slack Testing - START ------------------------
   #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
+  # ------------------------ Slack Testing - END ------------------------
   # Render the login page template, pass in the redis nested dict of all user info
   return redirect("/dashboard", code=302)
