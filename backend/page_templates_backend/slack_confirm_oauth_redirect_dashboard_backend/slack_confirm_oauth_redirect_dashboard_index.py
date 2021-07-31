@@ -84,7 +84,16 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       localhost_print_function(user_store_in_redis_status)
     
     except:
-      localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
+      #localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
+      # ------------------------ Slack Testing - START ------------------------
+      print('- - - - - - - - - - -')
+      print('- - - - - - - - - - -')
+      print('- - - - - - - - - - -')
+      print('Error while running "slack_receive_http_oauth_user" script.')
+      print('- - - - - - - - - - -')
+      print('- - - - - - - - - - -')
+      print('- - - - - - - - - - -')
+      # ------------------------ Slack Testing - END ------------------------
       return redirect("/", code=302)
     # ------------------------ Slack Authentication END ------------------------
 
