@@ -22,7 +22,8 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
-  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
+  #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
+  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -99,6 +100,7 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
 
 
 
-  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
+  #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
+  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
   return redirect("/dashboard", code=302)
