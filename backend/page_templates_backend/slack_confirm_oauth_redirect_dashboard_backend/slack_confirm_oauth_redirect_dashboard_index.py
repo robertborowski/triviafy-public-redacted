@@ -22,10 +22,7 @@ def before_request():
 # -------------------------------------------------------------- App
 @slack_confirm_oauth_redirect_dashboard_index.route("/slack/confirm/oauth/redirect/dashboard/index", methods=['GET','POST'])
 def slack_confirm_oauth_redirect_dashboard_index_function():
-  # ------------------------ Slack Testing - START ------------------------
-  #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
-  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
-  # ------------------------ Slack Testing - END ------------------------
+  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -41,11 +38,11 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
     # Connect to redis database pool (no need to close)
     redis_connection = redis_connect_to_database_function()
 
-    # Get key:value from redis then delete row from redis
+    # Get key:value from redis
     localhost_slack_state_key = 'localhost_slack_state_key'
     slack_state_value_passed_in_url = redis_connection.get(localhost_slack_state_key).decode('utf-8')
 
-    # Get key:value from redis then delete row from redis
+    # Get key:value from redis
     localhost_redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
     get_cookie_value_from_browser = redis_connection.get(localhost_redis_browser_cookie_key).decode('utf-8')
     # redis_connection.delete(localhost_slack_state_key)
@@ -80,30 +77,26 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       )
       # With the response object, update the postgres database for user
       # ------------------------ Slack repsonse - Before DB - START ------------------------
+      user_nested_dict = None
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
-      # ------------------------ Slack repsonse - Before DB - END ------------------------
-      # Store in redis
-      user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
-      localhost_print_function(user_store_in_redis_status)
+      
+      if user_nested_dict != None:
+        # ------------------------ Slack repsonse - Before DB - END ------------------------
+        # Store in redis
+        user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
+        localhost_print_function(user_store_in_redis_status)
+        # ------------------------ Slack Testing - START ------------------------
+        print('- - - - - - - - - - -')
+        print('Everything good here!')
+        print('- - - - - - - - - - -')
+        # ------------------------ Slack Testing - END ------------------------
     
     except:
-      # ------------------------ Slack Testing - START ------------------------
-      #localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
-      print('- - - - - - - - - - -')
-      print('- - - - - - - - - - -')
-      print('- - - - - - - - - - -')
-      print('Error while running "slack_receive_http_oauth_user" script.')
-      print('- - - - - - - - - - -')
-      print('- - - - - - - - - - -')
-      print('- - - - - - - - - - -')
-      # ------------------------ Slack Testing - END ------------------------
-      return redirect("/", code=302)
+      localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
+      return redirect("/dashboard", code=302)
     # ------------------------ Slack Authentication END ------------------------
 
 
-  # ------------------------ Slack Testing - START ------------------------
-  #localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
-  print('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
-  # ------------------------ Slack Testing - END ------------------------
+  localhost_print_function('=========================================== /slack/confirm/oauth/redirect/dashboard/index Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
   return redirect("/dashboard", code=302)
