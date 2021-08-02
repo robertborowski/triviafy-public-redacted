@@ -51,8 +51,10 @@ def index_page_render_template_function():
 
     # ------------------------ Set Redis For Cookie START ------------------------
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
+      # If cookie was deleted directly on the localhost website, then it checks redis for the localhost cookie key/value
       try:
         get_cookie_value_from_browser = redis_connection.get('localhost_redis_browser_cookie_key').decode('utf-8')
+      # If no cookie, first time user uses this website ever
       except:
         get_cookie_value_from_browser = None
     # ------------------------ Set Redis For Cookie END ------------------------
@@ -94,7 +96,7 @@ def index_page_render_template_function():
 
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = localhost_slack_state_uuid_value))
-      browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
+      browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=60))
       localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
@@ -109,7 +111,7 @@ def index_page_render_template_function():
 
     if get_cookie_value_from_browser == '' or get_cookie_value_from_browser == None:
       browser_response = make_response(render_template('index_page_templates/index.html', css_cache_busting = cache_busting_output, slack_state_uuid_html = session['slack_state_uuid_value']))
-      browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=30))
+      browser_response.set_cookie(set_browser_cookie_key, set_browser_cookie_value, expires=datetime.datetime.now() + datetime.timedelta(days=60))
       localhost_print_function('=========================================== Landing Page END ===========================================')
       return browser_response
     else:
