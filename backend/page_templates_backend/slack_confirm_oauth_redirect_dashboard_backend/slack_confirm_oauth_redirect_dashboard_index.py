@@ -85,11 +85,6 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
         # Store in redis
         user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
         localhost_print_function(user_store_in_redis_status)
-        # ------------------------ Slack Testing - START ------------------------
-        print('- - - - - - - - - - -')
-        print('Everything good here!')
-        print('- - - - - - - - - - -')
-        # ------------------------ Slack Testing - END ------------------------
     
     except:
       localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
