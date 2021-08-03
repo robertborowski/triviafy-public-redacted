@@ -3,6 +3,7 @@ from flask import render_template, Blueprint, redirect, request
 from backend.utils.page_www_to_non_www.check_if_url_www import check_if_url_www_function
 from backend.utils.page_www_to_non_www.remove_www_from_domain import remove_www_from_domain_function
 from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
+from backend.utils.uuid_and_timestamp.create_timestamp import create_timestamp_function
 from backend.utils.cached_login.check_if_user_login_through_cookies import check_if_user_login_through_cookies_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
@@ -12,6 +13,8 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.utils.cached_login.check_cookie_browser import check_cookie_browser_function
 import json
+from backend.utils.send_emails.send_email_template import send_email_template_function
+from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 
 # -------------------------------------------------------------- App Setup
 email_permission_notification_consent_processing = Blueprint("email_permission_notification_consent_processing", __name__, static_folder="static", template_folder="templates")
@@ -73,8 +76,6 @@ def email_permission_notification_consent_processing_function():
     postgres_connection, postgres_cursor = postgres_connect_to_database_function()
     # Update Postgres DB
     output_message = update_account_consent_email_function(postgres_connection, postgres_cursor, user_uuid)
-    # Close Connection to Postgres DB
-    postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
     # ------------------------ Update Postgres DB END ------------------------
 
 
@@ -88,6 +89,32 @@ def email_permission_notification_consent_processing_function():
     # Upload dictionary to redis based on cookies
     redis_connection.set(get_cookie_value_from_browser, json.dumps(user_nested_dict).encode('utf-8'))
     # ------------------------ Update Redis DB END ------------------------
+
+
+    # ------------------------ Send Account Created Email START ------------------------
+    slack_db_uuid = user_nested_dict['user_uuid']
+    user_email = user_nested_dict['user_email']
+    slack_authed_user_real_full_name = user_nested_dict['user_full_name']
+
+    output_email = user_email
+    output_subject_line = 'Triviafy Account Created'
+    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nYou will be notified by email once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
+    output_message_content_str_for_db = output_message_content
+
+    email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+
+    # Insert this sent email into DB
+    uuid_email_sent = create_uuid_function('email_sent_')
+    email_sent_timestamp = create_timestamp_function()
+    # - - -
+    email_sent_search_category = 'Account Created'
+    uuid_quiz = None
+    # - - -
+    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
+
+    # Close Connection to Postgres DB
+    postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+    # ------------------------ Send Account Created Email END ------------------------
 
 
   except:

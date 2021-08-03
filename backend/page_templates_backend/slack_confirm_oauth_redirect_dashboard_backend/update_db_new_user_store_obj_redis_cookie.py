@@ -9,8 +9,6 @@ from backend.db.queries.insert_queries.insert_queries_triviafy_user_login_inform
 from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_check_assign_payment_admin import select_check_assign_payment_admin_function
 from backend.utils.slack.user_info_data_manipulation.transpose_slack_user_data_to_nested_dict import transpose_slack_user_data_to_nested_dict_function
 from backend.utils.quiz_settings_page_utils.setup_company_default_quiz_settings import setup_company_default_quiz_settings_function
-from backend.utils.send_emails.send_email_template import send_email_template_function
-from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_company_name_check import select_triviafy_user_login_information_table_company_name_check_function
 from datetime import datetime
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_insert_free_trial_info_team import update_insert_free_trial_info_team_function
@@ -120,33 +118,6 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     # ------------------------ Free Trial Period Tracker Update START ------------------------
     output_message = update_start_end_free_trial_info_whole_team_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id)
     # ------------------------ Free Trial Period Tracker Update END ------------------------
-
-
-    # ====================================================================================================================================================================================
-    # ====================================================================================================================================================================================
-    # ====================================================================================================================================================================================
-    # ======================================================================= EDITING LOGIC START =============================================================================================================
-    # ------------------------ Send Account Created Email START ------------------------
-    output_email = slack_authed_user_email
-    output_subject_line = 'Triviafy Account Created'
-    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nYou will be notified by email once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
-    output_message_content_str_for_db = output_message_content
-
-    email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
-
-    # Insert this sent email into DB
-    uuid_email_sent = create_uuid_function('email_sent_')
-    email_sent_timestamp = create_timestamp_function()
-    # - - -
-    email_sent_search_category = 'Account Created'
-    uuid_quiz = None
-    # - - -
-    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
-    # ------------------------ Send Account Created Email END ------------------------
-    # ======================================================================= EDITING LOGIC END =============================================================================================================
-    # ====================================================================================================================================================================================
-    # ====================================================================================================================================================================================
-    # ====================================================================================================================================================================================
 
 
     # ------------------------ Use Company Name of Already Existing Users (If Changed) START ------------------------
