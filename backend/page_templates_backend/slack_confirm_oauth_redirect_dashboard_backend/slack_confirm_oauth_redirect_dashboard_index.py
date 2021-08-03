@@ -91,13 +91,13 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
     
     except:
       # Try using time.sleep before this step
-      localhost_print_function('- - - - - - - - -')
-      localhost_print_function('- - - - - - - - -')
-      localhost_print_function('- - - - - - - - -')
-      localhost_print_function('Error while running "slack_receive_http_oauth_user" script.')
-      localhost_print_function('- - - - - - - - -')
-      localhost_print_function('- - - - - - - - -')
-      localhost_print_function('- - - - - - - - -')
+      print('- - - - - - - - -')
+      print('- - - - - - - - -')
+      print('- - - - - - - - -')
+      print('Error while running "slack_receive_http_oauth_user" script.')
+      print('- - - - - - - - -')
+      print('- - - - - - - - -')
+      print('- - - - - - - - -')
       return redirect("/dashboard", code=302)
     # ------------------------ Slack Authentication END ------------------------
 
