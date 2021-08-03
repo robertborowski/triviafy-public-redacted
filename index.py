@@ -16,6 +16,8 @@ from backend.page_templates_backend.privacy_policy_page_backend.privacy_policy_i
 from backend.page_templates_backend.terms_of_service_page_backend.terms_of_service_index_page_render_template import terms_of_service_index_page_render_template
 # Slack authentication pages
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
+# Email Notifications Confirm pages
+from backend.page_templates_backend.email_permission_notification_page_backend.email_permission_notification_page_render_template import email_permission_notification_page_render_template
 # Slack dashboard pages
 from backend.page_templates_backend.dashboard_page_backend.dashboard_index_page_render_template import dashboard_index_page_render_template
 from backend.page_templates_backend.submit_quiz_backend.submit_quiz_backend import submit_quiz_backend
@@ -98,6 +100,8 @@ app.register_blueprint(privacy_policy_index_page_render_template, url_prefix="")
 app.register_blueprint(terms_of_service_index_page_render_template, url_prefix="")
 # Slack authentication pages
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
+# Email Notifications Confirm pages
+app.register_blueprint(email_permission_notification_page_render_template, url_prefix="")
 # Slack dashboard pages
 app.register_blueprint(dashboard_index_page_render_template, url_prefix="")
 app.register_blueprint(submit_quiz_backend, url_prefix="")

@@ -1,0 +1,42 @@
+{% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
+
+{% block title %}
+<title>Email / Triviafy</title>
+{% endblock %}
+
+
+
+{% block content %}
+
+<main class="logged-in email-consent-section">
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Img, message, button Start -->
+  <div class="email-consent-sub-section">
+    <img src="/static/images/logo/Logo.png" alt="Triviafy Logo" class="email-consent-sub-section-img">
+    
+    <p class="email-consent-sub-section-title">Email Notifications</p>
+    <p class="email-consent-sub-section-email">{{ user_email_to_html }}</p>
+    
+    <p class="email-consent-sub-section-description">Slack channels can often go unread. As a backup, Triviafy would like to email you about quiz open/close dates. Your email is also how you will receive gift card prizes that you automatically earn every 10th quiz win.</p>
+    
+    <form action="#" method="post" class='email-consent-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <input type="checkbox" id="email-consent-id" name="email-consent-name" value="agree" checked required class="email-consent-form-label">
+      <label for="email-consent-name">I Agree</label>
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+      <div class="button-section-middle">
+        <button class="button-default button-default-color-primary" type="submit" value="submit">Continue</button>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
+    </form>
+
+    <p class="email-consent-sub-section-description-disclaimer">Your email information will not be sold to/used by any third parties. Visit <a href="triviafy.com/privacy">triviafy.com/privacy</a> and <a href="triviafy.com/tos">triviafy.com/tos</a> to learn more.</p>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Img, message, button End -->
+
+
+</main>
+
+<footer-signed-in-component></footer-signed-in-component>
+{% endblock %}

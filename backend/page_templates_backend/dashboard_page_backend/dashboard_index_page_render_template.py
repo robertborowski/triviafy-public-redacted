@@ -53,6 +53,11 @@ def dashboard_index_page_render_template_function():
       days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
 
     free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
+
+
+    user_slack_email_permission_granted = user_nested_dict['user_slack_email_permission_granted']
+    if user_slack_email_permission_granted == False or user_slack_email_permission_granted == 'False':
+      return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Load User Pre Checks END ------------------------
 
     
