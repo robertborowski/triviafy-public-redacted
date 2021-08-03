@@ -9,6 +9,7 @@ from backend.db.connection.redis_connect_to_database import redis_connect_to_dat
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_db_new_user_store_obj_redis_cookie import update_db_new_user_store_obj_redis_cookie_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.user_store_loggedin_data_redis import user_store_loggedin_data_redis_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+import time
 
 # -------------------------------------------------------------- App Setup
 slack_confirm_oauth_redirect_dashboard_index = Blueprint("slack_confirm_oauth_redirect_dashboard_index", __name__, static_folder="static", template_folder="templates")
@@ -79,12 +80,14 @@ def slack_confirm_oauth_redirect_dashboard_index_function():
       # ------------------------ Slack repsonse - Before DB - START ------------------------
       user_nested_dict = None
       user_nested_dict = update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj)
+      time.sleep(2)
       
       if user_nested_dict != None:
         # ------------------------ Slack repsonse - Before DB - END ------------------------
         # Store in redis
         user_store_in_redis_status = user_store_loggedin_data_redis_function(user_nested_dict, get_cookie_value_from_browser)
         localhost_print_function(user_store_in_redis_status)
+        time.sleep(2)
     
     except:
       # Try using time.sleep before this step
