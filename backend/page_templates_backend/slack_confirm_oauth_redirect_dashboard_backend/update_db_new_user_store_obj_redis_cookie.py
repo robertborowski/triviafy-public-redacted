@@ -14,6 +14,9 @@ from datetime import datetime
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_insert_free_trial_info_team import update_insert_free_trial_info_team_function
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.update_start_end_free_trial_info_whole_team import update_start_end_free_trial_info_whole_team_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+import os
+from backend.utils.send_emails.send_email_template import send_email_template_function
+from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 
 # -------------------------------------------------------------- Main Function
 def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj):
@@ -113,6 +116,27 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     # ------------------------ Insert New User to DB START ------------------------
     db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted)
     # ------------------------ Insert New User to DB END ------------------------
+
+
+    # ------------------------ Email Self About New Account START ------------------------
+    personal_email = os.environ.get('PERSONAL_EMAIL')
+    if slack_authed_user_email != personal_email:
+      output_email = personal_email
+      output_subject_line = 'Someone Created A Triviafy Account'
+      output_message_content = f"Hi,\n\n{slack_authed_user_email} created an account with Triviafy."
+      output_message_content_str_for_db = output_message_content
+
+      email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+
+      # Insert this sent email into DB
+      uuid_email_sent = create_uuid_function('email_sent_')
+      email_sent_timestamp = create_timestamp_function()
+      # - - -
+      email_sent_search_category = 'Notify Me Someone Created Account'
+      uuid_quiz = None
+      # - - -
+      output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
+    # ------------------------ Email Self About New Account END ------------------------
 
 
     # ------------------------ Free Trial Period Tracker Update START ------------------------

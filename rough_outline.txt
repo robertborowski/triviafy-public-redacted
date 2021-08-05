@@ -13,6 +13,7 @@ vvv
 -#1 - The person who wins in the Slack message announcement is wrong. Robert won and it said it was Rob account. Email announcement of winner annouced the right person won. Something wrong with the Slack message bot sending part.
   - It is the part that looks at/inserts row "slack_message_sent_to_user_uuid_fk" column from/to the "triviafy_slack_messages_sent_table" table.
 ^^^
+-When someone makes an account with Triviafy YOU should recieve an email about it.
 -When you go between Quiz Archive Quizzes, it logs you out for some reason.
 -Stripe setup / Subscription page --> Cannot setup Stripe unless it is a legit LLC business. Use Pay-Pal invoices instead.
 -Release app to Slack app store
