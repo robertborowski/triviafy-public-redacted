@@ -119,6 +119,7 @@ def job_daily_quiz_close_grade_winner_send_email_function():
           # Insert to Quiz Winners table
           winner_user_uuid = this_weeks_winner_object[3]
           winner_user_full_name = this_weeks_winner_object[1]
+          winner_user_slack_authed_id = this_weeks_winner_object[4]
           output_message = quiz_winner_insert_to_db_function(uuid_quiz, winner_user_uuid)
         # ------------------------ Select Winner Arr END ------------------------
         
@@ -162,8 +163,8 @@ def job_daily_quiz_close_grade_winner_send_email_function():
 
         if check_if_slack_message_already_sent_to_company_user == None:
           if winner_user_full_name == 'No Winner':
-            user_slack_authed_id = 'No Winner'
-          result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, user_slack_authed_id)
+            winner_user_slack_authed_id = 'No Winner'
+          result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, winner_user_slack_authed_id)
 
           # Insert this sent email into DB
           uuid_slack_message_sent = create_uuid_function('slack_sent_')

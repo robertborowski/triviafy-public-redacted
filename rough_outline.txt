@@ -1,24 +1,10 @@
-=========================================
-=========================================
-=========================================
-POSSIBLE GREY AREA
-
--To avoid any issues of "extra pay" because of the giftcard, instead have a message that once someone has enough points to claim a giftcard prize, have a modal be recommended to them saying, we recommend you recieve your giftcard to your personal email address not work email. To avoid any legal complications that could be regarded as extra 'payment'
-=========================================
-=========================================
-=========================================
 To-Do's
-
-vvv
--#1 - The person who wins in the Slack message announcement is wrong. Robert won and it said it was Rob account. Email announcement of winner annouced the right person won. Something wrong with the Slack message bot sending part.
-  - It is the part that looks at/inserts row "slack_message_sent_to_user_uuid_fk" column from/to the "triviafy_slack_messages_sent_table" table.
-^^^
--When someone makes an account with Triviafy YOU should recieve an email about it.
 -When you go between Quiz Archive Quizzes, it logs you out for some reason.
 -Stripe setup / Subscription page --> Cannot setup Stripe unless it is a legit LLC business. Use Pay-Pal invoices instead.
 -Release app to Slack app store
--When users are taking their current quiz. They submit answers, then go to Leaderboard, they can see how many answers they got right. Fix that!. Get all the answer count only for quizzes that have been closed (past due date)
 
 -aws auto backup all DB tables daily
 -Account mark for deletion
 -Clicking cancel on the post slack sign in button.
+-Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
+-In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
