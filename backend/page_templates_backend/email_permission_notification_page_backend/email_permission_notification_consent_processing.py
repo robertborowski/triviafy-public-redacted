@@ -97,8 +97,8 @@ def email_permission_notification_consent_processing_function():
     slack_authed_user_real_full_name = user_nested_dict['user_full_name']
 
     output_email = user_email
-    output_subject_line = 'Triviafy Account Created'
-    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nYou will be notified by email once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
+    output_subject_line = 'Triviafy Account Created - Next Steps'
+    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\n\nIf you added Triviafy to a PRIVATE Slack channel: You have to send this message in that private channel '/invite @Triviafy' or else you will not receive weekly quiz notifications.\nIf you added Triviafy to a PUBLIC Slack channel: There is nothing you need to do at this time.\n\nYou will be notified by email and Slack once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
     output_message_content_str_for_db = output_message_content
 
     email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
