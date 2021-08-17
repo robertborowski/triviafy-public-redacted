@@ -26,6 +26,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
   slack_authed_user_id = authed_response_obj['authed_user']['id']
   slack_authed_team_id = authed_response_obj['team']['id']
   slack_authed_channel_id = authed_response_obj['incoming_webhook']['channel_id']
+  slack_authed_webhook_url = authed_response_obj['incoming_webhook']['url']
 
   # Connect to Postgres database
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
@@ -114,7 +115,7 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
 
 
     # ------------------------ Insert New User to DB START ------------------------
-    db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted)
+    db_insert_output_message = insert_triviafy_user_login_information_table_slack_function(postgres_connection, postgres_cursor, slack_db_uuid, slack_db_timestamp_created, slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, slack_authed_bot_user_id, first_user_payment_admin, slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted, slack_authed_webhook_url)
     # ------------------------ Insert New User to DB END ------------------------
 
 
@@ -186,12 +187,13 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     slack_authed_user_timezone_offset = check_slack_user_combo_already_exists_arr[19]
     slack_authed_user_job_title = check_slack_user_combo_already_exists_arr[20]
     user_slack_email_permission_granted = check_slack_user_combo_already_exists_arr[21]
+    slack_authed_webhook_url = check_slack_user_combo_already_exists_arr[22]
   # ------------------------ Account Already Exist END ------------------------
 
 
   # ------------------------ Transpose the SQL pulled table to dict START ------------------------
   # Transpose user data to nested dictionary. Make timestamp a string because you cannot upload timestamp to redis as a json obj
-  user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, str(slack_db_timestamp_created), slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted)
+  user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, str(slack_db_timestamp_created), slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted, slack_authed_webhook_url)
   # ------------------------ Transpose the SQL pulled table to dict END ------------------------
 
 
