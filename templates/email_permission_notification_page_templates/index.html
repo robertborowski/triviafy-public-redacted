@@ -21,7 +21,7 @@
     <p class="email-consent-sub-section-description">Slack channels can often go unread. As a backup, Triviafy would like to email you about quiz open/close dates. Your email is also how you will receive gift card prizes that you automatically earn every 10th quiz win.</p>
     
     <form action="{{ url_for('email_permission_notification_consent_processing.email_permission_notification_consent_processing_function') }}" method="post" class='email-consent-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
-      <input type="checkbox" id="email-consent-name" name="email-consent-name" value="agree" checked required class="email-consent-form-label">
+      <input type="checkbox" id="email-consent-name" name="email-consent-name" value="agree" required class="email-consent-form-label">
       <label for="email-consent-name">I Agree</label>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
