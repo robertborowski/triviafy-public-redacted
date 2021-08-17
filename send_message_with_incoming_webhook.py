@@ -20,7 +20,7 @@
 
 
 from slack_sdk.webhook import WebhookClient
-url = 'https://hooks.slack.com/services/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'
+url = 'xxxxxxxxx'
 webhook = WebhookClient(url)
 
 response = webhook.send(text="Hello!")

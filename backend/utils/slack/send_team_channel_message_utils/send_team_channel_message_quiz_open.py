@@ -4,7 +4,11 @@ from slack_sdk.errors import SlackApiError
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- Main Function
-def send_team_channel_message_quiz_open_function(slack_bot_token, user_channel, quiz_end_day_of_week, quiz_end_time):
+# def send_team_channel_message_quiz_open_function(slack_bot_token, user_channel, quiz_end_day_of_week, quiz_end_time, user_slack_authed_incoming_webhook_url):
+def send_team_channel_message_quiz_open_function(quiz_end_day_of_week, quiz_end_time, user_slack_authed_incoming_webhook_url):
+  
+  """
+  # ------------------------ Old Method START ------------------------
   localhost_print_function('=========================================== send_team_channel_message_quiz_open_function START ===========================================')
 
   output_text = f":tada: Hi <!here>, your team's weekly Triviafy quiz is now OPEN!\n:hourglass_flowing_sand: Quiz closes on {quiz_end_day_of_week}, {quiz_end_time}.\n:white_check_mark: Login and submit your answers at: https://triviafy.com/"
@@ -24,3 +28,22 @@ def send_team_channel_message_quiz_open_function(slack_bot_token, user_channel, 
 
   localhost_print_function('=========================================== send_team_channel_message_quiz_open_function END ===========================================')
   return True, output_text
+  # ------------------------ Old Method END ------------------------
+  """
+
+
+  # ------------------------ Incoming Webhook Method START ------------------------
+  localhost_print_function('=========================================== send_team_channel_message_quiz_open_function START ===========================================')
+  from slack_sdk.webhook import WebhookClient
+  url = user_slack_authed_incoming_webhook_url
+  webhook = WebhookClient(url)
+
+  output_text = f":tada: Hi <!here>, your team's weekly Triviafy quiz is now OPEN!\n:hourglass_flowing_sand: Quiz closes on {quiz_end_day_of_week}, {quiz_end_time}.\n:white_check_mark: Login and submit your answers at: https://triviafy.com/"
+
+  response = webhook.send(text=output_text)
+  assert response.status_code == 200
+  assert response.body == "ok"
+
+  localhost_print_function('=========================================== send_team_channel_message_quiz_open_function END ===========================================')
+  return output_text
+  # ------------------------ Incoming Webhook Method END ------------------------

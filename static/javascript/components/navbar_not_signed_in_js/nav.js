@@ -34,7 +34,7 @@ class NavbarNotSignedInClass extends HTMLElement {
 
 
 
-          <li><a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=channels:read,chat:write,chat:write.public,groups:read,im:read,incoming-webhook,mpim:read,team:read,users.profile:read,users:read,users:read.email&state=${this.getAttribute("slack_state_uuid_js")}&user_scope="><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="slack-image-button-li" /></a></li>
+          <li><a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=channels:read,chat:write,groups:read,im:read,incoming-webhook,mpim:read,team:read,users.profile:read,users:read,users:read.email&state=${this.getAttribute("slack_state_uuid_js")}&user_scope="><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="slack-image-button-li" /></a></li>
 
 
 

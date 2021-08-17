@@ -20,6 +20,7 @@ from backend.db.queries.select_queries.select_queries_triviafy_slack_messages_se
 from backend.db.queries.insert_queries.insert_queries_triviafy_slack_messages_sent_table.insert_triviafy_slack_messages_sent_table import insert_triviafy_slack_messages_sent_table_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 import os, time
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_one_user_incoming_webhook import select_one_user_incoming_webhook_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_close_grade_winner_send_email_function():
@@ -164,7 +165,9 @@ def job_daily_quiz_close_grade_winner_send_email_function():
         if check_if_slack_message_already_sent_to_company_user == None:
           if winner_user_full_name == 'No Winner':
             winner_user_slack_authed_id = 'No Winner'
-          result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, winner_user_slack_authed_id)
+          user_slack_authed_incoming_webhook_url = select_one_user_incoming_webhook_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
+          # result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, winner_user_slack_authed_id)
+          output_message_content_str_for_db = send_team_channel_message_quiz_close_function(winner_user_slack_authed_id, user_slack_authed_incoming_webhook_url)
 
           # Insert this sent email into DB
           uuid_slack_message_sent = create_uuid_function('slack_sent_')
