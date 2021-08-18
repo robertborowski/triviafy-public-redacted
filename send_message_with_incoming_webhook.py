@@ -1,7 +1,7 @@
 # import json
 # import requests
 
-# webhook_url = 'https://hooks.slack.com/services/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'
+# webhook_url = 'xxxxxxxxx'
 # slack_data = {'text': "My first Slack message yay"}
 
 # response = requests.post(
