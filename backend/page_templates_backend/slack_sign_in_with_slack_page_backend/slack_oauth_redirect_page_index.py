@@ -81,7 +81,7 @@ def slack_oauth_redirect_page_index_function():
         # ------------------------ Check if user exists END ------------------------
         if authed_user_id_already_exists == False or authed_user_id_signed_in_object == None:
           localhost_print_function('=========================================== /slack/oauth_redirect Page END ===========================================')
-          return redirect('/logout', code=302)
+          return redirect('/slack/integration/buttons', code=302)
         else:
           # Store in redis
           user_store_in_redis_status = user_store_loggedin_data_redis_function(authed_user_id_signed_in_object, get_cookie_value_from_browser)
@@ -98,4 +98,4 @@ def slack_oauth_redirect_page_index_function():
 
   localhost_print_function('=========================================== /slack/oauth_redirect Page END ===========================================')
   # Render the login page template, pass in the redis nested dict of all user info
-  return redirect('/logout', code=302)
+  return redirect('/slack/integration/buttons', code=302)

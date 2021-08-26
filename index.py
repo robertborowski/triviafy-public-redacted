@@ -1,4 +1,5 @@
 # -------------------------------------------------------------- Imports
+from backend.page_templates_backend.slack_sign_in_with_before_add_to_slack_page_backend.slack_sign_in_with_before_add_to_slack_page_render_template import slack_sign_in_with_before_add_to_slack_page_render_template_function
 import os, time
 import datetime
 from flask import Flask, session, render_template
@@ -17,6 +18,7 @@ from backend.page_templates_backend.terms_of_service_page_backend.terms_of_servi
 # Slack authentication pages
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
 from backend.page_templates_backend.slack_sign_in_with_slack_page_backend.slack_oauth_redirect_page_index import slack_oauth_redirect_page_index
+from backend.page_templates_backend.slack_sign_in_with_before_add_to_slack_page_backend.slack_sign_in_with_before_add_to_slack_page_render_template import slack_sign_in_with_before_add_to_slack_page_render_template
 # Email Notifications Confirm pages
 from backend.page_templates_backend.email_permission_notification_page_backend.email_permission_notification_page_render_template import email_permission_notification_page_render_template
 from backend.page_templates_backend.email_permission_notification_page_backend.email_permission_notification_consent_processing import email_permission_notification_consent_processing
@@ -103,6 +105,7 @@ app.register_blueprint(terms_of_service_index_page_render_template, url_prefix="
 # Slack authentication pages
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
 app.register_blueprint(slack_oauth_redirect_page_index, url_prefix="")
+app.register_blueprint(slack_sign_in_with_before_add_to_slack_page_render_template, url_prefix="")
 # Email Notifications Confirm pages
 app.register_blueprint(email_permission_notification_page_render_template, url_prefix="")
 app.register_blueprint(email_permission_notification_consent_processing, url_prefix="")
