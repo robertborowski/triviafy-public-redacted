@@ -98,7 +98,7 @@ def email_permission_notification_consent_processing_function():
 
     output_email = user_email
     output_subject_line = 'Triviafy Account Created - Next Steps'
-    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nOptional: please send this message in your desired Slack channel: '/invite @Triviafy'.\n\nYou will be notified by email and Slack once your team's weekly quiz is open.\n\nBest,\nRob\nTriviafy your workspace."
+    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nOptional: please send this message in your desired Slack channel: '/invite @Triviafy'.\n\nYou will be notified by email and Slack once your team's weekly quiz is open.\n\nBest,\nRob\n\nTriviafy your workspace."
     output_message_content_str_for_db = output_message_content
 
     email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
