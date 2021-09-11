@@ -8,3 +8,11 @@ To-Do's
 -Clicking cancel on the post slack sign in button.
 -Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
 -In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
+
+
+
+
+Payment Steps
+
+1.
+With a job - On the 10th of every month if the Paid status is set to False still (meaning they did not pay the paypal invoice and I did not set it to True for the month) then they are redirected to the subscription page.
