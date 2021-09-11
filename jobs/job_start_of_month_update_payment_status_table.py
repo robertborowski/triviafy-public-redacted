@@ -34,7 +34,7 @@ def job_start_of_month_update_payment_status_table_function():
 
 
   # ------------------------ If Wrong Job Date START ------------------------
-  if today_date_date != '01':
+  if today_date_date != '11':
    localhost_print_function('Today is not the first of the month.')
    localhost_print_function('=========================================== job_start_of_month_update_payment_status_table_function END ===========================================')
    return True
@@ -42,7 +42,7 @@ def job_start_of_month_update_payment_status_table_function():
 
 
   # ------------------------ If Correct Job Date START ------------------------
-  if today_date_date == '01':
+  if today_date_date == '11':
     # Connect to Postgres database
     postgres_connection, postgres_cursor = postgres_connect_to_database_function()
     
