@@ -17,6 +17,7 @@ from backend.utils.latest_quiz_utils.check_if_today_is_earlier_than_latest_quiz_
 from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name import sanitize_page_output_company_name_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
 
 # -------------------------------------------------------------- App Setup
 dashboard_index_page_render_template = Blueprint("dashboard_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -43,6 +44,9 @@ def dashboard_index_page_render_template_function():
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
 
+    # Check if user Team/Channel combo paid the latest month
+    user_team_channeL_paid_latest_month = check_if_user_team_channel_combo_paid_latest_month_function(user_nested_dict)
+    
     # Check if user free trial is expired
     user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
     if user_nested_dict == None or user_nested_dict == True:

@@ -16,3 +16,14 @@ Payment Steps
 
 1.
 With a job - On the 10th of every month if the Paid status is set to False still (meaning they did not pay the paypal invoice and I did not set it to True for the month) then they are redirected to the subscription page.
+
+
+
+====================================================================
+DO NOT DELETE DURING TESTING - old redirect URLS for Slack
+1.
+https://triviafy.com/slack/confirm/oauth/redirect/dashboard/index
+
+2.
+https://triviafy.com/slack/oauth_redirect
+====================================================================
