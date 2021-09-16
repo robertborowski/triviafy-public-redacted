@@ -38,7 +38,7 @@ def check_if_user_team_channel_combo_paid_latest_month_function(user_nested_dict
   # ------------------------ Pull Info From DB END ------------------------
 
   if team_channel_year_month_combo_exists_in_db == None:
-    return None  
+    return False
   else:
     paid_status_slack_team_channel_year_month = team_channel_year_month_combo_exists_in_db[0]
     localhost_print_function('=========================================== check_if_user_team_channel_combo_paid_latest_month_function END ===========================================')
