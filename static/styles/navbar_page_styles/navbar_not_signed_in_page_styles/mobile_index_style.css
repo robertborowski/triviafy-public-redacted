@@ -96,6 +96,35 @@
   }
   /* - - - - - - - - - - Spacer for main - End */
 
+  /* - - - - - - - - - - Login Modal - Start */
+  .login-modal-content {
+    width: 90%;
+  }
+  .login-modal-body {
+    /* border: 1px solid black; */
+    height: 260px;
+  }
+  .login-modal-body ul li {
+    /* margin-left: 5%; */
+    font-size: 15px;
+  }
+  /* - - - - - - - - - - Login Modal - End */
+
+
+  /* - - - - - - - - - - Create Account Modal - Start */
+  .create-account-modal-content {
+    width: 90%;
+  }
+  .create-account-modal-body {
+    /* border: 1px solid black; */
+    height: 260px;
+  }
+  .create-account-modal-body ul li {
+    /* margin-left: 5%; */
+    font-size: 15px;
+  }
+  /* - - - - - - - - - - Create Account Modal - End */
+
 
   /* - - - - - - - - - - Navbar links - Animation - Start */
   @keyframes animate-drop-down-menu {

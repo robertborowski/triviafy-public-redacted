@@ -82,5 +82,169 @@ h1.company-name-navbar-not-signed-in a, .h1.company-name-navbar-not-signed-in a:
 
 
 img.slack-image-button-li {
-  margin: -10px 0 0 0;
+  /* margin: -10px 0 0 0; */
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
+
+/* - - - - - - - - - - Login Modal - Start */
+.modal-login-text {
+  color: var(--company-primary-color);
+  text-decoration: none;
+}
+.login-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* overflow: auto; */
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.login-modal-content {
+  background-color: white;
+  margin: 15% auto;
+  width: 400px;
+  animation-name: login-modal-open-animation;
+  animation-duration: 1s;
+}
+.login-modal-header {
+  background-color: var(--company-primary-color);
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+.close-login-modal-x-button {
+  color: rgb(255, 255, 255);
+  float: right;
+  font-size: 30px;
+}
+.close-login-modal-x-button:hover, .close-login-modal-x-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.login-modal-body {
+  /* border: 1px solid black; */
+  height: 200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  float: none;
+}
+.login-modal-body ul {
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: 0 auto;
+  float: none;
+}
+.login-modal-body ul li {
+  /* border: 1px solid green; */
+  float: none;
+  display: block;
+  padding: 4px 0;
+}
+.login-modal-body ul li a {
+  padding: 0;
+  margin: 0;
+}
+
+
+.login-modal-footer {
+  background-color: var(--company-primary-color);
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+@keyframes login-modal-open-animation {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+/* - - - - - - - - - - Login Modal - End */
+
+
+/* - - - - - - - - - - Create Account Modal - Start */
+.modal-create-account-text {
+  color: var(--company-primary-color);
+  text-decoration: none;
+}
+.create-account-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* overflow: auto; */
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.create-account-modal-content {
+  background-color: white;
+  margin: 15% auto;
+  width: 400px;
+  animation-name: create-account-modal-open-animation;
+  animation-duration: 1s;
+}
+.create-account-modal-header {
+  background-color: var(--company-primary-color);
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+.close-create-account-modal-x-button {
+  color: rgb(255, 255, 255);
+  float: right;
+  font-size: 30px;
+}
+.close-create-account-modal-x-button:hover, .close-create-account-modal-x-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.create-account-modal-body {
+  /* border: 1px solid black; */
+  height: 200px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  float: none;
+}
+.create-account-modal-body ul {
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: 0 auto;
+  float: none;
+}
+.create-account-modal-body ul li {
+  /* border: 1px solid green; */
+  float: none;
+  display: block;
+  padding: 4px 0;
+}
+.create-account-modal-body ul li a {
+  padding: 0;
+  margin: 0;
+}
+
+
+.create-account-modal-footer {
+  background-color: var(--company-primary-color);
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
+
+@keyframes create-account-modal-open-animation {
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+/* - - - - - - - - - - Login Modal - End */
