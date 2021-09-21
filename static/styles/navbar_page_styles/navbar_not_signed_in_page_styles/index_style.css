@@ -61,7 +61,7 @@ h1.company-name-navbar-not-signed-in a, .h1.company-name-navbar-not-signed-in a:
   text-decoration: none;
 }
 .navbar-links-not-signed-in ul li a:hover {
-  font-size: 19px;
+  /* font-size: 19px; */
   transition: 0.2s ease-in;
   text-decoration: underline;
 }
@@ -247,4 +247,25 @@ img.slack-image-button-li {
   from{ opacity: 0; }
   to{ opacity: 1; }
 }
-/* - - - - - - - - - - Login Modal - End */
+/* - - - - - - - - - - Create Account Modal - End */
+
+/* - - - - - - - - - - Navbar links - Start */
+.navbar-links-not-signed-in ul li ul {
+  /* border: 1px solid black; */
+  border: 1px solid var(--company-primary-color-faded);
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  border-radius: 0px 0px 5px 5px;
+  width: 120px;
+}
+.navbar-links-not-signed-in ul li:hover ul {
+  /* border: 1px solid black; */
+  display: block;
+}
+.navbar-not-signed-in .navbar-links-not-signed-in ul li ul li a {
+  /* border: 1px solid black; */
+  padding: 10px 14px;
+}
+/* - - - - - - - - - - Navbar links - End */

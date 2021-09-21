@@ -126,6 +126,33 @@
   /* - - - - - - - - - - Create Account Modal - End */
 
 
+  /* - - - - - - - - - - Navbar links - Start */
+  nav.navbar-not-signed-in .navbar-links-not-signed-in ul {
+    /* border: 1px solid black; */
+    width: 100%;
+  }
+  nav.navbar-not-signed-in .navbar-links-not-signed-in ul li:hover ul {
+    /* border: 1px solid black; */
+    display: none;
+  }
+  /* Mobile only added the active click with JavaScript */
+  nav.navbar-not-signed-in .navbar-links-not-signed-in ul li ul.active {
+    /* border: 1px solid black; */
+    display: block;
+    background-color: var(--company-secondary-color);
+    z-index: 100;
+    position: absolute;
+    animation: animate-drop-down-menu 300ms ease-in-out forwards;
+    animation-delay: 0ms;
+  }
+  nav.navbar-not-signed-in .navbar-links-not-signed-in ul li ul.active li a {
+    /* border: 1px solid black; */
+    color: black;
+    padding: 30px;
+  }
+  /* - - - - - - - - - - Navbar links - Start */
+
+
   /* - - - - - - - - - - Navbar links - Animation - Start */
   @keyframes animate-drop-down-menu {
     0% {
