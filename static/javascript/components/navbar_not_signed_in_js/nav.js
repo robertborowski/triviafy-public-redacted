@@ -30,6 +30,7 @@ class NavbarNotSignedInClass extends HTMLElement {
         <!-- <li><a href="${this.getAttribute("link_about_js")}">About</a></li> -->
         <li class="drill-down"><a href="#">Resources <i class="fas fa-caret-down"></i></a>
           <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
+            <li><a href="${this.getAttribute("pdf_example_quiz_js")}">Example Quiz (PDF)</a></li>
             <li><a href="${this.getAttribute("link_about_js")}">About</a></li>
             <li><a href="${this.getAttribute("link_privacy_js")}">Privacy</a></li>
           </ul>
