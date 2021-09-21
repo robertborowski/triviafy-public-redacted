@@ -33,6 +33,11 @@ p.about-sub-section-sub-title {
   color: var(--company-primary-color);
   font-size: 19px;
 }
+.about-contact {
+  color: var(--company-primary-color);
+  text-align: center;
+  padding: 20px 0 0 0;
+}
 /* - - - - - - - - - - Pricing - End */
 
 
