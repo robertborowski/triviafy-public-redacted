@@ -17,17 +17,18 @@
   <!-- Navbar links -->
   <div class="navbar-links-not-signed-in">
     <ul>
-      <!-- <li><a href="${this.getAttribute("link_about_js")}">About</a></li> -->
       <li class="drill-down"><a href="#">Resources <i class="fas fa-caret-down"></i></a>
         <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
           <li><a href="${this.getAttribute("pdf_example_quiz_js")}">Example Quiz (PDF)</a></li>
+          <li><a href="${this.getAttribute("link_faq_js")}">FAQ</a></li>
           <li><a href="${this.getAttribute("link_about_js")}">About</a></li>
           <li><a href="${this.getAttribute("link_privacy_js")}">Privacy</a></li>
         </ul>
       </li>
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Login Modal Start -->
-      <li><a href="#"><p class="modal-login-text" id="login-activate-modal">Login</p></a></li>
+      <!-- <li><a href="#"><p class="modal-login-text" id="login-activate-modal">Login</p></a></li> -->
+      <li><a href="#" class="modal-login-text" id="login-activate-modal">Login</a></li>
       <div id="login-details-modal" class="login-modal">
         <div class="login-modal-content box-shadow-reg-black">
           
@@ -54,7 +55,8 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Login Modal End -->
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Account Modal Start -->
-      <li><a href="#"><p class="modal-create-account-text" id="create-account-activate-modal">Create Account</p></a></li>
+      <!-- <li><a href="#"><p class="modal-create-account-text" id="create-account-activate-modal">Create Account</p></a></li> -->
+      <li><a href="#" class="modal-create-account-text" id="create-account-activate-modal">Create Account</p></a></li>
       <div id="create-account-details-modal" class="create-account-modal">
         <div class="create-account-modal-content box-shadow-reg-black">
           

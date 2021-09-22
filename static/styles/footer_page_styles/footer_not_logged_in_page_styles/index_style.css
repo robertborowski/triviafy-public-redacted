@@ -51,8 +51,18 @@
 }
 
 .company-name-and-logo-footer-not-signed-in img.company-logo-footer-not-signed-in {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   margin: 5px 0 0 0;
   /* float: left; */
+}
+
+.privacy-and-tos-footer a, .privacy-and-tos-footer a:visited {
+  font-size: 10px;
+  color: grey;
+  text-decoration: none;
+}
+.privacy-and-tos-footer a:hover {
+  transition: 0.2s;
+  color: white;
 }

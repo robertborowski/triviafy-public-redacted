@@ -15,10 +15,9 @@ class FooterNotSignedInClass extends HTMLElement {
             <p class="footer-not-signed-in-links-group-title">Product</p>
             <ul>
               <li><a href="${this.getAttribute("link_home_js")}">Home</a></li>
+              <li><a href="${this.getAttribute("link_faq_js")}">FAQ</a></li>
               <li><a href="${this.getAttribute("link_about_js")}">About</a></li>
               <li><a href="${this.getAttribute("pdf_example_quiz_js")}">Example Quiz (PDF)</a></li>
-              <li><a href="${this.getAttribute("link_privacy_js")}">Privacy</a></li>
-              <li><a href="${this.getAttribute("link_terms_conditions_js")}">Terms & Conditions</a></li>
             </ul>
           </div>
 
@@ -36,7 +35,6 @@ class FooterNotSignedInClass extends HTMLElement {
             <!-- Logo and Company Name -->
             <div class="company-name-and-logo-footer-not-signed-in">
               <!-- Company Name -->
-              <!-- <h1 class="company-name-footer-not-signed-in"><a href="${this.getAttribute("link_home_js")}">Triviafy</a></h1> -->
               <p class="footer-not-signed-in-links-group-title">Triviafy</p>
               <!-- Logo -->
               <a href="${this.getAttribute("link_home_js")}"><img src="/static/images/logo/Logo_black_and_white.png" class="company-logo-footer-not-signed-in" alt="Triviafy icon/logo"></a>
@@ -45,6 +43,8 @@ class FooterNotSignedInClass extends HTMLElement {
             <div class="footer-not-signed-in-copyright">
               <p>Copyright © 2021 Triviafy.</p>
               <p>All rights reserved.</p>
+              <p class="privacy-and-tos-footer"><a href="${this.getAttribute("link_terms_conditions_js")}">Terms & Conditions</a></p>
+              <p class="privacy-and-tos-footer"><a href="${this.getAttribute("link_privacy_js")}">Privacy</a></p>
             </div>
           </div>
         </div>

@@ -61,9 +61,13 @@ h1.company-name-navbar-not-signed-in a, .h1.company-name-navbar-not-signed-in a:
   text-decoration: none;
 }
 .navbar-links-not-signed-in ul li a:hover {
-  /* font-size: 19px; */
-  transition: 0.2s ease-in;
-  text-decoration: underline;
+  transition: 0.1s ease-in;
+  background-color: var(--company-primary-color);
+  border-radius: 10px;
+  color: white;
+}
+.login-modal-body ul li a:hover, .create-account-modal-body ul li a:hover {
+  background-color: white;
 }
 .navbar-links-not-signed-in ul li a button {
   /* padding: 0px; */
@@ -267,5 +271,9 @@ img.slack-image-button-li {
 .navbar-not-signed-in .navbar-links-not-signed-in ul li ul li a {
   /* border: 1px solid black; */
   padding: 10px 14px;
+}
+.navbar-links-not-signed-in ul li ul li {
+  /* border: 1px solid black; */
+  width: 100%;
 }
 /* - - - - - - - - - - Navbar links - End */

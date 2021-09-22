@@ -84,6 +84,7 @@
   }
   .navbar-not-signed-in .navbar-links-not-signed-in ul li a:hover {
     transition: none;
+    background-color: white;
   }
   /* - - - - - - - - - - Navbar links - Start */
 
