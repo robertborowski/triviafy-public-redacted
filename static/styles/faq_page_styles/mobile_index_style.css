@@ -1,6 +1,6 @@
 @media (max-width: 800px) {
   /* - - - - - - - - - - Intro - Start */
-  .about-section, .about-founder-section {
+  .faq-section, .faq-founder-section {
     /* border: 1px solid black; */
     width: 90%;
   }
@@ -20,7 +20,7 @@
 
 
   /* - - - - - - - - - - Celebrate Logos - Start */
-  img.about-celebrate-logo-sub-section-img {
+  img.faq-celebrate-logo-sub-section-img {
     height: 150px;
     width: 150px;
   }

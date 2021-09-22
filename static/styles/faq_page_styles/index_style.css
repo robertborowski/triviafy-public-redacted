@@ -1,84 +1,56 @@
 /* - - - - - - - - - - Intro - Start */
-.about-section, .about-founder-section {
+.faq-section {
   /* border: 1px solid black; */
   width: 50%;
   margin: 0 auto;
 }
-.about-sub-section-title-and-subtitle-section, .about-founder-sub-section-title-section {
+.faq-sub-section-title-and-subtitle-section {
+  /* border: 1px solid black; */
   text-align: center;
 }
-p.about-sub-section-title {
+p.faq-sub-section-title {
+  /* border: 1px solid black; */
   color: var(--company-primary-color);
   font-size: 60px;
   padding: 50px 0 10px 0;
 }
-p.about-sub-section-sub-title {
+p.faq-sub-section-sub-title {
+  /* border: 1px solid black; */
   color: var(--company-primary-color);
   font-size: 25px;
 }
-.about-sub-section-description {
-  /* border: 1px solid black; */
-  padding: 25px 0;
-}
-.about-sub-section-sub-description {
-  /* border: 1px solid black; */
-  padding: 10px 0;
-}
-.about-sub-section-sub-description p {
-  margin: 20px 0;
-  line-height: 1.5rem;
-  font-size: 15px;
-}
-.about-span {
-  color: var(--company-primary-color);
-  font-size: 19px;
-}
-.about-contact {
-  color: var(--company-primary-color);
-  text-align: center;
-  padding: 20px 0 0 0;
-}
-/* - - - - - - - - - - Pricing - End */
+/* - - - - - - - - - - Intro - End */
 
 
-/* - - - - - - - - - - Divider - Start */
-.about-section-divider-line {
-  width: 75%;
-  margin: 0 auto;
+
+
+/* - - - - - - - - - - All Questions - Start */
+.faq-all-questions-section {
+  /* border: 1px solid black; */
+  margin: 50px 0 0 0;
+}
+.faq-individual-question-answer-section {
   border: 1px solid var(--company-greyed-out-color);
+  margin: 0 0 25px 0;
+  padding: 30px;
+  border-radius: 15px;
 }
-/* - - - - - - - - - - Divider - End */
-
-
-/* - - - - - - - - - - Founder - Start */
-.about-founder-sub-section-title {
-  font-size: 40px;
+.faq-individual-question {
+  /* border: 1px solid black; */
   color: var(--company-primary-color);
-  padding: 50px 0 10px 0;
-}
-img.person-sub-section-img {
-  height: 400px;
-  width: 400px;
-  margin: 25px 0 0 0;
-  border: 1px solid var(--company-primary-color);
-  border-radius: 20px;
-}
-.person-sub-section-name-and-description-section {
-  padding: 20px 0;
-}
-p.person-sub-section-name {
   font-size: 25px;
-  margin: 0 0 10px 0;
+  padding: 0 0 15px 0;
 }
-p.person-sub-section-description {
-  font-size: 20px;
-  margin: 5px 0;
+.faq-individual-answer {
+  font-size: 18px;
 }
-/* - - - - - - - - - - Founder - End */
+/* - - - - - - - - - - All Questions - End */
+
+
 
 
 /* - - - - - - - - - - Celebrate Logos - Start */
-.about-celebrate-logos-section {
+.faq-celebrate-logos-section {
   /* border: 1px solid black; */
   width: 90%;
   margin: 50px auto 50px auto;
@@ -86,7 +58,7 @@ p.person-sub-section-description {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-img.about-celebrate-logo-sub-section-img {
+img.faq-celebrate-logo-sub-section-img {
   height: 300px;
   width: 300px;
 }
