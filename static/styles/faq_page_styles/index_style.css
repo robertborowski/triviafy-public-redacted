@@ -47,6 +47,17 @@ p.faq-sub-section-sub-title {
 /* - - - - - - - - - - All Questions - End */
 
 
+/* - - - - - - - - - - Contact - Start */
+.faq-contact-admin {
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}
+.faq-contact-admin span.faq-span {
+  color: var(--company-primary-color);
+  font-size: 18px;
+}
+/* - - - - - - - - - - Contact - End */
 
 
 /* - - - - - - - - - - Celebrate Logos - Start */

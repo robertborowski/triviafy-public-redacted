@@ -1,22 +1,10 @@
 @media (max-width: 800px) {
   /* - - - - - - - - - - Intro - Start */
-  .faq-section, .faq-founder-section {
+  .faq-section {
     /* border: 1px solid black; */
     width: 90%;
   }
-  /* - - - - - - - - - - Pricing - End */
-
-
-  /* - - - - - - - - - - Divider - Start */
-  /* - - - - - - - - - - Divider - End */
-
-
-  /* - - - - - - - - - - Founder - Start */
-  img.person-sub-section-img {
-    height: 300px;
-    width: 300px;
-  }
-  /* - - - - - - - - - - Founder - End */
+  /* - - - - - - - - - - Intro - End */
 
 
   /* - - - - - - - - - - Celebrate Logos - Start */
