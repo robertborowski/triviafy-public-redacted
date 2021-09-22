@@ -15,6 +15,8 @@ from backend.page_templates_backend.about_page_backend.about_index_page_render_t
 from backend.page_templates_backend.privacy_policy_page_backend.privacy_policy_index_page_render_template import privacy_policy_index_page_render_template
 # TOS page
 from backend.page_templates_backend.terms_of_service_page_backend.terms_of_service_index_page_render_template import terms_of_service_index_page_render_template
+# FAQ page
+from backend.page_templates_backend.faq_page_backend.faq_index_page_render_template import faq_index_page_render_template
 # Slack authentication pages
 from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.slack_confirm_oauth_redirect_dashboard_index import slack_confirm_oauth_redirect_dashboard_index
 from backend.page_templates_backend.slack_sign_in_with_slack_page_backend.slack_oauth_redirect_page_index import slack_oauth_redirect_page_index
@@ -102,6 +104,8 @@ app.register_blueprint(about_index_page_render_template, url_prefix="")
 app.register_blueprint(privacy_policy_index_page_render_template, url_prefix="")
 # Terms of Service page
 app.register_blueprint(terms_of_service_index_page_render_template, url_prefix="")
+# FAQ page
+app.register_blueprint(faq_index_page_render_template, url_prefix="")
 # Slack authentication pages
 app.register_blueprint(slack_confirm_oauth_redirect_dashboard_index, url_prefix="")
 app.register_blueprint(slack_oauth_redirect_page_index, url_prefix="")
