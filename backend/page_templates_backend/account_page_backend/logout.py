@@ -27,16 +27,24 @@ def logout_function():
   server_env = os.environ.get('TESTING', 'false')
   # If running on localhost
   if server_env == 'true':
-    # Get key:value from redis then delete row from redis
-    redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
-    browser_cookie_value = redis_connection.get(redis_browser_cookie_key).decode('utf-8')
-    redis_connection.delete(redis_browser_cookie_key)
-    redis_connection.delete(browser_cookie_value)
+    try:
+      # Get key:value from redis then delete row from redis
+      redis_browser_cookie_key = 'localhost_redis_browser_cookie_key'
+      browser_cookie_value = redis_connection.get(redis_browser_cookie_key).decode('utf-8')
+      redis_connection.delete(redis_browser_cookie_key)
+      redis_connection.delete(browser_cookie_value)
+    except:
+      print('=========================================== /logout Page END ===========================================')
+      return redirect("/", code=302)
 
   # -------------------------------------------------------------- NOT running on localhost
   else:
     get_cookie_value_from_browser = request.cookies.get('triviafy_browser_cookie')
-    redis_connection.delete(get_cookie_value_from_browser)
+    try:
+      redis_connection.delete(get_cookie_value_from_browser)
+    except:
+      print('=========================================== /logout Page END ===========================================')
+      return redirect("/", code=302)
 
   print('=========================================== /logout Page END ===========================================')
   return redirect("/", code=302)
