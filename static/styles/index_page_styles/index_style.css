@@ -40,12 +40,18 @@
   width: 90%;
   margin: 70px auto 0 auto;
 }
-img.quiz-example-screenshot {
+/* img.quiz-example-screenshot {
   border: 5px solid rgba(254, 246, 255, 0.437);
   height: auto;
   width: 100%;
   max-width: 650px;
   border-radius: 20px;
+} */
+.triviafy_promo_video {
+  height: 329.4px;
+  width: 585px;
+  border-radius: 15px;
+  /* border: 3px solid rgba(255, 192, 203, 0.526); */
 }
 /* - - - - - - - - - - Into - End */
 
