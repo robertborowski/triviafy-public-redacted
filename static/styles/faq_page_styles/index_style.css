@@ -61,13 +61,10 @@ p.faq-sub-section-sub-title {
 
 
 /* - - - - - - - - - - Celebrate Logos - Start */
-.faq-celebrate-logos-section {
+.faq-triviafy-character {
   /* border: 1px solid black; */
-  width: 90%;
-  margin: 50px auto 50px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  text-align: center;
+  margin: 40px 0;
 }
 img.faq-celebrate-logo-sub-section-img {
   height: 300px;
