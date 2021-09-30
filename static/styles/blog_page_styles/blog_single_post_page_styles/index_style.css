@@ -27,7 +27,7 @@ p.blog-single-post-sub-section-sub-title {
 .blog-single-post-all-articles-section {
   /* border: 1px solid black; */
   margin: 50px 0;
-  line-height: 1.75;
+  line-height: 2;
 }
 .blog-single-post-regular-paragraph {
   color: black;
@@ -35,6 +35,9 @@ p.blog-single-post-sub-section-sub-title {
 }
 .blog-single-post-regular-bullet-point {
   padding: 0 0 0 25px;
+}
+.blog-single-post-highlight-color {
+  color: var(--company-primary-color);
 }
 /* - - - - - - - - - - All Articles- End */
 
