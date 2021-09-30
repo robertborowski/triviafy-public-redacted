@@ -22,8 +22,18 @@ p.blog-single-post-sub-section-sub-title {
 /* - - - - - - - - - - Intro - End */
 
 
+/* - - - - - - - - - - Image - Start */
+img.blog-single-post-img {
+  border-radius: 15px;
+  width: 100%;
+  margin: 50px 0 0 0;
+  border: 1px solid var(--company-greyed-out-color);
+}
+/* - - - - - - - - - - Image - End */
 
-/* - - - - - - - - - - All Articles - Start */
+
+
+/* - - - - - - - - - - Whole Article - Start */
 .blog-single-post-all-articles-section {
   /* border: 1px solid black; */
   margin: 50px 0;
@@ -39,11 +49,27 @@ p.blog-single-post-sub-section-sub-title {
 .blog-single-post-highlight-color {
   color: var(--company-primary-color);
 }
-/* - - - - - - - - - - All Articles- End */
+/* - - - - - - - - - - Whole Article - End */
 
 .blog-single-post-space-divider {
   margin: 30px 0;
 }
+
+
+/* - - - - - - - - - - Finish Article Line - Start */
+.blog-single-post-finish-article-line {
+  border: 1px solid var(--company-greyed-out-color);
+}
+/* - - - - - - - - - - Finish Article Line - End */
+
+
+/* - - - - - - - - - - Supporting Links - Start */
+.blog-single-post-supporting-links-section {
+  font-size: 15px;
+  line-height: 2;
+  margin: 25px 0;
+}
+/* - - - - - - - - - - Supporting Links - End */
 
 
 /* - - - - - - - - - - Contact - Start */
