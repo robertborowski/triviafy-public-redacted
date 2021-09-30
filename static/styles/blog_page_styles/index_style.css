@@ -24,9 +24,6 @@ p.blog-sub-section-sub-title {
 
 
 /* - - - - - - - - - - All Articles - Start */
-.blog-all-articles-section {
-  /* border: 1px solid black; */
-}
 .blog-single-article-section {
   border: 1px solid var(--company-greyed-out-color);
   border-radius: 15px;
