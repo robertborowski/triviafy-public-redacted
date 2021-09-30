@@ -11,8 +11,6 @@ from backend.page_templates_backend.index_page_backend.index_page_render_templat
 
 # About page
 from backend.page_templates_backend.about_page_backend.about_index_page_render_template import about_index_page_render_template
-# Blog page
-from backend.page_templates_backend.blog_page_backend.blog_index_page_render_template import blog_index_page_render_template
 # Privacy page
 from backend.page_templates_backend.privacy_policy_page_backend.privacy_policy_index_page_render_template import privacy_policy_index_page_render_template
 # TOS page
@@ -67,6 +65,10 @@ from backend.page_templates_backend.sample_quiz_page_backend.grade_sample_quiz_p
 from backend.page_templates_backend.subscription_page_backend.subscription_index_page_render_template import subscription_index_page_render_template
 # Claim Prize pages
 from backend.page_templates_backend.claim_prize_page_backend.claim_prize_index_page_render_template import claim_prize_index_page_render_template
+# Blog page
+from backend.page_templates_backend.blog_page_backend.blog_index_page_render_template import blog_index_page_render_template
+# Blog Single Post page
+from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_aa_index_page_render_template import blog_single_post_aa_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -102,8 +104,6 @@ app.register_blueprint(index_page_render_template, url_prefix="")
 
 # About page
 app.register_blueprint(about_index_page_render_template, url_prefix="")
-# Blog page
-app.register_blueprint(blog_index_page_render_template, url_prefix="")
 # Privacy page
 app.register_blueprint(privacy_policy_index_page_render_template, url_prefix="")
 # Terms of Service page
@@ -158,6 +158,10 @@ app.register_blueprint(sample_quiz_graded_index_page_render_template, url_prefix
 app.register_blueprint(subscription_index_page_render_template, url_prefix="")
 # Claim Prize pages
 app.register_blueprint(claim_prize_index_page_render_template, url_prefix="")
+# Blog page
+app.register_blueprint(blog_index_page_render_template, url_prefix="")
+# Blog Single Post page
+app.register_blueprint(blog_single_post_aa_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
