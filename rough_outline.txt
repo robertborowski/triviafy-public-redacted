@@ -27,13 +27,15 @@ https://triviafy.com/slack/confirm/oauth/redirect/dashboard/index
 2.
 https://triviafy.com/slack/oauth_redirect
 ====================================================================
-
-
 -Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
 
+
+-Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps
+-Comparison guide page.
+
+
+DONE
 -Remove price from the entire website
 -Make the bottom of the index page look better
 -Change the typeform to be an input email section so that you can get people's emails through inspectlet
 -Remove the solo founder from the about page.
--Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps
--Comparison guide page.
