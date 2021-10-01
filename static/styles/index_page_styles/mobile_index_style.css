@@ -128,4 +128,28 @@
     color: black;
   }
   /* - - - - - - - - - - Closing Bottom - End */
+
+  /* - - - - - - - - - - Animation - Start */
+  @keyframes popup_animation {
+    0%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+  /* - - - - - - - - - - Animation - End */
+
+  .landing-page-how-it-works-section.start,
+  .popup-left-one.start,
+  .popup-left-two.start,
+  .popup-left-three.start,
+  .popup-left-four.start,
+  .popup-right-one.start,
+  .popup-right-two.start,
+  .popup-right-three.start,
+  .popup-right-four.start {
+    animation-name: popup_animation;
+    animation-duration: 0s;
+    animation-timing-function: none;
 }
