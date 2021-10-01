@@ -1,6 +1,7 @@
 /* - - - - - - - - - - Intro - Start */
 .landing-page-intro-section-background {
-  height: 450px;
+  /* border: 1px solid black; */
+  height: 600px;
   width: 100%;
   background-color: var(--company-primary-color);
 }
@@ -9,13 +10,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 100%;
+  height: 100%;
   width: 90%;
   margin: 0 auto;
 }
 .landing-page-intro-title-and-subtitle {
   /* border: 1px solid black; */
   grid-area: 1 / 1 / 2 / 2;
-  text-align: center;
+  text-align: left;
   color: white;
   padding: 50px 0 0 0;
 }
@@ -23,22 +25,32 @@
   font-size: 60px;
   padding: 0 0 25px 0;
 }
+.landing-page-intro-ul {
+  margin: 0 0 0 30px;
+}
 .landing-page-intro-sub-title {
   font-size: 18px;
   margin: 10px 0 10px 0;
 }
+.landing-page-into-button-section {
+  /* border: 1px solid black; */
+  text-align: center;
+  margin: 40px 0 0 0;
+}
 .landing-page-intro-button {
   margin: 20px 0 0 0;
 }
-.landing-page-fine-print {
-  margin: 7px 0 0 0;
-  font-size: 12px;
+.landing-page-intro-or-section {
+  /* border: 1px solid black; */
+  text-align: center;
+  margin: 20px 0;
+  font-size: 18px;
 }
-.landing-page-quiz-example-screenshot {
+.landing-page-intro-video {
   /* border: 1px solid black; */
   grid-area: 1 / 2 / 2 / 3;
   width: 90%;
-  margin: 70px auto 0 auto;
+  margin: 110px auto 0 auto;
 }
 .triviafy_promo_video {
   height: 329.4px;
