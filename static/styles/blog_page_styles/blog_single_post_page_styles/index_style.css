@@ -1,9 +1,9 @@
-/* - - - - - - - - - - Intro - Start */
 .blog-single-post-section {
   /* border: 1px solid black; */
   width: 50%;
   margin: 0 auto;
 }
+/* - - - - - - - - - - Intro - Start */
 .blog-single-post-sub-section-title-and-subtitle-section {
   /* border: 1px solid black; */
   text-align: center;
@@ -12,7 +12,7 @@ p.blog-single-post-sub-section-title {
   /* border: 1px solid black; */
   color: var(--company-primary-color);
   font-size: 60px;
-  padding: 50px 0 10px 0;
+  padding: 50px 0 25px 0;
 }
 p.blog-single-post-sub-section-sub-title {
   /* border: 1px solid black; */

@@ -1,9 +1,9 @@
 @media (max-width: 800px) {
-  /* - - - - - - - - - - Intro - Start */
   .blog-single-post-section {
     /* border: 1px solid black; */
     width: 90%;
   }
+  /* - - - - - - - - - - Intro - Start */
   p.blog-single-post-sub-section-title {
     /* border: 1px solid black; */
     font-size: 40px;

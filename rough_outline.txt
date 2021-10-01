@@ -30,8 +30,13 @@ https://triviafy.com/slack/oauth_redirect
 -Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
 
 
+-Setup database table so that people can give you their emails
 -Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps
+-Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
 -Comparison guide page.
+
+
+
 
 
 DONE
