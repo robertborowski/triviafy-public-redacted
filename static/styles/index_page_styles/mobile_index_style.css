@@ -82,11 +82,50 @@
   }
   /* - - - - - - - - - - Receive Quiz - End */
 
-  
-  /* - - - - - - - - - - Pricing - Start */
-  .landing-page-pricing-sub-section-features {
+  /* - - - - - - - - - - Closing Top - Start */
+  .landing-page-closing-section {
     /* border: 1px solid black; */
-    width: 90%;
+    height: 1200px;
   }
-  /* - - - - - - - - - - Pricing - End */
+  .landing-page-closing-section-content-top {
+    /* border: 1px solid black; */
+    height: 500px;
+    width: 90%;
+    flex-direction: column;
+  }
+  .landing-page-closing-sub-section-box-ab {
+    text-align: center;
+  }
+  img.landing-page-closing-sub-section-img {
+    /* border: 1px solid black; */
+    height: 200px;
+    width: 200px;
+  }
+  /* - - - - - - - - - - Closing Top - End */
+
+  /* - - - - - - - - - - Closing Bottom - Start */
+  .landing-page-closing-section-content-bottom {
+    /* border: 5px solid blue; */
+    height: 400px;
+    width: 90%;
+    margin: 300px auto 0 auto;
+  }
+  form.landing-page-closing-sub-section-email-form {
+    /* border: 1px solid black; */
+    flex-direction: column;
+  }
+  .landing-page-closing-sub-section-email-input {
+    width: 90%;
+    margin: 0 auto
+  }
+  .landing-page-closing-sub-section-email-input:hover, .landing-page-closing-sub-section-email-input:active {
+    border: 1px solid black;
+  }
+  .landing-page-closing-sub-section-submit-input {
+    padding: 20px 10px;
+    width: 50%;
+    margin: 0 auto;
+    color: black;
+  }
+  /* - - - - - - - - - - Closing Bottom - End */
 }

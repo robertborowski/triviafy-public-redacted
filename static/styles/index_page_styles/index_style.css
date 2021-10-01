@@ -40,13 +40,6 @@
   width: 90%;
   margin: 70px auto 0 auto;
 }
-/* img.quiz-example-screenshot {
-  border: 5px solid rgba(254, 246, 255, 0.437);
-  height: auto;
-  width: 100%;
-  max-width: 650px;
-  border-radius: 20px;
-} */
 .triviafy_promo_video {
   height: 329.4px;
   width: 585px;
@@ -57,9 +50,6 @@
 
 
 /* - - - - - - - - - - Win Gift Cards - Start */
-/* .landing-page-other-companies-container {
-  background-color: rgb(239, 239, 239);
-} */
 .landing-page-other-company-logos-description {
   width: 90%;
   margin: 0 auto;
@@ -142,10 +132,6 @@ img.landing-page-other-company-logos-container-img-square {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 100%;
 }
-/* .landing-page-step-sub-section-description-section {
-  padding: 0 0 0 50px;
-  margin: 0 0 0 50px;
-} */
 img.landing-page-step-sub-section-img-section-screenshot {
   border: 5px solid var(--company-primary-color);
   border-radius: 20px;
@@ -207,54 +193,98 @@ img.screenshot-quiz-rewards {
 /* - - - - - - - - - - Sample Quiz PDF - End */
 
 
-/* - - - - - - - - - - Pricing - Start */
-.landing-page-pricing-section {
-  /* border: 1px solid black; */
+
+/* - - - - - - - - - - Closing Top - Start */
+.landing-page-closing-section {
+  /* border: 5px solid blue; */
   width: 100%;
+  background-color: var(--company-primary-color);
+  height: 675px;
+}
+.landing-page-closing-section-content-top {
+  /* border: 1px solid black; */
+  height: 400px;
+  width: 900px;
   margin: 0 auto;
-  padding: 20px 0;
-  background-color: rgba(253, 241, 255, 0.848);
+  display: flex;
 }
-.landing-page-pricing-sub-section-title {
-  /* border: 1px solid black; */
-  text-align: center;
-  margin: 0 0 30px 0;
+.landing-page-closing-sub-section-box-aa {
+  /* border: 1px solid blue; */
+  flex: 2;
 }
-.landing-page-pricing-sub-section-title p {
+.landing-page-closing-sub-section-box-ab {
+  /* border: 1px solid green; */
+  flex: 1;
+}
+.landing-page-closing-sub-section-title {
   /* border: 1px solid black; */
-  color: var(--company-primary-color);
+  color: white;
   font-size: 50px;
-  margin: 10px 0;
+  padding: 50px 0 10px 0;
 }
-.landing-page-pricing-sub-section-price {
+.landing-page-closing-sub-section-sub-title {
   /* border: 1px solid black; */
-  text-align: center;
-  margin: 40px 0;
+  color: white;
+  font-size: 30px;
+  padding: 0 0 25px 0;
 }
-.landing-page-pricing-sub-section-price p {
-  font-size: 80px;
-  /* color: var(--company-primary-color); */
+.landing-page-closing-sub-section-ul {
+  padding: 0 0 0 40px;
+  color: white;
+  line-height: 1.75;
+  font-size: 20px;
 }
-.landing-page-pricing-sub-section-features {
+img.landing-page-closing-sub-section-img {
   /* border: 1px solid black; */
-  width: 25%;
+  height: 300px;
+  width: 300px;
+  margin: 50px 0 0 0;
+}
+/* - - - - - - - - - - Closing Top - End */
+
+
+/* - - - - - - - - - - Closing Bottom - Start */
+.landing-page-closing-section-content-bottom {
+  /* border: 1px solid black; */
+  height: 275px;
+  width: 900px;
   margin: 0 auto;
 }
-.landing-page-pricing-sub-section-features p {
+.landing-page-closing-sub-section-box-ac {
   text-align: center;
-  margin: 10px 0;
 }
-.landing-page-pricing-sub-section-features ul {
-  margin: 0 0 0 10%;
+.landing-page-closing-sub-section-or-statement {
+  color: white;
+  font-size: 20px;
+  padding: 20px 0;
 }
-.landing-page-pricing-sub-section-features ul li {
-  margin: 10px 0;
+form.landing-page-closing-sub-section-email-form {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
 }
-.landing-page-pricing-sub-section-button {
-  text-align: center;
-  margin: 35px 0 0 0;
+.landing-page-closing-sub-section-email-input {
+  border: 1px solid var(--company-greyed-out-color);
+  padding: 20px 10px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 0 15px 0 0;
 }
-/* - - - - - - - - - - Pricing - End */
+.landing-page-closing-sub-section-email-input:hover, .landing-page-closing-sub-section-email-input:active {
+  border: 1px solid black;
+}
+.landing-page-closing-sub-section-submit-input {
+  border: 1px solid var(--company-secondary-color);
+  background-color: var(--company-secondary-color);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.landing-page-closing-sub-section-submit-input:hover, .landing-page-closing-sub-section-submit-input:active {
+  border: 1px solid black;
+  cursor: pointer;
+}
+/* - - - - - - - - - - Closing Bottom - End */
 
 
 /* - - - - - - - - - - Animation - Start */
