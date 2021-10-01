@@ -213,11 +213,13 @@
       <a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=incoming-webhook,team:read,users.profile:read,users:read,users:read.email&state={{ slack_state_uuid_html }}&user_scope=openid,profile,email"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="slack-image-button-landing-page" /></a>
       
       <p class="landing-page-closing-sub-section-or-statement words-stroke-shadow-class">OR</p>
+
+      <div style="text-align:center;"> <a class="typeform-share button" href="https://form.typeform.com/to/NPVjDw88?typeform-medium=embed-snippet" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#00C096;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:12px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-size="100" target="_blank">Request Info</a> </div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
       
-      <form action="{{ url_for('index_page_render_template.index_page_render_template_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <!-- <form action="{{ url_for('index_page_render_template.index_page_render_template_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="email" name="email" placeholder="Work email address..." class="landing-page-closing-sub-section-email-input" required><br><br>
         <input type="submit" value="Request Info" class="landing-page-closing-sub-section-submit-input">
-      </form>
+      </form> -->
 
     </div>
   </div>
