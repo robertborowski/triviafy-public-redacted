@@ -1,41 +1,18 @@
 To-Do's
--When you go between Quiz Archive Quizzes, it logs you out for some reason.
--Stripe setup / Subscription page --> Cannot setup Stripe unless it is a legit LLC business. Use Pay-Pal invoices instead.
--Release app to Slack app store
-
--aws auto backup all DB tables daily
--Account mark for deletion
--Clicking cancel on the post slack sign in button.
--Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
--In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
-
-
-
-
-Payment Steps
-
-1.
-With a job - On the 10th of every month if the Paid status is set to False still (meaning they did not pay the paypal invoice and I did not set it to True for the month) then they are redirected to the subscription page.
-
-
--Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
-
 ***
--Build in the logic for (Only if the company paid this month then make a quiz for them!) Add that logic to the weekly create quiz job.
+-Blog: Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps, fix styling
+-Blog: Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
+-Blog: Add Author picture and note
+-Job: Build in the logic for (Only if the company paid this month then make a quiz for them!) Add that logic to the weekly create quiz job.
 ***
--Setup database table so that people can give you their emails
--Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps
--Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
--Comparison guide page.
-
-
-
-
-DONE
--Remove price from the entire website
--Make the bottom of the index page look better
--Change the typeform to be an input email section so that you can get people's emails through inspectlet
--Remove the solo founder from the about page.
-***
--Fix the iPad screen size issue
-***
+-Quiz Archive: When you go between Quiz Archive Quizzes, it logs you out for some reason.
+-Quiz Archive: Fix the way True and False are presented to the end user.
+-Subscription: Stripe payment setup
+-DATA: aws auto backup all DB tables daily
+-Account Delete: Account mark for deletion
+-Redirect: Clicking cancel on the post slack sign in button.
+-UX: Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
+-UX: In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
+-Subscription: Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
+-UX: Comparison guide page.
+-If a quiz week ends, and there was No Winner on the result. That means that no one on the team got not 1 question right at all, or no one saw the quiz that week. BUT the quiz questions are marked as ASKED and now those questions can never be reasked to that team even though no one answered any correctly. That is a waste. So create a job that checks at the end of the week, is there 'no winner' for this week that just past? If so then delete the quiz altogether from quiz master table.

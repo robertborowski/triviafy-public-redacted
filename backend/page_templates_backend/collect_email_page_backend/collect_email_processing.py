@@ -11,6 +11,8 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 from backend.utils.sanitize_user_inputs.sanitize_collect_email import sanitize_collect_email_function
 from backend.db.queries.select_queries.select_queries_triviafy_landing_page_emails_collection_table.select_if_email_collected_exists import select_if_email_collected_exists_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_landing_page_emails_collection_table.insert_user_collected_email import insert_user_collected_email_function
+from backend.utils.send_emails.send_email_template import send_email_template_function
+from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 
 # -------------------------------------------------------------- App Setup
 collect_email_processing = Blueprint("collect_email_processing", __name__, static_folder="static", template_folder="templates")
@@ -71,6 +73,26 @@ def collect_email_processing_function():
   output_message = insert_user_collected_email_function(postgres_connection, postgres_cursor, collect_email_uuid, collect_email_timestamp, user_form_input_email)
   # ------------------------ Insert into DB END ------------------------
 
+  # ------------------------ Email Self About New Account START ------------------------
+  personal_email = os.environ.get('PERSONAL_EMAIL')
+  if user_form_input_email != personal_email:
+    output_email = personal_email
+    output_subject_line = 'Someone Added Email - Triviafy Landing Page'
+    output_message_content = f"Hi,\n\n{user_form_input_email} Added their email on the Triviafy landing page."
+    output_message_content_str_for_db = output_message_content
+
+    email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+
+    # Insert this sent email into DB
+    uuid_email_sent = create_uuid_function('email_sent_')
+    email_sent_timestamp = create_timestamp_function()
+    # - - -
+    email_sent_search_category = 'Notify Me Someone Created Account'
+    uuid_quiz = None
+    # - - -
+    slack_db_uuid = 'sent_to_personal_email'
+    output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
+  # ------------------------ Email Self About New Account END ------------------------
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
