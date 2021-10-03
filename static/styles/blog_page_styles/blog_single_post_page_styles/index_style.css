@@ -10,7 +10,7 @@
 }
 p.blog-single-post-sub-section-title {
   /* border: 1px solid black; */
-  color: var(--company-primary-color);
+  color: black;
   font-size: 60px;
   padding: 50px 0 25px 0;
 }
@@ -27,7 +27,7 @@ img.blog-single-post-img {
   border-radius: 15px;
   width: 100%;
   margin: 50px 0 0 0;
-  border: 1px solid var(--company-greyed-out-color);
+  border: 2px solid var(--company-greyed-out-color);
 }
 /* - - - - - - - - - - Image - End */
 
@@ -39,6 +39,11 @@ img.blog-single-post-img {
   margin: 50px 0;
   line-height: 2;
 }
+.blog-single-post-regular-paragraph-header {
+  color: black;
+  font-size: 25px;
+  line-height: 1.5;
+}
 .blog-single-post-regular-paragraph {
   color: black;
   font-size: 18px;
@@ -49,11 +54,17 @@ img.blog-single-post-img {
 .blog-single-post-highlight-color {
   color: var(--company-primary-color);
 }
+.blog-single-post-link, .blog-single-post-link:visited {
+  color: var(--company-primary-color);
+}
 /* - - - - - - - - - - Whole Article - End */
 
+
+/* - - - - - - - - - - Divider - Start */
 .blog-single-post-space-divider {
   margin: 30px 0;
 }
+/* - - - - - - - - - - Divider - End */
 
 
 /* - - - - - - - - - - Finish Article Line - Start */
