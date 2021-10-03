@@ -116,12 +116,18 @@ input:focus, textarea:focus, select:focus{
   border: none;
 }
 .button-default:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  text-decoration: none;
 }
 .button-default-color-primary {
   color: white;
   background-color: var(--company-primary-color);
   border: none;
+}
+.button-default-color-primary:hover {
+  /* background-color: rgb(196, 94, 255); */
+  background-color: rgb(205, 120, 255);
+  transition: 0.2s;
 }
 .button-default-color-secondary {
   color: black;
@@ -147,7 +153,8 @@ input:focus, textarea:focus, select:focus{
   border: none;
 }
 .button-default-longer:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  text-decoration: none;
 }
 /* - - - - - - - - - - Button Defaults - End */
 

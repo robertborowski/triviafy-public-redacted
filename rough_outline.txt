@@ -18,23 +18,15 @@ Payment Steps
 With a job - On the 10th of every month if the Paid status is set to False still (meaning they did not pay the paypal invoice and I did not set it to True for the month) then they are redirected to the subscription page.
 
 
-
-====================================================================
-DO NOT DELETE DURING TESTING - old redirect URLS for Slack
-1.
-https://triviafy.com/slack/confirm/oauth/redirect/dashboard/index
-
-2.
-https://triviafy.com/slack/oauth_redirect
-====================================================================
 -Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
 
-
+***
+-Build in the logic for (Only if the company paid this month then make a quiz for them!) Add that logic to the weekly create quiz job.
+***
 -Setup database table so that people can give you their emails
 -Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps
 -Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
 -Comparison guide page.
-
 
 
 
@@ -44,4 +36,6 @@ DONE
 -Make the bottom of the index page look better
 -Change the typeform to be an input email section so that you can get people's emails through inspectlet
 -Remove the solo founder from the about page.
-Fix the iPad screen size issue
+***
+-Fix the iPad screen size issue
+***
