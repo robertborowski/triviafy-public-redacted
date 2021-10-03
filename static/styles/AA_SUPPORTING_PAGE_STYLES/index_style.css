@@ -8,7 +8,7 @@
   font-family: 'Urbanist', sans-serif;
   -webkit-appearance: none;
 }
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   * {
     box-sizing: border-box;
     margin: 0;

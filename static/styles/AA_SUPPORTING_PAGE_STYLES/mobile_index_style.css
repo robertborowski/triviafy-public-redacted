@@ -1,5 +1,5 @@
 /* ==================================== Mobile Version START ==================================== */
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   
   /* - - - - - - - - - - Input, Textarea - Start */
   input.answer-text-box, textarea.answer-text-box {
