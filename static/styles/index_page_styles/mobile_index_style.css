@@ -117,22 +117,14 @@
     width: 90%;
     margin: 300px auto 0 auto;
   }
-  form.landing-page-closing-sub-section-email-form {
-    /* border: 1px solid black; */
-    flex-direction: column;
+  .form.landing-page-closing-sub-section-email-form {
+    -webkit-box-direction: normal;
   }
   .landing-page-closing-sub-section-email-input {
-    width: 90%;
-    margin: 0 auto
-  }
-  .landing-page-closing-sub-section-email-input:hover, .landing-page-closing-sub-section-email-input:active {
-    border: 1px solid black;
+    -webkit-box-direction: normal;
   }
   .landing-page-closing-sub-section-submit-input {
-    padding: 20px 10px;
-    width: 50%;
-    margin: 0 auto;
-    color: black;
+    -webkit-box-direction: normal;
   }
   /* - - - - - - - - - - Closing Bottom - End */
 

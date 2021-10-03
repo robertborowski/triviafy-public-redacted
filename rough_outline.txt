@@ -44,3 +44,4 @@ DONE
 -Make the bottom of the index page look better
 -Change the typeform to be an input email section so that you can get people's emails through inspectlet
 -Remove the solo founder from the about page.
+Fix the iPad screen size issue
