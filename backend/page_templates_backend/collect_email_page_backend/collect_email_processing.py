@@ -28,8 +28,13 @@ def collect_email_processing_function():
 
 
   # ------------------------ Sanitize user inputs START ------------------------
-  # Get/sanitize user inputs from form
-  user_form_input_email = sanitize_collect_email_function(request.form.get('user_input_email'))
+  try:
+    # Get/sanitize user inputs from form
+    user_form_input_email = sanitize_collect_email_function(request.form.get('user_input_email'))
+  except:
+    localhost_print_function('invalid url')
+    localhost_print_function('=========================================== /collect/email/processing Page END ===========================================')
+    return redirect('/', code=302)
   # ------------------------ Sanitize user inputs END ------------------------
 
 
