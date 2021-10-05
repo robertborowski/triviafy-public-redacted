@@ -1,6 +1,7 @@
 To-Do's
 ---
 Blog: Title: Best slack apps for team building and employee engagement
+Blog: Add a button at the bottom of the article that says "Add to Slack"
 ---
 -Write more articles (at least 2 more numbered style list)
 -Blog: Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
