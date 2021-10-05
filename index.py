@@ -67,10 +67,11 @@ from backend.page_templates_backend.subscription_page_backend.subscription_index
 from backend.page_templates_backend.claim_prize_page_backend.claim_prize_index_page_render_template import claim_prize_index_page_render_template
 # Blog page
 from backend.page_templates_backend.blog_page_backend.blog_index_page_render_template import blog_index_page_render_template
-# Blog Single Post page
-from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_aa_index_page_render_template import blog_single_post_aa_index_page_render_template
 # Collect User Email Page
 from backend.page_templates_backend.collect_email_page_backend.collect_email_processing import collect_email_processing
+# Blog Single Post page
+from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_aa_index_page_render_template import blog_single_post_aa_index_page_render_template
+from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_ab_index_page_render_template import blog_single_post_ab_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -162,10 +163,11 @@ app.register_blueprint(subscription_index_page_render_template, url_prefix="")
 app.register_blueprint(claim_prize_index_page_render_template, url_prefix="")
 # Blog page
 app.register_blueprint(blog_index_page_render_template, url_prefix="")
-# Blog Single Post page
-app.register_blueprint(blog_single_post_aa_index_page_render_template, url_prefix="")
 # Collect User Email Page
 app.register_blueprint(collect_email_processing, url_prefix="")
+# Blog Single Post page
+app.register_blueprint(blog_single_post_aa_index_page_render_template, url_prefix="")
+app.register_blueprint(blog_single_post_ab_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
