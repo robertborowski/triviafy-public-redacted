@@ -10,6 +10,12 @@
   }
   /* - - - - - - - - - - Intro - End */
 
+  /* - - - - - - - - - - About the Author - Start */
+  img.blog-single-post-about-author-sub-section-img {
+    height: 100px;
+    width: 100px;
+  }
+  /* - - - - - - - - - - About the Author - End */
 
   /* - - - - - - - - - - Celebrate Logos - Start */
   /* - - - - - - - - - - Celebrate Logos - End */
