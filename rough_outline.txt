@@ -1,11 +1,13 @@
 To-Do's
-***
--Blog: Fix the blog post, add the other platforms like WaterCoolerTrivia and Trivia slack apps, fix styling
+---
+Blog: Title: Best slack apps for team building and employee engagement
+---
+-Write more articles (at least 2 more numbered style list)
 -Blog: Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
 -Blog: Add Author picture and note
 -Job: Build in the logic for (Only if the company paid this month then make a quiz for them!) Add that logic to the weekly create quiz job.
 -Job: If a quiz week ends, and there was No Winner on the result. That means that no one on the team got not 1 question right at all, or no one saw the quiz that week. BUT the quiz questions are marked as ASKED and now those questions can never be reasked to that team even though no one answered any correctly. That is a waste. So create a job that checks at the end of the week, is there 'no winner' for this week that just past? If so then delete the quiz altogether from quiz master table.
-***
+---
 -Quiz Archive: When you go between Quiz Archive Quizzes, it logs you out for some reason.
 -Quiz Archive: Fix the way True and False are presented to the end user.
 -Subscription: Stripe payment setup

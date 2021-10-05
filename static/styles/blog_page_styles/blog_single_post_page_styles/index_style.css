@@ -48,6 +48,10 @@ img.blog-single-post-img {
   color: black;
   font-size: 18px;
 }
+.blog-single-post-regular-paragraph-author {
+  color: black;
+  font-size: 15px;
+}
 .blog-single-post-regular-bullet-point {
   padding: 0 0 0 25px;
 }
@@ -78,9 +82,34 @@ img.blog-single-post-img {
 .blog-single-post-supporting-links-section {
   font-size: 15px;
   line-height: 2;
-  margin: 25px 0;
+  margin: 25px 0 0 0;
 }
 /* - - - - - - - - - - Supporting Links - End */
+
+
+/* - - - - - - - - - - Date Published - Start */
+.blog-single-post-date-published {
+  padding: 25px 0;
+}
+/* - - - - - - - - - - Date Published - End */
+
+
+/* - - - - - - - - - - About the Author - Start */
+.blog-single-post-about-author-section {
+  /* border: 1px solid black; */
+  margin: 0 0 25px 0;
+  display: flex;
+}
+img.blog-single-post-about-author-sub-section-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.blog-single-post-about-author-sub-section-words {
+  /* border: 1px solid black; */
+  margin: 0 0 0 20px;
+}
+/* - - - - - - - - - - About the Author - End */
 
 
 /* - - - - - - - - - - Contact - Start */
@@ -88,6 +117,7 @@ img.blog-single-post-img {
   text-align: center;
   color: var(--company-primary-color);
   font-size: 20px;
+  margin: 25px 0 0 0;
 }
 /* - - - - - - - - - - Contact - End */
 
