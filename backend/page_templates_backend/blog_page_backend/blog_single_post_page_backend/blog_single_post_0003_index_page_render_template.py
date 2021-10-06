@@ -6,8 +6,8 @@ from backend.utils.uuid_and_timestamp.create_uuid import create_uuid_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 
 # -------------------------------------------------------------- App Setup
-blog_single_post_aa_index_page_render_template = Blueprint("blog_single_post_aa_index_page_render_template", __name__, static_folder="static", template_folder="templates")
-@blog_single_post_aa_index_page_render_template.before_request
+blog_single_post_0003_index_page_render_template = Blueprint("blog_single_post_0003_index_page_render_template", __name__, static_folder="static", template_folder="templates")
+@blog_single_post_0003_index_page_render_template.before_request
 def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
@@ -15,14 +15,14 @@ def before_request():
     return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@blog_single_post_aa_index_page_render_template.route("/blog/post/aa", methods=['GET','POST'])
-def blog_single_post_aa_index_page_render_template_function():
-  localhost_print_function('=========================================== /blog/post/aa Page START ===========================================')
+@blog_single_post_0003_index_page_render_template.route("/blog/post/0003", methods=['GET','POST'])
+def blog_single_post_0003_index_page_render_template_function():
+  localhost_print_function('=========================================== /blog/post/0003 Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
   cache_busting_output = create_uuid_function('css_')
   # ------------------------ CSS support END ------------------------
 
-  localhost_print_function('=========================================== /blog/post/aa Page END ===========================================')
-  return render_template('blog_page_templates/blog_single_post_page_templates/index_aa.html', css_cache_busting = cache_busting_output)
+  localhost_print_function('=========================================== /blog/post/0003 Page END ===========================================')
+  return render_template('blog_page_templates/blog_single_post_page_templates/index_0003.html', css_cache_busting = cache_busting_output)
