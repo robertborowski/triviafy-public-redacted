@@ -1,7 +1,5 @@
 To-Do's
 ---
--Job: If a quiz week ends, and there was No Winner on the result. That means that no one on the team got not 1 question right at all, or no one saw the quiz that week. BUT the quiz questions are marked as ASKED and now those questions can never be reasked to that team even though no one answered any correctly. That is a waste. So create a job that checks at the end of the week, is there 'no winner' for this week that just past? If so then delete the quiz altogether from quiz master table.
----
 -Blog: Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
 -Quiz Archive: When you go between Quiz Archive Quizzes, it logs you out for some reason.
 -Quiz Archive: Fix the way True and False are presented to the end user.
@@ -13,3 +11,5 @@ To-Do's
 -UX: In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
 -Subscription: Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
 -UX: Comparison guide page.
+-UX: Add Drift to the homepage so potential users can reach out to your directly through text message.
+-Best Practice: Put a ';' at the end of every SQL query you have for Triviafy
