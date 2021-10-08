@@ -57,10 +57,18 @@
 <div class="landing-page-other-companies-container box-shadow-reg-grey box-shadow-rounded">
   
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF START -->
-  <div class="landing-page-pdf-section">
+  <!-- <div class="landing-page-pdf-sample-quiz-section">
     <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">View Example Quiz PDF</button></a>
-  </div>
+  </div> -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF END -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF START -->
+  <div class="landing-page-pdf-slack-setup-section">
+    <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">How To Add to Slack</button></a>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF END -->
+  
   
   <div class="landing-page-other-company-logos-description">
     <p>1st place team members win free gift card prizes to popular companies.</p>
@@ -180,7 +188,7 @@
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF START -->
-<div class="landing-page-pdf-section">
+<div class="landing-page-pdf-sample-quiz-section">
   <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">View Example Quiz PDF</button></a>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF END -->
@@ -223,12 +231,6 @@
         <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
         <input type="submit" value="Request a demo" class="landing-page-closing-sub-section-submit-input">
       </form>
-
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF START -->
-      <!-- <div class="landing-page-pdf-section">
-        <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="landing-page-closing-sub-section-submit-input">How To Add to Slack</button></a>
-      </div> -->
-      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF END -->
 
     </div>
   </div>

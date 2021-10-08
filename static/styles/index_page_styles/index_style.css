@@ -200,11 +200,17 @@ img.screenshot-quiz-rewards {
 
 
 /* - - - - - - - - - - Sample Quiz PDF - Start */
-.landing-page-pdf-section {
+.landing-page-pdf-sample-quiz-section {
   text-align: center;
 }
 /* - - - - - - - - - - Sample Quiz PDF - End */
 
+
+/* - - - - - - - - - - Slack Setup PDF - Start */
+.landing-page-pdf-slack-setup-section {
+  text-align: center;
+}
+/* - - - - - - - - - - Slack Setup PDF - End */
 
 
 /* - - - - - - - - - - Closing Top - Start */
@@ -363,17 +369,17 @@ form.landing-page-closing-sub-section-email-form {
 
 
 /* - - - - - - - - - - Animation - Start */
-@keyframes popup_animation {
+/* @keyframes popup_animation {
   0%{
     transform: scale(0.1);
   }
   100%{
     transform: scale(1);
   }
-}
+} */
 /* - - - - - - - - - - Animation - End */
 
-.landing-page-how-it-works-section.start,
+/* .landing-page-how-it-works-section.start,
 .popup-left-one.start,
 .popup-left-two.start,
 .popup-left-three.start,
@@ -384,5 +390,5 @@ form.landing-page-closing-sub-section-email-form {
 .popup-right-four.start {
   animation-name: popup_animation;
   animation-duration: 0.7s;
-  animation-timing-function: ease;
+  animation-timing-function: ease; */
 }

@@ -1,5 +1,6 @@
 To-Do's
 ---
+-Blog:            Top Slack Trivia Apps
 -UX:              PDF of how to add to slack properly. Every team member should do these steps
 -Data:            Backup ALL tables daily into AWS s3
 -UX:              Add Drift to the homepage so potential users can reach out to your directly through text message.
