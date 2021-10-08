@@ -1,15 +1,17 @@
 To-Do's
 ---
--Blog: Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
--Quiz Archive: When you go between Quiz Archive Quizzes, it logs you out for some reason.
--Quiz Archive: Fix the way True and False are presented to the end user.
--Subscription: Stripe payment setup
--DATA: aws auto backup all DB tables daily
--Account Delete: Account mark for deletion
--Redirect: Clicking cancel on the post slack sign in button.
--UX: Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
--UX: In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
--Subscription: Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
--UX: Comparison guide page.
--UX: Add Drift to the homepage so potential users can reach out to your directly through text message.
--Best Practice: Put a ';' at the end of every SQL query you have for Triviafy
+-UX:              PDF of how to add to slack properly. Every team member should do these steps
+-Data:            Backup ALL tables daily into AWS s3
+-UX:              Add Drift to the homepage so potential users can reach out to your directly through text message.
+-UX:              Comparison guide page.
+-Blog:            Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
+-Quiz Archive:    When you go between Quiz Archive Quizzes, it logs you out for some reason.
+-Quiz Archive:    Fix the way True and False are presented to the end user.
+-Subscription:    Stripe payment setup
+-Account Delete:  Account mark for deletion
+-Redirect:        Clicking cancel on the post slack sign in button.
+-UX:              Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
+-UX:              In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
+-Subscription:    Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
+-Best Practice:   Put a ';' at the end of every SQL query you have for Triviafy
+-UX:              All Buttons on the website need to be more uniform, look more legit
