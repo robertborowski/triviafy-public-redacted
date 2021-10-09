@@ -48,9 +48,8 @@ p.character-count-tracker {
 
 /* - - - - - - - - - - Create Question - Difficulty Start */
 .create-question-select-difficulty input[type="radio"] + label.radio-as-button {
-  border: 1px solid var(--company-button-outline-light-grey-color);
-  background-color: var(--company-button-interior-light-grey-color);
-  color: var(--company-button-outline-light-grey-color);
+  border: 1px solid rgb(190, 190, 190);
+  color: rgb(190, 190, 190);
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 5px;
@@ -59,7 +58,7 @@ p.character-count-tracker {
   border-radius: 10px;
 }
 .create-question-select-difficulty input[type="radio"]:checked + label.radio-as-button {
-  border: 2px solid var(--company-primary-darker-outline-color);
+  border: none;
   background-color: var(--company-primary-color);
   color: white;
 }

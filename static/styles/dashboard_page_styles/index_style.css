@@ -50,7 +50,7 @@
   margin-bottom: 10px;
 }
 .modal-body ul li .modal-bolder-rules {
-  color: var(--company-secondary-color-darker);
+  color: var(--company-primary-color);
 }
 .modal-footer {
   background-color: var(--company-primary-color);

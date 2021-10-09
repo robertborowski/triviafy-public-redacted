@@ -255,8 +255,7 @@ img.slack-image-button-li {
 
 /* - - - - - - - - - - Navbar links - Start */
 .navbar-links-not-signed-in ul li ul {
-  /* border: 1px solid black; */
-  border: 1px solid var(--company-primary-color-faded);
+  border: none;
   display: none;
   position: absolute;
   background-color: white;

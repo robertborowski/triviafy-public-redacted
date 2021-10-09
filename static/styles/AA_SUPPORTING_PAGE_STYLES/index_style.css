@@ -29,19 +29,12 @@
   /* Company colors */
   /* Primary Colors */
   --company-primary-color: rgb(196, 94, 255);
-  --company-primary-darker-outline-color: rgb(161, 0, 255);
-  --company-primary-color-faded: rgba(196, 94, 255, 0.400);
   
   /* Se ondary colors */
   --company-secondary-color: rgb(0, 255, 192);
-  --company-secondary-color-darker: rgb(0, 168, 126);
   
   /* Grey colors */
   --company-greyed-out-color: rgb(170, 170, 170);
-  
-  /* Button Colors */
-  --company-button-interior-light-grey-color: rgb(234, 234, 234);
-  --company-button-outline-light-grey-color: rgb(190, 190, 190);
 }
 /* - - - - - - - - - - Root global variables - End */
 /* ==================================== Set Global Variables END ==================================== */
@@ -62,17 +55,8 @@
 .box-shadow-reg-black {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.750)!important;
 }
-.box-shadow-sm-primary {
-  box-shadow: 0 .125rem .25rem var(--company-primary-color-faded)!important;
-}
 .box-shadow-reg-primary {
-  box-shadow: 0 .5rem 1rem var(--company-primary-color-faded)!important;
-}
-.box-shadow-sm-secondary {
-  box-shadow: 0 .125rem .25rem var(--company-secondary-color)!important;
-}
-.box-shadow-reg-secondary {
-  box-shadow: 0 .5rem 1rem var(--company-secondary-color)!important;
+  box-shadow: none;
 }
 .box-shadow-rounded {
   border-radius: .25rem!important;
@@ -128,11 +112,6 @@ input:focus, textarea:focus, select:focus{
   /* background-color: rgb(196, 94, 255); */
   background-color: rgb(205, 120, 255);
   transition: 0.2s;
-}
-.button-default-color-secondary {
-  color: black;
-  background-color: var(--company-secondary-color);
-  border: none;
 }
 .button-section-middle {
   text-align: center;
