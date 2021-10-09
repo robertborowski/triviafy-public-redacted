@@ -3,8 +3,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* font-family: 'Noto Serif', serif; */
-  /* font-family: 'Roboto', sans-serif; */
   font-family: 'Urbanist', sans-serif;
   -webkit-appearance: none;
 }
@@ -13,8 +11,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* font-family: 'Noto Serif', serif; */
-    /* font-family: 'Roboto', sans-serif; */
     font-family: 'Urbanist', sans-serif;
     -webkit-appearance: none;
   }
@@ -26,14 +22,8 @@
 /* ==================================== Set Global Variables START ==================================== */
 /* - - - - - - - - - - Root global variables Start */
 :root {
-  /* Company colors */
-  /* Primary Colors */
   --company-primary-color: rgb(196, 94, 255);
-  
-  /* Se ondary colors */
   --company-secondary-color: rgb(0, 255, 192);
-  
-  /* Grey colors */
   --company-greyed-out-color: rgb(170, 170, 170);
 }
 /* - - - - - - - - - - Root global variables - End */
@@ -61,10 +51,8 @@
 .box-shadow-rounded {
   border-radius: .25rem!important;
 }
-.box-shadow-stroke {
-  box-shadow: 4px 4px 4px rgb(70, 0, 80);;
-}
 /* - - - - - - - - - - Box shadows - End */
+
 
 /* - - - - - - - - - - Stroke - Start */
 #words-stroke-shadow {
@@ -76,6 +64,7 @@
 	text-shadow: 1px 1px 1px rgb(70, 0, 80);
 }
 /* - - - - - - - - - - Stroke - End */
+
 
 /* - - - - - - - - - - Input, Textarea, Select - Start */
 /* Remove default behavior of textbox style */
@@ -138,7 +127,6 @@ input:focus, textarea:focus, select:focus{
 /* - - - - - - - - - - Button Defaults - End */
 
 
-
 /* - - - - - - - - - - Hyperlink Redirect - Start */
 .template-hyperlink-redirect-section {
   text-align: center;
@@ -152,8 +140,6 @@ a.template-hyperlink-redirect-section-a, a.template-hyperlink-redirect-section-a
   color: var(--company-primary-color);
 }
 /* - - - - - - - - - - Hyperlink Redirect - End */
-
-
 
 
 /* - - - - - - - - - - Text box Defaults - Start */
@@ -172,6 +158,7 @@ textarea.answer-text-box {
   resize: none;
 }
 /* - - - - - - - - - - Text box Defaults - End */
+
 
 /* - - - - - - - - - - Template Page Intro Start */
 .template-page-intro-background {
