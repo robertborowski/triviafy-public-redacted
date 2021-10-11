@@ -22,7 +22,7 @@
 /* ==================================== Set Global Variables START ==================================== */
 /* - - - - - - - - - - Root global variables Start */
 :root {
-  --company-primary-color: rgb(196, 94, 255);
+  --company-primary-color: rgb(196, 94, 255);     /* OFFICIAL CURRENT */
   --company-secondary-color: rgb(0, 255, 192);
   --company-greyed-out-color: rgb(170, 170, 170);
 }
@@ -38,6 +38,9 @@
 }
 .box-shadow-reg-grey {
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.075)!important;
+}
+.box-shadow-reg-grey-2 {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.115)!important;
 }
 .box-shadow-sm-black {
   box-shadow: 0 .125rem .5rem rgba(0,0,0,.750)!important;
@@ -73,7 +76,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 
-/* - - - - - - - - - - Button Defaults - Start */
+/* - - - - - - - - - - Button Defaults - 1 - Start */
 .button-default {
   display: inline-block;
   font-weight: 400;
@@ -124,7 +127,54 @@ input:focus, textarea:focus, select:focus{
   /* text-decoration: underline; */
   text-decoration: none;
 }
-/* - - - - - - - - - - Button Defaults - End */
+/* - - - - - - - - - - Button Defaults - 1 - End */
+
+
+/* - - - - - - - - - - Button Defaults - 2 - Start */
+.button-default-2 {
+  /* .btn.form__btn-submit */
+  text-align: center;
+  min-width: 180px;
+  /* input.w-button */
+  -webkit-appearance: button;
+  /* .btn */
+  padding: 11px 21px;
+  border-radius: 8px;
+  transition: color .4s,background-color .4s;
+  font-size: 18px;
+  line-height: 156%;
+  font-weight: 600;
+  white-space: nowrap;
+  max-height: 52px;
+  /* .w-button */
+  display: inline-block;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  /* input[type="submit" i] */
+  user-select: none;
+  align-items: flex-start;
+  /* input */
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  -webkit-rtl-ordering: logical;
+  /* Media */
+  /* -webkit-box-direction: normal; */
+}
+.button-default-2-primary-color {
+  color: white;
+  background-color: var(--company-primary-color);
+}
+.button-default-2-primary-color:hover {
+  color: white;
+  background-color: rgb(208, 126, 255);
+}
+/* - - - - - - - - - - Button Defaults - 2 - End */
+
 
 
 /* - - - - - - - - - - Hyperlink Redirect - Start */
