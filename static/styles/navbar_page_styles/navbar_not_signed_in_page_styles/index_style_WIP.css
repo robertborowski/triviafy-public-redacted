@@ -23,8 +23,8 @@
   align-items: center;
   height: 80px;
   width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 1500px;
 }
 /* - - - - - - - - - - Navbar - Entire - End */
 

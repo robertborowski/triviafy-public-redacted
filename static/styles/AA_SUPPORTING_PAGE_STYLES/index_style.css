@@ -176,6 +176,45 @@ input:focus, textarea:focus, select:focus{
 /* - - - - - - - - - - Button Defaults - 2 - End */
 
 
+/* - - - - - - - - - - Input Defaults - 2 - Start */
+.text-input-default {
+  /* border: 1px solid green; */
+  /* .input.form__input */
+  width: 323px;
+  /* .input */
+  height: 50px;
+  margin-bottom: 0px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color .3s,box-shadow .4s,border-width .2s linear,background-color .4s linear;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* .w-input */
+  display: block;
+  color: #333;
+  /* input */
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  /* Media screen */
+  /* -webkit-box-direction: normal; */
+  }
+  .text-input-default:hover {
+    border: 2px solid #b7b7b7;
+    transition: 0.2s;
+  }
+/* - - - - - - - - - - Input Defaults - 2 - End */
+
+
 
 /* - - - - - - - - - - Hyperlink Redirect - Start */
 .template-hyperlink-redirect-section {

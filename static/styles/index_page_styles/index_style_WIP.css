@@ -1,0 +1,66 @@
+/* - - - - - - - - - - Intro - Start */
+.landing-page-intro-2 {
+  /* border: 1px solid black; */
+  height: 600px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 55px;
+  row-gap: 0;
+}
+/* - - - - - - - - - - Intro Left Side - Start */
+.landing-page-intro-2-words-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2; 
+}
+.landing-page-intro-2-header {
+  padding: 125px 0 0 0;
+  font-size: 70px;
+  font-weight: 700;
+}
+.landing-page-intro-2-sub-header {
+  padding: 20px 0 20px 0;
+  font-size: 20px;
+}
+.landing-page-intro-2-next-steps-section {
+  /* border: 1px solid black; */
+  text-align: center;
+}
+.landing-page-intro-2-slack-button-section {
+  padding: 20px 0 0 0;
+}
+.landing-page-intro-2-or-section {
+  padding: 20px 0;
+  font-size: 18px;
+}
+form.landing-page-closing-sub-section-email-form-2 {
+  /* border: 1px solid black; */
+  /* .hero-form */
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  /* Media */
+  /* -webkit-box-direction: normal; */
+}
+.landing-page-button-position {
+  margin: 0 0 0 16px;
+}
+/* - - - - - - - - - - Intro Left Side - End */
+/* - - - - - - - - - - Intro Right Side - Start */
+.landing-page-intro-2-video-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 2 / 2 / 3;
+}
+.triviafy_promo_video_2 {
+  /* border: 1px solid black; */
+  height: 329.4px;
+  width: 585px;
+  margin: 125px 0 0 0;
+  border-radius: 10px;
+}
+/* - - - - - - - - - - Intro Right Side - End */
+/* - - - - - - - - - - Intro - End */

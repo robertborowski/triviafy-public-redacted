@@ -28,5 +28,12 @@
   }
   /* - - - - - - - - - - Leaderboard Datatables End */
 
+
+  /* - - - - - - - - - - Input Defaults - 2 - Start */
+  .text-input-default {
+    -webkit-box-direction: normal;
+  }
+  /* - - - - - - - - - - Input Defaults - 2 - End */
+
 }
 /* ==================================== Mobile Version END ==================================== */
