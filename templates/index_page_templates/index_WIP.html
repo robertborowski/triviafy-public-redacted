@@ -26,13 +26,13 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Left Side START -->
   <div class="landing-page-intro-2-words-section">
     <p class="landing-page-intro-2-header">Weekly trivia quiz for your team.</p>
-    <p class="landing-page-intro-2-sub-header">Internal team building tool, guaranteed to increase employee engagement.</p>
+    <p class="landing-page-2-subheader landing-page-intro-2-sub-header">Internal team building tool, guaranteed to increase employee engagement.</p>
 
     <div class="landing-page-intro-2-next-steps-section">
       <div class="landing-page-intro-2-slack-button-section">
         <a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=incoming-webhook,team:read,users.profile:read,users:read,users:read.email&state={{ slack_state_uuid_html }}&user_scope=openid,profile,email"><img alt="Add to Slack" height="50" width="173.75" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="landing-page-2-button" /></a>
       </div>  
-      <div class="landing-page-intro-2-or-section">
+      <div class="landing-page-2-subheader landing-page-intro-2-or-section">
         <p>OR</p>
       </div>
       <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form-2" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
@@ -54,7 +54,7 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Gift Card Other Companies START -->
 <div class="landing-page-gift-card-other-companies-section">
-  <div class="landing-page-gift-card-other-companies-title">
+  <div class="landing-page-2-subheader landing-page-gift-card-other-companies-title">
     <p>1st place team members win free gift card prizes to popular companies.</p>
   </div>
   <div class="landing-page-gift-card-other-companies-logos">
@@ -62,10 +62,27 @@
     <img src="/static/images/logo_other_companies/Logo_Amazon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
     <img src="/static/images/logo_other_companies/Logo_LuLuLemon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
     <img src="/static/images/logo_other_companies/Logo_Nike_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
-    <img src="/static/images/logo_other_companies/Logo_Starbucks_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Apple_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Gift Card Other Companies END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Choose Platform START -->
+<div class="landing-page-choose-platform-2">
+  <div class="landing-page-2-header landing-page-choose-platform-2-header">
+    <p>How It Works</p>
+  </div>
+  <div class="landing-page-2-subheader landing-page-choose-platform-2-subheader">
+    <p>Add to company's communication platform.</p>
+  </div>
+  <div class="landing-page-choose-platforms-2-all-platforms-section">
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="fab fa-slack font-awesome-icon-choose-platform-section"></i>Slack</p>
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="fab fa-windows font-awesome-icon-choose-platform-section"></i>Microsoft Teams</p>
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="far fa-envelope font-awesome-icon-choose-platform-section"></i>Email</p>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Choose Platform END -->
 
 
 {% endblock %}

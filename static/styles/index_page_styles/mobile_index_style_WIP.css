@@ -42,7 +42,7 @@
   /* - - - - - - - - - - Gift Card Other Companies - Start */
   .landing-page-gift-card-other-companies-section {
     /* border: 1px solid black; */
-    height: 700px;
+    height: 900px;
     width: 90%;
   }
   .landing-page-gift-card-other-companies-logos {
@@ -53,8 +53,28 @@
   img.gift-card-other-company-img {
     /* border: 1px solid black; */
     height: auto;
-    width: 90px;
+    width: 150px;
     padding: 20px 0;
   }
   /* - - - - - - - - - - Gift Card Other Companies - End */
+
+
+  /* - - - - - - - - - - Choose Platform - Start */
+  .landing-page-choose-platform-2 {
+    /* border: 1px solid black; */
+    height: 550px;
+    width: 90%;
+  }
+  .landing-page-choose-platforms-2-all-platforms-section {
+    /* border: 1px solid black; */
+    width: 50%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .landing-page-choose-platforms-2-all-platforms-section p {
+    margin: 10px 0;
+  }
+  /* - - - - - - - - - - Choose Platform - End */
 }
