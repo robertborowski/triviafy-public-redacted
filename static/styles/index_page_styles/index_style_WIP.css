@@ -1,7 +1,7 @@
 /* - - - - - - - - - - Intro - Start */
 .landing-page-intro-2 {
-  /* border: 1px solid black; */
-  height: 600px;
+  /* border: 1px solid red; */
+  height: 700px;
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
@@ -64,3 +64,30 @@ form.landing-page-closing-sub-section-email-form-2 {
 }
 /* - - - - - - - - - - Intro Right Side - End */
 /* - - - - - - - - - - Intro - End */
+
+
+/* - - - - - - - - - - Gift Card Other Companies - Start */
+.landing-page-gift-card-other-companies-section {
+  /* border: 1px solid black; */
+  height: 250px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.landing-page-gift-card-other-companies-title p {
+  /* border: 1px solid black; */
+  text-align: center;
+  font-size: 20px;
+  padding: 50px 0 50px 0;
+}
+.landing-page-gift-card-other-companies-logos {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+}
+img.gift-card-other-company-img {
+  /* border: 1px solid black; */
+  height: 75px;
+  width: auto;
+}
+/* - - - - - - - - - - Gift Card Other Companies - End */
