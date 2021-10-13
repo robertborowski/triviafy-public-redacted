@@ -80,18 +80,18 @@
 
 
   /* - - - - - - - - - - How It Works - Step 1 - Start */
-  .landing-page-2-hiw-1-section {
+  .landing-page-2-hiw-1-section, .landing-page-2-hiw-2-section, .landing-page-2-hiw-3-section, .landing-page-2-hiw-4-section {
     /* border: 1px solid black; */
     height: 800px;
     width: 90%;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 1fr;
   }
-  .landing-page-2-hiw-1-left-section {
+  .landing-page-2-hiw-1-left-section, .landing-page-2-hiw-2-right-section, .landing-page-2-hiw-3-left-section, .landing-page-2-hiw-4-right-section {
     /* border: 1px solid black; */
     grid-area: 1 / 1 / 2 / 2;
   }
-  .landing-page-2-hiw-1-right-section {
+  .landing-page-2-hiw-1-right-section, .landing-page-2-hiw-2-left-section, .landing-page-2-hiw-3-right-section, .landing-page-2-hiw-4-left-section {
     /* border: 2px solid red; */
     grid-area: 2 / 1 / 3 / 2;
   }

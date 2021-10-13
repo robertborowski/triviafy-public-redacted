@@ -142,10 +142,10 @@ img.gift-card-other-company-img {
 /* - - - - - - - - - - Choose Platform - End */
 
 
-/* - - - - - - - - - - How It Works - Step 1 - Start */
-.landing-page-2-hiw-1-section {
+/* - - - - - - - - - - How It Works - Step 1 and 3 - Start */
+.landing-page-2-hiw-1-section, .landing-page-2-hiw-3-section {
   /* border: 1px solid black; */
-  height: 800px;
+  height: 700px;
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
@@ -155,7 +155,7 @@ img.gift-card-other-company-img {
   grid-column-gap: 115px;
   align-items: center;
 }
-.landing-page-2-hiw-1-left-section {
+.landing-page-2-hiw-1-left-section, .landing-page-2-hiw-3-left-section {
   /* border: 1px solid black; */
   grid-area: 1 / 1 / 2 / 2;
 }
@@ -166,11 +166,35 @@ img.gift-card-other-company-img {
 .landing-page-2-hiw-li {
   padding: 15px 0 0 0;
 }
-.landing-page-2-hiw-1-right-section {
+.landing-page-2-hiw-1-right-section, .landing-page-2-hiw-3-right-section {
   /* border: 2px solid red; */
   grid-area: 1 / 2 / 2 / 4;
 }
 img.landing-page-2-hiw-image {
   border-radius: 16px;
 }
-/* - - - - - - - - - - How It Works - Step 1 - End */
+/* - - - - - - - - - - How It Works - Step 1 and 3 - End */
+
+
+/* - - - - - - - - - - How It Works - Step 2 and 4 - Start */
+.landing-page-2-hiw-2-section, .landing-page-2-hiw-4-section {
+  /* border: 1px solid black; */
+  height: 700px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(auto,max-content) minmax(150px,400px);
+  grid-column-gap: 115px;
+  align-items: center;
+}
+.landing-page-2-hiw-2-left-section, .landing-page-2-hiw-4-left-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2;
+}
+.landing-page-2-hiw-2-right-section, .landing-page-2-hiw-4-right-section {
+  /* border: 2px solid red; */
+  grid-area: 1 / 2 / 2 / 4;
+}
+/* - - - - - - - - - - How It Works - Step 2 and 4 - End */
