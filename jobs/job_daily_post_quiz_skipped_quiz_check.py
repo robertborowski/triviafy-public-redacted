@@ -45,6 +45,7 @@ def job_post_quiz_skipped_quiz_check_function():
     skipped_quizzes_arr = select_skipped_quizzes_company_team_level_function(postgres_connection, postgres_cursor, company_team_id, company_channel_id, today_date_str)
 
     if skipped_quizzes_arr == None:
+      localhost_print_function('did not run delete, likely because it is day of quiz end')
       localhost_print_function('=========================================== job_post_quiz_skipped_quiz_check_function END ===========================================')
       return True
 
