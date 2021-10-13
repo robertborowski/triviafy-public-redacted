@@ -128,6 +128,7 @@ img.gift-card-other-company-img {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .landing-page-choose-platforms-2-all-platforms-section p {
   border: 1px solid black;
@@ -135,7 +136,41 @@ img.gift-card-other-company-img {
   border-radius: 10px;
 }
 .font-awesome-icon-choose-platform-section {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0 10px 0 0;
 }
 /* - - - - - - - - - - Choose Platform - End */
+
+
+/* - - - - - - - - - - How It Works - Step 1 - Start */
+.landing-page-2-hiw-1-section {
+  /* border: 1px solid black; */
+  height: 800px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(150px,400px) minmax(auto,max-content);
+  grid-column-gap: 115px;
+  align-items: center;
+}
+.landing-page-2-hiw-1-left-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2;
+}
+.landing-page-2-hiw-ul {
+  padding: 25px 0 0 0;
+  margin: 0 0 0 25px;
+}
+.landing-page-2-hiw-li {
+  padding: 15px 0 0 0;
+}
+.landing-page-2-hiw-1-right-section {
+  /* border: 2px solid red; */
+  grid-area: 1 / 2 / 2 / 4;
+}
+img.landing-page-2-hiw-image {
+  border-radius: 16px;
+}
+/* - - - - - - - - - - How It Works - Step 1 - End */

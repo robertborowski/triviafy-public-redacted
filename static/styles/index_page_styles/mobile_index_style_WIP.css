@@ -67,7 +67,7 @@
   }
   .landing-page-choose-platforms-2-all-platforms-section {
     /* border: 1px solid black; */
-    width: 50%;
+    width: 60%;
     max-width: 300px;
     margin: 0 auto;
     display: flex;
@@ -77,4 +77,26 @@
     margin: 10px 0;
   }
   /* - - - - - - - - - - Choose Platform - End */
+
+
+  /* - - - - - - - - - - How It Works - Step 1 - Start */
+  .landing-page-2-hiw-1-section {
+    /* border: 1px solid black; */
+    height: 800px;
+    width: 90%;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+  .landing-page-2-hiw-1-left-section {
+    /* border: 1px solid black; */
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .landing-page-2-hiw-1-right-section {
+    /* border: 2px solid red; */
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  img.landing-page-2-hiw-image {
+    width: 100%;
+  }
+  /* - - - - - - - - - - How It Works - Step 1 - End */
 }
