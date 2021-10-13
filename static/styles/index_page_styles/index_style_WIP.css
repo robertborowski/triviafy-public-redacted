@@ -8,6 +8,14 @@
   font-size: 20px;
   color: rgb(51, 28, 86);
 }
+.landing-page-2-subheader-a {
+  font-size: 20px;
+  color: var(--company-primary-color);
+  text-decoration: none;
+}
+.landing-page-2-subheader-a:hover {
+  text-decoration: underline;
+}
 /* - - - - - - - - - - Whole Page Variables - End */
 
 
@@ -135,6 +143,11 @@ img.gift-card-other-company-img {
   padding: 10px 15px;
   border-radius: 10px;
 }
+.landing-page-choose-platforms-2-all-platforms-section p:hover {
+  border: 1px solid var(--company-primary-color);
+  color: var(--company-primary-color);
+  transition: 300ms;
+}
 .font-awesome-icon-choose-platform-section {
   font-size: 20px;
   margin: 0 10px 0 0;
@@ -166,12 +179,21 @@ img.gift-card-other-company-img {
 .landing-page-2-hiw-li {
   padding: 15px 0 0 0;
 }
+.landing-page-2-hiw-button-position-section {
+  /* border: 1px solid black; */
+  padding: 50px 0 0 0;
+  text-align: center;
+}
 .landing-page-2-hiw-1-right-section, .landing-page-2-hiw-3-right-section {
   /* border: 2px solid red; */
   grid-area: 1 / 2 / 2 / 4;
 }
 img.landing-page-2-hiw-image {
   border-radius: 16px;
+}
+.landing-page-hiw-a-link-position-section {
+  text-align: center;
+  padding: 50px 0 0 0;
 }
 /* - - - - - - - - - - How It Works - Step 1 and 3 - End */
 
@@ -198,3 +220,18 @@ img.landing-page-2-hiw-image {
   grid-area: 1 / 2 / 2 / 4;
 }
 /* - - - - - - - - - - How It Works - Step 2 and 4 - End */
+
+
+/* - - - - - - - - - - Dropdown Arrow Animation - Start */
+.landing-page-2-subheader-a:hover .landing-page-2-icon-move {
+  animation: learn-more-arrow-animation 300ms ease-in-out forwards;
+}
+@keyframes learn-more-arrow-animation {
+  0% {
+    transform:translateX(0px)
+  }
+  100% {
+    transform:translateX(20px)
+  }
+}
+/* - - - - - - - - - - Dropdown Arrow Animation - End */

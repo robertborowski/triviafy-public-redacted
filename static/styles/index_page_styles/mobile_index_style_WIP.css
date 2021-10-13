@@ -79,7 +79,7 @@
   /* - - - - - - - - - - Choose Platform - End */
 
 
-  /* - - - - - - - - - - How It Works - Step 1 - Start */
+  /* - - - - - - - - - - How It Works - Step 1 to 4 - Start */
   .landing-page-2-hiw-1-section, .landing-page-2-hiw-2-section, .landing-page-2-hiw-3-section, .landing-page-2-hiw-4-section {
     /* border: 1px solid black; */
     height: 800px;
@@ -98,5 +98,5 @@
   img.landing-page-2-hiw-image {
     width: 100%;
   }
-  /* - - - - - - - - - - How It Works - Step 1 - End */
+  /* - - - - - - - - - - How It Works - Step 1 to 4 - End */
 }
