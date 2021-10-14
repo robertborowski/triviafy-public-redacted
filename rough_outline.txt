@@ -1,5 +1,6 @@
 To-Do's
 ---
+-UX:              Send a thank you email to people when they book a demo.
 -Subscription:    Companies that did not pay for this month, a quiz should not be made for them
 -Blog:            Top Slack Trivia Apps
 -UX:              PDF of how to add to slack properly. Every team member should do these steps
