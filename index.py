@@ -7,7 +7,7 @@ from flask import Flask, session, render_template
 # ------------------------ Pages START ------------------------
 # Index page
 from backend.page_templates_backend.index_page_backend.index_page_render_template import index_page_render_template
-from backend.page_templates_backend.index_page_backend.index_page_wip_render_template import index_page_wip_render_template
+# from backend.page_templates_backend.index_page_backend.index_page_wip_render_template import index_page_wip_render_template
 
 # About page
 from backend.page_templates_backend.about_page_backend.about_index_page_render_template import about_index_page_render_template
@@ -108,7 +108,7 @@ def not_found(e):
 # ------------------------ Pages - Register START ------------------------
 # Index page
 app.register_blueprint(index_page_render_template, url_prefix="")
-app.register_blueprint(index_page_wip_render_template, url_prefix="")
+# app.register_blueprint(index_page_wip_render_template, url_prefix="")
 # About page
 app.register_blueprint(about_index_page_render_template, url_prefix="")
 # Demo page
