@@ -9,247 +9,200 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar START -->
 <!--Navigation bar-->
-<nav-not-signed-in-component slack_state_uuid_js="{{ slack_state_uuid_html }}",
+<nav-not-signed-in-component-2 slack_state_uuid_js="{{ slack_state_uuid_html }}",
                               link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
                               link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}",
                               link_blog_js="{{ url_for('blog_index_page_render_template.blog_index_page_render_template_function') }}",
                               link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
                               pdf_example_quiz_js="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}",
                               pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
+                              link_demo_js="{{ url_for('demo_page_render_template.demo_page_render_template_function') }}",
                               link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
-</nav-not-signed-in-component>
+</nav-not-signed-in-component-2>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar END -->
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro START -->
-<div class="landing-page-intro-section-background">
-  <div class="landing-page-intro-grid-outline">
-    <div class="landing-page-intro-title-and-subtitle">
-      <h1 class="landing-page-intro-title words-stroke-shadow-class"><strong>Weekly trivia quiz for your team.</strong></h1>
-      <ul class="landing-page-intro-ul">
-        <li><h2 class="landing-page-intro-sub-title words-stroke-shadow-class">Internal team building tool, guaranteed to increase employee engagement.</h2></li>
-        <li><h2 class="landing-page-intro-sub-title words-stroke-shadow-class">Asynchronous: employees submit answers on their own time weekly.</h2></li>
-        <li><h2 class="landing-page-intro-sub-title words-stroke-shadow-class">You select the quiz schedule + categories, we handle the grading & prizes.</h2></li>
-      </ul>
-      
-      <div class="landing-page-into-button-section">
-        <a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=incoming-webhook,team:read,users.profile:read,users:read,users:read.email&state={{ slack_state_uuid_html }}&user_scope=openid,profile,email"><img alt="Add to Slack" height="50" width="173.75" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="landing-page-button" /></a>
-      </div>
-      <div class="landing-page-intro-or-section">
+<div class="landing-page-intro-2">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Left Side START -->
+  <div class="landing-page-intro-2-words-section">
+    <p class="landing-page-intro-2-header">Weekly trivia quiz for your team.</p>
+    <p class="landing-page-2-subheader landing-page-intro-2-sub-header">Internal team building tool, guaranteed to increase employee engagement.</p>
+
+    <div class="landing-page-intro-2-next-steps-section">
+      <div class="landing-page-intro-2-slack-button-section">
+        <a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=incoming-webhook,team:read,users.profile:read,users:read,users:read.email&state={{ slack_state_uuid_html }}&user_scope=openid,profile,email"><img alt="Add to Slack" height="50" width="173.75" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="landing-page-2-button" /></a>
+      </div>  
+      <div class="landing-page-2-subheader landing-page-intro-2-or-section">
         <p>OR</p>
       </div>
-
-      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form-2" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         <label for="user_input_email" class="landing-page-form-email-label"></label>
-        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
-        <input type="submit" value="Request a demo" class="landing-page-closing-sub-section-submit-input">
+        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="text-input-default" required><br><br>
+        <input type="submit" value="Request a demo" class="button-default-2 button-default-2-primary-color landing-page-button-position">
       </form>
     </div>
-    
-    <div class="landing-page-intro-video">
-      <iframe src="https://player.vimeo.com/video/618792251?h=7cbce57383" class="triviafy_promo_video" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    </div>
   </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Left Side END -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Right Side START -->
+  <div class="landing-page-intro-2-video-section">
+    <iframe src="https://player.vimeo.com/video/618792251?h=7cbce57383" class="triviafy_promo_video_2 box-shadow-reg-grey-2" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Right Side END -->
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro END -->
 
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Win Gift Cards START -->
-<div class="landing-page-other-companies-container box-shadow-reg-grey box-shadow-rounded">
-  
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF START -->
-  <!-- <div class="landing-page-pdf-sample-quiz-section">
-    <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">View Example Quiz PDF</button></a>
-  </div> -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF END -->
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF START -->
-  <div class="landing-page-pdf-slack-setup-section">
-    <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">How To Add To Slack</button></a>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Slack Setup PDF END -->
-  
-  
-  <div class="landing-page-other-company-logos-description">
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Gift Card Other Companies START -->
+<div class="landing-page-gift-card-other-companies-section">
+  <div class="landing-page-2-subheader landing-page-gift-card-other-companies-title">
     <p>1st place team members win free gift card prizes to popular companies.</p>
   </div>
-  <div class="landing-page-other-company-logos-container">
-    <img src="/static/images/logo_other_companies/Logo_Adidas.png" alt="Other company logo" class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_Amazon.png" alt="Other company logo" class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_Disney.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_DoorDash.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_Hulu.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
-  </div>
-  <div class="landing-page-other-company-logos-container">
-    <img src="/static/images/logo_other_companies/Logo_LuLuLemon.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-square">
-    <img src="/static/images/logo_other_companies/Logo_Netflix.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_Nike.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
-    <img src="/static/images/logo_other_companies/Logo_Starbucks.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-square">
-    <img src="/static/images/logo_other_companies/Logo_Zara.png" alt="Other company logo" 
-    class="landing-page-other-company-logos-container-img-rectangle">
+  <div class="landing-page-gift-card-other-companies-logos">
+    <img src="/static/images/logo_other_companies/Logo_Adidas_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Amazon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_LuLuLemon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Nike_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Apple_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
   </div>
 </div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Win Gift Cards END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Gift Card Other Companies END -->
 
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works START -->
-<div class="landing-page-how-it-works-section">
-  <div class="landing-page-how-it-works-title">
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Choose Platform START -->
+<div class="landing-page-choose-platform-2">
+  <div class="landing-page-2-header landing-page-choose-platform-2-header">
     <p>How It Works</p>
   </div>
-
-  <div class="landing-page-choose-platform">
-    <p>Add to company's communication platform:</p>
+  <div class="landing-page-2-subheader landing-page-choose-platform-2-subheader">
+    <p>Add to company's communication platform.</p>
   </div>
-  <div class="landing-page-communication-platform">
-    <div class="landing-page-communication-platform-icon-rectangle">
-      <p><i class="far fa-envelope"></i> Email</p>
-    </div>
-    <img src="/static/images/logo_other_companies/Logo_slack.png" alt="Other company logo" 
-    class="landing-page-communication-platform-img-rectangle">
-    <img src="/static/images/logo_other_companies/logo_microsoft_teams.png" alt="Other company logo" class="landing-page-communication-platform-img-rectangle">
+  <div class="landing-page-choose-platforms-2-all-platforms-section">
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="fab fa-slack font-awesome-icon-choose-platform-section"></i>Slack</p>
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="fab fa-windows font-awesome-icon-choose-platform-section"></i>Microsoft Teams</p>
+    <p class="box-shadow-reg-grey-2 landing-page-2-subheader"><i class="far fa-envelope font-awesome-icon-choose-platform-section"></i>Email</p>
   </div>
 </div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Choose Platform END -->
 
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Receive Quiz START -->
-<div class="landing-page-step-section">
-  <div class="landing-page-left-grid landing-page-img-center popup-left-one">
-    <img src="/static/images/screenshots/slack_message.png" alt="Quiz Screenshot" class="box-shadow-reg-grey box-shadow-rounded screenshot-quiz-open">
-  </div>
-
-  <div class="landing-page-step-sub-section-description-section landing-page-right-grid landing-page-text-margin-right popup-right-one">
-    <p class="landing-page-step-sub-section-description-sub-section-title">Receive weekly <em>quiz open</em> notification.</p>
-    <ul class="landing-page-step-sub-section-description-sub-section-ul">
-      <li>Submit quiz responses based on your team's schedule.</li>
-      <li>Awesome way to discover coworker passions.</li>
-      <li>Great conversation starter.</li>
-    </ul>
-  </div>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Receive Quiz END -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answer Question START -->
-<div class="landing-page-step-section">
-  <div class="landing-page-right-grid landing-page-img-left popup-right-two">
-    <img src="/static/images/screenshots/quiz_question_screenshot.png" alt="Quiz Screenshot" class="screenshot-quiz-question-example">
-  </div>
-
-  <div class="landing-page-left-grid landing-page-text-margin-left popup-left-two">
-    <p class="landing-page-step-sub-section-description-sub-section-title">Answer quiz questions.</p>
-    <ul class="landing-page-step-sub-section-description-sub-section-ul">
-      <li>Exact spelling does not matter, try your best.</li>
-      <li>Showcase your trivia knowledge.</li>
-      <li>Impress your coworkers.</li>
-    </ul>
-  </div>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answer Question END -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Rewards START -->
-<div class="landing-page-step-section">
-  <div class="landing-page-left-grid landing-page-img-center popup-left-three">
-    <img src="/static/images/bragging_rights/Earn_Rewards_Horizontal.png" alt="Quiz Screenshot" class="screenshot-quiz-rewards">
-  </div>
-
-  <div class="landing-page-right-grid landing-page-text-margin-right popup-right-three">
-    <p class="landing-page-step-sub-section-description-sub-section-title">Collect end-of-week rewards.</p>
-    <ul class="landing-page-step-sub-section-description-sub-section-ul">
-      <li>Earn 'Bragging-Rights-Cards.'</li>
-      <li>Win free gift cards.</li>
-      <li>Take pride in your trivia knowledge.</li>
-    </ul>
-  </div>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Rewards END -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Customize Settings START -->
-<div class="landing-page-step-section">
-  <div class="landing-page-right-grid landing-page-img-left popup-right-four">
-    <img src="/static/images/bragging_rights/customize_quiz_horizontal.png" alt="Quiz Screenshot" class="screenshot-quiz-rewards">
-  </div>
-
-  <div class="landing-page-left-grid landing-page-text-margin-left popup-left-four">
-    <p class="landing-page-step-sub-section-description-sub-section-title">Customize your team's weekly quizzes.</p>
-    <ul class="landing-page-step-sub-section-description-sub-section-ul">
-      <li>Adjust start/end date and time.</li>
-      <li>Adjust number of questions per quiz.</li>
-      <li>Adjust question categories.</li>
-      <li>Create custom triviafy questions.</li>
-    </ul>
-  </div>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Customize Settings END -->
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF START -->
-<div class="landing-page-pdf-sample-quiz-section">
-  <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-longer button-default-color-primary landing-page-intro-button">View Example Quiz PDF</button></a>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Sample Quiz PDF END -->
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider START -->
-<div class="template-divide-section">  
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Divider END -->
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Closing START -->
-<div class="landing-page-closing-section">
-  <div class="landing-page-closing-section-content-top">
-    
-    <div class="landing-page-closing-sub-section-box-aa">
-      <p class="landing-page-closing-sub-section-title words-stroke-shadow-class"><strong><em>Triviafy</em> your workspace!</strong></p>
-      <p class="landing-page-closing-sub-section-sub-title words-stroke-shadow-class"><strong>Weekly trivia quiz for your team.</strong></p>
-      <ul class="landing-page-closing-sub-section-ul words-stroke-shadow-class">
-        <li><p>Set up takes seconds.</p></li>
-        <li><p>Unlock new conversations with coworkers.</p></li>
-        <li><p>Increase employee engagement.</p></li>
-        <li><p>Give your team something to look forward to every week.</p></li>
-      </ul>
-    </div>
-
-    <div class="landing-page-closing-sub-section-box-ab">
-      <img src="/static/images/logo/Logo_active/Logo_cheering_white_correct_direction.png" alt="Logo Active" class="landing-page-closing-sub-section-img">
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
+<div class="landing-page-2-hiw-1-section">
+  <div class="landing-page-2-hiw-1-left-section">
+    <p class="landing-page-2-header">Receive weekly quiz open notification.</p>
+    <!-- <ul class="landing-page-2-hiw-ul">
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Submit quiz responses based on your team's schedule.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Awesome way to discover coworker passions.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Great conversation starter.</li>
+    </ul> -->
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Triviafy quizzes are asynchronous, meaning team members complete the quiz on their own time throughout the week.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="button-default-2 button-default-2-primary-color landing-page-2-hiw-button-position">Slack Setup (PDF)</button></a>
     </div>
   </div>
+  <div class="landing-page-2-hiw-1-right-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Slack.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image box-shadow-reg-grey-2">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
 
-  <div class="landing-page-closing-section-content-bottom">
-    
-    <div class="landing-page-closing-sub-section-box-ac">
-      <a href="https://slack.com/oauth/v2/authorize?client_id=2010284559270.2041074682000&scope=incoming-webhook,team:read,users.profile:read,users:read,users:read.email&state={{ slack_state_uuid_html }}&user_scope=openid,profile,email"><img alt="Add to Slack" height="50" width="173.75" src="https://platform.slack-edge.com/img/add_to_slack.png" srcSet="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" class="slack-image-button-landing-page" /></a>
-      
-      <p class="landing-page-closing-sub-section-or-statement words-stroke-shadow-class">OR</p>
-      
-      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
-        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
-        <input type="submit" value="Request a demo" class="landing-page-closing-sub-section-submit-input">
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
+<div class="landing-page-2-hiw-2-section">
+  <div class="landing-page-2-hiw-2-left-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Quiz_Question.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image box-shadow-reg-grey-2">
+  </div>
+  <div class="landing-page-2-hiw-2-right-section">
+    <p class="landing-page-2-header">Answer quiz questions.</p>
+    <!-- <ul class="landing-page-2-hiw-ul">
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Exact spelling does not matter, try your best.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Showcase your trivia knowledge.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Impress your coworkers.</li>
+    </ul> -->
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Exact spelling for answers does not matter but try your best. Completing a quiz can take 1-5 minutes.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="button-default-2 button-default-2-primary-color landing-page-2-hiw-button-position">Example Quiz (PDF)</button></a>
+    </div>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 3 - START -->
+<div class="landing-page-2-hiw-3-section">
+  <div class="landing-page-2-hiw-3-left-section">
+    <p class="landing-page-2-header">Collect end of week rewards.</p>
+    <!-- <ul class="landing-page-2-hiw-ul">
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Earn 'Bragging-Rights' cards.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Earn free gift cards.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Take pride in your trivia knowledge.</li>
+    </ul> -->
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Earn ‘Bragging-Rights’ cards that showcase your trivia skills. Consistent Triviafy quiz winners earn free gift cards to popular companies.</p>
+    <div class="landing-page-hiw-a-link-position-section">
+      <a href="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}" class="landing-page-2-subheader-a">Learn more. <i class="fas fa-angle-right landing-page-2-icon-move"></i></a>
+    </div>
+  </div>
+  <div class="landing-page-2-hiw-3-right-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Prizes_2.png" alt="Collect end-of-week rewards image." class="landing-page-2-hiw-image box-shadow-reg-grey-2">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 3 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 4 - START -->
+<div class="landing-page-2-hiw-4-section">
+  <div class="landing-page-2-hiw-4-left-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Customize_2.png" alt="Customize your team's weekly quizzes image." class="landing-page-2-hiw-image box-shadow-reg-grey-2">
+  </div>
+  <div class="landing-page-2-hiw-4-right-section">
+    <p class="landing-page-2-header">Customize your team's weekly quizzes.</p>
+    <!-- <ul class="landing-page-2-hiw-ul">
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Adjust start/end date and time.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Adjust number of questions per quiz.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Adjust question categories.</li>
+      <li class="landing-page-2-subheader landing-page-2-hiw-li">Create custom triviafy questions.</li>
+    </ul> -->
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Customizable settings: number of questions per quiz, question difficulty, question categories, quiz timeframe, create custom Triviafy questions.</p>
+    <div class="landing-page-hiw-a-link-position-section">
+      <a href="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}" class="landing-page-2-subheader-a">Learn more. <i class="fas fa-angle-right landing-page-2-icon-move"></i></a>
+    </div>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 4 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Request Demo - START -->
+<div class="landing-page-2-demo-section box-shadow-reg-grey-2">
+  <div class="landing-page-2-demo-left-sub-section">
+    <div class="landing-page-2-demo-words-section">
+      <p class="landing-page-2-header landing-page-2-demo-header-position">Build better teams with Triviafy.</p>
+      <p class="landing-page-2-subheader landing-page-2-demo-sub-header-position">Speak to one of our trivia experts and learn how Triviafy can help your team.</p>
+      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form-2" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+        <label for="user_input_email" class="landing-page-form-email-label"></label>
+        <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="text-input-default" required><br><br>
+        <input type="submit" value="Request a demo" class="button-default-2 button-default-2-primary-color landing-page-button-position">
       </form>
-
     </div>
+    
+  </div>
+  
+  <div class="landing-page-2-demo-right-sub-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Request_Demo.png" alt="Request Demo image" class="landing-page-2-demo-img">
   </div>
 </div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Closing START -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Request Demo - END -->
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer START -->
 <!-- Footer Not Signed In -->
-<footer-not-signed-in-component link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+<footer-not-signed-in-component-2 link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
                                 link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}",
                                 link_blog_js="{{ url_for('blog_index_page_render_template.blog_index_page_render_template_function') }}",
                                 link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
                                 link_terms_conditions_js="{{ url_for('terms_of_service_index_page_render_template.terms_of_service_index_page_render_template_function') }}",
                                 pdf_example_quiz_js="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}",
+                                pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
                                 link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
-</footer-not-signed-in-component>
+</footer-not-signed-in-component-2>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer END -->
-
-
 {% endblock %}
