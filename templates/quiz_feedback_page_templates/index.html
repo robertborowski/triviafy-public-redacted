@@ -28,7 +28,7 @@
                                   free_trial_ends_info_js="{{ free_trial_ends_info_to_html }}">
   </company-name-channel-component>
 
-  <div class="template-page-intro-background box-shadow-sm-black">
+  <div class="template-page-intro-background default-box-shadow-black-small">
     <div class="template-page-intro">
       <p class="template-page-intro-title template-page-intro-title-quiz-feedback" id='words-stroke-shadow'>Quiz Feedback</p>
     </div>
@@ -40,7 +40,7 @@
   <form action="{{ url_for('quiz_feedback_processing.quiz_feedback_processing_function') }}" method="post" class='quiz-feedback-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Text Box Start -->
-    <div class="question-feedback-section box-shadow-reg-grey box-shadow-rounded">
+    <div class="question-feedback-section default-box-shadow-grey-reg">
       <label for="user_input_quiz_feedback"><p class="quiz-feedback-section-description">All Feedback</p></label>
       <p class="quiz-feedback-section-sub-description">Type in the categories that you would want to see more of.</p>
       <input type="text" id="user_input_quiz_feedback" name="user_input_quiz_feedback" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="280" pattern="[a-zA-z0-9 ]{1,280}">

@@ -1,4 +1,4 @@
-/* ==================================== All Styles START ==================================== */
+/* ==================================== Global Font and Borders START ==================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,11 +15,10 @@
     -webkit-appearance: none;
   }
 }
-/* ==================================== All Styles END ==================================== */
+/* ==================================== Global Font and Borders END ==================================== */
 
 
-
-/* ==================================== Set Global Variables START ==================================== */
+/* ==================================== Global Colors START ==================================== */
 /* - - - - - - - - - - Root global variables Start */
 :root {
   --company-primary-color: rgb(196, 94, 255);     /* OFFICIAL CURRENT */
@@ -27,53 +26,27 @@
   --company-greyed-out-color: rgb(170, 170, 170);
 }
 /* - - - - - - - - - - Root global variables - End */
-/* ==================================== Set Global Variables END ==================================== */
+/* ==================================== Global Colors END ==================================== */
 
 
 
-/* ==================================== Global Classes and ID's START ==================================== */
+/* ==================================== Global Classes START ==================================== */
 /* - - - - - - - - - - Box shadows - Start */
-.box-shadow-sm-grey {
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-}
-.box-shadow-reg-grey {
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.075)!important;
-}
-.box-shadow-reg-grey-2 {
+.default-box-shadow-grey-reg {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.115)!important;
 }
-.box-shadow-sm-black {
+.default-box-shadow-black-small {
   box-shadow: 0 .125rem .5rem rgba(0,0,0,.750)!important;
-}
-.box-shadow-reg-black {
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.750)!important;
-}
-.box-shadow-reg-primary {
-  box-shadow: none;
-}
-.box-shadow-rounded {
-  border-radius: .25rem!important;
 }
 /* - - - - - - - - - - Box shadows - End */
 
 
-/* - - - - - - - - - - Stroke - Start */
-#words-stroke-shadow {
-  /* -webkit-text-stroke: 1px black; */
-	text-shadow: 1px 1px 1px rgb(70, 0, 80);
-}
-.words-stroke-shadow-class {
-  /* -webkit-text-stroke: 1px black; */
-	text-shadow: 1px 1px 1px rgb(70, 0, 80);
-}
-/* - - - - - - - - - - Stroke - End */
-
-
-/* - - - - - - - - - - Input, Textarea, Select - Start */
+/* - - - - - - - - - - No Category  - Start */
 /* Remove default behavior of textbox style */
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
+/* - - - - - - - - - - No Category  - End */
 
 
 /* - - - - - - - - - - Button Defaults - 1 - Start */
@@ -357,4 +330,18 @@ hr.template-divider-line-dotted {
 /* - - - - - - - - - - Divider - End */
 
 
-/* ==================================== Global Classes and ID's END ==================================== */
+/* ==================================== Global Classes END ==================================== */
+
+
+/* ==================================== Global ID's START ==================================== */
+/* - - - - - - - - - - Stroke - Start */
+#words-stroke-shadow {
+  /* -webkit-text-stroke: 1px black; */
+	text-shadow: 1px 1px 1px rgb(70, 0, 80);
+}
+.words-stroke-shadow-class {
+  /* -webkit-text-stroke: 1px black; */
+	text-shadow: 1px 1px 1px rgb(70, 0, 80);
+}
+/* - - - - - - - - - - Stroke - End */
+/* ==================================== Global ID's END ==================================== */

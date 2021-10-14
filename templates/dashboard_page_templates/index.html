@@ -28,14 +28,14 @@
                                   free_trial_ends_info_js="{{ free_trial_ends_info_to_html }}">
   </company-name-channel-component>
 
-  <div class="template-page-intro-background box-shadow-sm-black">
+  <div class="template-page-intro-background default-box-shadow-black-small">
     <div class="template-page-intro">
       <p class="template-page-intro-title template-page-intro-title-dashboard" id='words-stroke-shadow'>Quiz {{ user_team_latest_quiz_number_to_html }}</p>
       <p class="template-page-intro-sub-title template-page-intro-sub-title-dashboard">Due: {{ quiz_end_time_to_html }}, {{ quiz_end_day_of_week_to_html[:3] }}, {{ quiz_end_date_to_html }}</p>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal Start -->
       <a href="#"><p class="modal-see-rules" id="quiz-rules-activate-modal">See Rules</p></a>
       <div id="quiz-rules-details-modal" class="quiz-modal">
-        <div class="modal-content box-shadow-reg-black">
+        <div class="modal-content default-box-shadow-black-small">
           
           <div class="modal-header">
             <span class="close-modal-x-button">&times;</span>
@@ -65,7 +65,7 @@
 
   
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answers Submitted Message Start -->
-  <div class="user-answers-submitted-message-section box-shadow-reg-grey box-shadow-rounded">
+  <div class="user-answers-submitted-message-section default-box-shadow-grey-reg">
     <p class="user-subitted-quiz-answers">{{ user_submitted_answers_to_html }}</p>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Answers Submitted Message End -->
@@ -76,7 +76,7 @@
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz All Questions Start -->
     {% for i in quiz_questions_obj_arr_of_dicts_html %}
-    <div class="quiz-question-section box-shadow-reg-grey box-shadow-rounded">
+    <div class="quiz-question-section default-box-shadow-grey-reg">
 
       
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question Logo START -->

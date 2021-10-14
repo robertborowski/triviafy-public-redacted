@@ -25,7 +25,7 @@
                                   free_trial_ends_info_js="{{ free_trial_ends_info_to_html }}">
   </company-name-channel-component>
 
-  <div class="template-page-intro-background box-shadow-sm-black">
+  <div class="template-page-intro-background default-box-shadow-black-small">
     <div class="template-page-intro">
       <p class="template-page-intro-title template-page-intro-title-create-question" id='words-stroke-shadow'>Create Question</p>
     </div>
@@ -42,7 +42,7 @@
   <form action="{{ url_for('create_question_submission_processing.create_question_submission_processing_function') }}" method="post" class='create-question-form' enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select Start -->
-    <div class="create-question-section create-question-write-categories box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-write-categories default-box-shadow-grey-reg">
       <label for="input_question_categories_arr_html"><p class="create-question-section-description">Categories:</p></label>
       <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
@@ -52,7 +52,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title Start -->
-    <div class="create-question-section create-question-write-title box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-write-title default-box-shadow-grey-reg">
       <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
       <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
       <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="answer-text-box" onkeyup="countCharsTitle(this);" required>
@@ -61,7 +61,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
-    <div class="create-question-section create-question-write-actual-question box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-write-actual-question default-box-shadow-grey-reg">
       <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
       <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
       <p id="charNumActualQuestion" class="character-count-tracker"></p>
@@ -69,7 +69,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers Start -->
-    <div class="create-question-section create-question-write-answers box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-write-answers default-box-shadow-grey-reg">
       <label for="input_question_answers_arr_html"><p class="create-question-section-description">Accepted Answers:</p></label>
       <p class="create-question-section-sub-description">Answers are not case sensitive (Example: "Beyoncé", "BEYONCE", and "bEyOnCe" are all graded the same).</p>
       <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
@@ -80,7 +80,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Difficulty Start -->
-    <div class="create-question-section create-question-select-difficulty box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-select-difficulty default-box-shadow-grey-reg">
       <label for="input_question_difficulty_str_html"><p class="create-question-section-description">Difficulty:</p></label>
 
       <input type="radio" id="question-difficulty-easy" name="question-difficulty-level" value="Easy">
@@ -96,7 +96,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Difficulty End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Hint Start -->
-    <div class="create-question-section create-question-write-hint box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-write-hint default-box-shadow-grey-reg">
       <label for="input_hint_str_html"><p class="create-question-section-description">Hint (Optional):</p></label>
       <p class="create-question-section-sub-description">Optional. Leave blank if no hint needed.</p>
       <textarea id="input_hint_str_html" name="input_hint_str_html" class="answer-text-box" rows="3" cols="50" onkeyup="countCharsHint(this);"></textarea>
@@ -105,7 +105,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Hint End -->
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Image Upload Start -->
-    <div class="create-question-section create-question-image-upload box-shadow-reg-grey box-shadow-rounded">
+    <div class="create-question-section create-question-image-upload default-box-shadow-grey-reg">
       <label for="input_image_upload"><p class="create-question-section-description">Image Upload (Optional):</p></label>
       <p class="create-question-section-sub-description">Optional. Leave blank if no image needed.</p>
       <p class="create-question-section-sub-description">Accepted formats: [.jpeg/.jpg/.png/.gif].</p>

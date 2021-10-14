@@ -8,7 +8,7 @@ class NavbarNotSignedInClass extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <nav class="navbar-not-signed-in box-shadow-sm-grey box-shadow-rounded">
+    <nav class="navbar-not-signed-in">
   
       <!-- Logo and Company Name -->
       <div class="company-name-and-logo-navbar-not-signed-in">
@@ -28,7 +28,7 @@ class NavbarNotSignedInClass extends HTMLElement {
       <div class="navbar-links-not-signed-in">
         <ul>
           <li class="drill-down"><a href="#">Resources <i class="fas fa-caret-down"></i></a>
-            <ul class="box-shadow-reg-primary box-shadow-rounded sub-list-items">
+            <ul class="sub-list-items">
               <li><a href="${this.getAttribute("pdf_example_quiz_js")}">Example Quiz (PDF)</a></li>
               <li><a href="${this.getAttribute("pdf_slack_setup_js")}">How To Setup (PDF)</a></li>
               <li><a href="${this.getAttribute("link_faq_js")}">FAQ</a></li>
@@ -42,7 +42,7 @@ class NavbarNotSignedInClass extends HTMLElement {
           <!-- <li><a href="#"><p class="modal-login-text" id="login-activate-modal">Login</p></a></li> -->
           <li><a href="#" class="modal-login-text" id="login-activate-modal">Login</a></li>
           <div id="login-details-modal" class="login-modal">
-            <div class="login-modal-content box-shadow-reg-black">
+            <div class="login-modal-content default-box-shadow-black-small">
               
               <div class="login-modal-header">
                 <span class="close-login-modal-x-button">&times;</span>
@@ -70,7 +70,7 @@ class NavbarNotSignedInClass extends HTMLElement {
           <!-- <li><a href="#"><p class="modal-create-account-text" id="create-account-activate-modal">Create Account</p></a></li> -->
           <li><a href="#" class="modal-create-account-text" id="create-account-activate-modal">Create Account</p></a></li>
           <div id="create-account-details-modal" class="create-account-modal">
-            <div class="create-account-modal-content box-shadow-reg-black">
+            <div class="create-account-modal-content default-box-shadow-black-small">
               
               <div class="create-account-modal-header">
                 <span class="close-create-account-modal-x-button">&times;</span>
