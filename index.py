@@ -11,6 +11,8 @@ from backend.page_templates_backend.index_page_backend.index_page_wip_render_tem
 
 # About page
 from backend.page_templates_backend.about_page_backend.about_index_page_render_template import about_index_page_render_template
+# Demo page
+from backend.page_templates_backend.demo_page_backend.demo_page_render_template import demo_page_render_template
 # Privacy page
 from backend.page_templates_backend.privacy_policy_page_backend.privacy_policy_index_page_render_template import privacy_policy_index_page_render_template
 # TOS page
@@ -109,6 +111,8 @@ app.register_blueprint(index_page_render_template, url_prefix="")
 app.register_blueprint(index_page_wip_render_template, url_prefix="")
 # About page
 app.register_blueprint(about_index_page_render_template, url_prefix="")
+# Demo page
+app.register_blueprint(demo_page_render_template, url_prefix="")
 # Privacy page
 app.register_blueprint(privacy_policy_index_page_render_template, url_prefix="")
 # Terms of Service page
