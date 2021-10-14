@@ -176,7 +176,7 @@ img.gift-card-other-company-img {
   padding: 25px 0 0 0;
   margin: 0 0 0 25px;
 }
-.landing-page-2-hiw-li {
+.landing-page-2-hiw-li, .landing-page-2-hiw-p {
   padding: 15px 0 0 0;
 }
 .landing-page-2-hiw-button-position-section {
@@ -235,3 +235,53 @@ img.landing-page-2-hiw-image {
   }
 }
 /* - - - - - - - - - - Dropdown Arrow Animation - End */
+
+
+/* - - - - - - - - - - Request Demo - Start */
+.landing-page-2-demo-section {
+  /* border: 3px solid blue; */
+  border-radius: 24px;
+  height: 500px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto 0 auto;
+  display: grid;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-columns: 500px 1fr;
+  grid-template-rows: 1fr;
+}
+.landing-page-2-demo-left-sub-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 1 / 2 / 2;
+}
+.landing-page-2-demo-words-section {
+  /* border: 3px solid red; */
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin: 0 0 0 50px;
+}
+.landing-page-2-demo-header-position, .landing-page-2-demo-sub-header-position {
+  margin: 0 0 25px 0;
+}
+.landing-page-2-demo-right-sub-section {
+  /* border: 1px solid black; */
+  grid-area: 1 / 2 / 2 / 3;
+}
+img.landing-page-2-demo-img {
+  height: auto;
+  width: 100%;
+  border-radius: 24px;
+}
+/* - - - - - - - - - - Request Demo - End */
+
+
+
+
+
+/* ================================================================== */
+.bottom-of-page-whitespace-section {
+  height: 1000px;
+}

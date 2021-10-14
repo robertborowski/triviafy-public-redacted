@@ -99,4 +99,28 @@
     width: 100%;
   }
   /* - - - - - - - - - - How It Works - Step 1 to 4 - End */
+
+
+  /* - - - - - - - - - - Request Demo - Start */
+  .landing-page-2-demo-section {
+    /* border: 1px solid black; */
+    height: 900px;
+    width: 90%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 500px 1fr;
+    text-align: center;
+  }
+  .landing-page-2-demo-left-sub-section {
+    /* border: 1px solid black; */
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .landing-page-2-demo-words-section {
+    /* border: 3px solid red; */
+    margin: 0 0 0 0;
+  }
+  .landing-page-2-demo-right-sub-section {
+    /* border: 1px solid black; */
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  /* - - - - - - - - - - Request Demo - End */
 }
