@@ -192,7 +192,16 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Request Demo - END -->
 
 
-
-<!-- ================================================================== -->
-<div class="bottom-of-page-whitespace-section"></div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer START -->
+<!-- Footer Not Signed In -->
+<footer-not-signed-in-component-2 link_home_js="{{ url_for('index_page_render_template.index_page_render_template_function') }}",
+                                link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}",
+                                link_blog_js="{{ url_for('blog_index_page_render_template.blog_index_page_render_template_function') }}",
+                                link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
+                                link_terms_conditions_js="{{ url_for('terms_of_service_index_page_render_template.terms_of_service_index_page_render_template_function') }}",
+                                pdf_example_quiz_js="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}",
+                                pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
+                                link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
+</footer-not-signed-in-component-2>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer END -->
 {% endblock %}
