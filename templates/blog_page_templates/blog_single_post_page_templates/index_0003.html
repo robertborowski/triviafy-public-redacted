@@ -104,7 +104,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Fix This START -->
   <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     <label for="user_input_email" class="landing-page-form-email-label"></label>
-    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
+    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
     <input type="submit" value="Request a demo" class="landing-page-closing-sub-section-submit-input">
   </form>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Fix This END -->
