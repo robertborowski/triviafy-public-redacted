@@ -1,0 +1,9 @@
+/* - - - - - - - - - - Demo - Start */
+.demo-section {
+  border: 1px solid black;
+  height: 600px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 100px auto 0 auto;
+}
+/* - - - - - - - - - - Demo - End */
