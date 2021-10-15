@@ -1,156 +1,130 @@
 @media (max-width: 1200px) {
   /* - - - - - - - - - - Intro - Start */
-  .landing-page-intro-section-background {
-    height: 1100px;
-  }
-  .landing-page-intro-grid-outline {
-    /* border: 1px solid black; */
-    grid-template-columns: 100%;
+  .landing-page-intro-2 {
+    /* border: 1px solid red; */
+    height: 850px;
+    width: 90%;
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
-    width: 95%;
+    column-gap: 0px;
+    row-gap: 55px;
   }
-  .landing-page-intro-title-and-subtitle {
+  /* - - - - - - - - - - Intro Left Side - Start */
+  .landing-page-intro-2-words-section {
     /* border: 1px solid black; */
-    grid-area: 1 / 1 / 2 / 2;
-    padding: 50px 10px 0 10px;
     text-align: center;
   }
-  .landing-page-intro-title {
+  .landing-page-intro-2-header {
+    padding: 100px 0 0 0;
     font-size: 40px;
   }
-  .landing-page-intro-ul {
-    text-align: left;
+  form.landing-page-closing-sub-section-email-form-2 {
+    -webkit-box-direction: normal;
+    flex-direction: column;
   }
-  .landing-page-intro-video {
+  /* - - - - - - - - - - Intro Left Side - End */
+  /* - - - - - - - - - - Intro Right Side - Start */
+  .landing-page-intro-2-video-section {
     /* border: 1px solid black; */
     grid-area: 2 / 1 / 3 / 2;
-    width: 95%;
+    text-align: center;
   }
-  .triviafy_promo_video {
-    height: 175px;
-    width: 100%;
-  }
-  /* - - - - - - - - - - Into - End */
-
-
-  /* - - - - - - - - - - Win Gift Cards - Start */
-  .landing-page-other-company-logos-description {
-    width: 95%;
-  }
-  .landing-page-other-company-logos-container {
+  .triviafy_promo_video_2 {
     /* border: 1px solid black; */
-    width: 95%;
-    height: 320px;
+    height: 162px;
+    width: 288px;
+    margin: 0 0 0 0;
   }
-  /* - - - - - - - - - - Win Gift Cards - End */
+  /* - - - - - - - - - - Intro Right Side - End */
+  /* - - - - - - - - - - Intro - End */
 
 
-  /* - - - - - - - - - - Receive Quiz - Start */
-  .landing-page-step-section {
+  /* - - - - - - - - - - Gift Card Other Companies - Start */
+  .landing-page-gift-card-other-companies-section {
     /* border: 1px solid black; */
-    height: 500px;
-    width: 95%;
-    display: grid;
-    grid-template-columns: 100%;
+    height: 900px;
+    width: 90%;
+  }
+  .landing-page-gift-card-other-companies-logos {
+    /* border: 1px solid black; */
+    flex-direction: column;
+    align-items: center;
+  }
+  img.gift-card-other-company-img {
+    /* border: 1px solid black; */
+    height: auto;
+    width: 150px;
+    padding: 20px 0;
+  }
+  /* - - - - - - - - - - Gift Card Other Companies - End */
+
+
+  /* - - - - - - - - - - Choose Platform - Start */
+  .landing-page-choose-platform-2 {
+    /* border: 1px solid black; */
+    height: 550px;
+    width: 90%;
+  }
+  .landing-page-choose-platforms-2-all-platforms-section {
+    /* border: 1px solid black; */
+    width: 60%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .landing-page-choose-platforms-2-all-platforms-section p {
+    margin: 10px 0;
+  }
+  /* - - - - - - - - - - Choose Platform - End */
+
+
+  /* - - - - - - - - - - How It Works - Step 1 to 4 - Start */
+  .landing-page-2-hiw-1-section, .landing-page-2-hiw-2-section, .landing-page-2-hiw-3-section, .landing-page-2-hiw-4-section {
+    /* border: 1px solid black; */
+    height: 800px;
+    width: 90%;
     grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
-
-  /* Position attributes */
-  .landing-page-left-grid {
+  .landing-page-2-hiw-1-left-section, .landing-page-2-hiw-2-right-section, .landing-page-2-hiw-3-left-section, .landing-page-2-hiw-4-right-section {
     /* border: 1px solid black; */
     grid-area: 1 / 1 / 2 / 2;
   }
-  .landing-page-right-grid {
+  .landing-page-2-hiw-1-right-section, .landing-page-2-hiw-2-left-section, .landing-page-2-hiw-3-right-section, .landing-page-2-hiw-4-left-section {
+    /* border: 2px solid red; */
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  img.landing-page-2-hiw-image {
+    width: 100%;
+  }
+  /* - - - - - - - - - - How It Works - Step 1 to 4 - End */
+
+
+  /* - - - - - - - - - - Request Demo - Start */
+  .landing-page-2-demo-section {
+    /* border: 1px solid black; */
+    height: 900px;
+    width: 90%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 500px 1fr;
+    text-align: center;
+  }
+  .landing-page-2-demo-left-sub-section {
+    /* border: 1px solid black; */
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .landing-page-2-demo-words-section {
+    /* border: 3px solid red; */
+    margin: 0 0 0 0;
+  }
+  .landing-page-2-demo-right-sub-section {
     /* border: 1px solid black; */
     grid-area: 2 / 1 / 3 / 2;
   }
-  .landing-page-img-left {
-    text-align: center;
-  }
-  .landing-page-text-margin-left {
-    margin: 0 0 0 0;
-  }
-  .landing-page-text-margin-right {
-    margin: 0 0 0 0;
-  }
+  /* - - - - - - - - - - Request Demo - End */
 
-  /* Img attributes */
-  img.screenshot-quiz-open {
-    height: 200px;
-    max-width: 100%;
-  }
-  img.screenshot-quiz-question-example {
-    height: 200px;
-    max-width: 100%;
-  }
-  img.screenshot-quiz-rewards {
-    height: 200px;
-    max-width: 100%;
-  }
-  /* - - - - - - - - - - Receive Quiz - End */
 
-  /* - - - - - - - - - - Closing Top - Start */
-  .landing-page-closing-section {
-    /* border: 1px solid black; */
-    height: 1200px;
-  }
-  .landing-page-closing-section-content-top {
-    /* border: 1px solid black; */
-    height: 500px;
-    width: 90%;
-    flex-direction: column;
-  }
-  .landing-page-closing-sub-section-box-ab {
-    text-align: center;
-  }
-  img.landing-page-closing-sub-section-img {
-    /* border: 1px solid black; */
-    height: 200px;
-    width: 200px;
-  }
-  /* - - - - - - - - - - Closing Top - End */
-
-  /* - - - - - - - - - - Closing Bottom - Start */
-  .landing-page-closing-section-content-bottom {
-    /* border: 5px solid blue; */
-    height: 400px;
-    width: 90%;
-    margin: 300px auto 0 auto;
-  }
-  form.landing-page-closing-sub-section-email-form {
-    -webkit-box-direction: normal;
-    flex-direction: column;
-  }
-  .landing-page-closing-sub-section-email-input {
-    -webkit-box-direction: normal;
-  }
-  .landing-page-closing-sub-section-submit-input {
-    -webkit-box-direction: normal;
-  }
-  /* - - - - - - - - - - Closing Bottom - End */
-
-  /* - - - - - - - - - - Animation - Start */
-  @keyframes popup_animation {
-    0%{
-      transform: scale(1);
-    }
-    100%{
-      transform: scale(1);
-    }
-  }
-  /* - - - - - - - - - - Animation - End */
-
-  .landing-page-how-it-works-section.start,
-  .popup-left-one.start,
-  .popup-left-two.start,
-  .popup-left-three.start,
-  .popup-left-four.start,
-  .popup-right-one.start,
-  .popup-right-two.start,
-  .popup-right-three.start,
-  .popup-right-four.start {
-    animation-name: popup_animation;
-    animation-duration: 0s;
-    animation-timing-function: none;
-  }
+  /* - - - - - - - - - - Transfer from index OLD - Start */
+  /* - - - - - - - - - - Transfer from index OLD - End */
 }
