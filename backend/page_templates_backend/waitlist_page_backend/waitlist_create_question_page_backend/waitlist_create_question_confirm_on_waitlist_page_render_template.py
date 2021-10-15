@@ -9,6 +9,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.select_queries_triviafy_waitlist_create_question_table.select_triviafy_waitlist_create_question_table_check_if_uuid_exists import select_triviafy_waitlist_create_question_table_check_if_uuid_exists_function
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
 
 # -------------------------------------------------------------- App Setup
 waitlist_create_question_confirm_on_waitlist_page_render_template = Blueprint("waitlist_create_question_confirm_on_waitlist_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -35,16 +36,27 @@ def waitlist_create_question_confirm_on_waitlist_page_render_template_function()
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
 
-    # Check if user free trial is expired
-    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
-    if user_nested_dict == None or user_nested_dict == True:
-      return redirect('/subscription', code=302)
+    # ------------------------ Check If Free Trial / Latest Month Paid START ------------------------
+    # Check if user Team/Channel combo paid the latest month
+    user_team_channeL_paid_latest_month = check_if_user_team_channel_combo_paid_latest_month_function(user_nested_dict)
+    
+    # If user's company did not pay latest month
+    if user_team_channeL_paid_latest_month == False:
+      # Check if user free trial is expired
+      user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+      if user_nested_dict == None or user_nested_dict == True:
+        return redirect('/subscription', code=302)
 
-    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
-    if user_nested_dict['trial_period_days_left_int'] == 1:
-      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+      if user_nested_dict['trial_period_days_left_int'] == 1:
+        days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
 
-    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
+      free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
+    
+    # If user's company did pay latest month
+    if user_team_channeL_paid_latest_month == True:
+      free_trial_ends_info = ''
+    # ------------------------ Check If Free Trial / Latest Month Paid END ------------------------
     # ------------------------ Page Load User Pre Checks END ------------------------
 
     user_uuid = user_nested_dict['user_uuid']

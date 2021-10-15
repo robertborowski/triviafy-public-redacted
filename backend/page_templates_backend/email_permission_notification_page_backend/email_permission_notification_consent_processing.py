@@ -15,6 +15,7 @@ from backend.utils.cached_login.check_cookie_browser import check_cookie_browser
 import json
 from backend.utils.send_emails.send_email_template import send_email_template_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
+from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
 
 # -------------------------------------------------------------- App Setup
 email_permission_notification_consent_processing = Blueprint("email_permission_notification_consent_processing", __name__, static_folder="static", template_folder="templates")
@@ -41,16 +42,28 @@ def email_permission_notification_consent_processing_function():
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
 
-    # Check if user free trial is expired
-    user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
-    if user_nested_dict == None or user_nested_dict == True:
-      return redirect('/subscription', code=302)
+    # ------------------------ Check If Free Trial / Latest Month Paid START ------------------------
+    # Check if user Team/Channel combo paid the latest month
+    user_team_channeL_paid_latest_month = check_if_user_team_channel_combo_paid_latest_month_function(user_nested_dict)
+    
+    # If user's company did not pay latest month
+    if user_team_channeL_paid_latest_month == False:
+      # Check if user free trial is expired
+      user_nested_dict = check_if_free_trial_period_is_expired_days_left_function(user_nested_dict)
+      if user_nested_dict == None or user_nested_dict == True:
+        return redirect('/subscription', code=302)
 
-    days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
-    if user_nested_dict['trial_period_days_left_int'] == 1:
-      days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
+      days_left = str(user_nested_dict['trial_period_days_left_int']) + " days left."
+      if user_nested_dict['trial_period_days_left_int'] == 1:
+        days_left = str(user_nested_dict['trial_period_days_left_int']) + " day left."
 
-    free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
+      free_trial_ends_info = "Free Trial Ends: " + user_nested_dict['free_trial_end_date'] + ", " + days_left
+    
+    # If user's company did pay latest month
+    if user_team_channeL_paid_latest_month == True:
+      free_trial_ends_info = ''
+    # ------------------------ Check If Free Trial / Latest Month Paid END ------------------------
+    # ------------------------ Page Load User Pre Checks END ------------------------
 
 
     user_slack_email_permission_granted = user_nested_dict['user_slack_email_permission_granted']
