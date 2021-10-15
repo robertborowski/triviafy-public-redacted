@@ -259,7 +259,7 @@ hr.default-signed-in-divider-line-dotted {
     transition: 0.2s;
   }
 /* - - - - - - - - - - Default - Not Signed In - Text Input - End */
-/* - - - - - - - - - - Default - Not Signed In - Page - Start */
+/* - - - - - - - - - - Default - Not Signed In - Page - Intro - Start */
 .default-not-signed-in-page-width {
   /* border: 1px solid black; */
   width: 80%;
@@ -291,6 +291,8 @@ hr.default-signed-in-divider-line-dotted {
 .default-not-signed-in-highlight-span {
   color: var(--company-primary-color);
 }
+/* - - - - - - - - - - Default - Not Signed In - Page - Intro - End */
+/* - - - - - - - - - - Default - Not Signed In - Page Bottom - Contact - Start */
 .default-not-signed-in-bottom-contact-section {
   /* border: 1px solid black; */
   padding: 50px 0 0 0;
@@ -300,7 +302,19 @@ hr.default-signed-in-divider-line-dotted {
   color: var(--company-primary-color);
   font-size: 15px;
 }
-/* - - - - - - - - - - Default - Not Signed In - Page - End */
+/* - - - - - - - - - - Default - Not Signed In - Page Bottom - Contact - End */
+/* - - - - - - - - - - Default - Not Signed In - Page Bottom - Img - Start */
+.default-not-signed-in-bottom-img-section {
+  /* border: 1px solid black; */
+  text-align: center;
+  padding: 50px 0 0 0;
+}
+.default-not-signed-in-bottom-img {
+  /* border: 1px solid black; */
+  height: 250px;
+  width: 250px;
+}
+/* - - - - - - - - - - Default - Not Signed In - Page Bottom - Img - End */
 /* ==================================== Default - Not Signed In - Global Classes - END ==================================== */
 
 
