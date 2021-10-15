@@ -50,16 +50,6 @@ input:focus, textarea:focus, select:focus{
 
 
 /* - - - - - - - - - - Button Defaults - 1 - Start */
-.button-default-color-primary {
-  color: white;
-  background-color: var(--company-primary-color);
-  border: none;
-}
-.button-default-color-primary:hover {
-  /* background-color: rgb(196, 94, 255); */
-  background-color: rgb(205, 120, 255);
-  transition: 0.2s;
-}
 .button-section-middle {
   text-align: center;
 }
