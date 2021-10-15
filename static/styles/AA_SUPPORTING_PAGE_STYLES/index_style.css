@@ -284,14 +284,24 @@ hr.default-signed-in-divider-line-dotted {
   font-size: 25px;
   margin: 0 0 50px 0;
 }
+/* - - - - - - - - - - Default - Not Signed In - Page - Intro - End */
+/* - - - - - - - - - - Default - Not Signed In - Page - Content - Start */
 .default-not-signed-in-page-p-font {
   font-size: 20px;
   color: black;
 }
+.default-not-signed-in-page-header-font {
+  font-size: 30px;
+  color: var(--company-primary-color);
+  font-weight: 500;
+}
 .default-not-signed-in-highlight-span {
   color: var(--company-primary-color);
 }
-/* - - - - - - - - - - Default - Not Signed In - Page - Intro - End */
+.default-not-signed-in-page-content-sub-section {
+  margin: 25px 0;
+}
+/* - - - - - - - - - - Default - Not Signed In - Page - Content - End */
 /* - - - - - - - - - - Default - Not Signed In - Page Bottom - Contact - Start */
 .default-not-signed-in-bottom-contact-section {
   /* border: 1px solid black; */
