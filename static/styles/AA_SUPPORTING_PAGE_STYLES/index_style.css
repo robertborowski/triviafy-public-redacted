@@ -50,24 +50,6 @@ input:focus, textarea:focus, select:focus{
 
 
 /* - - - - - - - - - - Button Defaults - 1 - Start */
-.button-default {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  padding: 10px 20px;
-  font-size: 20px;
-  line-height: 1.5;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 150px;
-  border: none;
-}
-.button-default:hover {
-  /* text-decoration: underline; */
-  text-decoration: none;
-}
 .button-default-color-primary {
   color: white;
   background-color: var(--company-primary-color);
@@ -104,7 +86,7 @@ input:focus, textarea:focus, select:focus{
 
 
 /* - - - - - - - - - - Button Defaults - 2 - Start */
-.button-default-2 {
+.default-button-format {
   /* .btn.form__btn-submit */
   text-align: center;
   min-width: 180px;
@@ -138,11 +120,11 @@ input:focus, textarea:focus, select:focus{
   /* Media */
   /* -webkit-box-direction: normal; */
 }
-.button-default-2-primary-color {
+.default-button-format-primary-color {
   color: white;
   background-color: var(--company-primary-color);
 }
-.button-default-2-primary-color:hover {
+.default-button-format-primary-color:hover {
   color: white;
   background-color: rgb(208, 126, 255);
 }

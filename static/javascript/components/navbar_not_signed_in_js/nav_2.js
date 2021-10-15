@@ -83,7 +83,7 @@ class NavbarNotSignedInClass2 extends HTMLElement {
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - END -->
             </li>
             <div class="navbar-not-signed-in-demo-button-section">
-              <a href="${this.getAttribute("link_demo_js")}"><button class="button-default-2 button-default-2-primary-color navbar-not-signed-in-button-position">Request a demo</button></a>
+              <a href="${this.getAttribute("link_demo_js")}"><button class="default-button-format default-button-format-primary-color navbar-not-signed-in-button-position">Request a demo</button></a>
             </div>
           </ul>
         </div>
