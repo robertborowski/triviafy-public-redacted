@@ -1,14 +1,37 @@
 /* ==================================== Mobile Version START ==================================== */
 @media (max-width: 1200px) {
-  /* - - - - - - - - - - Default Text Input - Signed In - Start */
+  /* ================================================================================================================================================= */
+  /* ==================================== Default - Signed In and Not Signed In - Global Font and Borders - START ==================================== */
+  /* ==================================== Default - Signed In and Not Signed In - Global Font and Borders - END ==================================== */
+  /* ================================================================================================================================================= */
+
+
+  /* ================================================================================================================================================= */
+  /* ==================================== Default - Signed In and Not Signed In - Global Colors - START ==================================== */
+  /* ==================================== Default - Signed In and Not Signed In - Global Colors - END ==================================== */
+  /* ================================================================================================================================================= */
+
+  /* ================================================================================================================================================= */
+  /* ==================================== Default - Signed In and Not Signed In - Global Classes - START ==================================== */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - General - No Category - Start */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - General - No Category - End */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - Box shadows - Start */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - Box shadows - End */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - Buttons - Start */
+  /* - - - - - - - - - - Default - Signed In and Not Signed In - Buttons - End */
+  /* ==================================== Default - Signed In and Not Signed In - Global Classes - END ==================================== */
+
+
+  /* ==================================== Default - Signed In - Global Classes - START ==================================== */
+  /* - - - - - - - - - - Default - Signed In - Text Input - Start */
   input.default-signed-in-text-input, textarea.default-signed-in-text-input {
     width: 95%;
   }
-  /* - - - - - - - - - - Default Text Input - Signed In - End */
-  
-
-  /* - - - - - - - - - - Default Page Intro - Signed In - Start */
-  /* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - Start */
+  /* - - - - - - - - - - Default - Signed In - Text Input - End */
+  /* - - - - - - - - - - Default - Signed In - Hyperlink Redirect Start */
+  /* - - - - - - - - - - Default - Signed In - Hyperlink Redirect End */
+  /* - - - - - - - - - - Default - Signed In - Page Intro - Start */
+  /* - - - - - - - - - - Default - Signed In - Page Intro Specific Pages - Start */
   .default-signed-in-page-intro-title-no-latest-quiz, .default-signed-in-page-intro-title-create-question, .default-signed-in-page-intro-title-view_submitted, .default-signed-in-page-intro-title-quiz-feedback, .default-signed-in-page-intro-title-quiz-feedback-success, .default-signed-in-page-intro-title-quiz-settings, .default-signed-in-page-intro-title-quiz-settings-edit, .default-signed-in-page-intro-title-quiz-past-due, .default-signed-in-page-intro-title-quiz-graded, .default-signed-in-page-intro-title-dashboard, .default-signed-in-page-intro-title-quiz-pre-open, .default-signed-in-page-intro-title-leaderboard, .default-signed-in-page-intro-title-quiz-archive {
     font-size: 50px;
     padding: 15px 0 0 0;
@@ -17,24 +40,49 @@
     font-size: 50px;
     padding: 0 0 0 0;
   }
-  /* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - End */
-  /* - - - - - - - - - - Default Page Intro - Signed In - End */
-
-
-  /* - - - - - - - - - - Default Datatables - Signed In - Start */
+  /* - - - - - - - - - - Default - Signed In - Page Intro Specific Pages - End */
+  /* - - - - - - - - - - Default - Signed In - Page Intro - End */
+  /* - - - - - - - - - - Default - Signed In - Post Intro - Start */
+  /* - - - - - - - - - - Default - Signed In - Post Intro - End */
+  /* - - - - - - - - - - Default - Signed In - Logo Caricature - Start */
+  /* - - - - - - - - - - Default - Signed In - Logo Caricature - End */
+  /* - - - - - - - - - - Default - Signed In - Datatables - Start */
   .default-signed-in-datatable-section {
     width: 95%;
     margin: 50px auto;
     text-align: center;
   }
-  /* - - - - - - - - - - Default Datatables - Signed In - End */
-
-
-  /* - - - - - - - - - - Default Text Input - Not Signed In - Start */
+  /* - - - - - - - - - - Default - Signed In - Datatables - End */
+  /* - - - - - - - - - - Default - Signed In - Divider Line - Start */  
+  /* - - - - - - - - - - Default - Signed In - Divider Line - End */
+  /* - - - - - - - - - - Default - Signed In - Quiz Results - Start */
+  /* - - - - - - - - - - Default - Signed In - Quiz Results - End */
+  /* ==================================== Default - Signed In - Global Classes - END ==================================== */
+  
+  
+  /* ==================================== Default - Not Signed In - Global Classes - START ==================================== */
+  /* - - - - - - - - - - Default - Not Signed In - Text Input - Start */
   .default-not-signed-in-text-input {
     -webkit-box-direction: normal;
-  }
-  /* - - - - - - - - - - Default Text Input - Not Signed In - End */
+  } 
+  /* - - - - - - - - - - Default - Not Signed In - Text Input - End */
+  /* - - - - - - - - - - Default - Not Signed In - Page - Start */
+  /* - - - - - - - - - - Default - Not Signed In - Page - End */
+  /* ==================================== Default - Not Signed In - Global Classes - END ==================================== */
 
+
+  /* ==================================== Default - Signed In and Not Signed In - Global ID's - START ==================================== */
+  /* ==================================== Default - Signed In and Not Signed In - Global ID's - END ==================================== */  
+  
+  
+  /* ==================================== Default - Signed In - Global ID's - START ==================================== */
+  /* - - - - - - - - - - Default - Signed In - Words Stroke - Start */
+  /* - - - - - - - - - - Default - Signed In - Words Stroke - End */
+  /* ==================================== Default - Signed In - Global ID's - END ==================================== */
+
+
+  /* ==================================== Default - Not Signed In - Global ID's - START ==================================== */
+  /* ==================================== Default - Not Signed In - Global ID's - END ==================================== */
+  /* ================================================================================================================================================= */
 }
 /* ==================================== Mobile Version END ==================================== */

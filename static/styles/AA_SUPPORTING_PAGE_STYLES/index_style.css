@@ -1,4 +1,5 @@
-/* ==================================== Global Font and Borders - Signed In and Not Signed In - START ==================================== */
+/* ================================================================================================================================================= */
+/* ==================================== Default - Signed In and Not Signed In - Global Font and Borders - START ==================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,42 +16,40 @@
     -webkit-appearance: none;
   }
 }
-/* ==================================== Global Font and Borders - Signed In and Not Signed In - END ==================================== */
+/* ==================================== Default - Signed In and Not Signed In - Global Font and Borders - END ==================================== */
+/* ================================================================================================================================================= */
 
 
-/* ==================================== Global Colors - Signed In and Not Signed In - START ==================================== */
-/* - - - - - - - - - - Root global variables Start */
+/* ================================================================================================================================================= */
+/* ==================================== Default - Signed In and Not Signed In - Global Colors - START ==================================== */
 :root {
   --company-primary-color: rgb(196, 94, 255);     /* OFFICIAL CURRENT */
   --company-secondary-color: rgb(0, 255, 192);
   --company-greyed-out-color: rgb(170, 170, 170);
 }
-/* - - - - - - - - - - Root global variables - End */
-/* ==================================== Global Colors - Signed In and Not Signed In - END ==================================== */
+/* ==================================== Default - Signed In and Not Signed In - Global Colors - END ==================================== */
+/* ================================================================================================================================================= */
 
 
-/* ==================================== Global Classes - Signed In and Not Signed In - START ==================================== */
-/* - - - - - - - - - - General - No Category - Start */
+/* ================================================================================================================================================= */
+/* ==================================== Default - Signed In and Not Signed In - Global Classes - START ==================================== */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - General - No Category - Start */
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
 input[type=checkbox] {
   -webkit-appearance:checkbox;
 }
-/* - - - - - - - - - - General - No Category - End */
-
-
-/* - - - - - - - - - - Box shadows - Signed In and Not Signed In - Start */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - General - No Category - End */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - Box shadows - Start */
 .default-box-shadow-grey-reg {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.115)!important;
 }
 .default-box-shadow-black-small {
   box-shadow: 0 .125rem .5rem rgba(0,0,0,.750)!important;
 }
-/* - - - - - - - - - - Box shadows - Signed In and Not Signed In - End */
-
-
-/* - - - - - - - - - - Default Button - Signed In and Not Signed In - Start */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - Box shadows - End */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - Buttons - Start */
 .default-button-format {
   /* .btn.form__btn-submit */
   text-align: center;
@@ -96,10 +95,134 @@ input[type=checkbox] {
 .default-button-center-section {
   text-align: center;
 }
-/* - - - - - - - - - - Default Button - Signed In and Not Signed In - End */
+/* - - - - - - - - - - Default - Signed In and Not Signed In - Buttons - End */
+/* ==================================== Default - Signed In and Not Signed In - Global Classes - END ==================================== */
 
 
-/* - - - - - - - - - - Default Text Input - Not Signed In - Start */
+/* ==================================== Default - Signed In - Global Classes - START ==================================== */
+/* - - - - - - - - - - Default - Signed In - Text Input - Start */
+.default-signed-in-text-input {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 15px 0 0 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid var(--company-greyed-out-color);
+}
+.default-signed-in-text-input:focus {
+  border: 2px solid var(--company-primary-color);
+}
+textarea.default-signed-in-text-input {
+  resize: none;
+}
+/* - - - - - - - - - - Default - Signed In - Text Input - End */
+/* - - - - - - - - - - Default - Signed In - Hyperlink Redirect Start */
+.default-signed-in-hyperlink-redirect-section {
+  text-align: center;
+}
+a.default-signed-in-hyperlink-redirect-section-a, a.default-signed-in-hyperlink-redirect-section-a:visited {
+  text-decoration-color: var(--company-primary-color);
+}
+.default-signed-in-hyperlink-redirect-section-p {
+  margin: 30px 0 80px 0;
+  font-size: 20px;
+  color: var(--company-primary-color);
+}
+/* - - - - - - - - - - Default - Signed In - Hyperlink Redirect End */
+/* - - - - - - - - - - Default - Signed In - Page Intro - Start */
+.default-signed-in-page-into-background {
+  height: 150px;
+  background-color: var(--company-primary-color);
+  width: 100%;
+}
+.default-signed-in-page-intro {
+  text-align: center;
+}
+.default-signed-in-page-intro-title, .default-signed-in-page-intro-sub-title {
+  color: white;
+}
+/* - - - - - - - - - - Default - Signed In - Page Intro Specific Pages - Start */
+.default-signed-in-page-intro-title-no-latest-quiz, .default-signed-in-page-intro-title-create-question, .default-signed-in-page-intro-title-view_submitted, .default-signed-in-page-intro-title-quiz-feedback, .default-signed-in-page-intro-title-quiz-feedback-success, .default-signed-in-page-intro-title-quiz-settings, .default-signed-in-page-intro-title-quiz-settings-edit, .default-signed-in-page-intro-title-quiz-past-due, .default-signed-in-page-intro-title-quiz-graded, .default-signed-in-page-intro-title-quiz-pre-open, .default-signed-in-page-intro-title-leaderboard, .default-signed-in-page-intro-title-quiz-archive {
+  font-size: 60px;
+  padding: 30px 0 0 0;
+}
+.default-signed-in-page-intro-title-dashboard {
+  font-size: 60px;
+  padding: 0 0 0 0;
+}
+.default-signed-in-page-intro-sub-title-dashboard {
+  /* font-size: 10px; */
+  padding: 10px;
+}
+.default-signed-in-page-intro-sub-title-quiz-archive {
+  padding: 0px
+}
+/* - - - - - - - - - - Default - Signed In - Page Intro Specific Pages - End */
+/* - - - - - - - - - - Default - Signed In - Page Intro - End */
+/* - - - - - - - - - - Default - Signed In - Post Intro - Start */
+.default-signed-in-post-intro-description-section {
+  /* border: solid black 1px; */
+  text-align: center;
+  margin: 50px 0;
+}
+.default-signed-in-post-intro-description-sub-section {
+  color: var(--company-greyed-out-color);
+  width: 95%;
+  margin: 0 auto;
+}
+.default-signed-in-post-intro-description-sub-section p {
+  margin: 10px 0;  
+}
+/* - - - - - - - - - - Default - Signed In - Post Intro - End */
+/* - - - - - - - - - - Default - Signed In - Logo Caricature - Start */
+.default-signed-in-logo-caricature-small-section {
+  text-align: center;
+  margin: 40px 0;
+}
+img.default-signed-in-logo-caricature-img {
+  height: 250px;
+  width: 250px;
+}
+/* - - - - - - - - - - Default - Signed In - Logo Caricature - End */
+/* - - - - - - - - - - Default - Signed In - Datatables - Start */
+.default-signed-in-datatable-section {
+  width: 50%;
+  margin: 50px auto;
+  text-align: center;
+}
+/* - - - - - - - - - - Default - Signed In - Datatables - End */
+/* - - - - - - - - - - Default - Signed In - Divider Line - Start */
+hr.default-signed-in-divider-line-dotted {
+  border-top: 3px dotted #bbb;
+  width: 70%;
+  margin: 10px auto;
+}
+.default-signed-in-divide-section {
+  margin: 75px auto;
+}
+/* - - - - - - - - - - Default - Signed In - Divider Line - End */
+/* - - - - - - - - - - Default - Signed In - Quiz Results - Start */
+.default-signed-in-quiz-correct-answers-ratio {
+  text-align: center;
+  margin: 50px 0 0 0;
+}
+.default-signed-in-quiz-correct-answers-ratio-small-title {
+  font-size: 20px;
+  color: var(--company-greyed-out-color);
+}
+.default-signed-in-quiz-correct-answers-ratio-large-title {
+  font-size: 60px;
+}
+.default-signed-in-words-stroke-shadow-class {
+  /* -webkit-text-stroke: 1px black; */
+	text-shadow: 1px 1px 1px rgb(70, 0, 80);
+}
+/* - - - - - - - - - - Default - Signed In - Quiz Results - End */
+/* ==================================== Default - Signed In - Global Classes - END ==================================== */
+
+
+/* ==================================== Default - Not Signed In - Global Classes - START ==================================== */
+/* - - - - - - - - - - Default - Not Signed In - Text Input - Start */
 .default-not-signed-in-text-input {
   /* border: 1px solid green; */
   /* .input.form__input */
@@ -135,155 +258,66 @@ input[type=checkbox] {
     border: 2px solid #b7b7b7;
     transition: 0.2s;
   }
-/* - - - - - - - - - - Default Text Input - Not Signed In - End */
-
-
-/* - - - - - - - - - - Default Text Input - Signed In - Start */
-.default-signed-in-text-input {
-  width: 70%;
-  padding: 12px 20px;
-  margin: 15px 0 0 0;
-  box-sizing: border-box;
-  border-radius: 10px;
-  border: 1px solid var(--company-greyed-out-color);
-}
-.default-signed-in-text-input:focus {
-  border: 2px solid var(--company-primary-color);
-}
-textarea.default-signed-in-text-input {
-  resize: none;
-}
-/* - - - - - - - - - - Default Text Input - Signed In - End */
-
-
-/* - - - - - - - - - - Default Hyperlink Redirect - Signed In - Start */
-.default-signed-in-hyperlink-redirect-section {
-  text-align: center;
-}
-a.default-signed-in-hyperlink-redirect-section-a, a.default-signed-in-hyperlink-redirect-section-a:visited {
-  text-decoration-color: var(--company-primary-color);
-}
-.default-signed-in-hyperlink-redirect-section-p {
-  margin: 30px 0 80px 0;
-  font-size: 20px;
-  color: var(--company-primary-color);
-}
-/* - - - - - - - - - - Default Hyperlink Redirect - Signed In - End */
-
-
-/* - - - - - - - - - - Default Page Intro - Signed In - Start */
-.default-signed-in-page-into-background {
-  height: 150px;
-  background-color: var(--company-primary-color);
-  width: 100%;
-}
-.default-signed-in-page-intro {
-  text-align: center;
-}
-.default-signed-in-page-intro-title, .default-signed-in-page-intro-sub-title {
-  color: white;
-}
-/* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - Start */
-.default-signed-in-page-intro-title-no-latest-quiz, .default-signed-in-page-intro-title-create-question, .default-signed-in-page-intro-title-view_submitted, .default-signed-in-page-intro-title-quiz-feedback, .default-signed-in-page-intro-title-quiz-feedback-success, .default-signed-in-page-intro-title-quiz-settings, .default-signed-in-page-intro-title-quiz-settings-edit, .default-signed-in-page-intro-title-quiz-past-due, .default-signed-in-page-intro-title-quiz-graded, .default-signed-in-page-intro-title-quiz-pre-open, .default-signed-in-page-intro-title-leaderboard, .default-signed-in-page-intro-title-quiz-archive {
-  font-size: 60px;
-  padding: 30px 0 0 0;
-}
-.default-signed-in-page-intro-title-dashboard {
-  font-size: 60px;
-  padding: 0 0 0 0;
-}
-.default-signed-in-page-intro-sub-title-dashboard {
-  /* font-size: 10px; */
-  padding: 10px;
-}
-.default-signed-in-page-intro-sub-title-quiz-archive {
-  padding: 0px
-}
-/* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - End */
-/* - - - - - - - - - - Default Page Intro - Signed In - End */
-
-
-/* - - - - - - - - - - Default Post Intro - Signed In - Start */
-.default-signed-in-post-intro-description-section {
-  /* border: solid black 1px; */
-  text-align: center;
-  margin: 50px 0;
-}
-.default-signed-in-post-intro-description-sub-section {
-  color: var(--company-greyed-out-color);
-  width: 95%;
+/* - - - - - - - - - - Default - Not Signed In - Text Input - End */
+/* - - - - - - - - - - Default - Not Signed In - Page - Start */
+.default-not-signed-in-page-width {
+  /* border: 1px solid black; */
+  width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
 }
-.default-signed-in-post-intro-description-sub-section p {
-  margin: 10px 0;  
-}
-/* - - - - - - - - - - Default Post Intro - Signed In - End */
-
-
-/* - - - - - - - - - - Default Logo Caricature - Signed In - Start */
-.default-signed-in-logo-caricature-small-section {
+.default-not-signed-in-page-title-subtitle-section {
+  /* border: 1px solid black; */
   text-align: center;
-  margin: 40px 0;
+  margin: 100px 0 0 0;
 }
-img.default-signed-in-logo-caricature-img {
-  height: 250px;
-  width: 250px;
+.default-not-signed-in-page-title {
+  /* border: 1px solid black; */
+  color: black;
+  font-size: 70px;
+  font-weight: 500;
+  margin: 0 0 10px 0;
 }
-/* - - - - - - - - - - Default Logo Caricature - Signed In - End */
-
-
-/* - - - - - - - - - - Default Datatables - Signed In - Start */
-.default-signed-in-datatable-section {
-  width: 50%;
-  margin: 50px auto;
-  text-align: center;
+.default-not-signed-in-page-subtitle {
+  /* border: 1px solid black; */
+  color: var(--company-primary-color);
+  font-size: 25px;
+  margin: 0 0 50px 0;
 }
-/* - - - - - - - - - - Default Datatables - Signed In - End */
-
-
-/* - - - - - - - - - - Default Divider Line - Signed In - Start */
-hr.default-signed-in-divider-line-dotted {
-  border-top: 3px dotted #bbb;
-  width: 70%;
-  margin: 10px auto;
-}
-/* - - - - - - - - - - Default Divider Line - Signed In - End */
-
-
-/* - - - - - - - - - - Default Quiz Results - Signed In - Start */
-.default-signed-in-quiz-correct-answers-ratio {
-  text-align: center;
-  margin: 50px 0 0 0;
-}
-.default-signed-in-quiz-correct-answers-ratio-small-title {
+.default-not-signed-in-page-p-font {
   font-size: 20px;
-  color: var(--company-greyed-out-color);
+  color: black;
 }
-.default-signed-in-quiz-correct-answers-ratio-large-title {
-  font-size: 60px;
+.default-not-signed-in-highlight-span {
+  color: var(--company-primary-color);
 }
-/* - - - - - - - - - - Default Quiz Results - Signed In - End */
-
-
-/* - - - - - - - - - - Default Divider - Signed In - Start */
-.default-signed-in-divide-section {
-  margin: 75px auto;
+.default-not-signed-in-bottom-contact-section {
+  /* border: 1px solid black; */
+  padding: 50px 0 0 0;
+  text-align: center;
 }
-/* - - - - - - - - - - Default Divider - Signed In - End */
+.default-not-signed-in-page-contact-font {
+  color: var(--company-primary-color);
+  font-size: 15px;
+}
+/* - - - - - - - - - - Default - Not Signed In - Page - End */
+/* ==================================== Default - Not Signed In - Global Classes - END ==================================== */
 
 
-/* ==================================== Global Classes - Signed In and Not Signed In - END ==================================== */
+/* ==================================== Default - Signed In and Not Signed In - Global ID's - START ==================================== */
+/* ==================================== Default - Signed In and Not Signed In - Global ID's - END ==================================== */
 
 
-/* ==================================== Global ID's - Signed In and Not Signed In - START ==================================== */
-/* - - - - - - - - - - Dedault Words Stroke - Signed In - Start */
+/* ==================================== Default - Signed In - Global ID's - START ==================================== */
+/* - - - - - - - - - - Default - Signed In - Words Stroke - Start */
 #default-signed-in-words-stroke-shadow {
   /* -webkit-text-stroke: 1px black; */
 	text-shadow: 1px 1px 1px rgb(70, 0, 80);
 }
-.default-signed-in-words-stroke-shadow-class {
-  /* -webkit-text-stroke: 1px black; */
-	text-shadow: 1px 1px 1px rgb(70, 0, 80);
-}
-/* - - - - - - - - - - Dedault Words Stroke - Signed In - End */
-/* ==================================== Global ID's - Signed In and Not Signed In - END ==================================== */
+/* - - - - - - - - - - Default - Signed In - Words Stroke - End */
+/* ==================================== Default - Signed In - Global ID's - END ==================================== */
+
+
+/* ==================================== Default - Not Signed In - Global ID's - START ==================================== */
+/* ==================================== Default - Not Signed In - Global ID's - END ==================================== */
+/* ================================================================================================================================================= */
