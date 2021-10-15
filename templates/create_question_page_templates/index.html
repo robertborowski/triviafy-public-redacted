@@ -25,9 +25,9 @@
                                   free_trial_ends_info_js="{{ free_trial_ends_info_to_html }}">
   </company-name-channel-component>
 
-  <div class="template-page-intro-background default-box-shadow-black-small">
-    <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-create-question" id='words-stroke-shadow'>Create Question</p>
+  <div class="default-signed-in-page-into-background default-box-shadow-black-small">
+    <div class="default-signed-in-page-intro">
+      <p class="default-signed-in-page-intro-title default-signed-in-page-intro-title-create-question" id='default-signed-in-words-stroke-shadow'>Create Question</p>
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question Intro End -->
@@ -46,7 +46,7 @@
       <label for="input_question_categories_arr_html"><p class="create-question-section-description">Categories:</p></label>
       <p class="create-question-section-sub-description">If applicable, separate multiple categories with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of question that fits 3 categories: "Music,Pop Culture,Actress"</p>
-      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="answer-text-box" rows="2" cols="50" onkeyup="countCharsCategory(this); required"></textarea>
+      <textarea id="input_question_categories_arr_html" name="input_question_categories_arr_html" class="default-signed-in-text-input" rows="2" cols="50" onkeyup="countCharsCategory(this); required"></textarea>
       <p id="charNumCategory" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Category Select End -->
@@ -55,7 +55,7 @@
     <div class="create-question-section create-question-write-title default-box-shadow-grey-reg">
       <label for="input_question_title_str_html"><p class="create-question-section-description">Title:</p></label>
       <p class="create-question-section-sub-description">The title should not hint at or give away the answer.</p>
-      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="answer-text-box" onkeyup="countCharsTitle(this);" required>
+      <input type="text" id="input_question_title_str_html" name="input_question_title_str_html" class="default-signed-in-text-input" onkeyup="countCharsTitle(this);" required>
       <p id="charNumTitle" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Title End -->
@@ -63,7 +63,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question Start -->
     <div class="create-question-section create-question-write-actual-question default-box-shadow-grey-reg">
       <label for="input_actual_question_str_html"><p class="create-question-section-description">Custom Question:</p></label>
-      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="answer-text-box" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
+      <textarea id="input_actual_question_str_html" name="input_actual_question_str_html" class="default-signed-in-text-input" rows="6" cols="50" onkeyup="countCharsActualQuestion(this);" required></textarea>
       <p id="charNumActualQuestion" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Actual Question End -->
@@ -74,7 +74,7 @@
       <p class="create-question-section-sub-description">Answers are not case sensitive (Example: "Beyoncé", "BEYONCE", and "bEyOnCe" are all graded the same).</p>
       <p class="create-question-section-sub-description">Separate multiple accepted answers with a comma ( , )</p>
       <p class="create-question-section-sub-description">Example of 3 accepted answers: "Beyonce,Beyonce Knowles Carter,Queen B"</p>
-      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="answer-text-box" rows="3" cols="50" onkeyup="countCharsAnswers(this);" required></textarea>
+      <textarea id="input_question_answers_arr_html" name="input_question_answers_arr_html" class="default-signed-in-text-input" rows="3" cols="50" onkeyup="countCharsAnswers(this);" required></textarea>
       <p id="charNumAnswers" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Answers End -->
@@ -99,7 +99,7 @@
     <div class="create-question-section create-question-write-hint default-box-shadow-grey-reg">
       <label for="input_hint_str_html"><p class="create-question-section-description">Hint (Optional):</p></label>
       <p class="create-question-section-sub-description">Optional. Leave blank if no hint needed.</p>
-      <textarea id="input_hint_str_html" name="input_hint_str_html" class="answer-text-box" rows="3" cols="50" onkeyup="countCharsHint(this);"></textarea>
+      <textarea id="input_hint_str_html" name="input_hint_str_html" class="default-signed-in-text-input" rows="3" cols="50" onkeyup="countCharsHint(this);"></textarea>
       <p id="charNumHint" class="character-count-tracker"></p>
     </div>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Hint End -->
@@ -131,8 +131,8 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - Logo Caricature 2 End -->
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - submitted link Start -->
-  <div class="template-hyperlink-redirect-section">
-    <a href="{{ url_for('create_question_submission_success_page_render_template.create_question_submission_success_page_render_template_function') }}" class="template-hyperlink-redirect-section-a"><p class="template-hyperlink-redirect-section-p">Click to see the status of all your submitted questions.</p></a>
+  <div class="default-signed-in-hyperlink-redirect-section">
+    <a href="{{ url_for('create_question_submission_success_page_render_template.create_question_submission_success_page_render_template_function') }}" class="default-signed-in-hyperlink-redirect-section-a"><p class="default-signed-in-hyperlink-redirect-section-p">Click to see the status of all your submitted questions.</p></a>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Create Question - submitted link End -->
 

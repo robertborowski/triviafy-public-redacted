@@ -2,7 +2,7 @@
 @media (max-width: 1200px) {
   
   /* - - - - - - - - - - Leaderboard Datatables Start */
-  .template-datatable-section-quiz-archive {
+  .default-signed-in-datatable-section-quiz-archive {
     width: 95%;
     margin: 50px auto;
     text-align: center;

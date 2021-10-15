@@ -1,39 +1,40 @@
 /* ==================================== Mobile Version START ==================================== */
 @media (max-width: 1200px) {
-  
-  /* - - - - - - - - - - Input, Textarea - Start */
-  input.answer-text-box, textarea.answer-text-box {
+  /* - - - - - - - - - - Default Text Input - Signed In - Start */
+  input.default-signed-in-text-input, textarea.default-signed-in-text-input {
     width: 95%;
   }
-  /* - - - - - - - - - - Input, Textarea - End */
+  /* - - - - - - - - - - Default Text Input - Signed In - End */
   
-  /* - - - - - - - - - - Template Page Intro Start */
-  /* - - - - - - - - - - Template Page Intro - Specific Pages Start */
-  .template-page-intro-title-no-latest-quiz, .template-page-intro-title-create-question, .template-page-intro-title-view_submitted, .template-page-intro-title-quiz-feedback, .template-page-intro-title-quiz-feedback-success, .template-page-intro-title-quiz-settings, .template-page-intro-title-quiz-settings-edit, .template-page-intro-title-quiz-past-due, .template-page-intro-title-quiz-graded, .template-page-intro-title-dashboard, .template-page-intro-title-quiz-pre-open, .template-page-intro-title-leaderboard, .template-page-intro-title-quiz-archive {
+
+  /* - - - - - - - - - - Default Page Intro - Signed In - Start */
+  /* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - Start */
+  .default-signed-in-page-intro-title-no-latest-quiz, .default-signed-in-page-intro-title-create-question, .default-signed-in-page-intro-title-view_submitted, .default-signed-in-page-intro-title-quiz-feedback, .default-signed-in-page-intro-title-quiz-feedback-success, .default-signed-in-page-intro-title-quiz-settings, .default-signed-in-page-intro-title-quiz-settings-edit, .default-signed-in-page-intro-title-quiz-past-due, .default-signed-in-page-intro-title-quiz-graded, .default-signed-in-page-intro-title-dashboard, .default-signed-in-page-intro-title-quiz-pre-open, .default-signed-in-page-intro-title-leaderboard, .default-signed-in-page-intro-title-quiz-archive {
     font-size: 50px;
     padding: 15px 0 0 0;
   }
-  .template-page-intro-title-dashboard {
+  .default-signed-in-page-intro-title-dashboard {
     font-size: 50px;
     padding: 0 0 0 0;
   }
-  /* - - - - - - - - - - Template Page Intro - Specific Pages End */
-  /* - - - - - - - - - - Template Page Intro END */
+  /* - - - - - - - - - - Default Page Intro - Specific Pages - Signed In - End */
+  /* - - - - - - - - - - Default Page Intro - Signed In - End */
 
-  /* - - - - - - - - - - Leaderboard Datatables Start */
-  .template-datatable-section {
+
+  /* - - - - - - - - - - Default Datatables - Signed In - Start */
+  .default-signed-in-datatable-section {
     width: 95%;
     margin: 50px auto;
     text-align: center;
   }
-  /* - - - - - - - - - - Leaderboard Datatables End */
+  /* - - - - - - - - - - Default Datatables - Signed In - End */
 
 
-  /* - - - - - - - - - - Input Defaults - 2 - Start */
-  .text-input-default {
+  /* - - - - - - - - - - Default Text Input - Not Signed In - Start */
+  .default-not-signed-in-text-input {
     -webkit-box-direction: normal;
   }
-  /* - - - - - - - - - - Input Defaults - 2 - End */
+  /* - - - - - - - - - - Default Text Input - Not Signed In - End */
 
 }
 /* ==================================== Mobile Version END ==================================== */

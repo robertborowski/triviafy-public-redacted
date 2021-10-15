@@ -28,10 +28,10 @@
                                   free_trial_ends_info_js="{{ free_trial_ends_info_to_html }}">
   </company-name-channel-component>
 
-  <div class="template-page-intro-background default-box-shadow-black-small">
-    <div class="template-page-intro">
-      <p class="template-page-intro-title template-page-intro-title-dashboard" id='words-stroke-shadow'>Quiz Sample</p>
-      <p class="template-page-intro-sub-title template-page-intro-sub-title-dashboard">Due: 7PM, Wednesday, 10/14/2099</p>
+  <div class="default-signed-in-page-into-background default-box-shadow-black-small">
+    <div class="default-signed-in-page-intro">
+      <p class="default-signed-in-page-intro-title default-signed-in-page-intro-title-dashboard" id='default-signed-in-words-stroke-shadow'>Quiz Sample</p>
+      <p class="default-signed-in-page-intro-sub-title default-signed-in-page-intro-sub-title-dashboard">Due: 7PM, Wednesday, 10/14/2099</p>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Modal Start -->
       <a href="#"><p class="modal-see-rules" id="quiz-rules-activate-modal">See Rules</p></a>
       <div id="quiz-rules-details-modal" class="quiz-modal">
@@ -119,7 +119,7 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers START -->
       <div class="quiz-question-sub-section-user-answer">
         <label for="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}"><p class="quiz-question-sub-section-user-answer-label"></p></label>
-        <input type="text" id="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" name="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" class="answer-text-box" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="100" pattern="[a-zA-z0-9 ]{1,100}" value="{{ i['users_most_recent_submitted_answer'] }}" required>
+        <input type="text" id="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" name="user_input_quiz_question_answer_{{ i['quiz_question_number'] }}" class="default-signed-in-text-input" placeholder="Accepted Characters: Letters Numbers Spaces only" maxlength="100" pattern="[a-zA-z0-9 ]{1,100}" value="{{ i['users_most_recent_submitted_answer'] }}" required>
       </div>
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Question User Answers END -->
 
@@ -142,8 +142,8 @@
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature Start -->
-  <div class="template-small-logo-caricature-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="template-logo-caricature-img">
+  <div class="default-signed-in-logo-caricature-small-section">
+    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo cheering purple" class="default-signed-in-logo-caricature-img">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Small Logo Caricature End -->
 
