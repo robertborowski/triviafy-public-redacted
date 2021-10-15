@@ -15,6 +15,10 @@
     -webkit-appearance: none;
   }
 }
+/* Remove default behavior of textbox style */
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
 /* ==================================== Global Font and Borders END ==================================== */
 
 
@@ -29,7 +33,6 @@
 /* ==================================== Global Colors END ==================================== */
 
 
-
 /* ==================================== Global Classes START ==================================== */
 /* - - - - - - - - - - Box shadows - Start */
 .default-box-shadow-grey-reg {
@@ -41,41 +44,7 @@
 /* - - - - - - - - - - Box shadows - End */
 
 
-/* - - - - - - - - - - No Category  - Start */
-/* Remove default behavior of textbox style */
-input:focus, textarea:focus, select:focus{
-  outline: none;
-}
-/* - - - - - - - - - - No Category  - End */
-
-
-/* - - - - - - - - - - Button Defaults - 1 - Start */
-.button-section-middle {
-  text-align: center;
-}
-
-.button-default-longer {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  padding: 10px 20px;
-  font-size: 20px;
-  line-height: 1.5;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 300px;
-  border: none;
-}
-.button-default-longer:hover {
-  /* text-decoration: underline; */
-  text-decoration: none;
-}
-/* - - - - - - - - - - Button Defaults - 1 - End */
-
-
-/* - - - - - - - - - - Button Defaults - 2 - Start */
+/* - - - - - - - - - - Default Button - Start */
 .default-button-format {
   /* .btn.form__btn-submit */
   text-align: center;
@@ -118,7 +87,10 @@ input:focus, textarea:focus, select:focus{
   color: white;
   background-color: rgb(208, 126, 255);
 }
-/* - - - - - - - - - - Button Defaults - 2 - End */
+.default-button-center-section {
+  text-align: center;
+}
+/* - - - - - - - - - - Default Button - End */
 
 
 /* - - - - - - - - - - Input Defaults - 2 - Start */
