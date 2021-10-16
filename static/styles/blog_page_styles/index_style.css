@@ -1,55 +1,12 @@
-/* - - - - - - - - - - Intro - Start */
-.blog-section {
-  /* border: 1px solid black; */
-  width: 50%;
-  margin: 0 auto;
-}
-.blog-sub-section-title-and-subtitle-section {
-  /* border: 1px solid black; */
-  text-align: center;
-}
-p.blog-sub-section-title {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 60px;
-  padding: 50px 0 10px 0;
-}
-p.blog-sub-section-sub-title {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 25px;
-}
-/* - - - - - - - - - - Intro - End */
-
-
-
-/* - - - - - - - - - - All Articles - Start */
-.blog-single-article-section {
-  border: 1px solid var(--company-greyed-out-color);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 40px 0;
-}
+/* - - - - - - - - - - Content - Blog Page - Start */
 .blog-single-article-section-a, .blog-single-article-section-a:visited {
   text-decoration: none;
-}
-.blog-single-article-sub-section-title {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 35px;
 }
 .blog-single-article-sub-section-author-date {
   /* border: 1px solid black; */
   color: var(--company-greyed-out-color);
   font-size: 15px;
   margin: 5px 0;
-}
-.blog-single-article-sub-section-description {
-  /* border: 1px solid black; */
-  color: black;
-  font-size: 15px;
-  margin: 7px 0;
-  line-height: 1.5;
 }
 p.blog-single-article-sub-section-read-more-p {
   /* border: 1px solid black; */
@@ -63,18 +20,4 @@ a.blog-single-article-sub-section-read-more-a:hover {
   color: var(--company-primary-color);
   transition: 0.1s;
 }
-/* - - - - - - - - - - All Articles- End */
-
-
-/* - - - - - - - - - - Triviafy Characters - Start */
-.blog-triviafy-character {
-  /* border: 1px solid black; */
-  text-align: center;
-  margin: 40px 0;
-}
-img.blog-triviafy-character-sub-section-img {
-  /* border: 1px solid black; */
-  height: 300px;
-  width: 300px;
-}
-/* - - - - - - - - - - Triviafy Characters - End */
+/* - - - - - - - - - - Content - Blog Page - End */
