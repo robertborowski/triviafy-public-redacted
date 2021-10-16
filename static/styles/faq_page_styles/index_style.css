@@ -1,73 +1,8 @@
-/* - - - - - - - - - - Intro - Start */
-.faq-section {
-  /* border: 1px solid black; */
-  width: 50%;
-  margin: 0 auto;
-}
-.faq-sub-section-title-and-subtitle-section {
-  /* border: 1px solid black; */
-  text-align: center;
-}
-p.faq-sub-section-title {
-  /* border: 1px solid black; */
+/* - - - - - - - - - - Content - FAQ Page - Start */
+.faq-question-header {
   color: var(--company-primary-color);
-  font-size: 60px;
-  padding: 50px 0 10px 0;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 15px 0;
 }
-p.faq-sub-section-sub-title {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 25px;
-}
-/* - - - - - - - - - - Intro - End */
-
-
-
-
-/* - - - - - - - - - - All Questions - Start */
-.faq-all-questions-section {
-  /* border: 1px solid black; */
-  margin: 50px 0 0 0;
-}
-.faq-individual-question-answer-section {
-  border: 1px solid var(--company-greyed-out-color);
-  margin: 0 0 25px 0;
-  padding: 30px;
-  border-radius: 15px;
-}
-.faq-individual-question {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 25px;
-  padding: 0 0 15px 0;
-}
-.faq-individual-answer {
-  font-size: 18px;
-}
-/* - - - - - - - - - - All Questions - End */
-
-
-/* - - - - - - - - - - Contact - Start */
-.faq-contact-admin {
-  text-align: center;
-  font-size: 15px;
-  color: black;
-}
-.faq-contact-admin span.faq-span {
-  color: var(--company-primary-color);
-  font-size: 18px;
-}
-/* - - - - - - - - - - Contact - End */
-
-
-/* - - - - - - - - - - Celebrate Logos - Start */
-.faq-triviafy-character {
-  /* border: 1px solid black; */
-  text-align: center;
-  margin: 40px 0;
-}
-img.faq-celebrate-logo-sub-section-img {
-  height: 300px;
-  width: 300px;
-}
-/* - - - - - - - - - - Celebrate Logos - End */
+/* - - - - - - - - - - Content - FAQ Page - End */
