@@ -1,24 +1,8 @@
 @media (max-width: 1200px) {
-  /* - - - - - - - - - - Intro - End */
-
   /* - - - - - - - - - - About the Author - Start */
   img.blog-single-post-about-author-sub-section-img {
     height: 100px;
     width: 100px;
   }
   /* - - - - - - - - - - About the Author - End */
-
-
-  /* - - - - - - - - - - Transfer from index OLD - Start */
-  form.landing-page-closing-sub-section-email-form {
-    -webkit-box-direction: normal;
-    flex-direction: column;
-  }
-  .landing-page-closing-sub-section-email-input {
-    -webkit-box-direction: normal;
-  }
-  .landing-page-closing-sub-section-submit-input {
-    -webkit-box-direction: normal;
-  }
-  /* - - - - - - - - - - Transfer from index OLD - End */
 }

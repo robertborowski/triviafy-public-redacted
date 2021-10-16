@@ -36,7 +36,7 @@
       <div class="landing-page-2-subheader landing-page-intro-2-or-section">
         <p>OR</p>
       </div>
-      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form-2" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         <label for="user_input_email" class="landing-page-form-email-label"></label>
         <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="default-not-signed-in-text-input" required><br><br>
         <input type="submit" value="Request a demo" class="default-button-format default-button-format-primary-color landing-page-button-position">
@@ -177,7 +177,7 @@
     <div class="landing-page-2-demo-words-section">
       <p class="landing-page-2-header landing-page-2-demo-header-position">Build better teams with Triviafy.</p>
       <p class="landing-page-2-subheader landing-page-2-demo-sub-header-position">Speak to one of our trivia experts and learn how Triviafy can help your team.</p>
-      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form-2" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         <label for="user_input_email" class="landing-page-form-email-label"></label>
         <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="default-not-signed-in-text-input" required><br><br>
         <input type="submit" value="Request a demo" class="default-button-format default-button-format-primary-color landing-page-button-position">

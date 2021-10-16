@@ -213,20 +213,17 @@
 
 
 
-
-  
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Fix This START -->
-  <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-closing-sub-section-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Form Email START -->
+  <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
     <label for="user_input_email" class="landing-page-form-email-label"></label>
-    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="landing-page-closing-sub-section-email-input" required><br><br>
-    <input type="submit" value="Request a demo" class="landing-page-closing-sub-section-submit-input">
+    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="default-not-signed-in-text-input" required><br><br>
+    <input type="submit" value="Request a demo" class="default-button-format default-button-format-primary-color landing-page-button-position">
   </form>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Fix This END -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Form Email END -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Finish Article Line START -->
-  <div class="blog-single-post-finish-article-line"></div>
+  <!-- <div class="blog-single-post-finish-article-line"></div> -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Finish Article Line END -->
 
 
