@@ -4,5 +4,8 @@
     height: 100px;
     width: 100px;
   }
+  .blog-single-post-about-author-section {
+    width: 90%;
+  }
   /* - - - - - - - - - - About the Author - End */
 }

@@ -40,15 +40,19 @@ img.blog-single-post-img {
 
 /* - - - - - - - - - - Supporting Links - Start */
 .blog-single-post-supporting-links-section {
+  /* border: 1px solid black; */
+  text-align: center;
   font-size: 15px;
   line-height: 2;
-  margin: 25px 0 0 0;
+  padding: 25px 0;
 }
 /* - - - - - - - - - - Supporting Links - End */
 
 
 /* - - - - - - - - - - Date Published - Start */
 .blog-single-post-date-published {
+  /* border: 1px solid black; */
+  text-align: center;
   padding: 25px 0;
 }
 /* - - - - - - - - - - Date Published - End */
@@ -57,8 +61,11 @@ img.blog-single-post-img {
 /* - - - - - - - - - - About the Author - Start */
 .blog-single-post-about-author-section {
   /* border: 1px solid black; */
-  margin: 0 0 25px 0;
+  padding: 25px 0;
   display: flex;
+  width: 60%;
+  max-width: 650px;
+  margin: 0 auto;
 }
 img.blog-single-post-about-author-sub-section-img {
   height: 150px;
@@ -70,3 +77,15 @@ img.blog-single-post-about-author-sub-section-img {
   margin: 0 0 0 20px;
 }
 /* - - - - - - - - - - About the Author - End */
+
+
+
+
+
+
+/* - - - - - - - - - - Email Form - Start */
+.blog-single-post-email-collect-section {
+  /* border: 1px solid black; */
+  padding: 75px;
+}
+/* - - - - - - - - - - Email Form - End */

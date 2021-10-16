@@ -163,32 +163,22 @@
 
   
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Form Email START -->
-  <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
-    <label for="user_input_email" class="landing-page-form-email-label"></label>
-    <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="default-not-signed-in-text-input" required><br><br>
-    <input type="submit" value="Request a demo" class="default-button-format default-button-format-primary-color landing-page-button-position">
-  </form>
+  <div class="blog-single-post-email-collect-section">
+    <form action="{{ url_for('collect_email_processing.collect_email_processing_function') }}" method="post" class="landing-page-email-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <label for="user_input_email" class="landing-page-form-email-label"></label>
+      <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" id="user_input_email" name="user_input_email" placeholder="Your work email" class="default-not-signed-in-text-input" required><br><br>
+      <input type="submit" value="Request a demo" class="default-button-format default-button-format-primary-color landing-page-button-position">
+    </form>
+  </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Form Email END -->
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Finish Article Line START -->
-  <!-- <div class="blog-single-post-finish-article-line"></div> -->
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Finish Article Line END -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Supporting Links START -->
   <div class="blog-single-post-supporting-links-section">
-    <p>Supporting Links</p>
+    <p class="default-not-signed-in-page-p-font">Supporting Links</p>
     <a href="https://medium.com/triviafy/top-3-hybrid-team-building-activities-ddf48b78f694" target="_blank" class="default-not-signed-in-page-p-font default-not-signed-in-page-p-font-hyperlink-a"><p>Medium Article</p></a>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Supporting Links End -->
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Date Published START -->
-  <div class="blog-single-post-date-published">
-    <p class="blog-single-post-sub-section-date-published">Published: 10/05/2021</p>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Date Published END -->
 
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - About Author START -->
@@ -200,6 +190,13 @@
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - About Author End -->
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Date Published START -->
+  <div class="blog-single-post-date-published">
+    <p class="default-not-signed-in-page-p-font">Published: 10/05/2021</p>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Date Published END -->
 
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page END -->
