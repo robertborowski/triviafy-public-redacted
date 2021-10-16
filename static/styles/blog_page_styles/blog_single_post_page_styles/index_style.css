@@ -1,36 +1,16 @@
-.blog-single-post-section {
-  /* border: 1px solid black; */
-  width: 50%;
-  margin: 0 auto;
-}
-/* - - - - - - - - - - Intro - Start */
-.blog-single-post-sub-section-title-and-subtitle-section {
-  /* border: 1px solid black; */
+/* =============================================== */
+/* =============================================== */
+/* - - - - - - - - - - Image - Start */
+.blog-single-post-img-section {
+  margin: 50px auto 0 auto;
   text-align: center;
 }
-p.blog-single-post-sub-section-title {
-  /* border: 1px solid black; */
-  color: black;
-  font-size: 60px;
-  padding: 50px 0 25px 0;
-}
-p.blog-single-post-sub-section-sub-title {
-  /* border: 1px solid black; */
-  color: var(--company-primary-color);
-  font-size: 25px;
-}
-/* - - - - - - - - - - Intro - End */
-
-
-/* - - - - - - - - - - Image - Start */
 img.blog-single-post-img {
-  border-radius: 15px;
+  border-radius: 24px;
   width: 100%;
-  margin: 50px 0 0 0;
   border: 2px solid var(--company-greyed-out-color);
 }
 /* - - - - - - - - - - Image - End */
-
 
 
 /* - - - - - - - - - - Whole Article - Start */
@@ -39,33 +19,15 @@ img.blog-single-post-img {
   margin: 50px 0;
   line-height: 2;
 }
-.blog-single-post-regular-paragraph-header {
-  color: black;
-  font-size: 25px;
-  line-height: 1.5;
-}
-.blog-single-post-regular-paragraph {
-  color: black;
-  font-size: 18px;
-}
-.blog-single-post-regular-paragraph-author {
-  color: black;
-  font-size: 15px;
-}
 .blog-single-post-regular-bullet-point {
   padding: 0 0 0 25px;
-}
-.blog-single-post-highlight-color {
-  color: var(--company-primary-color);
-}
-.blog-single-post-link, .blog-single-post-link:visited {
-  color: var(--company-primary-color);
 }
 /* - - - - - - - - - - Whole Article - End */
 
 
 /* - - - - - - - - - - Divider - Start */
 .blog-single-post-space-divider {
+  /* border: 1px solid black; */
   margin: 30px 0;
 }
 /* - - - - - - - - - - Divider - End */
@@ -110,30 +72,11 @@ img.blog-single-post-about-author-sub-section-img {
   margin: 0 0 0 20px;
 }
 /* - - - - - - - - - - About the Author - End */
+/* =============================================== */
+/* =============================================== */
 
 
-/* - - - - - - - - - - Contact - Start */
-.blog-single-post-contact-info-section {
-  text-align: center;
-  color: var(--company-primary-color);
-  font-size: 20px;
-  margin: 25px 0 0 0;
-}
-/* - - - - - - - - - - Contact - End */
 
-
-/* - - - - - - - - - - Triviafy Characters - Start */
-.blog-single-post-triviafy-character {
-  /* border: 1px solid black; */
-  text-align: center;
-  margin: 40px 0;
-}
-img.blog-single-post-triviafy-character-sub-section-img {
-  /* border: 1px solid black; */
-  height: 300px;
-  width: 300px;
-}
-/* - - - - - - - - - - Triviafy Characters - End */
 
 
 /* - - - - - - - - - - Transfer from index OLD - Start */
@@ -226,3 +169,14 @@ form.landing-page-closing-sub-section-email-form {
     background-color: #00C096; */
   }
 /* - - - - - - - - - - Transfer from index OLD - End */
+
+
+
+
+
+
+/* - - - - - - - - - - Added during CSS migration - Start */
+/* .blog-single-post-page-content-section {
+  border: 1px solid black;
+} */
+/* - - - - - - - - - - Added during CSS migration - End */

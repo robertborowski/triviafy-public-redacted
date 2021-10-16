@@ -301,6 +301,13 @@ hr.default-signed-in-divider-line-dotted {
 .default-not-signed-in-page-content-sub-section {
   margin: 25px 0;
 }
+.default-not-signed-in-page-p-font-hyperlink-a {
+  color: var(--company-primary-color);
+  text-decoration: none;
+}
+.default-not-signed-in-page-p-font-hyperlink-a:hover {
+  text-decoration: underline;
+}
 /* - - - - - - - - - - Default - Not Signed In - Page - Content - End */
 /* - - - - - - - - - - Default - Not Signed In - Page Bottom - Contact - Start */
 .default-not-signed-in-bottom-contact-section {

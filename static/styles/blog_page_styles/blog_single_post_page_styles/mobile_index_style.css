@@ -1,13 +1,4 @@
 @media (max-width: 1200px) {
-  .blog-single-post-section {
-    /* border: 1px solid black; */
-    width: 90%;
-  }
-  /* - - - - - - - - - - Intro - Start */
-  p.blog-single-post-sub-section-title {
-    /* border: 1px solid black; */
-    font-size: 40px;
-  }
   /* - - - - - - - - - - Intro - End */
 
   /* - - - - - - - - - - About the Author - Start */
@@ -16,9 +7,6 @@
     width: 100px;
   }
   /* - - - - - - - - - - About the Author - End */
-
-  /* - - - - - - - - - - Celebrate Logos - Start */
-  /* - - - - - - - - - - Celebrate Logos - End */
 
 
   /* - - - - - - - - - - Transfer from index OLD - Start */
