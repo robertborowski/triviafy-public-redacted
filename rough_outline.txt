@@ -2,7 +2,7 @@ To-Do's
 ---
 -UX:              When signed in you cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 -UX:              Send a thank you email to people when they book a demo.
--Subscription:    Companies that did not pay for this month, a quiz should not be made for them
+-Subscription:    Companies that did not pay for this month, a quiz should not be made for them (maybe keep it because of reminder/marketing already in place)
 -Blog:            Top Slack Trivia Apps
 -UX:              PDF of how to add to slack properly. Every team member should do these steps
 -Data:            Backup ALL tables daily into AWS s3
