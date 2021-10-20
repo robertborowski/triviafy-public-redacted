@@ -70,7 +70,7 @@ def job_daily_backup_all_db_tables_to_aws_s3_function():
       # Upload pandas df into aws s3
       csv_buffer = StringIO()
       df.to_csv(csv_buffer)
-      s3_resource.Object(s3_bucket_name, todays_date + ' ' + table_name + '.csv').put(Body=csv_buffer.getvalue())
+      s3_resource.Object(s3_bucket_name, todays_date + '_' + table_name + '.csv').put(Body=csv_buffer.getvalue())
       # ------------------------ Upload to AWS s3 as csv END ------------------------
     
 
