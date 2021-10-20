@@ -346,6 +346,20 @@ hr.default-signed-in-divider-line-dotted {
   margin: 0 0 15px 0;
 }
 /* - - - - - - - - - - Default - Not Signed In - Word Bubble - End */
+/* - - - - - - - - - - Default - Not Signed In - Simple Page - Start */
+.default-not-signed-in-simple-page-section {
+  /* border: 1px solid black; */
+  text-align: center;
+  height: 500px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 150px auto 0 auto;
+}
+.default-not-signed-in-simple-page-img {
+  height: 250px;
+  width: 250px;
+}
+/* - - - - - - - - - - Default - Not Signed In - Simple Page - End */
 /* ==================================== Default - Not Signed In - Global Classes - END ==================================== */
 
 

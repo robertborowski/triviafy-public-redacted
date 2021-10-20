@@ -1,21 +1,21 @@
 To-Do's
----
--UX:              When signed in you cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
--UX:              Send a thank you email to people when they book a demo.
--Subscription:    Companies that did not pay for this month, a quiz should not be made for them (maybe keep it because of reminder/marketing already in place)
--Blog:            Top Slack Trivia Apps
--UX:              PDF of how to add to slack properly. Every team member should do these steps
--Data:            Backup ALL tables daily into AWS s3
--UX:              Add Drift to the homepage so potential users can reach out to your directly through text message.
--UX:              Comparison guide page.
--Blog:            Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
--Quiz Archive:    When you go between Quiz Archive Quizzes, it logs you out for some reason.
--Quiz Archive:    Fix the way True and False are presented to the end user.
--Subscription:    Stripe payment setup
--Account Delete:  Account mark for deletion
--Redirect:        Clicking cancel on the post slack sign in button.
--UX:              Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
--UX:              In the Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 characters of team/channel total)
--Subscription:    Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
--Best Practice:   Put a ';' at the end of every SQL query you have for Triviafy
--UX:              All Buttons on the website need to be more uniform, look more legit
+- - - - - - - - - - - - - -
+-Blog:            Not Signed in - Top Slack Trivia Apps
+-UX:              Not Signed in - PDF of how to add to slack properly. Every team member should do these steps
+-Data:            Not Signed in - Backup ALL tables daily into AWS s3
+-UX:              Not Signed in - Comparison guide page.
+-Blog:            Not Signed in - Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
+-Redirect:        Not Signed in - Clicking cancel on the post slack sign in button.
+-UX:              Not Signed in - Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
+- - - - - - - - - - - - - -
+-UX:              Signed in -     Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 chars)
+-Subscription:    Signed in -     Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
+-Best Practice:   Signed in -     Put a ';' at the end of every SQL query you have for Triviafy
+-UX:              Signed in -     All Buttons on the website need to be more uniform, look more legit
+-Subscription:    Signed in -     Companies that did not pay for this month, a quiz should not be made for them (maybe keep it because of reminder/marketing already in place)
+-Quiz Archive:    Signed in -     When you go between Quiz Archive Quizzes, it logs you out for some reason.
+-Quiz Archive:    Signed in -     Fix the way True and False are presented to the end user.
+-Subscription:    Signed in -     Stripe payment setup
+-Account Delete:  Signed in -     Account mark for deletion
+-UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
+- - - - - - - - - - - - - -
