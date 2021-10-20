@@ -2,11 +2,11 @@ To-Do's
 - - - - - - - - - - - - - -
 -Blog:            Not Signed in - Top Slack Trivia Apps
 -UX:              Not Signed in - PDF of how to add to slack properly. Every team member should do these steps
--Data:            Not Signed in - Backup ALL tables daily into AWS s3
 -UX:              Not Signed in - Comparison guide page.
 -Blog:            Not Signed in - Add hash tags to the bottoms of blog posts internally on your site, those hashtags should link to Twitter hashtags.
 -Redirect:        Not Signed in - Clicking cancel on the post slack sign in button.
 -UX:              Not Signed in - Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
+-Excel:           Not Signed in - Make a sheet "revenue model" style workbook for marketing spend.
 - - - - - - - - - - - - - -
 -UX:              Signed in -     Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 chars)
 -Subscription:    Signed in -     Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
