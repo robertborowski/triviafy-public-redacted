@@ -33,11 +33,15 @@ def job_post_quiz_skipped_quiz_check_function():
 
   # ------------------------ Pull All Company Team Channel Combos START ------------------------
   all_current_slack_team_id_and_channel_id_combos_arr = select_triviafy_user_login_information_table_slack_all_team_channel_combos_function(postgres_connection, postgres_cursor)
+  count_all_current_slack_team_id_and_channel_id_combos_arr = len(all_current_slack_team_id_and_channel_id_combos_arr)
   # ------------------------ Pull All Company Team Channel Combos END ------------------------
 
 
   # ------------------------ For Each Company Team Channel Combo START ------------------------
+  count_so_far = 0
   for team_channel_combo in all_current_slack_team_id_and_channel_id_combos_arr:
+    count_so_far += 1
+
     company_team_id = team_channel_combo[0]
     company_channel_id = team_channel_combo[1]
     # ------------------------ Pull Closed Quizzes with No Winner START ------------------------
@@ -45,9 +49,13 @@ def job_post_quiz_skipped_quiz_check_function():
     skipped_quizzes_arr = select_skipped_quizzes_company_team_level_function(postgres_connection, postgres_cursor, company_team_id, company_channel_id, today_date_str)
 
     if skipped_quizzes_arr == None:
-      localhost_print_function('did not run delete, likely because it is day of quiz end')
-      localhost_print_function('=========================================== job_post_quiz_skipped_quiz_check_function END ===========================================')
-      return True
+      if count_so_far < count_all_current_slack_team_id_and_channel_id_combos_arr:
+        localhost_print_function('move onto next team')
+        continue
+      else:
+        localhost_print_function('did not run delete, likely because it is day of quiz end')
+        localhost_print_function('=========================================== job_post_quiz_skipped_quiz_check_function END ===========================================')
+        return True
 
     # Total number of skipped quizzes for company
     total_skipped_quizzes_int_for_company_team_channel_level = len(skipped_quizzes_arr)

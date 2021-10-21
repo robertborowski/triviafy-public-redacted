@@ -8,6 +8,7 @@ To-Do's
 -Excel:           Not Signed in - Make a sheet "revenue model" style workbook for marketing spend.
 -UX:              Not Signed in - Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
 - - - - - - - - - - - - - -
+-email            Signed in -     Fix the name in the email winner. It currently says firstName_lastName it should be firstName lastName
 -UX:              Signed in -     Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 chars)
 -Subscription:    Signed in -     Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
 -Best Practice:   Signed in -     Put a ';' at the end of every SQL query you have for Triviafy
