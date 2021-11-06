@@ -18,4 +18,4 @@ def before_request():
 def download_triviafy_setup_slack_pdf_redirect_function():
   localhost_print_function('=========================================== /download/setup/slack/pdf Page START ===========================================')
   localhost_print_function('=========================================== /download/setup/slack/pdf Page END ===========================================')
-  return send_file("static/images/pdfs/pdf_add_to_slack_steps.pdf", as_attachment=True)
+  return send_file("static/images/pdfs/PDFTriviafySlackSetupGuide.pdf", as_attachment=True)

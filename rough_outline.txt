@@ -21,3 +21,18 @@ To-Do's
 -Account Delete:  Signed in -     Account mark for deletion
 -UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 - - - - - - - - - - - - - -
+
+
+Landing Page addition steps
+
+1. DONE: Make 10 questions for:
+  -DONE: Engineering & Technology
+  -DONE: Human Resources
+  -DONE: Sales & Marketing
+  -DONE: Finance & Accounting
+  -DONE: Pop Culture
+DONE: 50 questions
+
+2. Make 5 example quizzes for the above categories
+
+3. Add these to the landing page (swipe style or just scrolling down and download PDF button)
