@@ -237,6 +237,27 @@ img.landing-page-2-hiw-image {
 /* - - - - - - - - - - Dropdown Arrow Animation - End */
 
 
+/* - - - - - - - - - - Department Specific - Start */
+.landing-page-department-specific {
+  /* border: 1px solid black; */
+  height: 325px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.landing-page-department-specific-header {
+  /* border: 1px solid black; */
+  text-align: center;
+  padding: 100px 0 15px 0;
+}
+.landing-page-department-specific-subheader {
+  /* border: 1px solid black; */
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+/* - - - - - - - - - - Department Specific - End */
+
+
 /* - - - - - - - - - - Request Demo - Start */
 .landing-page-2-demo-section {
   /* border: 3px solid blue; */
