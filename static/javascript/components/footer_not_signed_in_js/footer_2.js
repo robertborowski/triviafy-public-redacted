@@ -16,8 +16,8 @@ class FooterNotSignedInClass2 extends HTMLElement {
         <div class="footer-not-signed-in-2-sub-section">
           <p class="footer-title footer-title-position">Product</p>
           <ul class="footer-not-signed-in-2-ul">
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_js")}" class="footer-a">Example Quiz (PDF)</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_slack_setup_js")}" class="footer-a">Slack Setup (PDF)</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_js")}" class="footer-a">Example Quiz</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_slack_setup_js")}" class="footer-a">Slack Setup</a></li>
           </ul>
         </div>
 
