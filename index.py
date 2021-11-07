@@ -80,6 +80,7 @@ from backend.page_templates_backend.collect_email_page_backend.collect_email_con
 from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_0001_index_page_render_template import blog_single_post_0001_index_page_render_template
 from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_0002_index_page_render_template import blog_single_post_0002_index_page_render_template
 from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_0003_index_page_render_template import blog_single_post_0003_index_page_render_template
+from backend.page_templates_backend.blog_page_backend.blog_single_post_page_backend.blog_single_post_0004_index_page_render_template import blog_single_post_0004_index_page_render_template
 # ------------------------ Pages END ------------------------
 
 
@@ -184,6 +185,7 @@ app.register_blueprint(collect_email_confirm_page_render_template, url_prefix=""
 app.register_blueprint(blog_single_post_0001_index_page_render_template, url_prefix="")
 app.register_blueprint(blog_single_post_0002_index_page_render_template, url_prefix="")
 app.register_blueprint(blog_single_post_0003_index_page_render_template, url_prefix="")
+app.register_blueprint(blog_single_post_0004_index_page_render_template, url_prefix="")
 # ------------------------ Pages - Register END ------------------------
 
 
