@@ -44,11 +44,12 @@ def slack_oauth_checking_database_for_user_function(response_authed_user_id):
     slack_authed_user_job_title = user_db_object[20]
     user_slack_email_permission_granted = user_db_object[21]
     slack_authed_webhook_url = user_db_object[22]
+    user_slack_new_user_questionnaire_answered = user_db_object[23]
     # ------------------------ Account Already Exist END ------------------------
 
     # ------------------------ Transpose the SQL pulled table to dict START ------------------------
     # Transpose user data to nested dictionary. Make timestamp a string because you cannot upload timestamp to redis as a json obj
-    user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, str(slack_db_timestamp_created), slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted, slack_authed_webhook_url)
+    user_nested_dict = transpose_slack_user_data_to_nested_dict_function(slack_db_uuid, str(slack_db_timestamp_created), slack_guess_first_name, slack_guess_last_name, slack_authed_user_real_full_name, slack_authed_user_email, slack_authed_user_id, slack_authed_team_id, slack_authed_team_name, slack_authed_channel_id, slack_authed_channel_name, company_name, slack_authed_bot_user_id, first_user_payment_admin,  slack_authed_token_type, slack_authed_access_token, slack_authed_user_timezone, slack_authed_user_timezone_label, slack_authed_user_timezone_offset, slack_authed_user_job_title, user_slack_email_permission_granted, slack_authed_webhook_url, user_slack_new_user_questionnaire_answered)
     # ------------------------ Transpose the SQL pulled table to dict END ------------------------
 
     authed_user_id_already_exists = True
