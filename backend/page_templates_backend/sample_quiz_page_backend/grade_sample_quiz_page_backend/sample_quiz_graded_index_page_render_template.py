@@ -88,6 +88,11 @@ def sample_quiz_graded_index_page_render_template_function():
     user_answer_to_q3 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_3'))
     user_answer_to_q4 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_4'))
     user_answer_to_q5 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_5'))
+    user_answer_to_q6 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_6'))
+    user_answer_to_q7 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_7'))
+    user_answer_to_q8 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_8'))
+    user_answer_to_q9 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_9'))
+    user_answer_to_q10 = sanitize_quiz_question_user_answer_text_function(request.form.get('user_input_quiz_question_answer_10'))
 
     if user_answer_to_q1 == None or user_answer_to_q2 == None or user_answer_to_q3 == None or user_answer_to_q4 == None or user_answer_to_q5 == None:
       localhost_print_function('inputs are not valid')
@@ -101,6 +106,11 @@ def sample_quiz_graded_index_page_render_template_function():
     user_sample_answer_responses_arr.append(user_answer_to_q3)
     user_sample_answer_responses_arr.append(user_answer_to_q4)
     user_sample_answer_responses_arr.append(user_answer_to_q5)
+    user_sample_answer_responses_arr.append(user_answer_to_q6)
+    user_sample_answer_responses_arr.append(user_answer_to_q7)
+    user_sample_answer_responses_arr.append(user_answer_to_q8)
+    user_sample_answer_responses_arr.append(user_answer_to_q9)
+    user_sample_answer_responses_arr.append(user_answer_to_q10)
     # ------------------------ Sanitize User Inputs END ------------------------
 
 
