@@ -31,10 +31,18 @@ def subscription_index_page_render_template_function():
 
 
   try:
-    # ------------------------ Page Load User Pre Checks START ------------------------
+    # ------------------------ Page Pre Load Check - User Logged In Through Cookies START ------------------------
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
-    # ------------------------ Page Load User Pre Checks END ------------------------
+    # ------------------------ Page Pre Load Check - User Logged In Through Cookies END ------------------------
+    
+
+    # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted START ------------------------
+    user_slack_email_permission_granted = user_nested_dict['user_slack_email_permission_granted']
+    if user_slack_email_permission_granted == False or user_slack_email_permission_granted == 'False':
+      return redirect('/notifications/email/permission', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
+
 
     # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
@@ -57,12 +65,6 @@ def subscription_index_page_render_template_function():
 
     # ------------------------ SQL Pull Data START ------------------------
     all_team_payment_admins_arr = select_triviafy_user_login_information_table_slack_all_payment_admins_with_email_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-
-    localhost_print_function('- - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - -')
-    localhost_print_function(all_team_payment_admins_arr)
-    localhost_print_function('- - - - - - - - - - -')
-    localhost_print_function('- - - - - - - - - - -')
     
     all_team_payment_admin_emails_arr = []
     for i in all_team_payment_admins_arr:

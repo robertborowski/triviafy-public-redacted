@@ -9,6 +9,7 @@ To-Do's
 -UX:              Not Signed in - Before asking to confirm email, check if user is already a member of any other channels within that Team ID. And notify them that they are already memebers of other channels.
 -Slack            Not Signed in - Work on the Slack App store presentation of app. --> SUBMITTED for Review
 - - - - - - - - - - - - - -
+******-Database         Signed in -     Why is there a temp account edit redis variable created
 -email            Signed in -     Fix the name in the email winner. It currently says firstName_lastName it should be firstName lastName
 -UX:              Signed in -     Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 chars)
 -Subscription:    Signed in -     Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
@@ -21,18 +22,3 @@ To-Do's
 -Account Delete:  Signed in -     Account mark for deletion
 -UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 - - - - - - - - - - - - - -
-
-
-Landing Page addition steps
-
-1. DONE: Make 10 questions for:
-  -DONE: Engineering & Technology
-  -DONE: Human Resources
-  -DONE: Sales & Marketing
-  -DONE: Finance & Accounting
-  -DONE: Pop Culture
-DONE: 50 questions
-
-2. Make 5 example quizzes for the above categories
-
-3. Add these to the landing page (swipe style or just scrolling down and download PDF button)

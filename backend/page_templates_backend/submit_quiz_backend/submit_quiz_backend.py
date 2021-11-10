@@ -37,11 +37,12 @@ def submit_quiz_backend_function():
 
 
   try:
-    # ------------------------ Page Load User Pre Checks START ------------------------
+    # ------------------------ Page Pre Load Check - User Logged In Through Cookies START ------------------------
     # Check if user logged in through cookies
     user_nested_dict = check_if_user_login_through_cookies_function()
+    # ------------------------ Page Pre Load Check - User Logged In Through Cookies END ------------------------
 
-    # ------------------------ Check If Free Trial / Latest Month Paid START ------------------------
+    # ------------------------ Page Pre Load Check - Redirect Check - Free Trial / Latest Month Paid START ------------------------
     # Check if user Team/Channel combo paid the latest month
     user_team_channeL_paid_latest_month = check_if_user_team_channel_combo_paid_latest_month_function(user_nested_dict)
     
@@ -61,8 +62,13 @@ def submit_quiz_backend_function():
     # If user's company did pay latest month
     if user_team_channeL_paid_latest_month == True:
       free_trial_ends_info = ''
-    # ------------------------ Check If Free Trial / Latest Month Paid END ------------------------
-    # ------------------------ Page Load User Pre Checks END ------------------------
+    # ------------------------ Page Pre Load Check - Redirect Check - Free Trial / Latest Month Paid END ------------------------
+
+    # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted START ------------------------
+    user_slack_email_permission_granted = user_nested_dict['user_slack_email_permission_granted']
+    if user_slack_email_permission_granted == False or user_slack_email_permission_granted == 'False':
+      return redirect('/notifications/email/permission', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
 
     # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
