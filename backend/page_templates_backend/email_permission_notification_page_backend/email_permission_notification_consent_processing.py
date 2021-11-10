@@ -13,7 +13,7 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.connection.redis_connect_to_database import redis_connect_to_database_function
 from backend.utils.cached_login.check_cookie_browser import check_cookie_browser_function
 import json
-from backend.utils.send_emails.send_email_template import send_email_template_function
+from backend.utils.send_emails.send_email_with_slack_setup_attachment_template import send_email_with_slack_setup_attachment_template_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
 from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
 
@@ -111,10 +111,11 @@ def email_permission_notification_consent_processing_function():
 
     output_email = user_email
     output_subject_line = 'Triviafy Account Created - Next Steps'
-    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\nOptional: please send this message in your desired Slack channel: '/invite @Triviafy'.\n\nYou will be notified by email and Slack once your team's weekly quiz is open.\n\nBest,\nRob\n\nTriviafy your workspace."
+    output_message_content = f"Hi {slack_authed_user_real_full_name},\n\nThank you for creating an account with Triviafy.\n\n'What about my team?' In order to get the rest of your team setup with Triviafy please share with them:\n1) The attached Slack Setup Guide PDF file and\n2) The name of the Slack channel you are using for Triviafy.\n\nYou will be notified by email and Slack once your team's weekly quiz is open.\n\nBest,\nRob\n\nTriviafy your workspace."
     output_message_content_str_for_db = output_message_content
 
-    email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+    # email_sent_successfully = send_email_template_function(output_email, output_subject_line, output_message_content)
+    email_sent_successfully = send_email_with_slack_setup_attachment_template_function(output_email, output_subject_line, output_message_content)
 
     # Insert this sent email into DB
     uuid_email_sent = create_uuid_function('email_sent_')
