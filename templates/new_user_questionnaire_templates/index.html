@@ -39,30 +39,30 @@
   <div class="survey-section">
     <div class="survey-section-inner default-box-shadow-grey-reg">
 
-      <form action="#" method="post" class="survey-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+      <form action="{{ url_for('new_user_questionnaire_submit_processing.new_user_questionnaire_submit_processing_function') }}" method="post" class="survey-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         
         <div class="form-input-section">
           <label for="user_input_hear_about" class="survey-page-form-label">How did you hear about Triviafy?</label>
-          <input type="text" pattern="[a-zA-Z0-9']{1,20}$" id="user_input_hear_about" name="user_input_hear_about" placeholder="Google, Twitter, LinkedIn, TikTok, Reddit, Word of Mouth, etc..." class="default-not-signed-in-text-input survey-text-input-position" required>
+          <input type="text" pattern="[a-zA-Z0-9\s']{1,50}$" id="user_input_hear_about" name="user_input_hear_about" placeholder="Google, Twitter, LinkedIn, TikTok, Reddit, Word of Mouth" class="default-not-signed-in-text-input survey-text-input-position" required>
         </div>
 
         <div class="form-input-section">
           <label for="user_input_gain_from" class="survey-page-form-label">What do you hope to gain from using Triviafy?</label>
-          <input type="text" pattern="[a-zA-Z0-9']{1,20}$" id="user_input_gain_from" name="user_input_gain_from" placeholder="Automate weekly team building activity." class="default-not-signed-in-text-input survey-text-input-position" required>
+          <input type="text" pattern="[a-zA-Z0-9\s']{1,50}$" id="user_input_gain_from" name="user_input_gain_from" placeholder="Automate weekly team building activity" class="default-not-signed-in-text-input survey-text-input-position" required>
         </div>
 
         <div class="form-input-section">
           <label for="user_input_coworker_amount" class="survey-page-form-label">Roughly how many coworkers on your team will be using Triviafy?</label>
-          <input type="text" pattern="[a-zA-Z0-9']{1,20}$" id="user_input_coworker_amount" name="user_input_coworker_amount" placeholder="10, fifteen" class="default-not-signed-in-text-input survey-text-input-position" required>
+          <input type="text" pattern="[a-zA-Z0-9\s']{1,50}$" id="user_input_coworker_amount" name="user_input_coworker_amount" placeholder="10, fifteen" class="default-not-signed-in-text-input survey-text-input-position" required>
         </div>
 
         <div class="form-input-section">
           <label for="user_input_if_competitor" class="survey-page-form-label">Have you every used a Triviafy competitor? If so, which one?</label>
-          <input type="text" pattern="[a-zA-Z0-9']{1,20}$" id="user_input_if_competitor" name="user_input_if_competitor" placeholder="WaterCoolerTrivia, Polly, Donut, CoffeePals" class="default-not-signed-in-text-input survey-text-input-position" required>
+          <input type="text" pattern="[a-zA-Z0-9\s']{1,50}$" id="user_input_if_competitor" name="user_input_if_competitor" placeholder="WaterCoolerTrivia, Polly, Donut, CoffeePals" class="default-not-signed-in-text-input survey-text-input-position" required>
         </div>
         
         <div class="form-answer-note-section">
-          <p class="form-answer-note-p">Note: Questionnaire answers must contain only letters and numbers.</p>
+          <p class="form-answer-note-p">Note: Questionnaire answers can only contain letters, numbers, and spaces.</p>
         </div>
         
         <input type="submit" value="Submit" class="default-button-format default-button-format-primary-color landing-page-button-position">
