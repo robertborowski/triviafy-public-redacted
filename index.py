@@ -24,6 +24,8 @@ from backend.page_templates_backend.slack_sign_in_with_before_add_to_slack_page_
 # Email Notifications Confirm pages
 from backend.page_templates_backend.email_permission_notification_page_backend.email_permission_notification_page_render_template import email_permission_notification_page_render_template
 from backend.page_templates_backend.email_permission_notification_page_backend.email_permission_notification_consent_processing import email_permission_notification_consent_processing
+# New User Questionnaire
+from backend.page_templates_backend.new_user_questionnaire_page_backend.new_user_questionnaire_index_page_render_template import new_user_questionnaire_index_page_render_template
 # Slack dashboard pages
 from backend.page_templates_backend.dashboard_page_backend.dashboard_index_page_render_template import dashboard_index_page_render_template
 from backend.page_templates_backend.submit_quiz_backend.submit_quiz_backend import submit_quiz_backend
@@ -129,6 +131,8 @@ app.register_blueprint(slack_sign_in_with_before_add_to_slack_page_render_templa
 # Email Notifications Confirm pages
 app.register_blueprint(email_permission_notification_page_render_template, url_prefix="")
 app.register_blueprint(email_permission_notification_consent_processing, url_prefix="")
+# New User Questionnaire
+app.register_blueprint(new_user_questionnaire_index_page_render_template, url_prefix="")
 # Slack dashboard pages
 app.register_blueprint(dashboard_index_page_render_template, url_prefix="")
 app.register_blueprint(submit_quiz_backend, url_prefix="")
