@@ -65,6 +65,12 @@ def quiz_archive_none_yet_page_render_template_function():
     if user_slack_email_permission_granted == False or user_slack_email_permission_granted == 'False':
       return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
+
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered START ------------------------
+    user_slack_new_user_questionnaire_answered = user_nested_dict['user_slack_new_user_questionnaire_answered']
+    if user_slack_new_user_questionnaire_answered == False or user_slack_new_user_questionnaire_answered == 'False':
+      return redirect('/new/user/questionnaire', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered END ------------------------
     
     
     # ------------------------ Page Company Info START ------------------------

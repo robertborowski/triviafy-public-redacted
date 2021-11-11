@@ -73,6 +73,12 @@ def dashboard_index_page_render_template_function():
       return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
 
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered START ------------------------
+    user_slack_new_user_questionnaire_answered = user_nested_dict['user_slack_new_user_questionnaire_answered']
+    if user_slack_new_user_questionnaire_answered == False or user_slack_new_user_questionnaire_answered == 'False':
+      return redirect('/new/user/questionnaire', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered END ------------------------
+
 
     # Get user information from the nested dict
     slack_workspace_team_id = user_nested_dict['slack_team_id']

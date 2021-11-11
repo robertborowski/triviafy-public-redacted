@@ -66,6 +66,12 @@ def quiz_settings_index_page_render_template_function():
       return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
 
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered START ------------------------
+    user_slack_new_user_questionnaire_answered = user_nested_dict['user_slack_new_user_questionnaire_answered']
+    if user_slack_new_user_questionnaire_answered == False or user_slack_new_user_questionnaire_answered == 'False':
+      return redirect('/new/user/questionnaire', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered END ------------------------
+
     # ------------------------ Page Company Info START ------------------------
     user_company_name = user_nested_dict['user_company_name']
     user_company_name = sanitize_page_output_company_name_function(user_company_name)

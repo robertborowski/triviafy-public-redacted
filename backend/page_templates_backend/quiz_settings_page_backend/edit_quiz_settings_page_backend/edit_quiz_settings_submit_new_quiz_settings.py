@@ -71,6 +71,12 @@ def edit_quiz_settings_submit_new_quiz_settings_function():
       return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
 
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered START ------------------------
+    user_slack_new_user_questionnaire_answered = user_nested_dict['user_slack_new_user_questionnaire_answered']
+    if user_slack_new_user_questionnaire_answered == False or user_slack_new_user_questionnaire_answered == 'False':
+      return redirect('/new/user/questionnaire', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered END ------------------------
+
     # Get Company name and channel name (slack ID's)
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']

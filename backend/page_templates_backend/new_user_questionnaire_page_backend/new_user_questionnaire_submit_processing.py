@@ -68,6 +68,12 @@ def new_user_questionnaire_submit_processing_function():
       return redirect('/notifications/email/permission', code=302)
     # ------------------------ Page Pre Load Check - Redirect Check - Permission Granted END ------------------------
 
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered START ------------------------
+    user_slack_new_user_questionnaire_answered = user_nested_dict['user_slack_new_user_questionnaire_answered']
+    if user_slack_new_user_questionnaire_answered == True or user_slack_new_user_questionnaire_answered == 'True':
+      return redirect('/dashboard', code=302)
+    # ------------------------ Page Pre Load Check - Redirect Check - New User Questionnaire Answered END ------------------------
+
 
     # ------------------------ Declare database variables START ------------------------
     # Additional variables for database
