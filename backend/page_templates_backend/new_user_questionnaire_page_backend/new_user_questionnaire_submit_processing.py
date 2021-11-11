@@ -89,6 +89,20 @@ def new_user_questionnaire_submit_processing_function():
     user_team_channel_response_exists = select_new_user_questionnaire_response_function(postgres_connection, postgres_cursor, user_slack_uuid, user_slack_team_id, user_slack_channel_id)
     if user_team_channel_response_exists != None:
       localhost_print_function('user response already exists in DB')
+      # ------------------------ Update Login Table Bool START ------------------------
+      output_message = update_account_questionnarie_complete_function(postgres_connection, postgres_cursor, user_slack_uuid)
+      # ------------------------ Update Login Table Bool END ------------------------
+      # ------------------------ Update Redis DB START ------------------------
+      if user_nested_dict['user_slack_new_user_questionnaire_answered'] == False:
+        # Get cookie value from browser
+        get_cookie_value_from_browser = check_cookie_browser_function()
+        # Change Redis value
+        user_nested_dict['user_slack_new_user_questionnaire_answered'] = True
+        # Connect to redis database pool (no need to close)
+        redis_connection = redis_connect_to_database_function()
+        # Upload dictionary to redis based on cookies
+        redis_connection.set(get_cookie_value_from_browser, json.dumps(user_nested_dict).encode('utf-8'))
+        # ------------------------ Update Redis DB END ------------------------
       localhost_print_function('=========================================== /new/user/questionnaire/processing Page END ===========================================')
       return redirect('/', code=302)
     # ------------------------ Check If User/Team/Channel Response Already in DB END ------------------------
