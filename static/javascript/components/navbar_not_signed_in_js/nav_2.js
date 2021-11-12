@@ -38,8 +38,12 @@ class NavbarNotSignedInClass2 extends HTMLElement {
             <li class="navbar-list-item-1"><a href="#">How It Works <i class="fas fa-angle-down navbar-drop-down-arrow-1"></i></a>
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - START -->
               <ul class="links-level-2 default-box-shadow-grey-reg">
-                <li><a href="${this.getAttribute("pdf_example_quiz_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz</a></li>
                 <li><a href="${this.getAttribute("pdf_slack_setup_js")}"><i class="fas fa-tools font-awesome-icon"></i>Slack Setup</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz General</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_engineer_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Engineering</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_hr_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz HR</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_marketing_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Marketing</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_finance_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Finance</a></li>
               </ul>
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - END -->
             </li>
@@ -83,7 +87,7 @@ class NavbarNotSignedInClass2 extends HTMLElement {
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - END -->
             </li>
             <div class="navbar-not-signed-in-demo-button-section">
-              <a href="${this.getAttribute("link_demo_js")}"><button class="default-button-format default-button-format-primary-color navbar-not-signed-in-button-position">Request a demo</button></a>
+              <a href="#"><button class="default-button-format default-button-format-primary-color navbar-not-signed-in-button-position">Request a demo</button></a>
             </div>
           </ul>
         </div>
