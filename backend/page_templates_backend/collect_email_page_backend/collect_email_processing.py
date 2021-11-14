@@ -94,6 +94,7 @@ def collect_email_processing_function():
   output_message = insert_user_collected_email_function(postgres_connection, postgres_cursor, collect_email_uuid, collect_email_timestamp, user_form_input_email, user_form_input_first_name, user_form_input_last_name, user_form_input_job_title)
   # ------------------------ Insert into DB END ------------------------
 
+  """
   # ------------------------ Email Self About New Account START ------------------------
   personal_email = os.environ.get('PERSONAL_EMAIL')
   if user_form_input_email != personal_email:
@@ -114,6 +115,7 @@ def collect_email_processing_function():
     slack_db_uuid = 'sent_to_personal_email'
     output_message = insert_triviafy_emails_sent_table_function(postgres_connection, postgres_cursor, uuid_email_sent, email_sent_timestamp, slack_db_uuid, email_sent_search_category, uuid_quiz, output_message_content_str_for_db)
   # ------------------------ Email Self About New Account END ------------------------
+  """
 
   # Close postgres db connection
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
