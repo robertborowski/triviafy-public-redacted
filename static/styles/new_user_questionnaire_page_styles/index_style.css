@@ -11,6 +11,10 @@
   padding: 50px;
   border-radius: 24px;
 }
+.survey-section-inner-user-name {
+  padding: 0 0 15px 0;
+  font-size: 16px;
+}
 form.survey-form {
   display: grid !important;
   opacity: 1 !important;

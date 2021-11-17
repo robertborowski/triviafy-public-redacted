@@ -77,6 +77,7 @@ def new_user_questionnaire_index_page_render_template_function():
     user_channel_name = user_nested_dict['slack_channel_name']
     # ------------------------ Page Company Info END ------------------------
 
+    user_full_name = user_nested_dict['user_full_name']
 
     
   except:
@@ -90,4 +91,5 @@ def new_user_questionnaire_index_page_render_template_function():
   return render_template('new_user_questionnaire_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
-                          user_channel_name_to_html = user_channel_name)
+                          user_channel_name_to_html = user_channel_name,
+                          user_full_name_to_html = user_full_name)

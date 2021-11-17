@@ -39,6 +39,10 @@
   <div class="survey-section">
     <div class="survey-section-inner default-box-shadow-grey-reg">
 
+      <div class="survey-section-inner-user-name">
+        <p>{{ user_full_name_to_html }}</p>
+      </div>
+
       <form action="{{ url_for('new_user_questionnaire_submit_processing.new_user_questionnaire_submit_processing_function') }}" method="post" class="survey-form" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
         
         <div class="form-input-section">
