@@ -38,7 +38,7 @@ def send_team_channel_message_quiz_open_function(quiz_end_day_of_week, quiz_end_
   url = user_slack_authed_incoming_webhook_url
   webhook = WebhookClient(url)
 
-  output_text = f":tada: Hi <!here>, your team's weekly Triviafy quiz is now OPEN!\n:hourglass_flowing_sand: Quiz closes on {quiz_end_day_of_week}, {quiz_end_time}.\n:white_check_mark: Login and submit your answers at: https://triviafy.com/"
+  output_text = f":tada: Hi <!here>, your team's weekly Triviafy quiz is now OPEN!\n:hourglass_flowing_sand: Quiz closes on {quiz_end_day_of_week}, {quiz_end_time}.\n:white_check_mark: Login/Create Account and submit your answers at: https://triviafy.com/"
 
   response = webhook.send(text=output_text)
   assert response.status_code == 200
