@@ -21,6 +21,7 @@ from backend.db.queries.insert_queries.insert_queries_triviafy_slack_messages_se
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 import os, time
 from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_one_user_incoming_webhook import select_one_user_incoming_webhook_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_channel_name import select_triviafy_user_login_information_table_channel_name_function
 
 # -------------------------------------------------------------- Main Function
 def job_daily_quiz_close_grade_winner_send_email_function():
@@ -163,11 +164,15 @@ def job_daily_quiz_close_grade_winner_send_email_function():
         check_if_slack_message_already_sent_to_company_user = select_triviafy_slack_messages_sent_table_search_user_uuid_category_function(postgres_connection, postgres_cursor, company_user_uuid, slack_message_sent_search_category, uuid_quiz)
 
         if check_if_slack_message_already_sent_to_company_user == None:
+          # ------------------------ Select Channel Name START ------------------------
+          quiz_channel_name_arr = select_triviafy_user_login_information_table_channel_name_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
+          quiz_channel_name = quiz_channel_name_arr[0]
+          # ------------------------ Select Channel Name END ------------------------
           if winner_user_full_name == 'No Winner':
             winner_user_slack_authed_id = 'No Winner'
           user_slack_authed_incoming_webhook_url = select_one_user_incoming_webhook_function(postgres_connection, postgres_cursor, quiz_slack_team_id, quiz_slack_channel_id)
           # result, output_message_content_str_for_db = send_team_channel_message_quiz_close_function(company_user_slack_access_token, quiz_slack_channel_id, winner_user_slack_authed_id)
-          output_message_content_str_for_db = send_team_channel_message_quiz_close_function(winner_user_slack_authed_id, user_slack_authed_incoming_webhook_url)
+          output_message_content_str_for_db = send_team_channel_message_quiz_close_function(winner_user_slack_authed_id, user_slack_authed_incoming_webhook_url, quiz_channel_name)
 
           # Insert this sent email into DB
           uuid_slack_message_sent = create_uuid_function('slack_sent_')
