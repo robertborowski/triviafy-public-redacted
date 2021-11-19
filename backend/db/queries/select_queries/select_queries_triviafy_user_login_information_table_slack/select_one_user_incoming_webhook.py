@@ -9,7 +9,7 @@ def select_one_user_incoming_webhook_function(postgres_connection, postgres_curs
   
   try:
     # ------------------------ Query START ------------------------
-    postgres_cursor.execute("SELECT user_slack_team_channel_incoming_webhook_url FROM triviafy_user_login_information_table_slack WHERE user_slack_workspace_team_id=%s AND user_slack_channel_id=%s", [quiz_slack_team_id, quiz_slack_channel_id])
+    postgres_cursor.execute("SELECT user_slack_team_channel_incoming_webhook_url FROM triviafy_user_login_information_table_slack WHERE user_slack_workspace_team_id=%s AND user_slack_channel_id=%s ORDER BY user_datetime_account_created ASC;", [quiz_slack_team_id, quiz_slack_channel_id])
     # ------------------------ Query END ------------------------
 
 
