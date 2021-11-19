@@ -40,10 +40,10 @@ class NavbarNotSignedInClass2 extends HTMLElement {
               <ul class="links-level-2 default-box-shadow-grey-reg">
                 <li><a href="${this.getAttribute("pdf_slack_setup_js")}"><i class="fas fa-tools font-awesome-icon"></i>Slack Setup</a></li>
                 <li><a href="${this.getAttribute("pdf_example_quiz_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz General</a></li>
-                <li><a href="${this.getAttribute("pdf_example_quiz_engineer_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Engineering</a></li>
-                <li><a href="${this.getAttribute("pdf_example_quiz_hr_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz HR</a></li>
-                <li><a href="${this.getAttribute("pdf_example_quiz_marketing_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Marketing</a></li>
-                <li><a href="${this.getAttribute("pdf_example_quiz_finance_js")}"><i class="fas fa-poll font-awesome-icon"></i>Example Quiz Finance</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_engineer_js")}"><i class="fas fa-database font-awesome-icon"></i>Example Quiz Engineering</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_hr_js")}"><i class="fas fa-user font-awesome-icon"></i>Example Quiz HR</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_marketing_js")}"><i class="fas fa-chart-pie font-awesome-icon"></i>Example Quiz Marketing</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_finance_js")}"><i class="fas fa-donate font-awesome-icon"></i>Example Quiz Finance</a></li>
               </ul>
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - END -->
             </li>
