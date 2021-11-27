@@ -16,10 +16,10 @@
                               link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
                               pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
                               pdf_example_quiz_js="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}",
-                              pdf_example_quiz_engineer_js="{{ url_for('download_engineering_example_quiz_pdf_redirect.download_engineering_example_quiz_pdf_redirect_function') }}",
-                              pdf_example_quiz_hr_js="{{ url_for('download_hr_example_quiz_pdf_redirect.download_hr_example_quiz_pdf_redirect_function') }}",
-                              pdf_example_quiz_marketing_js="{{ url_for('download_marketing_example_quiz_pdf_redirect.download_marketing_example_quiz_pdf_redirect_function') }}",
-                              pdf_example_quiz_finance_js="{{ url_for('download_finance_example_quiz_pdf_redirect.download_finance_example_quiz_pdf_redirect_function') }}",
+                              pdf_example_quiz_javascript_js="{{ url_for('download_javascript_example_quiz_pdf_redirect.download_javascript_example_quiz_pdf_redirect_function') }}",
+                              pdf_example_quiz_excel_js="{{ url_for('download_excel_example_quiz_pdf_redirect.download_excel_example_quiz_pdf_redirect_function') }}",
+                              pdf_example_quiz_sql_js="{{ url_for('download_sql_example_quiz_pdf_redirect.download_sql_example_quiz_pdf_redirect_function') }}",
+                              pdf_example_quiz_tableau_js="{{ url_for('download_tableau_example_quiz_pdf_redirect.download_tableau_example_quiz_pdf_redirect_function') }}",
                               link_demo_js="{{ url_for('demo_page_render_template.demo_page_render_template_function') }}",
                               link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
 </nav-not-signed-in-component-2>
@@ -31,7 +31,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Left Side START -->
   <div class="landing-page-intro-2-words-section">
     <p class="landing-page-intro-2-header">Weekly trivia quiz for your team.</p>
-    <p class="landing-page-2-subheader landing-page-intro-2-sub-header">Internal team building/learning and development tool, guaranteed to increase employee engagement.</p>
+    <p class="landing-page-2-subheader landing-page-intro-2-sub-header">Automated internal learning and development tool. Team building activity guaranteed to increase employee engagement.</p>
 
     <div class="landing-page-intro-2-next-steps-section">
       <div class="landing-page-intro-2-slack-button-section">
@@ -50,7 +50,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Left Side END -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Right Side START -->
   <div class="landing-page-intro-2-video-section">
-    <iframe src="https://player.vimeo.com/video/618792251?h=7cbce57383" class="triviafy_promo_video_2 default-box-shadow-grey-reg" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <img src="/static/images/landing_page_2/dashboard_view.png" alt="Example Dashboard View" class="triviafy_promo_video_2 default-box-shadow-grey-reg">
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Intro Right Side END -->
 </div>
@@ -60,13 +60,13 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Gift Card Other Companies START -->
 <div class="landing-page-gift-card-other-companies-section">
   <div class="landing-page-2-subheader landing-page-gift-card-other-companies-title">
-    <p>1st place team members win free gift card prizes to popular companies.</p>
+    <p>Top companies utilize internal learning and development tools like Triviafy every day.</p>
   </div>
   <div class="landing-page-gift-card-other-companies-logos">
-    <img src="/static/images/logo_other_companies/Logo_Adidas_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Shopify_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
     <img src="/static/images/logo_other_companies/Logo_Amazon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
-    <img src="/static/images/logo_other_companies/Logo_LuLuLemon_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
-    <img src="/static/images/logo_other_companies/Logo_Nike_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_Tesla_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
+    <img src="/static/images/logo_other_companies/Logo_nvidia_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
     <img src="/static/images/logo_other_companies/Logo_Apple_Dark.png" alt="Other company logo dark" class="gift-card-other-company-img">
   </div>
 </div>
@@ -109,10 +109,10 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
 <div class="landing-page-2-hiw-2-section">
   <div class="landing-page-2-hiw-2-left-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Quiz_Question_2.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+    <img src="/static/images/landing_page_2/Landing_Page_3_GeneralLD.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
   </div>
   <div class="landing-page-2-hiw-2-right-section">
-    <p class="landing-page-2-header">Answer quiz questions for any category.</p>
+    <p class="landing-page-2-header">Answer quiz questions for your team's selected categories.</p>
     <p class="landing-page-2-subheader landing-page-2-hiw-p">Exact spelling for answers does not matter but try your best. Completing a quiz can take 1-5 minutes.</p>
     <div class="landing-page-2-hiw-button-position-section">
       <a href="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Example Quiz</button></a>
@@ -125,39 +125,23 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 3 - START -->
 <div class="landing-page-2-hiw-3-section">
   <div class="landing-page-2-hiw-3-left-section">
-    <p class="landing-page-2-header">Collect end of week rewards.</p>
-    <p class="landing-page-2-subheader landing-page-2-hiw-p">Earn ‘Bragging-Rights’ cards that showcase your trivia skills. Consistent Triviafy quiz winners earn free gift cards to popular companies.</p>
-    <div class="landing-page-hiw-a-link-position-section">
-      <a href="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}" class="landing-page-2-subheader-a">Learn more. <i class="fas fa-angle-right landing-page-2-icon-move"></i></a>
-    </div>
-  </div>
-  <div class="landing-page-2-hiw-3-right-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Prizes_2.png" alt="Collect end-of-week rewards image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
-  </div>
-</div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 3 - END -->
-
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 4 - START -->
-<div class="landing-page-2-hiw-4-section">
-  <div class="landing-page-2-hiw-4-left-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Customize_2.png" alt="Customize your team's weekly quizzes image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
-  </div>
-  <div class="landing-page-2-hiw-4-right-section">
     <p class="landing-page-2-header">Customize your team's weekly quizzes.</p>
     <p class="landing-page-2-subheader landing-page-2-hiw-p">Customizable settings: question department/categories, number of questions per quiz, question difficulty, quiz timeframe, create custom Triviafy questions.</p>
     <div class="landing-page-hiw-a-link-position-section">
       <a href="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}" class="landing-page-2-subheader-a">Learn more. <i class="fas fa-angle-right landing-page-2-icon-move"></i></a>
     </div>
   </div>
+  <div class="landing-page-2-hiw-3-right-section">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Customize_3.png" alt="Collect end-of-week rewards image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
 </div>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 4 - END -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 3 - END -->
 
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Department Specific START -->
 <div class="landing-page-department-specific">
   <div class="landing-page-2-header landing-page-department-specific-header">
-    <p>Department Specific</p>
+    <p>Automated Learning & Development</p>
   </div>
   <div class="landing-page-2-subheader landing-page-department-specific-subheader">
     <p>Choose quiz categories specific to your department.</p>
@@ -170,14 +154,14 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
 <div class="landing-page-2-hiw-1-section">
   <div class="landing-page-2-hiw-1-left-section">
-    <p class="landing-page-2-header">Engineering Department</p>
-    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your engineering and technology department.</p>
+    <p class="landing-page-2-header">JavaScript Learning and Development Trivia</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your engineering and technology departments.</p>
     <div class="landing-page-2-hiw-button-position-section">
-      <a href="{{ url_for('download_engineering_example_quiz_pdf_redirect.download_engineering_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Department Example Quiz</button></a>
+      <a href="{{ url_for('download_javascript_example_quiz_pdf_redirect.download_javascript_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">JavaScript Example Quiz</button></a>
     </div>
   </div>
   <div class="landing-page-2-hiw-1-right-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Department_Specific_EngineeringTech.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+    <img src="/static/images/landing_page_2/Landing_Page_3_JavaScript.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
@@ -186,13 +170,13 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
 <div class="landing-page-2-hiw-2-section">
   <div class="landing-page-2-hiw-2-left-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Department_Specific_HR_TalAcq.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+    <img src="/static/images/landing_page_2/Landing_Page_3_Excel.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
   </div>
   <div class="landing-page-2-hiw-2-right-section">
-    <p class="landing-page-2-header">Human Resources Department</p>
-    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your human resources and talent acquisition department.</p>
+    <p class="landing-page-2-header">Excel Learning and Development Trivia</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your Microsoft Office experts.</p>
     <div class="landing-page-2-hiw-button-position-section">
-      <a href="{{ url_for('download_hr_example_quiz_pdf_redirect.download_hr_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Department Example Quiz</button></a>
+      <a href="{{ url_for('download_excel_example_quiz_pdf_redirect.download_excel_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Excel Example Quiz</button></a>
     </div>
   </div>
 </div>
@@ -202,14 +186,14 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
 <div class="landing-page-2-hiw-1-section">
   <div class="landing-page-2-hiw-1-left-section">
-    <p class="landing-page-2-header">Marketing Sales Department</p>
-    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your marketing and sales department.</p>
+    <p class="landing-page-2-header">SQL Learning and Development Trivia</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your data warehouse teams.</p>
     <div class="landing-page-2-hiw-button-position-section">
-      <a href="{{ url_for('download_marketing_example_quiz_pdf_redirect.download_marketing_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Department Example Quiz</button></a>
+      <a href="{{ url_for('download_sql_example_quiz_pdf_redirect.download_sql_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">SQL Example Quiz</button></a>
     </div>
   </div>
   <div class="landing-page-2-hiw-1-right-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Department_Specific_MarketingSales.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+    <img src="/static/images/landing_page_2/Landing_Page_3_SQL.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
@@ -218,13 +202,13 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
 <div class="landing-page-2-hiw-2-section">
   <div class="landing-page-2-hiw-2-left-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Department_Specific_FinanceAccounting.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+    <img src="/static/images/landing_page_2/Landing_Page_3_Tableau.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
   </div>
   <div class="landing-page-2-hiw-2-right-section">
-    <p class="landing-page-2-header">Finance Accounting Department</p>
-    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your finance and accounting department.</p>
+    <p class="landing-page-2-header">Tableau Learning and Development Trivia</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Weekly trivia for your Tableau dashboard creators.</p>
     <div class="landing-page-2-hiw-button-position-section">
-      <a href="{{ url_for('download_finance_example_quiz_pdf_redirect.download_finance_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Department Example Quiz</button></a>
+      <a href="{{ url_for('download_tableau_example_quiz_pdf_redirect.download_tableau_example_quiz_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Tableau Example Quiz</button></a>
     </div>
   </div>
 </div>
@@ -247,7 +231,7 @@
   </div>
   
   <div class="landing-page-2-demo-right-sub-section">
-    <img src="/static/images/landing_page_2/Landing_Page_2_Request_Demo.png" alt="Request Demo image" class="landing-page-2-demo-img">
+    <img src="/static/images/landing_page_2/Landing_Page_2_Request_Demo_3.png" alt="Request Demo image" class="landing-page-2-demo-img">
   </div>
 </div>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Request Demo - END -->
@@ -261,10 +245,10 @@
                                 link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
                                 link_terms_conditions_js="{{ url_for('terms_of_service_index_page_render_template.terms_of_service_index_page_render_template_function') }}",
                                 pdf_example_quiz_js="{{ url_for('download_example_quiz_pdf_redirect.download_example_quiz_pdf_redirect_function') }}",
-                                pdf_example_quiz_engineering_js="{{ url_for('download_engineering_example_quiz_pdf_redirect.download_engineering_example_quiz_pdf_redirect_function') }}",
-                                pdf_example_quiz_hr_js="{{ url_for('download_hr_example_quiz_pdf_redirect.download_hr_example_quiz_pdf_redirect_function') }}",
-                                pdf_example_quiz_marketing_js="{{ url_for('download_marketing_example_quiz_pdf_redirect.download_marketing_example_quiz_pdf_redirect_function') }}",
-                                pdf_example_quiz_finance_js="{{ url_for('download_finance_example_quiz_pdf_redirect.download_finance_example_quiz_pdf_redirect_function') }}",
+                                pdf_example_quiz_javascript_js="{{ url_for('download_javascript_example_quiz_pdf_redirect.download_javascript_example_quiz_pdf_redirect_function') }}",
+                                pdf_example_quiz_excel_js="{{ url_for('download_excel_example_quiz_pdf_redirect.download_excel_example_quiz_pdf_redirect_function') }}",
+                                pdf_example_quiz_sql_js="{{ url_for('download_sql_example_quiz_pdf_redirect.download_sql_example_quiz_pdf_redirect_function') }}",
+                                pdf_example_quiz_tableau_js="{{ url_for('download_tableau_example_quiz_pdf_redirect.download_tableau_example_quiz_pdf_redirect_function') }}",
                                 pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
                                 link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
 </footer-not-signed-in-component-2>

@@ -17,11 +17,11 @@ class FooterNotSignedInClass2 extends HTMLElement {
           <p class="footer-title footer-title-position">Product</p>
           <ul class="footer-not-signed-in-2-ul">
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_slack_setup_js")}" class="footer-a">Slack Setup</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_js")}" class="footer-a">Example Quiz General</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_engineering_js")}" class="footer-a">Example Quiz Engineering</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_hr_js")}" class="footer-a">Example Quiz Human Resources</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_marketing_js")}" class="footer-a">Example Quiz Marketing</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_finance_js")}" class="footer-a">Example Quiz Finance</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_js")}" class="footer-a">General Example Quiz</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_javascript_js")}" class="footer-a">JavaScript Example Quiz</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_excel_js")}" class="footer-a">Excel Example Quiz Human</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_sql_js")}" class="footer-a">SQL Example Quiz</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_tableau_js")}" class="footer-a">Tableau Example Quiz</a></li>
           </ul>
         </div>
 

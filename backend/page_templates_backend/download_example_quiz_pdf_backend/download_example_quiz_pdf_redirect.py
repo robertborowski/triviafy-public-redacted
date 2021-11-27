@@ -18,4 +18,4 @@ def before_request():
 def download_example_quiz_pdf_redirect_function():
   localhost_print_function('=========================================== /download/example/quiz/pdf Page START ===========================================')
   localhost_print_function('=========================================== /download/example/quiz/pdf Page END ===========================================')
-  return send_file("static/images/pdfs/PDFTriviafyExampleQuizFMixedCategories.pdf", as_attachment=True)
+  return send_file("static/images/pdfs/PDFTriviafyExampleQuizGeneralLD.pdf", as_attachment=True)
