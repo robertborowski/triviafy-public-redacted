@@ -10,6 +10,7 @@ To-Do's
 -Slack            Not Signed in - Work on the Slack App store presentation of app. --> SUBMITTED for Review
 - - - - - - - - - - - - - -
 ******-Database         Signed in -     Why is there a temp account edit redis variable created and not deleted in redis when user edits account.
+******-Categories       Signed in -     When user creates account, have them select what categories they want for their first quiz. Recommended is all, if they do not see the category they like then they can add it in custom.
 -email            Signed in -     Fix the name in the email winner. It currently says firstName_lastName it should be firstName lastName
 -UX:              Signed in -     Quiz open and close messages for email, make sure you specify which channel and team name they quiz is open/closed for. Team/Channel should be in the subject line (just the first 10 chars)
 -Subscription:    Signed in -     Add a note to the bottom of subscription page saying "Once the monthly subscription is paid you will have access to the dashboard"
