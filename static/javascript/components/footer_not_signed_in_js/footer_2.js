@@ -19,7 +19,7 @@ class FooterNotSignedInClass2 extends HTMLElement {
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_slack_setup_js")}" class="footer-a">Slack Setup</a></li>
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_js")}" class="footer-a">General Example Quiz</a></li>
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_javascript_js")}" class="footer-a">JavaScript Example Quiz</a></li>
-            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_excel_js")}" class="footer-a">Excel Example Quiz Human</a></li>
+            <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_excel_js")}" class="footer-a">Excel Example Quiz</a></li>
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_sql_js")}" class="footer-a">SQL Example Quiz</a></li>
             <li class="footer-sub-title-item footer-sub-title-item-position"><a href="${this.getAttribute("pdf_example_quiz_tableau_js")}" class="footer-a">Tableau Example Quiz</a></li>
           </ul>
