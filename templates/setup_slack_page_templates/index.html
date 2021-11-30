@@ -13,7 +13,7 @@
                               link_about_js="{{ url_for('about_index_page_render_template.about_index_page_render_template_function') }}",
                               link_blog_js="{{ url_for('blog_index_page_render_template.blog_index_page_render_template_function') }}",
                               link_privacy_js="{{ url_for('privacy_policy_index_page_render_template.privacy_policy_index_page_render_template_function') }}",
-                              pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
+                              pdf_slack_setup_js="{{ url_for('setup_slack_index_page_render_template.setup_slack_index_page_render_template_function') }}",
                               pdf_example_quiz_js="{{ url_for('example_quiz_team_analytics_render_template.example_quiz_team_analytics_render_template_function') }}",
                               pdf_example_quiz_javascript_js="{{ url_for('example_quiz_javascript_render_template.example_quiz_javascript_render_template_function') }}",
                               pdf_example_quiz_excel_js="{{ url_for('example_quiz_excel_render_template.example_quiz_excel_render_template_function') }}",
@@ -32,35 +32,142 @@
     <p class="default-not-signed-in-page-title">Slack Setup Guide</p>
     <p class="default-not-signed-in-page-subtitle"><em>Triviafy</em> your workspace.</p>
   </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Page Intro - END -->
-
-  
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content - About Page - Start -->
-  <div class="about-page-content-section">
-    <p class="default-not-signed-in-page-p-font default-not-signed-in-page-content-sub-section"><span class="default-not-signed-in-highlight-span">Triviafy</span> is a weekly trivia quiz sent to your team. Triviafy quizzes are guaranteed to spark new and interesting conversations among team members.</p>
-    
-    <p class="default-not-signed-in-page-p-font default-not-signed-in-page-content-sub-section">Triviafy has helped team members discover each others passions, interests, hobbies, talents, and hidden knowledge. Triviafy is a tool that will <span class="default-not-signed-in-highlight-span">standardize and automate weekly trivia quizzes at the company-team level</span>.</p>
-
-    <p class="default-not-signed-in-page-p-font default-not-signed-in-page-content-sub-section"><span class="default-not-signed-in-highlight-span">Benefits of weekly Triviafy quizzes:</span> build team camaraderie, test and enhance your memory, increase brain performance, reduce stress levels, increase employee satisfaction at the company, improve company PR, earn bragging-rights, win free gift card prizes.</p>
-
-    <p class="default-not-signed-in-page-p-font default-not-signed-in-page-content-sub-section">Triviafy writes well thought out questions across a broad range of categories, handles automated grading, and distributes rewards so that you do not have to. <span class="default-not-signed-in-highlight-span">Triviafy saves you time, improves company culture, and strengthens your team</span>.</p>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content - About Page - END -->
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Contact Bottom Page - Start -->
-  <div class="default-not-signed-in-bottom-contact-section">
-    <p class="default-not-signed-in-page-contact-font">Contact: Robert@Triviafy.com</p>
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Contact Bottom Page - End -->
-
-
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Img Bottom Page - Start -->
-  <div class="default-not-signed-in-bottom-img-section">
-    <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo active." class="default-not-signed-in-bottom-img">
-  </div>
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Img Bottom Page - End -->
 </div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Page Intro - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
+<div class="landing-page-2-hiw-1-section">
+  <div class="landing-page-2-hiw-1-left-section">
+    <p class="landing-page-2-header">1. Slack, click “Add channels”</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Note: If a team mate has already invited you to a custom Slack channel then skip to step 5.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+  <div class="landing-page-2-hiw-1-right-section">
+    <img src="/static/images/setup_slack_images/1 Create Channel.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
+<div class="landing-page-2-hiw-2-section">
+  <div class="landing-page-2-hiw-2-left-section">
+    <img src="/static/images/setup_slack_images/2 Create a Channel.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+  <div class="landing-page-2-hiw-2-right-section">
+    <p class="landing-page-2-header">2. Click “Create a channel”</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Note: If a team mate has already invited you to a custom Slack channel then skip to step 5.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
+<div class="landing-page-2-hiw-1-section">
+  <div class="landing-page-2-hiw-1-left-section">
+    <p class="landing-page-2-header">3. Create channel name. Recommended private.</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Note: If a team mate has already invited you to a custom Slack channel then skip to step 5.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+  <div class="landing-page-2-hiw-1-right-section">
+    <img src="/static/images/setup_slack_images/3 create channel name.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
+<div class="landing-page-2-hiw-2-section">
+  <div class="landing-page-2-hiw-2-left-section">
+    <img src="/static/images/setup_slack_images/4 Invite Team Members.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+  <div class="landing-page-2-hiw-2-right-section">
+    <p class="landing-page-2-header">4. Invite team members to channel</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Note: If a team mate has already invited you to a custom Slack channel then skip to step 5.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
+<div class="landing-page-2-hiw-1-section">
+  <div class="landing-page-2-hiw-1-left-section">
+    <p class="landing-page-2-header">*5. Each team member:</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Go to Triviafy > “Create Account” > “Add to Slack”.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+  <div class="landing-page-2-hiw-1-right-section">
+    <img src="/static/images/setup_slack_images/5 Triviafy Page.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - START -->
+<div class="landing-page-2-hiw-2-section">
+  <div class="landing-page-2-hiw-2-left-section">
+    <img src="/static/images/setup_slack_images/6 OAuth.png" alt="Answer quiz questions image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+  <div class="landing-page-2-hiw-2-right-section">
+    <p class="landing-page-2-header">6. Slack OAuth, click “Search for a channel...”</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">Triviafy is a 100% Slack approved app. <a href="https://slack.com/help/articles/115003461503-Understand-app-permissions-" class="landing-page-2-subheader-a" target="_blank">Learn more</a> about Slack authorizations.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 2 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - START -->
+<div class="landing-page-2-hiw-1-section">
+  <div class="landing-page-2-hiw-1-left-section">
+    <p class="landing-page-2-header">7. Select Slack channel you created or were invited to.</p>
+    <p class="landing-page-2-subheader landing-page-2-hiw-p">All set! Good luck on your weekly L&D Team Building Quiz.</p>
+    <div class="landing-page-2-hiw-button-position-section">
+      <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}"><button class="default-button-format default-button-format-primary-color landing-page-2-hiw-button-position">Slack Setup Guide PDF</button></a>
+    </div>
+  </div>
+  <div class="landing-page-2-hiw-1-right-section">
+    <img src="/static/images/setup_slack_images/7 Select Channel.png" alt="Receive weekly quiz open notification image." class="landing-page-2-hiw-image default-box-shadow-grey-reg">
+  </div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - How It Works - 1 - END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Download PDF Link START -->
+<div class="example-quiz-not-signed-in-download-pdf-section">
+  <a href="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}" class="example-quiz-not-signed-in-a">Share This Slack Setup Guide PDF With Team</a>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Download PDF Link END -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Contact Bottom Page - Start -->
+<div class="default-not-signed-in-bottom-contact-section">
+  <p class="default-not-signed-in-page-contact-font">Contact: Robert@Triviafy.com</p>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Contact Bottom Page - End -->
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Img Bottom Page - Start -->
+<div class="default-not-signed-in-bottom-img-section">
+  <img src="/static/images/logo/Logo_active/Logo_cheering_purple.png" alt="Logo active." class="default-not-signed-in-bottom-img">
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Default - Img Bottom Page - End -->
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page END -->
 
 
@@ -76,7 +183,7 @@
                                 pdf_example_quiz_excel_js="{{ url_for('example_quiz_excel_render_template.example_quiz_excel_render_template_function') }}",
                                 pdf_example_quiz_sql_js="{{ url_for('example_quiz_sql_render_template.example_quiz_sql_render_template_function') }}",
                                 pdf_example_quiz_tableau_js="{{ url_for('example_quiz_tableau_render_template.example_quiz_tableau_render_template_function') }}",
-                                pdf_slack_setup_js="{{ url_for('download_triviafy_setup_slack_pdf_redirect.download_triviafy_setup_slack_pdf_redirect_function') }}",
+                                pdf_slack_setup_js="{{ url_for('setup_slack_index_page_render_template.setup_slack_index_page_render_template_function') }}",
                                 link_faq_js="{{ url_for('faq_index_page_render_template.faq_index_page_render_template_function') }}">
 </footer-not-signed-in-component-2>
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Footer END -->
