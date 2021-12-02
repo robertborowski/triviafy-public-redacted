@@ -10,11 +10,11 @@ from backend.utils.sanitize_page_outputs.sanitize_page_output_company_name impor
 from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired_days_left import check_if_free_trial_period_is_expired_days_left_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
-from backend.db.queries.select_queries.select_queries_triviafy_categories_selected_table.select_current_categories_team_channel_combo import select_current_categories_team_channel_combo_function
+from backend.db.queries.select_queries.select_queries_triviafy_all_questions_table.select_triviafy_all_questions_table_all_unique_categories import select_triviafy_all_questions_table_all_unique_categories_function
 
 # -------------------------------------------------------------- App Setup
-quiz_categories_index_page_render_template = Blueprint("quiz_categories_index_page_render_template", __name__, static_folder="static", template_folder="templates")
-@quiz_categories_index_page_render_template.before_request
+edit_quiz_categories_index_page_render_template = Blueprint("edit_quiz_categories_index_page_render_template", __name__, static_folder="static", template_folder="templates")
+@edit_quiz_categories_index_page_render_template.before_request
 def before_request():
   www_start = check_if_url_www_function(request.url)
   if www_start:
@@ -22,9 +22,9 @@ def before_request():
     return redirect(new_url, code=302)
 
 # -------------------------------------------------------------- App
-@quiz_categories_index_page_render_template.route("/categories", methods=['GET','POST'])
-def quiz_categories_index_page_render_template_function():
-  localhost_print_function('=========================================== /categories Page START ===========================================')
+@edit_quiz_categories_index_page_render_template.route("/categories/edit", methods=['GET','POST'])
+def edit_quiz_categories_index_page_render_template_function():
+  localhost_print_function('=========================================== /categories/edit Page START ===========================================')
   
   # ------------------------ CSS support START ------------------------
   # Need to create a css unique key so that cache busting can be done
@@ -79,6 +79,7 @@ def quiz_categories_index_page_render_template_function():
     # ------------------------ Page Company Info END ------------------------
     
     # Get additional variables
+    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
 
@@ -88,10 +89,43 @@ def quiz_categories_index_page_render_template_function():
     # ------------------------ Connect to Postgres DB END ------------------------
 
     
-    # ------------------------ Select/Pull All Current Categories START ------------------------
-    company_current_categories_str = select_current_categories_team_channel_combo_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
-    company_current_categories_arr = company_current_categories_str.split(',')
-    # ------------------------ Select/Pull All Current Categories END ------------------------
+    # ------------------------ Select/Pull All Categories START ------------------------
+    unique_categories_arr_pulled_from_db = select_triviafy_all_questions_table_all_unique_categories_function(postgres_connection, postgres_cursor)
+    # ------------------------ Select/Pull All Categories END ------------------------
+
+
+    # ------------------------ Create All Category Set START ------------------------
+    # Start with empty variable for set
+    unique_categories_set = {''}
+    # ------------------------ Create All Category Set END ------------------------
+    
+
+    # ------------------------ For Loop All DB Category Words START ------------------------
+    for i_unique_categories in unique_categories_arr_pulled_from_db:
+      i_unique_categories_zero = i_unique_categories[0]
+      i_unique_categories_zero_split_arr = i_unique_categories_zero.split(',')
+      if len(i_unique_categories_zero_split_arr) > 1:
+        for word in i_unique_categories_zero_split_arr:
+          word = word.strip()
+          unique_categories_set.add(word)
+      else:
+        word = i_unique_categories_zero_split_arr[0]
+        unique_categories_set.add(word)
+    # ------------------------ For Loop All DB Category Words END ------------------------
+
+
+    # ------------------------ Set Manipulation START ------------------------
+    # Sort the set
+    unique_categories_set = sorted(unique_categories_set)
+    # Remove the empty variable from set
+    unique_categories_set.remove('')
+    # ------------------------ Set Manipulation END ------------------------
+
+
+    print('- - - - - 1 - - - - - -')
+    print('unique_categories_set')
+    print(unique_categories_set)
+    print('- - - - - 1 - - - - - -')
 
 
     # ------------------------ Close Postgres DB START ------------------------
@@ -100,15 +134,15 @@ def quiz_categories_index_page_render_template_function():
     
   except:
     localhost_print_function('page load except error hit')
-    localhost_print_function('=========================================== /categories Page END ===========================================')
+    localhost_print_function('=========================================== /categories/edit Page END ===========================================')
     return redirect('/logout', code=302)
     # return redirect('/', code=302)
 
   
-  localhost_print_function('=========================================== /categories Page END ===========================================')
-  return render_template('quiz_settings_page_templates/quiz_categories_page_templates/index.html',
+  localhost_print_function('=========================================== /categories/edit Page END ===========================================')
+  return render_template('quiz_settings_page_templates/quiz_categories_page_templates/edit_quiz_categories_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          free_trial_ends_info_to_html = free_trial_ends_info,
-                          company_current_categories_arr_to_html = company_current_categories_arr)
+                          user_payment_admin_status_html = user_payment_admin_status,
+                          free_trial_ends_info_to_html = free_trial_ends_info)
