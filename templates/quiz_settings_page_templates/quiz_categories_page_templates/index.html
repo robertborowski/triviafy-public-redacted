@@ -35,7 +35,32 @@
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
 
-  {{ company_current_categories_arr_to_html }}
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content Start -->
+  <div class="default-not-signed-in-page-width">
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer Start -->
+    <div class="category-explain-section">
+      <p class="default-not-signed-in-page-p-font">Below are the question categories that will be included when creating your team’s next quiz.</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link Start -->
+    <div class="default-signed-in-hyperlink-redirect-section">
+      <a href="{{ url_for('edit_quiz_categories_index_page_render_template.edit_quiz_categories_index_page_render_template_function') }}" class="default-signed-in-hyperlink-redirect-section-a"><p class="default-signed-in-hyperlink-redirect-section-p">Edit Quiz Categories.</p></a>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
+    {% for i_category in company_current_categories_arr_to_html %}
+    <div class="category-section">
+      <p class="default-not-signed-in-page-p-font">{{ i_category }}</p>
+    </div>
+    {% endfor %}
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content End -->
 
 </main>
 

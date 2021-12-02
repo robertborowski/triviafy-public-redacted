@@ -1,7 +1,7 @@
 {% extends "AA_SUPPORTING_PAGE_TEMPLATES/index.html" %}
 
 {% block title %}
-<title>Quiz Categories / Triviafy</title>
+<title>Edit Quiz Categories / Triviafy</title>
 {% endblock %}
 
 
@@ -34,6 +34,26 @@
     </div>
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
+
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content Start -->
+  <div class="default-not-signed-in-page-width">
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer Start -->
+    <div class="category-explain-section">
+      <p class="default-not-signed-in-page-p-font">Select the below question categories that you want included when creating your team’s next quiz.</p>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
+    {% for i_category in unique_categories_set_to_html %}
+    <div class="category-section">
+      <p class="default-not-signed-in-page-p-font">{{ i_category }}</p>
+    </div>
+    {% endfor %}
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content End -->
 
 </main>
 

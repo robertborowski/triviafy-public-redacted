@@ -79,7 +79,6 @@ def edit_quiz_categories_index_page_render_template_function():
     # ------------------------ Page Company Info END ------------------------
     
     # Get additional variables
-    user_payment_admin_status = user_nested_dict['user_is_payment_admin']
     slack_workspace_team_id = user_nested_dict['slack_team_id']
     slack_channel_id = user_nested_dict['slack_channel_id']
 
@@ -122,12 +121,6 @@ def edit_quiz_categories_index_page_render_template_function():
     # ------------------------ Set Manipulation END ------------------------
 
 
-    print('- - - - - 1 - - - - - -')
-    print('unique_categories_set')
-    print(unique_categories_set)
-    print('- - - - - 1 - - - - - -')
-
-
     # ------------------------ Close Postgres DB START ------------------------
     postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
     # ------------------------ Close Postgres DB END ------------------------
@@ -144,5 +137,5 @@ def edit_quiz_categories_index_page_render_template_function():
                           css_cache_busting = cache_busting_output,
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
-                          user_payment_admin_status_html = user_payment_admin_status,
-                          free_trial_ends_info_to_html = free_trial_ends_info)
+                          free_trial_ends_info_to_html = free_trial_ends_info,
+                          unique_categories_set_to_html = unique_categories_set)
