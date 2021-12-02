@@ -17,6 +17,7 @@ from backend.utils.localhost_print_utils.localhost_print import localhost_print_
 import os
 from backend.utils.send_emails.send_email_template import send_email_template_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_emails_sent_table.insert_triviafy_emails_sent_table import insert_triviafy_emails_sent_table_function
+from backend.page_templates_backend.slack_confirm_oauth_redirect_dashboard_backend.check_insert_default_categories_team_channel_combo import check_insert_default_categories_team_channel_combo_function
 
 # -------------------------------------------------------------- Main Function
 def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_obj):
@@ -113,6 +114,10 @@ def update_db_new_user_store_obj_redis_cookie_function(client, authed_response_o
     # ------------------------ Free Trial Period Tracker START ------------------------
     output_message = update_insert_free_trial_info_team_function(postgres_connection, postgres_cursor, slack_authed_user_id, slack_authed_team_id, slack_authed_channel_id, slack_db_uuid)
     # ------------------------ Free Trial Period Tracker END ------------------------
+
+    # ------------------------ Set Default Categories START ------------------------
+    output_message = check_insert_default_categories_team_channel_combo_function(postgres_connection, postgres_cursor, slack_authed_team_id, slack_authed_channel_id)
+    # ------------------------ Set Default Categories END ------------------------
 
 
     # ------------------------ Insert New User to DB START ------------------------
