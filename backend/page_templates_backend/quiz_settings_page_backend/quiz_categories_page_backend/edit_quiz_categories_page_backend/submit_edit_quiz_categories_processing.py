@@ -113,6 +113,7 @@ def submit_edit_quiz_categories_processing_function():
     
     # ------------------------ Logic Selected Pre DB Update START ------------------------
     categories_to_push_to_db_str = ''
+    caps_exceptions_set = {'sql'}
     
     # If other categories were checked
     if user_form_categories_selected_select_all_checkbox == None and user_form_categories_selected_deselect_all_checkbox == None:
@@ -120,8 +121,12 @@ def submit_edit_quiz_categories_processing_function():
         categories_to_push_to_db_arr = []
         for i_category in user_form_categories_selected_arr:
           i_category_with_space = i_category.replace('_',' ')
-          i_category_with_title = i_category_with_space.title()
-          categories_to_push_to_db_arr.append(i_category_with_title)
+          if i_category_with_space in caps_exceptions_set:
+            i_category_with_caps = i_category_with_space.upper()
+            categories_to_push_to_db_arr.append(i_category_with_caps)
+          else:
+            i_category_with_title = i_category_with_space.title()
+            categories_to_push_to_db_arr.append(i_category_with_title)
           categories_to_push_to_db_arr = sorted(categories_to_push_to_db_arr)
           categories_to_push_to_db_str = ",".join(categories_to_push_to_db_arr)
 

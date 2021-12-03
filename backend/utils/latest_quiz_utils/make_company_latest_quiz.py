@@ -9,9 +9,12 @@ from backend.db.queries.select_queries.select_queries_triviafy_quiz_master_table
 from backend.db.connection.postgres_connect_to_database import postgres_connect_to_database_function
 from backend.db.connection.postgres_close_connection_to_database import postgres_close_connection_to_database_function
 from backend.db.queries.select_queries.select_queries_triviafy_all_questions_table.select_x_questions_for_company_quiz_never_asked_before import select_x_questions_for_company_quiz_never_asked_before_function
+from backend.db.queries.select_queries.select_queries_triviafy_all_questions_table.select_x_questions_for_company_quiz_never_asked_before_category_specific import select_x_questions_for_company_quiz_never_asked_before_category_specific_function
+from backend.db.queries.select_queries.select_queries_triviafy_all_questions_table.select_x_questions_for_company_quiz_never_asked_before_not_category_specific import select_x_questions_for_company_quiz_never_asked_before_not_category_specific_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_quiz_questions_asked_to_company_slack_table.insert_triviafy_quiz_questions_asked_to_company_slack_table import insert_triviafy_quiz_questions_asked_to_company_slack_table_function
 from backend.db.queries.insert_queries.insert_queries_triviafy_quiz_master_table.insert_triviafy_quiz_master_table import insert_triviafy_quiz_master_table_function
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
+from backend.db.queries.select_queries.select_queries_triviafy_categories_selected_table.select_current_categories_team_channel_combo import select_current_categories_team_channel_combo_function
 
 # -------------------------------------------------------------- Main Function
 def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_arr):
@@ -41,21 +44,51 @@ def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_ar
   # ------------------------ Set Variables Based On Data So Far END ------------------------
 
 
-  # ------------------------ Get The Company Latest Quiz Number Sent Out START ------------------------
-  # Connect to Postgres database
+  # ------------------------ Connect to Postgres DB START ------------------------
   postgres_connection, postgres_cursor = postgres_connect_to_database_function()
+  # ------------------------ Connect to Postgres DB END ------------------------
 
+
+  # ------------------------ Get The Company Latest Quiz Number Sent Out START ------------------------
   # Get latest quiz count
   company_quiz_count_arr = select_quiz_count_for_company_slack_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
   latest_company_quiz_count = company_quiz_count_arr[0] + 1
   # ------------------------ Get The Company Latest Quiz Number Sent Out END ------------------------
 
 
-  # ------------------------ Get Current Quiz Question Objects START ------------------------
-  # For loop: for x in number of questions select a question from questions master that is not in the above arr or in the pending array
-  # Tell Daniel about the time and space this query saved
-  question_objects_for_current_quiz_arr_of_dicts = select_x_questions_for_company_quiz_never_asked_before_function(postgres_connection, postgres_cursor, quiz_number_of_questions)
-  # ------------------------ Get Current Quiz Question Objects END ------------------------
+  # ------------------------ Get Selected Quiz Categories SQL Str START ------------------------
+  company_current_categories_str = select_current_categories_team_channel_combo_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+  company_current_categories_arr = company_current_categories_str.split(',')
+  sql_like_statement_arr = []
+  for category in company_current_categories_arr:
+    indv_like_statement = "question_categories_list LIKE '%%" + category + "%%'"
+    sql_like_statement_arr.append(indv_like_statement)
+  sql_like_statement_str = ' OR '.join(sql_like_statement_arr)
+  # ------------------------ Get Selected Quiz Categories SQL Str END ------------------------
+
+
+  # ------------------------ Pull From SQL Part 1 - Category Specific START ------------------------
+  question_objects_for_current_quiz_arr_of_dicts_category_specific = select_x_questions_for_company_quiz_never_asked_before_category_specific_function(postgres_connection, postgres_cursor, quiz_number_of_questions, sql_like_statement_str)
+  count_questions_so_far_for_quiz = len(question_objects_for_current_quiz_arr_of_dicts_category_specific)
+  count_remaining_questions_needed = quiz_number_of_questions - count_questions_so_far_for_quiz
+
+  question_objects_for_current_quiz_arr_of_dicts = []
+  temp_question_id_chosen_arr = []
+  for i_dict in question_objects_for_current_quiz_arr_of_dicts_category_specific:
+    temp_question_uuid = i_dict['question_uuid']
+    temp_question_id_chosen_arr.append(temp_question_uuid)
+    question_objects_for_current_quiz_arr_of_dicts.append(i_dict)
+  temp_question_id_chosen_str = "','".join(temp_question_id_chosen_arr)
+  temp_question_id_chosen_str = "'" + temp_question_id_chosen_str + "'"
+  # ------------------------ Pull From SQL Part 1 - Category Specific END ------------------------
+
+
+  # ------------------------ Pull From SQL Part 2 - Category Not Specific START ------------------------
+  if count_remaining_questions_needed != 0:
+    question_objects_for_current_quiz_arr_of_dicts_remainder = select_x_questions_for_company_quiz_never_asked_before_not_category_specific_function(postgres_connection, postgres_cursor, count_remaining_questions_needed, temp_question_id_chosen_str)
+    for i_dict in question_objects_for_current_quiz_arr_of_dicts_remainder:
+      question_objects_for_current_quiz_arr_of_dicts.append(i_dict)
+  # ------------------------ Pull From SQL Part 2 - Category Not Specific END ------------------------
 
 
   # ------------------------ Store the Current Quiz Quiestion ID's START ------------------------
@@ -87,8 +120,9 @@ def make_company_latest_quiz_function(user_nested_dict, company_quiz_settings_ar
   # ------------------------ Insert The Quiz Info Into the Quiz Master Table END ------------------------
 
   
-  # Close postgres db connection
+  # ------------------------ Close Postgres DB START ------------------------
   postgres_close_connection_to_database_function(postgres_connection, postgres_cursor)
+  # ------------------------ Close Postgres DB END ------------------------
 
 
   # ------------------------ Put Together Quiz Object to Use on Dashboard START ------------------------
