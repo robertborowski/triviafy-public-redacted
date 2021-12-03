@@ -45,13 +45,56 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer End -->
 
 
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
-    {% for i_category in unique_categories_set_to_html %}
-    <div class="category-section">
-      <p class="default-not-signed-in-page-p-font">{{ i_category }}</p>
+    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+      <div class="default-button-center-section category-submit-button-section">
+        <button class="default-button-format default-button-format-primary-color" type="submit" value="submit">Submit</button>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Selected Categories Start -->
+      <div class="category-section">
+        <input type="checkbox" id="select_all_categories" name="select_all_categories" value="select_all_categories">
+        <label for="select_all_categories" class="default-not-signed-in-page-p-font"> Select All Categories</label><br>
+      </div>
+      {% for i in company_current_selected_categories_arr_of_dicts_to_html %}
+      <div class="category-section">
+        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="{{ i['category_response_tracking'] }}" value="{{ i['category_response_tracking'] }}" checked>
+        <label for="{{ i['category_response_tracking'] }}" class="default-not-signed-in-page-p-font"> {{ i['category'] }}</label><br>
+      </div>
+      {% endfor %}
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Selected Categories End -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Categories Divider Line Start -->
+      <div class="categories-divider-line"></div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Categories Divider Line End -->
+          
+      
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Not Selected Categories Start -->
+      {% for i in company_current_deselected_categories_arr_of_dicts_to_html %}
+      <div class="category-section">
+        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="{{ i['category_response_tracking'] }}" value="{{ i['category_response_tracking'] }}">
+        <label for="{{ i['category_response_tracking'] }}" class="default-not-signed-in-page-p-font"> {{ i['category'] }}</label><br>
+      </div>
+      {% endfor %}
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Not Selected Categories End -->
+
+
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
+      <div class="default-button-center-section category-submit-button-section">
+        <button class="default-button-format default-button-format-primary-color" type="submit" value="submit">Submit</button>
+      </div>
+      <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button End --> 
+    </form>
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback Start -->
+    <div class="default-signed-in-hyperlink-redirect-section">
+      <a href="{{ url_for('quiz_feedback_index_page_render_template.quiz_feedback_index_page_render_template_function') }}" class="default-signed-in-hyperlink-redirect-section-a"><p class="default-signed-in-hyperlink-redirect-section-p">Request more quiz categories.</p></a>
     </div>
-    {% endfor %}
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Quiz Feedback End -->
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content End -->
 

@@ -11,6 +11,7 @@ from backend.utils.free_trial_period_utils.check_if_free_trial_period_is_expired
 from backend.utils.localhost_print_utils.localhost_print import localhost_print_function
 from backend.utils.check_paid_latest_month_utils.check_if_user_team_channel_combo_paid_latest_month import check_if_user_team_channel_combo_paid_latest_month_function
 from backend.db.queries.select_queries.select_queries_triviafy_all_questions_table.select_triviafy_all_questions_table_all_unique_categories import select_triviafy_all_questions_table_all_unique_categories_function
+from backend.db.queries.select_queries.select_queries_triviafy_categories_selected_table.select_current_categories_team_channel_combo import select_current_categories_team_channel_combo_function
 
 # -------------------------------------------------------------- App Setup
 edit_quiz_categories_index_page_render_template = Blueprint("edit_quiz_categories_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -87,38 +88,53 @@ def edit_quiz_categories_index_page_render_template_function():
     postgres_connection, postgres_cursor = postgres_connect_to_database_function()
     # ------------------------ Connect to Postgres DB END ------------------------
 
-    
-    # ------------------------ Select/Pull All Categories START ------------------------
+
+    # ------------------------ Currently Selected Categories START ------------------------
+    company_current_selected_categories_str = select_current_categories_team_channel_combo_function(postgres_connection, postgres_cursor, slack_workspace_team_id, slack_channel_id)
+    company_current_selected_categories_arr = company_current_selected_categories_str.split(',')
+
+    # Make a temp set to make checking/separating quicker
+    temp_set_checker = {''}
+    for i in company_current_selected_categories_arr:
+      temp_set_checker.add(i)
+    temp_set_checker.remove('')
+
+    # Create Arr of Dict for selected categories
+    company_current_selected_categories_arr_of_dicts = []
+    for word in company_current_selected_categories_arr:
+      temp_dict = {}
+      temp_dict['category'] = word
+      temp_dict['category_response_tracking'] = word.replace(" ", "_").lower()
+      company_current_selected_categories_arr_of_dicts.append(temp_dict)
+    # ------------------------ Currently Selected Categories END ------------------------
+
+
+    # ------------------------ Currently Deselected Categories START ------------------------
+    # ------------------------ Pull unique categories from SQL DB START ------------------------
     unique_categories_arr_pulled_from_db = select_triviafy_all_questions_table_all_unique_categories_function(postgres_connection, postgres_cursor)
-    # ------------------------ Select/Pull All Categories END ------------------------
-
-
-    # ------------------------ Create All Category Set START ------------------------
-    # Start with empty variable for set
-    unique_categories_set = {''}
-    # ------------------------ Create All Category Set END ------------------------
-    
-
-    # ------------------------ For Loop All DB Category Words START ------------------------
+    # ------------------------ Pull unique categories from SQL DB END ------------------------
+    # ------------------------ Loop Create Arr of Dicts START ------------------------
+    company_current_deselected_categories_arr_of_dicts = []
     for i_unique_categories in unique_categories_arr_pulled_from_db:
       i_unique_categories_zero = i_unique_categories[0]
       i_unique_categories_zero_split_arr = i_unique_categories_zero.split(',')
       if len(i_unique_categories_zero_split_arr) > 1:
         for word in i_unique_categories_zero_split_arr:
+          temp_dict = {}
           word = word.strip()
-          unique_categories_set.add(word)
+          if word not in temp_set_checker:
+            temp_dict['category'] = word
+            temp_dict['category_response_tracking'] = word.replace(" ", "_").lower()
+            company_current_deselected_categories_arr_of_dicts.append(temp_dict)
       else:
+        temp_dict = {}
         word = i_unique_categories_zero_split_arr[0]
-        unique_categories_set.add(word)
-    # ------------------------ For Loop All DB Category Words END ------------------------
-
-
-    # ------------------------ Set Manipulation START ------------------------
-    # Sort the set
-    unique_categories_set = sorted(unique_categories_set)
-    # Remove the empty variable from set
-    unique_categories_set.remove('')
-    # ------------------------ Set Manipulation END ------------------------
+        if word not in temp_set_checker:
+          temp_dict['category'] = word
+          temp_dict['category_response_tracking'] = word.replace(" ", "_").lower()
+          company_current_deselected_categories_arr_of_dicts.append(temp_dict)
+    # ------------------------ Loop Create Arr of Dicts END ------------------------
+    # ------------------------ Currently Deselected Categories END ------------------------
 
 
     # ------------------------ Close Postgres DB START ------------------------
@@ -138,4 +154,5 @@ def edit_quiz_categories_index_page_render_template_function():
                           user_company_name_to_html = user_company_name,
                           user_channel_name_to_html = user_channel_name,
                           free_trial_ends_info_to_html = free_trial_ends_info,
-                          unique_categories_set_to_html = unique_categories_set)
+                          company_current_selected_categories_arr_of_dicts_to_html = company_current_selected_categories_arr_of_dicts,
+                          company_current_deselected_categories_arr_of_dicts_to_html = company_current_deselected_categories_arr_of_dicts)
