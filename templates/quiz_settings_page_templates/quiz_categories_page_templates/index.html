@@ -45,13 +45,6 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer End -->
 
 
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link Start -->
-    <div class="default-signed-in-hyperlink-redirect-section">
-      <a href="{{ url_for('edit_quiz_categories_index_page_render_template.edit_quiz_categories_index_page_render_template_function') }}" class="default-signed-in-hyperlink-redirect-section-a"><p class="default-signed-in-hyperlink-redirect-section-p">Edit Quiz Categories.</p></a>
-    </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link End -->
-
-
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
     {% for i_category in company_current_categories_arr_to_html %}
     <div class="category-section">
@@ -59,6 +52,13 @@
     </div>
     {% endfor %}
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link Start -->
+    <div class="default-signed-in-hyperlink-redirect-section">
+      <a href="{{ url_for('edit_quiz_categories_index_page_render_template.edit_quiz_categories_index_page_render_template_function') }}" class="default-signed-in-hyperlink-redirect-section-a"><p class="default-signed-in-hyperlink-redirect-section-p">Edit Quiz Categories.</p></a>
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Redirect link End -->
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content End -->
 
