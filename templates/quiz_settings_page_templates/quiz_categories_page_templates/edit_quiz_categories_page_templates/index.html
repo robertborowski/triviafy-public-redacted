@@ -45,7 +45,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Explainer End -->
 
 
-    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
+    <form action="{{ url_for('submit_edit_quiz_categories_processing.submit_edit_quiz_categories_processing_function') }}" method="post" enctype="multipart/form-data" onsubmit="return clickSubmitButtonOnce()">
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Submit Button Start -->
       <div class="default-button-center-section category-submit-button-section">
@@ -55,12 +55,16 @@
 
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Selected Categories Start -->
       <div class="category-section">
-        <input type="checkbox" id="select_all_categories" name="select_all_categories" value="select_all_categories">
+        <input type="checkbox" id="select_all_categories" name="select_all_category_checkbox_name" value="select_all_categories">
         <label for="select_all_categories" class="default-not-signed-in-page-p-font"> Select All Categories</label><br>
+      </div>
+      <div class="category-section">
+        <input type="checkbox" id="select_all_categories" name="deselect_all_category_checkbox_name" value="deselect_all_categories">
+        <label for="select_all_categories" class="default-not-signed-in-page-p-font"> Deselect All Categories</label><br>
       </div>
       {% for i in company_current_selected_categories_arr_of_dicts_to_html %}
       <div class="category-section">
-        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="{{ i['category_response_tracking'] }}" value="{{ i['category_response_tracking'] }}" checked>
+        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="category_checkbox_name" value="{{ i['category_response_tracking'] }}" checked>
         <label for="{{ i['category_response_tracking'] }}" class="default-not-signed-in-page-p-font"> {{ i['category'] }}</label><br>
       </div>
       {% endfor %}
@@ -75,7 +79,7 @@
       <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Not Selected Categories Start -->
       {% for i in company_current_deselected_categories_arr_of_dicts_to_html %}
       <div class="category-section">
-        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="{{ i['category_response_tracking'] }}" value="{{ i['category_response_tracking'] }}">
+        <input type="checkbox" id="{{ i['category_response_tracking'] }}" name="category_checkbox_name" value="{{ i['category_response_tracking'] }}">
         <label for="{{ i['category_response_tracking'] }}" class="default-not-signed-in-page-p-font"> {{ i['category'] }}</label><br>
       </div>
       {% endfor %}
