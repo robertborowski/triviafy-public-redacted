@@ -23,3 +23,16 @@ To-Do's
 -Account Delete:  Signed in -     Account mark for deletion
 -UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 - - - - - - - - - - - - - -
+
+
+SQL Answer Insert Into users_table is failing because of the underscore
+
+
+
+For printing quick tests
+----------------------------
+localhost_print_function('- - - - - - - 0 - - - - - - -')
+localhost_print_function('i')
+localhost_print_function(i)
+localhost_print_function(type(i))
+localhost_print_function('- - - - - - - 0 - - - - - - -')

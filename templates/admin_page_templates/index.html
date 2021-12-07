@@ -35,10 +35,34 @@
   </div>
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Page Intro End -->
 
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content Start -->
+  <div class="default-not-signed-in-page-width">
 
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form Start -->
-  
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Claim Prize Form End -->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
+    <div class="admin-analysis-section">
+      <div class="admin-analysis-title-section">
+        <p class="admin-analysis-title-p">Category Question Count Remaining For Team/Channel Combos Next Quiz</p>
+      </div>
+      
+      {% for i_dict in master_all_companies_remainder_arr_of_dicts_to_html %}
+      <div class="admin-analysis-remainder-section">
+        <p class="default-not-signed-in-page-p-font">{{ i_dict['company_team_id'] }}, {{ i_dict['company_channel_id'] }}</p>
+        
+        {% for j_dict in i_dict['category_remainder_count'] %}
+          <p class="default-not-signed-in-page-p-font">{{ j_dict['question_categories_list'] }}, {{ j_dict['count'] }}</p>
+        {% endfor %}
+
+        <p class="default-not-signed-in-page-p-font">Categories 0 Questions: {{ i_dict['categories_ran_out_of_questions'] }}</p>
+        
+      </div>
+      {% endfor %}
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+
+
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Content End -->
 </main>
 
 <footer-signed-in-component></footer-signed-in-component>
