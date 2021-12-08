@@ -24,9 +24,7 @@ To-Do's
 -UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 - - - - - - - - - - - - - -
 
-
-SQL Answer Insert Into users_table is failing because of the underscore
-
+Add department specific section to the index page and the sample quiz pages
 
 
 For printing quick tests

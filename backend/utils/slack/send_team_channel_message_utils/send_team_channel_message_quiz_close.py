@@ -47,8 +47,8 @@ def send_team_channel_message_quiz_close_function(user_slack_authed_id, user_sla
     output_text = f":wave: Hi <!here>, your team's weekly Triviafy quiz is now CLOSED!\n:tada: Congrats to this week's Triviafy 'Bragging-Rights-Card' winner: <@{user_slack_authed_id}>!\n:gift: For every 10th win that a person achieves, we send them a free gift card prize!\n:100: Login and checkout your team's leaderboard at: https://triviafy.com/leaderboard\n:woman-raising-hand: New to Triviafy? In order to participate in the weekly Triviafy quiz each team member go to https://triviafy.com/ > Create Account > Add To Slack > Select Channel: '{quiz_channel_name}'"
 
   response = webhook.send(text=output_text)
-  assert response.status_code == 200
-  assert response.body == "ok"
+  #assert response.status_code == 200
+  #assert response.body == "ok"
 
   localhost_print_function('=========================================== send_team_channel_message_quiz_close_function END ===========================================')
   return output_text
