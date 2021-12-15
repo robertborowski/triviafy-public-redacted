@@ -39,7 +39,7 @@
   <div class="default-not-signed-in-page-width">
 
 
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories Start -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Remainder Categories Start -->
     <div class="admin-analysis-section">
       <div class="admin-analysis-title-section">
         <p class="admin-analysis-title-p">Category Question Count Remaining For Team/Channel Combos Next Quiz</p>
@@ -47,6 +47,7 @@
       
       {% for i_dict in master_all_companies_remainder_arr_of_dicts_to_html %}
       <div class="admin-analysis-remainder-section">
+        <p class="default-not-signed-in-page-p-font">{{ i_dict['company_team_name'] }}, {{ i_dict['company_channel_name'] }}</p>
         <p class="default-not-signed-in-page-p-font">{{ i_dict['company_team_id'] }}, {{ i_dict['company_channel_id'] }}</p>
         
         {% for j_dict in i_dict['category_remainder_count'] %}
@@ -58,7 +59,30 @@
       </div>
       {% endfor %}
     </div>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Categories End -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Remainder Categories End -->
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Winners Count Start -->
+    <div class="admin-analysis-section">
+      <div class="admin-analysis-title-section">
+        <p class="admin-analysis-title-p">Quiz/Winner Count</p>
+      </div>
+      
+      {% for i_dict in master_all_companies_winner_counts_arr_of_dicts_to_html %}
+      <div class="admin-analysis-remainder-section">
+        <p class="default-not-signed-in-page-p-font">{{ i_dict['company_team_name'] }}, {{ i_dict['company_channel_name'] }}</p>
+        <p class="default-not-signed-in-page-p-font">{{ i_dict['company_team_id'] }}, {{ i_dict['company_channel_id'] }}</p>
+        
+        <p class="default-not-signed-in-page-p-font">Company Current Quiz Count: {{ i_dict['company_current_quiz_count_int'] }}</p>
+        
+        {% for j_arr in i_dict['quiz_winners_count_arr'] %}
+          <p class="default-not-signed-in-page-p-font">User Total Wins: {{ j_arr[0] }}, {{ j_arr[1] }}, {{ j_arr[2] }}, {{ j_arr[3] }}</p>
+        {% endfor %}
+        
+      </div>
+      {% endfor %}
+    </div>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - List All Winners Count End -->
 
 
   </div>

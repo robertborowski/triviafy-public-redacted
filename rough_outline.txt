@@ -26,6 +26,7 @@ To-Do's
 
 ******** Admin: Check out why my latest quiz did not give me ALL the remaining Excel problems.
 ******** Admin: count team/channel quiz count(s) along with end trial date, if they are ending soon, extend it until it gets to 4 free quizzes. Check if teams have completed 4 quizzes. Only if the team completes 4 quizzes their free trial ends.
+******** Admin: Add duplicates channel check, like the Legend United Insurance, list the duplicates and user names that match in both
 
 
 For printing quick tests
