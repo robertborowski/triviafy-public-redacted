@@ -44,6 +44,7 @@ class NavbarNotSignedInClass2 extends HTMLElement {
                 <li><a href="${this.getAttribute("pdf_example_quiz_excel_js")}"><i class="fas fa-file-excel font-awesome-icon"></i>Excel Example Quiz</a></li>
                 <li><a href="${this.getAttribute("pdf_example_quiz_sql_js")}"><i class="fas fa-database font-awesome-icon"></i>SQL Example Quiz</a></li>
                 <li><a href="${this.getAttribute("pdf_example_quiz_tableau_js")}"><i class="fas fa-chart-pie font-awesome-icon"></i>Tableau Example Quiz</a></li>
+                <li><a href="${this.getAttribute("pdf_example_quiz_mixed_categories_js")}"><i class="fas fa-pencil-ruler font-awesome-icon"></i>Custom Quiz</a></li>
               </ul>
               <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - Navbar - Links - Level 2 - END -->
             </li>
