@@ -24,7 +24,8 @@ To-Do's
 -UX:              Signed in -     You cannot easilty get to /blog unless you type it in. Add it to navbar signed in.
 - - - - - - - - - - - - - -
 
-Add department specific section to the index page and the sample quiz pages
+******** Admin: Check out why my latest quiz did not give me ALL the remaining Excel problems.
+******** Admin: count team/channel quiz count(s) along with end trial date, if they are ending soon, extend it until it gets to 4 free quizzes. Check if teams have completed 4 quizzes. Only if the team completes 4 quizzes their free trial ends.
 
 
 For printing quick tests
