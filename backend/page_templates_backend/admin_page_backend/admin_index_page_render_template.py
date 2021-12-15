@@ -14,6 +14,8 @@ from backend.db.connection.postgres_close_connection_to_database import postgres
 from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_slack_all_team_channel_combos_with_names_count import select_triviafy_user_login_information_table_slack_all_team_channel_combos_with_names_count_function
 from backend.page_templates_backend.admin_page_backend.admin_supporting_backend.admin_supporting_remaining_category_count import admin_supporting_remaining_category_count_function
 from backend.page_templates_backend.admin_page_backend.admin_supporting_backend.admin_supporting_winner_counts import admin_supporting_winner_counts_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_new_emails_for_dist_list import select_triviafy_user_login_information_table_new_emails_for_dist_list_function
+from backend.db.queries.select_queries.select_queries_triviafy_user_login_information_table_slack.select_triviafy_user_login_information_table_new_sign_ups import select_triviafy_user_login_information_table_new_sign_ups_function
 
 # -------------------------------------------------------------- App Setup
 admin_index_page_render_template = Blueprint("admin_index_page_render_template", __name__, static_folder="static", template_folder="templates")
@@ -108,6 +110,12 @@ def admin_index_page_render_template_function():
   # ------------------------ Connect to Postgres DB END ------------------------
 
 
+  # ------------------------ New Sign Ups and New Emails START ------------------------
+  new_emails_for_dist_list_int = select_triviafy_user_login_information_table_new_emails_for_dist_list_function(postgres_connection, postgres_cursor)
+  new_sign_ups_int = select_triviafy_user_login_information_table_new_sign_ups_function(postgres_connection, postgres_cursor)
+  # ------------------------ New Sign Ups and New Emails END ------------------------
+
+
   # ------------------------ Pull All Team Channel Combos START ------------------------
   all_team_channel_combos_arr = select_triviafy_user_login_information_table_slack_all_team_channel_combos_with_names_count_function(postgres_connection, postgres_cursor)
   # ------------------------ Pull All Team Channel Combos END ------------------------
@@ -144,5 +152,7 @@ def admin_index_page_render_template_function():
   localhost_print_function('=========================================== /admin Page END ===========================================')
   return render_template('admin_page_templates/index.html',
                           css_cache_busting = cache_busting_output,
+                          new_emails_for_dist_list_int_to_html = new_emails_for_dist_list_int,
+                          new_sign_ups_int_to_html = new_sign_ups_int,
                           master_all_companies_remainder_arr_of_dicts_to_html = master_all_companies_remainder_arr_of_dicts,
                           master_all_companies_winner_counts_arr_of_dicts_to_html = master_all_companies_winner_counts_arr_of_dicts)
